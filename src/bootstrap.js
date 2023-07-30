@@ -11,15 +11,14 @@ const multerStorage = multer({ storage })
 
 const config = require('./config');
 const di = require('./di');
-const adapters = require('../adapters');
+const adapters = require('./adapters');
 
-const errorDecorator = require('../plugins/ErrorDecorator');
-const swagger = require('../plugins/Swagger')(config);
-const routes = require('../plugins/RouteLoader');
+const errorDecorator = require('./plugins/ErrorDecorator');
+const swagger = require('./plugins/Swagger')(config);
+const routes = require('./plugins/RouteLoader');
 
-
-const onRequestHook = require('../hooks/OnRequestHook');
-const onPreSerializationHook = require('../hooks/OnPreSerialization');
+const onRequestHook = require('./hooks/OnRequestHook');
+const onPreSerializationHook = require('./hooks/OnPreSerialization');
 
 const { isDev, isSwagger } = config;
 

@@ -1,6 +1,6 @@
 const FastServer = require('./src/bootstrap');
 
-(async (process) => {
+(async () => {
 
     let server = null;
 
