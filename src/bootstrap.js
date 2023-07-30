@@ -111,7 +111,6 @@ module.exports = async function FastServer(options) {
 
     const start = async function start() {
         try {
-
             await _server.listen({
                 port: config.port,
                 host: config.host,
