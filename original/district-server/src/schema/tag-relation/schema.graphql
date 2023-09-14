@@ -1,0 +1,51 @@
+type TagRelation {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Database identifier for tag
+  """
+  tagId: ID!
+  """
+  Database identifier for relation
+  """
+  relId: ID!
+  """
+  Database identifier for relation
+  """
+  relType: TagRelationType!
+  """
+  Date and time the comment was created
+  """
+  created: Datetime!
+}
+
+type TagRelationPayload {
+  tagRelation: TagRelation
+  error: TagRelationSaveError
+}
+
+input TagRelationInput {
+  tagId: ID!
+  relType: TagRelationType!
+  relId: ID!
+}
+
+enum TagRelationSaveError {
+  INVALID_INPUT
+  INVALID_BRAND_LOCATION
+  INVALID_MENU_ITEM
+  UNEXPECTED_INPUT
+  ALREADY_SAVED
+}
+
+enum TagRelationType {
+  MENU_ITEM
+  BRAND_LOCATION
+}
+
+extend type Mutation {
+  saveTagRelation(tagRelation: TagRelationInput!): TagRelationPayload! @requireAuth @requirePermissions(permissions: ["tags:upsert"])
+  deleteTagRelation(id: ID!): Boolean! @requireAuth @requirePermissions(permissions: ["tags:upsert"])
+}

@@ -1,0 +1,55 @@
+/* eslint-disable camelcase */
+const moment = require('moment');
+const { giftCardDeliveryMethod } = require('./../../../src/schema/root/enums');
+module.exports = (giftCardTemplates, customers) => {
+  return {
+    gift_card_order1: {
+      id: 'cc451fc7-7296-4bdd-bcab-c32b20568921',
+      short_code: 'abc123',
+      amount: '10000',
+      country_id: '01c73b60-2c6a-45f1-8dbf-88a5ce4ad179',
+      currency_id: 'f216d955-0df1-475d-a9ec-08cb6c0f92bb',
+      payment_method: '2',
+      gift_card_template_id: giftCardTemplates.gift_card_template1.id,
+      customer_id: customers[0].id,
+      delivery_method: giftCardDeliveryMethod.EMAIL,
+      receiver_email: 'test@test.com',
+      receiver_phone_number: '1234567',
+      anonymous_sender: false,
+      created: moment('2018-01-05T12:00:00+01:00').toISOString(),
+      updated: moment('2018-01-05T12:00:00+01:00').toISOString(),
+    },
+    gift_card_order2: {
+      id: 'cc451fc7-7296-4bdd-bcab-c32b20568922',
+      short_code: 'abc124',
+      amount: '20000',
+      country_id: '01c73b60-2c6a-45f1-8dbf-88a5ce4ad179',
+      currency_id: 'f216d955-0df1-475d-a9ec-08cb6c0f92bb',
+      payment_method: '2',
+      gift_card_template_id: giftCardTemplates.gift_card_template1.id,
+      customer_id: customers[0].id,
+      delivery_method: giftCardDeliveryMethod.EMAIL,
+      receiver_email: 'test@test.com',
+      receiver_phone_number: '1234567',
+      anonymous_sender: false,
+      created: moment('2018-01-05T12:00:00+01:00').toISOString(),
+      updated: moment('2018-01-05T12:00:00+01:00').toISOString(),
+    },
+    gift_card_order3: {
+      id: 'cc451fc7-7296-4bdd-bcab-c32b20568923',
+      short_code: 'abc127',
+      amount: '10000',
+      country_id: '01c73b60-2c6a-45f1-8dbf-88a5ce4ad179',
+      currency_id: 'f216d955-0df1-475d-a9ec-08cb6c0f92bb',
+      payment_method: '2',
+      gift_card_template_id: giftCardTemplates.gift_card_template1.id,
+      customer_id: customers[0].id,
+      delivery_method: giftCardDeliveryMethod.EMAIL,
+      receiver_email: 'test@test.com',
+      receiver_phone_number: '1234567',
+      anonymous_sender: false,
+      created: moment('2018-01-05T12:00:00+01:00').toISOString(),
+      updated: moment('2018-01-05T12:00:00+01:00').toISOString(),
+    },
+  };
+};

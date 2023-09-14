@@ -1,0 +1,42 @@
+type StoreOrderProduct {
+  id: ID!
+  """
+  The store order set belong to this product
+  """
+  storeOrder: StoreOrder!
+  """
+  The product
+  """
+  product: ProductNew!
+  """
+  The quantity
+  """
+  quantity: Int!
+  name: LocalizedString!
+  """
+  The price after sale/discount
+  """
+  price: CurrencyValue!
+  """
+  The price before sale/discount
+  """
+  compareAtPrice: CurrencyValue
+  """
+  The cost per ite
+  """
+  costPerItem: CurrencyValue
+  image: String
+  """
+  created at
+  """
+  created: Datetime!
+  """
+  updated at
+  """
+  updated: Datetime!
+  totalPrice: CurrencyValue!
+  currency: Currency!
+  pickupLocation: PickupLocation
+  refunded: Boolean!
+  refundedQuantity: Int!
+}

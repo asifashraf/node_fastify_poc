@@ -1,0 +1,408 @@
+"""
+A customer's profile information
+"""
+
+type CustomerOrderSets {
+  results: [OrderSetCard!]
+  paging: OrdersPaging
+}
+
+type StoreOrderResults {
+  shortCode: String!
+  created: Datetime!
+  total: CurrencyValue!
+  brands: [StoreOrderBrands!]!
+  countryId: ID!
+  customerId: ID!
+  id: ID!
+  isPast: Boolean
+
+}
+
+type StoreOrderBrands {
+  brandId: ID!
+  favicon: String
+  brandName: LocalizedString!
+}
+
+
+
+type CustomerStoreOrderSets {
+  results: [StoreOrderResults!]
+  paging: OrdersPaging
+}
+
+type OrdersPaging {
+  page: Int!
+  prePage: Int
+  nextPage: Int
+  perPage: Int!
+  total: Int!
+  totalPages: Int!
+}
+
+input RefreshPagingInput {
+  """
+  Which page
+  """
+  page: Int!
+  """
+  How many records to return
+  """
+  perPage: Int!
+}
+
+type Customer {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Customer's first name
+  """
+  firstName: String!
+  """
+  Customer's last name
+  """
+  lastName: String!
+  """
+  Customer phone number with no separators and *without* a country prefix, e.g. '22996416'
+  It is nullable because initially a customer is registered before their phone number is entered
+  """
+  phoneNumber: String
+  """
+  Customer phone number's country code, e.g. 'KW'
+  """
+  phoneCountry: String
+  """
+  Customer email
+  """
+  email: String
+  """
+  The url of the customer's avatar
+  """
+  photo: String @toCDN
+  """
+  sign up on
+  """
+  created: Datetime
+  """
+  last datetime customer got updated
+  """
+  updated: Datetime
+  """
+  the status of the customer
+  """
+  status: String
+  """
+  referral reward availed?
+  """
+  referralRewardAvailed: Boolean
+  """
+  password of the the customer
+  """
+  password: String
+  """
+  A list of all addresses customer has saved
+  """
+  addresses: [CustomerAddress]!
+  """
+  The address marked as default
+  """
+  defaultAddress: CustomerAddress
+  """
+  A list of all addresses customer has saved
+  """
+  cars: [CustomerCar]!
+  """
+  The car marked as default
+  """
+  defaultCar: CustomerCar
+  """
+  Metadata about users' devices
+  """
+  deviceMetadata: [CustomerDeviceMetadata!]!
+  """
+  The device marked as default
+  """
+  defaultDeviceMetadata: CustomerDeviceMetadata
+  """
+  The user profile notification settings
+  """
+  notificationSettings: NotificationSettings!
+  """
+  A list of created orders associated with this customer
+  """
+  orderSets(paging: PagingInput): [OrderSet!]!
+  """
+  A list of coupons currently available to this user
+  """
+  couponsAvailable(
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+    """
+    The country of the user
+    """
+    countryId: ID!
+  ): [Coupon]!
+  """
+  A list of past order sets
+  """
+  pastOrderSets(paging: PagingInput): [OrderSet!]!
+  """
+  A list of order sets with past and upcoming orders
+  """
+  getOrderSetsByCustomer(
+    paging: RefreshPagingInput
+    countryId: ID!
+  ): OrderSetCardPayload
+  """
+    A list of order sets with past and upcoming orders with pagination
+  """
+  getOrderSetsByCustomerNew(scanedPastYear: Int, countryId: ID, paging: RefreshPagingInput): CustomerOrderSets!
+  """
+    A list of store order sets with past and upcoming orders with pagination
+  """
+  getStoreOrderSetsByCustomer(scanedPastYear: Int, countryId: ID, paging: RefreshPagingInput): CustomerStoreOrderSets!
+  """
+  A list of upcoming order sets. An OrderSet is in the UPCOMING list as long as any of its non-rejected orders are not yet fulfilled
+  """
+  upcomingOrderSets(paging: PagingInput): [OrderSet!]!
+  """
+  A list of past store orders
+  """
+  pastStoreOrders(paging: PagingInput): [StoreOrder!]!
+  """
+  A list of upcoming store orders. An OrderSet is in the UPCOMING list as long as any of its non-rejected orders are not yet fulfilled
+  """
+  upcomingStoreOrders(paging: PagingInput): [StoreOrder!]!
+
+  """
+  Union type between OrderSet and StoreOrder for past orders
+  """
+  pastCofeOrders(paging: PagingInput): [CofeOrder]
+  """
+  Union type between OrderSet and StoreOrder for upcoming orders
+  """
+  upcomingCofeOrders(paging: PagingInput): [CofeOrder]
+
+  """
+  The current balance of this customer's credits by currency, dafault currency is KWD
+  """
+  creditBalance(currencyId: ID): CurrencyValue!
+  """
+  Which label to show in customer profile
+  """
+  loyaltyTier: LoyaltyTierName!
+  """
+  Record of completed loyalty orders for this customer
+  """
+  loyaltyOrders: [LoyaltyOrder!]!
+  """
+  Total number of orders for this customer
+  """
+  totalOrders: Int!
+  """
+  Total KD spent by this customer.
+  This is the sum of all `total` values for each orderSet in this customer's history.
+  """
+  totalKdSpent: CurrencyValue!
+  """
+  Total number of order sets for this customer
+  """
+  totalOrderSets: Int!
+  """
+  Total of order set kd spent for this customer
+  """
+  totalOrderSetKdSpents: CurrencyValue!
+  """
+  optional birthday of customer
+  """
+  birthday: Date
+  """
+  all reward programs details where customer is enroled
+  """
+  currentRewardProgramsDetails(brandId: ID): [CustomerRewardProgramDetails!]
+  """
+  customer preferred language to use in phone apps
+  """
+  preferredLanguage: AvailableLanguage
+  """
+  Default currency
+  TODO: Later will have real currency as currently total spent and credit are being stored without currency.
+  """
+  defaultCurrency: String!
+  """
+  Flag guest customers
+  """
+  isGuest: Boolean!
+  """
+  Auth0 ID
+  """
+  authoId: String
+  """
+  Country
+  """
+  country: Country
+  """
+  Customer wallet, in here COFE credits
+  """
+  wallet: Wallet
+  """
+  Customer saved card tokens
+  """
+  cardTokens: [CustomerCardToken]
+  """
+  last order
+  """
+  lastOrderSet: OrderSet
+  sentGiftCards(paging: PagingInput): [GiftCard]!
+  receivedGiftCards(paging: PagingInput): [GiftCard]!
+  isPhoneVerified: Boolean!
+  isEmailVerified: Boolean!
+  useCreditFirst: Boolean
+  """
+  Customer's referral code which he/she will share to others
+  """
+  referralCode: String
+  """
+  Referred by
+  """
+  referredBy: ReferralPayload
+  """
+  list of customers referred by this customer
+  """
+  # referrals: [referredByPayload]
+  referrals: [ReferralPayload]
+  """
+  Signup promo: Assigned when customer was registered through promo code
+  """
+  signupPromo: SignupPromo
+  storeOrderSets(
+    paging: PagingInput
+    filters: StoreOrderSetsFilters
+  ): StoreOrderSetsPaged!
+  newCustomer: Boolean!
+
+  """
+  For migration to new auth service, provide new credentials
+  """
+  authentication: LoginResponse
+  """
+  Flag customer disabled
+  """
+  isDisabled: Boolean
+  discoveryCredit(
+    """
+    countryIso
+    """
+    countryIso: String!
+    """
+    Should be set as false always by the FE team, mobile team shuold always set as true.
+    If the call is coming from mobile/addIfNotFound is set as true. we will add credits automatically if enabled in that country.
+    """
+    addIfNotFound: Boolean!
+  ): DiscoveryCredit
+  discoveryCredits: [DiscoveryCredit!]
+  isPrivacyPolicyAccepted: Boolean
+  isTermsAndConditionsAccepted: Boolean
+  lockedDownStatusForOTP: OTPLockedDownStatus!
+
+  """
+  A list of order sets with past and upcoming orders
+  """
+  getStoreOrdersByCustomer(
+    paging: RefreshPagingInput
+    countryId: ID!
+  ): StoreOrderCardPayload
+
+  """
+  A list of orders with past and upcoming orders
+  """
+  getAllOrdersByCustomer(scanedPastYear: Int): [MixedOrder]
+  """
+  Pop-up status for dynamical arriving time (If false, popup should be displayed)
+  """
+  arrivingPopUpStatus: Boolean
+  """
+  is Terms and Conditions accepted for subscription orders
+  """
+  isSubscriptionTermsAndConditionsAccepted: Boolean
+  """
+  Date of Terms and Conditions accepted for subscription orders
+  """
+  subscriptionTermsAndConditionsAcceptDate: Datetime
+  """
+  Subscription orders
+  """
+  subscriptionOrders(countryId: ID): [CSubscriptionOrder]
+  subscriptionOrdersForAdmin: [CSubscriptionCustomerAdmin]
+  """
+  default payment method according to country
+  """
+  defaultPaymentMethod(currencyId: ID): PaymentMethod
+}
+
+"""
+A list of notifications, exposing the total number of results
+"""
+type CustomersPaged {
+  paging: Paging!
+  """
+  All of the customer in this list
+  """
+  customers: [Customer!]!
+}
+
+type ReferralPayload {
+  id: ID!
+  senderId: ID!
+  senderFirstName: String!
+  senderLastName: String!
+  senderEmail: String!
+  senderReferralCode: String
+  senderAmount: CurrencyValue!
+  senderCurrency: String!
+  receiverId: ID!
+  receiverFirstName: String!
+  receiverLastName: String!
+  receiverEmail: String!
+  receiverReferralCode: String!
+  receiverAmount: CurrencyValue!
+  receiverCurrency: String!
+  status: String!
+  joinedAt: Datetime
+  receivedAt: Datetime
+}
+#
+
+type OTPLockedDownStatus {
+  lockedDown: Boolean!
+  hitCount: Int!
+}
+
+union CofeOrder = OrderSet | StoreOrderSet
+
+union MixedOrder = OrderSetCard | StoreOrderCard
+
+type OrderSetCardWithPagination {
+  results: [OrderSetCard!]!
+  paging: RefreshPaging
+}
+
+type OrderSetCardPayload {
+  pastOrders: OrderSetCardWithPagination
+  pendingOrders: [OrderSetCard!]!
+}
+
+type StoreOrderCardWithPagination {
+  results: [StoreOrderCard!]!
+  paging: RefreshPaging
+}
+
+type StoreOrderCardPayload {
+  pastOrders: StoreOrderCardWithPagination
+  pendingOrders: [StoreOrderCard!]!
+}

@@ -1,0 +1,14 @@
+{
+	"order_successful": "نجاح الطلب!",
+	"order_success_desc" : "لقد تم تسجيل طلبك بنجاح",
+	"order_shipped" : " الطلب في طريقه إليك! ",
+	"order_shipped_desc" : "يمكنك تعقب طلبك هنا. ",
+	"order_delivered" : " لقد تم توصيل الطلب!",
+	"order_delivered_desc" : " نتمنى أن تكون قد استمتعت بالشراء!",
+	"order_cancelled":  "نعتذر منك!  لقد نفدت الكمية",
+	"order_cancelled_desc": "لقد تم إلغاء طلبك بسبب نفاد الكمية.",
+	"out_for_delivery": "في الطريق إليك",
+	"not_dispatched": "لم تشحن",
+	"delivered": "تم التوصيل",
+	"cancelled": "تم الإلغاء"
+}

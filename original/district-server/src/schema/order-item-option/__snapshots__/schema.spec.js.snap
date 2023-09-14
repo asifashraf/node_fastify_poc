@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`order items resolve their order item options 1`] = `
+Object {
+  "data": Object {
+    "orderSet": Object {
+      "id": "ff2fc7c9-8cca-46b5-8a4e-1bd757a7485f",
+      "items": Array [
+        Object {
+          "selectedOptions": Array [
+            Object {
+              "id": "1c93744d-5ff8-4e22-b777-b4dd7475a9ac",
+              "price": "0.500",
+              "value": Object {
+                "ar": "حليب الصويا",
+                "en": "Soy Milk",
+              },
+            },
+          ],
+        },
+        Object {
+          "selectedOptions": Array [
+            Object {
+              "id": "fefefd90-bbf6-4a80-ad3d-5cbbc7ddc50e",
+              "price": "0.000",
+              "value": Object {
+                "ar": "هذا لا يوجد",
+                "en": "None",
+              },
+            },
+          ],
+        },
+      ],
+    },
+  },
+}
+`;

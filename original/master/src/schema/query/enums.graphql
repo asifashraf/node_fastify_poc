@@ -1,0 +1,17 @@
+enum DailyOrdersReportsError {
+  COUNTRY_DOESNT_EXISTS
+  S3_SERVICE_ERROR
+}
+
+enum WeeklyOrdersReportsError {
+  S3_SERVICE_ERROR
+}
+
+enum MonthlyOrdersReportsError {
+  S3_SERVICE_ERROR
+}
+
+enum CareTeamReportsError {
+  COUNTRY_DOESNT_EXISTS
+  S3_SERVICE_ERROR
+}

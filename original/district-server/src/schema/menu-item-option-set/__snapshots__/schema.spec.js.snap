@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`menu items can resolve menu item option sets 1`] = `
+Object {
+  "data": Object {
+    "brand": Object {
+      "menu": Object {
+        "sections": Array [
+          Object {
+            "items": Array [
+              Object {
+                "optionSets": Array [
+                  Object {
+                    "id": "45f2a845-c83b-49c2-90ae-a227dfb7c513",
+                    "label": Object {
+                      "ar": "اختيار الحجم",
+                      "en": "Choose a size",
+                    },
+                    "single": true,
+                  },
+                  Object {
+                    "id": "af171c34-4ca8-4374-82bf-a418396e375c",
+                    "label": Object {
+                      "ar": "إضافات إضافية",
+                      "en": "Additional Toppings",
+                    },
+                    "single": false,
+                  },
+                  Object {
+                    "id": "de8d1457-809b-41b1-9d43-b1fab435a697",
+                    "label": Object {
+                      "ar": "اختيار الحليب",
+                      "en": "Choice of Milk",
+                    },
+                    "single": true,
+                  },
+                ],
+              },
+              Object {
+                "optionSets": Array [
+                  Object {
+                    "id": "740a35fb-20ba-4be6-8ef4-fe269c327421",
+                    "label": Object {
+                      "ar": "اختيار الحجم",
+                      "en": "Choose a size",
+                    },
+                    "single": true,
+                  },
+                  Object {
+                    "id": "290e2337-15e3-4b30-b50b-0a00763aa4e0",
+                    "label": Object {
+                      "ar": "إضافات إضافية",
+                      "en": "Additional Toppings",
+                    },
+                    "single": false,
+                  },
+                  Object {
+                    "id": "fb3ae49d-2cba-4cfb-8694-96ddc7b1aa4b",
+                    "label": Object {
+                      "ar": "اختيار الحليب",
+                      "en": "Choice of Milk",
+                    },
+                    "single": true,
+                  },
+                ],
+              },
+              Object {
+                "optionSets": Array [
+                  Object {
+                    "id": "8181c96e-3c32-439d-97f1-f249207f3d56",
+                    "label": Object {
+                      "ar": "اختيار الحجم",
+                      "en": "Choose a size",
+                    },
+                    "single": true,
+                  },
+                  Object {
+                    "id": "9c4ded19-bd7a-44c4-a8f0-fa78a157e179",
+                    "label": Object {
+                      "ar": "إضافات إضافية",
+                      "en": "Additional Toppings",
+                    },
+                    "single": false,
+                  },
+                  Object {
+                    "id": "d1943f13-ca04-4798-8473-a9f8656679b5",
+                    "label": Object {
+                      "ar": "اختيار الحليب",
+                      "en": "Choice of Milk",
+                    },
+                    "single": true,
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "items": Array [
+              Object {
+                "optionSets": Array [
+                  Object {
+                    "id": "3de0b882-3818-4cee-9524-7af1e9be2cb9",
+                    "label": Object {
+                      "ar": "ديلي ساندويتش",
+                      "en": "Deli Sandwich",
+                    },
+                    "single": true,
+                  },
+                ],
+              },
+              Object {
+                "optionSets": Array [
+                  Object {
+                    "id": "2e039f27-3220-4a4e-877b-c243a0de6869",
+                    "label": Object {
+                      "ar": "كوكي كبير",
+                      "en": "Large Cookie",
+                    },
+                    "single": true,
+                  },
+                ],
+              },
+              Object {
+                "optionSets": Array [
+                  Object {
+                    "id": "83609e90-f762-4555-865e-002939bdf9c8",
+                    "label": Object {
+                      "ar": "شوربة محلية الصنع",
+                      "en": "Homemade Soup",
+                    },
+                    "single": true,
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "items": Array [
+              Object {
+                "optionSets": Array [
+                  Object {
+                    "id": "dd9b2411-e507-40dc-88c3-8c1bb44a42a1",
+                    "label": Object {
+                      "ar": "اختيار الحجم",
+                      "en": "Choose a size",
+                    },
+                    "single": true,
+                  },
+                  Object {
+                    "id": "4624f93a-5657-422e-9fd1-26e7489a7ccd",
+                    "label": Object {
+                      "ar": "اختيار الحليب",
+                      "en": "Choice of Milk",
+                    },
+                    "single": true,
+                  },
+                ],
+              },
+              Object {
+                "optionSets": Array [
+                  Object {
+                    "id": "2c6740ed-dd27-4550-a245-7ad48c96571f",
+                    "label": Object {
+                      "ar": "اختيار الحجم",
+                      "en": "Choose a size",
+                    },
+                    "single": true,
+                  },
+                  Object {
+                    "id": "e030daf6-ca63-4486-b2d3-9befdf4323d8",
+                    "label": Object {
+                      "ar": "اختيار الحليب",
+                      "en": "Choice of Milk",
+                    },
+                    "single": true,
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    },
+  },
+}
+`;

@@ -1,0 +1,194 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`brand can be saved 1`] = `
+Object {
+  "data": Object {
+    "brandSave": Object {
+      "brand": Object {
+        "id": "0bbf9978-7442-4af6-941c-c981d69f4712",
+        "name": Object {
+          "ar": "اختبار طفرة العلامة التجارية",
+          "en": "Brand Mutation Test",
+        },
+      },
+      "error": null,
+    },
+  },
+}
+`;
+
+exports[`brand can be updated 1`] = `
+Object {
+  "data": Object {
+    "brandSave": Object {
+      "brand": Object {
+        "id": "623c9dfc-f2e8-4800-89d8-9f202f6b7f0e",
+        "name": Object {
+          "ar": "تحديث اختبار العلامة التجارية",
+          "en": "Updated Brand Test",
+        },
+        "primaryLocation": Object {
+          "brand": Object {
+            "name": Object {
+              "ar": "تحديث اختبار العلامة التجارية",
+              "en": "Updated Brand Test",
+            },
+          },
+        },
+      },
+      "error": null,
+      "errors": null,
+    },
+  },
+}
+`;
+
+exports[`coupon can resolve brands 1`] = `
+Object {
+  "data": Object {
+    "coupon": Object {
+      "brands": Array [
+        Object {
+          "id": "623c9dfc-f2e8-4800-89d8-9f202f6b7f0e",
+          "locations": Array [
+            Object {
+              "id": "903fb8ed-9ebc-4a36-8e92-4305d157c929",
+            },
+            Object {
+              "id": "99e1be73-2814-4106-8333-3f2f754549dc",
+            },
+            Object {
+              "id": "7dbb5759-33bc-49c4-b7ba-278433fe5b8a",
+            },
+          ],
+          "name": Object {
+            "ar": "كاريبو كوفي",
+            "en": "Caribou Coffee",
+          },
+        },
+        Object {
+          "id": "82f509cf-7600-4cf3-9ff4-4725e05591cc",
+          "locations": Array [
+            Object {
+              "id": "c9d9fef2-0856-4467-9bc2-e593704a1582",
+            },
+            Object {
+              "id": "2a821a14-4d91-4894-bad6-a7d6bdecbebe",
+            },
+            Object {
+              "id": "20d56f80-a6de-45ee-84e1-d49f613c7fd4",
+            },
+          ],
+          "name": Object {
+            "ar": "كوستا كوفي",
+            "en": "Costa Coffee",
+          },
+        },
+        Object {
+          "id": "82b0cd94-54ca-4987-852e-e3cba0e012d2",
+          "locations": Array [
+            Object {
+              "id": "c8354376-d536-4847-ae98-aeb660548427",
+            },
+          ],
+          "name": Object {
+            "ar": "لا القائمة العلامة التجارية",
+            "en": "No-Menu Brand",
+          },
+        },
+      ],
+      "code": "BLANCHEDALMOND",
+    },
+  },
+}
+`;
+
+exports[`get brands 1`] = `
+Object {
+  "data": Object {
+    "brands": Array [
+      Object {
+        "id": "623c9dfc-f2e8-4800-89d8-9f202f6b7f0e",
+        "locations": Array [
+          Object {
+            "id": "99e1be73-2814-4106-8333-3f2f754549dc",
+          },
+          Object {
+            "id": "7dbb5759-33bc-49c4-b7ba-278433fe5b8a",
+          },
+          Object {
+            "id": "903fb8ed-9ebc-4a36-8e92-4305d157c929",
+          },
+        ],
+        "name": Object {
+          "ar": "كاريبو كوفي",
+          "en": "Caribou Coffee",
+        },
+      },
+      Object {
+        "id": "82f509cf-7600-4cf3-9ff4-4725e05591cc",
+        "locations": Array [
+          Object {
+            "id": "20d56f80-a6de-45ee-84e1-d49f613c7fd4",
+          },
+          Object {
+            "id": "c9d9fef2-0856-4467-9bc2-e593704a1582",
+          },
+          Object {
+            "id": "2a821a14-4d91-4894-bad6-a7d6bdecbebe",
+          },
+        ],
+        "name": Object {
+          "ar": "كوستا كوفي",
+          "en": "Costa Coffee",
+        },
+      },
+      Object {
+        "id": "82b0cd94-54ca-4987-852e-e3cba0e012d2",
+        "locations": Array [
+          Object {
+            "id": "c8354376-d536-4847-ae98-aeb660548427",
+          },
+        ],
+        "name": Object {
+          "ar": "لا القائمة العلامة التجارية",
+          "en": "No-Menu Brand",
+        },
+      },
+      Object {
+        "id": "aed15607-823c-4a04-b33c-4449f3e68c60",
+        "locations": Array [
+          Object {
+            "id": "7b006f6b-afcb-4958-b9fb-eaca73d0f655",
+          },
+          Object {
+            "id": "817a13c0-3085-4563-975d-44e9122e610f",
+          },
+          Object {
+            "id": "c53540cc-bf83-46cf-9f40-e5dd125a6709",
+          },
+        ],
+        "name": Object {
+          "ar": "ستاربكس",
+          "en": "Starbucks",
+        },
+      },
+    ],
+  },
+}
+`;
+
+exports[`menu can resolve brand 1`] = `
+Object {
+  "data": Object {
+    "menu": Object {
+      "brand": Object {
+        "name": Object {
+          "ar": "كاريبو كوفي",
+          "en": "Caribou Coffee",
+        },
+      },
+    },
+  },
+}
+`;

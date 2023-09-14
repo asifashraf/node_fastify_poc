@@ -1,0 +1,29 @@
+"""
+An exception for a brand location's regular weekly schedule
+"""
+type ScheduleException {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Whether or not the location for pickup is closed on this day
+  """
+  isClosed: Boolean!
+  """
+  Whether or not the location for delivery is closed on this day
+  """
+  isDeliveryClosed: Boolean!
+  """
+  Whether or not express delivery option is closed on this day
+  """
+  isExpressDeliveryClosed: Boolean!
+  """
+  The time the location opens on this date
+  """
+  startTime: Datetime!
+  """
+  The time the location closes on this date
+  """
+  endTime: Datetime!
+}

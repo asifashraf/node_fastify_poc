@@ -1,0 +1,33 @@
+"""
+A user's notification settings for their profile
+"""
+type NotificationSettings {
+  """
+  Flag for sending sms notification for delivery order
+  """
+  smsDeliveryUpdates: Boolean!
+  """
+  Flag for sending sms notification for pickup order
+  """
+  smsPickupUpdates: Boolean!
+  """
+  Flag for sending push notification for delivery order
+  """
+  pushDeliveryUpdates: Boolean!
+  """
+  Flag for sending push notification for pickup order
+  """
+  pushPickupUpdates: Boolean!
+  """
+  Flag for sending notification about new offers
+  """
+  newOffers: Boolean!
+  """
+  Flag for sending sms notifications
+  """
+  allowSms: Boolean
+  """
+  Flag for sending email notifications
+  """
+  allowEmail: Boolean
+}

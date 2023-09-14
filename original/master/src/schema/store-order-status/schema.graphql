@@ -1,0 +1,21 @@
+type StoreOrderStatus {
+  id: ID!
+  """
+  The status of the store order set
+  """
+  status: StoreOrderStatusName!
+  """
+  The store order set belong to this status
+  """
+  storeOrder: StoreOrder!
+  rejectionReason: String
+  note: String
+  """
+  created at
+  """
+  created: Datetime!
+  """
+  updated at
+  """
+  updated: Datetime!
+}

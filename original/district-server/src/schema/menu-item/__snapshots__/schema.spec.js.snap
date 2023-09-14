@@ -1,0 +1,298 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`item availability can be checked 1`] = `
+Object {
+  "data": Object {
+    "brandLocation": Object {
+      "menu": Object {
+        "sections": Array [
+          Object {
+            "items": Array [
+              Object {
+                "available": true,
+                "id": "1902b625-d495-4d8c-8265-e0c53a57eef0",
+              },
+              Object {
+                "available": true,
+                "id": "69a8f735-3f7d-44fa-8a82-edcd16f33308",
+              },
+              Object {
+                "available": true,
+                "id": "4d255e11-5250-4ab8-9085-0ac07d3b26a3",
+              },
+            ],
+          },
+          Object {
+            "items": Array [
+              Object {
+                "available": true,
+                "id": "6e3e377a-aca8-44ca-b70c-214f862d8dfe",
+              },
+              Object {
+                "available": true,
+                "id": "0837b2c8-2ec2-4509-af13-d05b6e7b797f",
+              },
+              Object {
+                "available": true,
+                "id": "7a2ad1d2-cf54-4495-af15-85b94a4224b5",
+              },
+            ],
+          },
+          Object {
+            "items": Array [
+              Object {
+                "available": true,
+                "id": "b91b2161-c8c9-4029-b9ad-a8f80ce41c93",
+              },
+              Object {
+                "available": true,
+                "id": "87f26eb8-ed27-45df-81e9-2a33c56cb052",
+              },
+            ],
+          },
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`items can be set as unavailable for brand Location 1`] = `
+Object {
+  "data": Object {
+    "brandLocationSetUnavailableMenuItem": Object {
+      "error": null,
+      "errors": null,
+      "menuItem": Object {
+        "available": true,
+        "id": "1902b625-d495-4d8c-8265-e0c53a57eef0",
+      },
+    },
+  },
+}
+`;
+
+exports[`menu item can be created 1`] = `
+Object {
+  "data": Object {
+    "brandMenuItemSave": Object {
+      "error": null,
+      "errors": null,
+      "menuItems": Array [
+        Object {
+          "name": Object {
+            "ar": "اختبار القائمة البند",
+            "en": "Test Menu Item",
+          },
+          "optionSets": Array [
+            Object {
+              "label": Object {
+                "ar": "بحجم",
+                "en": "Size",
+              },
+              "options": Array [
+                Object {
+                  "price": "10.000",
+                  "sortOrder": 1,
+                  "value": Object {
+                    "ar": "كبير",
+                    "en": "Big",
+                  },
+                },
+                Object {
+                  "price": "7.000",
+                  "sortOrder": 2,
+                  "value": Object {
+                    "ar": "صغير",
+                    "en": "Small",
+                  },
+                },
+              ],
+              "sortOrder": 1,
+            },
+            Object {
+              "label": Object {
+                "ar": "درجة الحرارة: بارد",
+                "en": "Temperature: Cold",
+              },
+              "options": Array [
+                Object {
+                  "price": "14.000",
+                  "sortOrder": 1,
+                  "value": Object {
+                    "ar": "صغير",
+                    "en": "Small",
+                  },
+                },
+                Object {
+                  "price": "15.000",
+                  "sortOrder": 2,
+                  "value": Object {
+                    "ar": "متوسط",
+                    "en": "Medium",
+                  },
+                },
+                Object {
+                  "price": "14.000",
+                  "sortOrder": 3,
+                  "value": Object {
+                    "ar": "كبير",
+                    "en": "Large",
+                  },
+                },
+              ],
+              "sortOrder": 2,
+            },
+          ],
+          "photo": "https://pbs.twimg.com/profile_images/877601376464904192/b3jangc1.jpg",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`menu item can be updated  1`] = `
+Object {
+  "data": Object {
+    "brandMenuItemSave": Object {
+      "error": null,
+      "errors": null,
+      "menuItems": Array [
+        Object {
+          "name": Object {
+            "ar": "اختبار القائمة البند",
+            "en": "Test Menu Item",
+          },
+          "optionSets": Array [
+            Object {
+              "label": Object {
+                "ar": "بحجم",
+                "en": "Size",
+              },
+              "options": Array [
+                Object {
+                  "price": "2.500",
+                  "value": Object {
+                    "ar": "14oz",
+                    "en": "14oz",
+                  },
+                },
+                Object {
+                  "price": "10.000",
+                  "value": Object {
+                    "ar": "كبير",
+                    "en": "Big",
+                  },
+                },
+                Object {
+                  "price": "7.000",
+                  "value": Object {
+                    "ar": "صغير",
+                    "en": "Small",
+                  },
+                },
+                Object {
+                  "price": "3.000",
+                  "value": Object {
+                    "ar": "16oz",
+                    "en": "16oz",
+                  },
+                },
+              ],
+            },
+            Object {
+              "label": Object {
+                "ar": "إضافات إضافية",
+                "en": "Additional Toppings",
+              },
+              "options": Array [
+                Object {
+                  "price": "0.500",
+                  "value": Object {
+                    "ar": "صلصة الشوكولا",
+                    "en": "Chocolate Sauce",
+                  },
+                },
+                Object {
+                  "price": "0.500",
+                  "value": Object {
+                    "ar": "صلصة الكراميل",
+                    "en": "Caramel Sauce",
+                  },
+                },
+              ],
+            },
+            Object {
+              "label": Object {
+                "ar": "درجة الحرارة: بارد",
+                "en": "Temperature: Cold",
+              },
+              "options": Array [
+                Object {
+                  "price": "14.000",
+                  "value": Object {
+                    "ar": "صغير",
+                    "en": "Small",
+                  },
+                },
+                Object {
+                  "price": "15.000",
+                  "value": Object {
+                    "ar": "متوسط",
+                    "en": "Medium",
+                  },
+                },
+                Object {
+                  "price": "14.000",
+                  "value": Object {
+                    "ar": "كبير",
+                    "en": "Large",
+                  },
+                },
+              ],
+            },
+            Object {
+              "label": Object {
+                "ar": "اختيار الحليب",
+                "en": "Choice of Milk",
+              },
+              "options": Array [
+                Object {
+                  "price": "0.000",
+                  "value": Object {
+                    "ar": "هذا لا يوجد",
+                    "en": "None",
+                  },
+                },
+                Object {
+                  "price": "0.000",
+                  "value": Object {
+                    "ar": "منتظم",
+                    "en": "Regular",
+                  },
+                },
+                Object {
+                  "price": "0.500",
+                  "value": Object {
+                    "ar": "حليب الصويا",
+                    "en": "Soy Milk",
+                  },
+                },
+                Object {
+                  "price": "0.500",
+                  "value": Object {
+                    "ar": "حليب اللوز",
+                    "en": "Almond Milk",
+                  },
+                },
+              ],
+            },
+          ],
+          "photo": "https://pbs.twimg.com/profile_images/877601376464904192/b3jangc1.jpg",
+        },
+      ],
+    },
+  },
+}
+`;

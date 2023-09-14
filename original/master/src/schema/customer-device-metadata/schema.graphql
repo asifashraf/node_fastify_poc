@@ -1,0 +1,39 @@
+"""
+Device Metadata of a Registered User
+"""
+type CustomerDeviceMetadata {
+  id: ID!
+  """
+  Unique UUID String from the device
+  """
+  deviceId: String!
+  """
+  Identifier for device type
+  """
+  deviceIdentifierType: DeviceIdentifierType!
+  """
+  mark the card token as default to use
+  """
+  isDefault: Boolean!
+  """
+  card token status. e.g.
+  """
+  status: DeviceMetadataStatus!
+
+  # Created date
+  created: Datetime!
+  # last update time
+  updated: Datetime!
+}
+
+enum DeviceIdentifierType {
+  ADID,
+  IDFA,
+  GPS_ADID,
+  HASH
+}
+
+enum DeviceMetadataStatus {
+  ACTIVE
+}
+

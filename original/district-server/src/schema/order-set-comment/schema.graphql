@@ -1,0 +1,33 @@
+"""
+This accounts for multiple scheduled orders
+"""
+type OrderSetComment {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Type (Complain / Request / Inquiry / Cancelation)
+  """
+  type: orderSetCommentType!
+  """
+  User Id who did this comment
+  """
+  userId: String!
+  """
+  User Name
+  """
+  userName: String!
+  """
+  User Email
+  """
+  userEmail: String!
+  """
+  The comment
+  """
+  comment: String!
+  """
+  When this comment was created
+  """
+  createdAt: Datetime!
+}

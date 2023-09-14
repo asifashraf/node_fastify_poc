@@ -1,0 +1,115 @@
+"""
+Global configuration data
+"""
+type Configuration {
+  """
+  Fee added to pickup orders
+  """
+  serviceFee: CurrencyValue!
+  """
+  Fee added to delivery orders
+  """
+  deliveryFee: CurrencyValue!
+  """
+  Default longitude if iOS location services are disabled
+  """
+  defaultLongitude: Float!
+  """
+  Default latitude if iOS location services are disabled
+  """
+  defaultLatitude: Float!
+  """
+  List of available Neighborhoods
+  """
+  neighborhoods: [Neighborhood!]!
+  """
+  Comma-delimited string of available delivery area names (corresponding to potential names accessible on the iOS client via the Google Maps iOS SDK).
+  """
+  availableDeliveryAreas: [String!]!
+  """
+  What time the cofe district platform is open
+  """
+  cofeDistrictHours: [WeeklySchedule!]!
+  """
+  Max number of items that can be added to cart
+  """
+  maxCartSize: Int!
+  """
+  Min delivery time
+  """
+  deliveryWindowMin: Int!
+  """
+  Max delivery time
+  """
+  deliveryWindowMax: Int!
+  """
+  Max Scheduled Deliveries
+  """
+  maxScheduledDeliveries: Int!
+  """
+  Help phone
+  """
+  phone: String!
+  """
+  Help email
+  """
+  email: String!
+  """
+  Google Maps Api Key
+  """
+  googleMapsApiKey: String! @deprecated
+  """
+  Google Maps Api Key
+  """
+  googleMapsApiKeyEncrypted: String!
+  """
+  Google Maps Reverse Geocode Api Key
+  """
+  googleMapsReverseGeocodeApiKey: String! @deprecated
+  """
+  Google Maps Reverse Geocode Api Key
+  """
+  googleMapsReverseGeocodeApiKeyEncrypted: String!
+  """
+  Cloudinary Api Key
+  """
+  cloudinaryApiKeyEncrypted: String!
+  """
+  Cloudinary Secret
+  """
+  cloudinaryApiSecretEncrypted: String!
+  """
+  List of all towers available to be delivered to
+  """
+  towers: [Tower!]!
+  """
+  Loyalty tier configuration
+  """
+  loyaltyTiers: [LoyaltyTier!]!
+  """
+  The hardcoded SKU for "top-up" credit purchases
+  """
+  loyaltyTopUpSku: String!
+  iosVersion: String
+  """
+  Flag to force the update for iOS app
+  """
+  iosForceUpdate: Boolean
+  androidVersion: String
+  """
+  Flag to force the update for android app
+  """
+  androidForceUpdate: Boolean
+  """
+  Radius for premium services like (bring it to hospital)
+  """
+  premiumServicesRadius: Int
+  """
+  Number of orders required to show rating dailogue
+  """
+  ordersRequiredForRating: Int
+
+  defaultCountry: DefaultCountryPayload!
+
+  tabbyApiKey: String
+}

@@ -1,0 +1,96 @@
+extend type Query {
+  getAvailableGiftCards(
+    currencyCode: String!
+    brandLocationId: ID
+  ): [GiftCard!] @requireAuth
+
+  getGiftCardByOrderId(giftCardOrderId: ID!): GiftCardPayload! @requireAuth
+}
+
+type GiftCardPayload {
+  giftCard: GiftCard
+  error: GiftCardByOrderIdError
+}
+
+type GiftCard {
+  # DB identifier
+  id: ID!
+  giftCardOrder: GiftCardOrder!
+  imageUrl: LocalizedString! @toCDN
+  # Redem code
+  code: String!
+  # Initial card amount
+  initialAmount: CurrencyValue!
+  # Amount left after all transactions
+  amount: CurrencyValue!
+  # Currency of this order
+  currency: Currency!
+  # Currency of this order
+  currencyId: ID
+  # Country
+  country: Country!
+  # Gift Card Template used to create this card
+  giftCardTemplate: GiftCardTemplate!
+  # Customer Who sent this card
+  sender: Customer!
+  # true if the sender want to stay anonymous
+  anonymousSender: Boolean!
+  # Customer Who redeemed and own this card
+  receiver: Customer
+  # when the card was redeemed by the receiver
+  redeemedOn: Datetime
+  # Created date
+  created: Datetime!
+  # last update time
+  updated: Datetime!
+  # Status of this card
+  status: GiftCardStatus!
+  # Transcation history on this gift card.
+  transactions: [GiftCardTransaction]!
+  # This show if a gift card is vendor specific
+  brand: Brand
+  message: String
+  name: LocalizedString
+  shareUrl: String
+}
+
+type GiftCardsForCustomer {
+  sentGiftCards: [GiftCard]!
+  receivedGiftCards: [GiftCard]!
+}
+
+enum GiftCardByOrderIdError {
+  NOT_CREATED_YET
+  UNAUTHORIZED
+}
+
+extend type Mutation {
+  """
+  create gift cards as bulk
+  """
+  giftCardCreateBulk(giftCardCreateBulkInput: GiftCardCreateBulkInput!): GiftCardCreateBulkPayload @requireAuth
+}
+
+input GiftCardCreateBulkInput {
+  countryId: ID!
+  giftCardTemplateId: ID!
+  noOfCards: Int!
+  amount: CurrencyValue!
+}
+
+type GiftCardCreateBulkPayload {
+  shortCodes: [String]
+  errors: [GiftCardCreateBulkError]
+}
+
+enum GiftCardCreateBulkError {
+  INVALID_NO_OF_CARDS
+  INVALID_COUNTRY
+  INVALID_TEMPLATE
+  MIN_LIMIT_EXCEEDED
+  MAX_LIMIT_EXCEEDED
+  """
+  if the template country and the country in input is different, get this error
+  """
+  UNMATCHED_COUNTRY
+}

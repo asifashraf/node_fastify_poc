@@ -1,0 +1,34 @@
+extend type Mutation {
+  """
+  Activate/Inactivate a customer
+  """
+  authCustomerUpdateStatus(customerId: ID!, active: Boolean): UpdateCustomerStatusResponse! @requireAuth
+  @requirePermissions(permissions: ["customer:upsert"])
+}
+
+"""
+A customer's auth information
+"""
+type AuthCustomer {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Customer phone number
+  """
+  phoneNumber: String!
+  """
+  Customer email
+  """
+  email: String
+
+  """
+  password of the the customer
+  """
+  password: String
+  """
+  Is customer disabled or not?
+  """
+  isDisabled: Boolean!
+}

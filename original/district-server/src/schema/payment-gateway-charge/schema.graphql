@@ -1,0 +1,62 @@
+"""
+Bank Information for Voucher Locking
+"""
+type PaymentGatewayCharge {
+  id: ID!
+  """
+  Country in which the bank operates in
+  """
+  country: Country!
+  """
+  Payment method knex/mastercard/etc
+  """
+  paymentMethod: ALLOWED_PAYMENT_METHODS!
+  """
+  Payment gateway checkout/myfatoorah
+  """
+  paymentGateway: ALLOWED_PAYMENT_GATEWAYS!
+  """
+  type
+  """
+  chargeType: ChargeType!
+  """
+  charge  /  flat rate or tariff percentage
+  """
+  charge: CurrencyValue!
+  """
+  charge status
+  """
+  status: PaymentGatawayChargeStatus!
+  # Created date
+  created: Datetime!
+  # last update time
+  updated: Datetime!
+}
+
+enum ALLOWED_PAYMENT_GATEWAYS {
+  CHECKOUT
+  MY_FATOORAH
+  MOBILE_EXPRESS
+}
+
+enum ChargeType {
+  PERCENT
+  FLAT
+}
+
+enum ALLOWED_PAYMENT_METHODS {
+  KNET
+  MADA
+  AMEX
+  VISA_MASTERCARD
+  STC_PAY
+  APPLE_PAY
+  GOOGLE_PAY
+  NONE
+}
+
+enum PaymentGatawayChargeStatus {
+  ACTIVE
+  INACTIVE
+  DELETED
+}

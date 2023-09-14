@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can reject an order set 1`] = `
+Object {
+  "data": Object {
+    "orderSetCreateRejection": Object {
+      "id": "9f03ad20-3fc0-4896-8917-35324e810d58",
+    },
+  },
+}
+`;
+
+exports[`can set status for an order set 1`] = `
+Object {
+  "data": Object {
+    "orderSetSetStatus": Object {
+      "orderSetStatus": Object {
+        "id": "1f5c9fa3-423e-4e1e-8d81-0d69a3620b3f",
+      },
+    },
+  },
+}
+`;
+
+exports[`can un-reject an order set 1`] = `
+Object {
+  "data": Object {
+    "orderSetUndoRejection": Object {
+      "id": "d982181a-5433-4194-a082-66651f219669",
+    },
+  },
+}
+`;
+
+exports[`order set can resolve status 1`] = `
+Object {
+  "data": Object {
+    "orderSet": Object {
+      "currentStatus": "ACCEPTED",
+      "statusHistory": Array [
+        Object {
+          "id": "1f5c9fa3-423e-4e1e-8d81-0d69a3620b3f",
+          "note": "Et modi ullam occaecati.",
+          "rejectionReason": null,
+          "status": "ACCEPTED",
+        },
+      ],
+    },
+  },
+}
+`;

@@ -1,0 +1,19 @@
+# Golden COFE Terms and Conditions and participating brands
+type GoldenCofe {
+  """
+  The list of terms and conditions
+  """
+  terms: [LocalizedString]!
+  """
+  The list of images
+  """
+  imageUrl: LocalizedString! @toCDN
+  """
+  Date range
+  """
+  dateRange: GoldenCofePayloadDateRange
+  """
+  The list of brands participating in the contest
+  """
+  brands: [Brand!]
+}

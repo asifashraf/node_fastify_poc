@@ -1,0 +1,36 @@
+"""
+Currency Schema
+"""
+type Currency {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Currency name
+  """
+  name: String!
+  """
+  Currency code deprecated, use symbol and isoCode
+  """
+  code: LocalizedString
+  """
+  Currency symbol, e.g. $ or KWD
+  """
+  symbol: LocalizedString!
+  """
+  decimal places
+  """
+  decimalPlace: Int
+  lowestDenomination: CurrencyValue
+  country: Country
+  subunitName: LocalizedString!
+  """
+  Currency status
+  """
+  status: StatusType!
+  """
+  Currency ISO code
+  """
+  isoCode: String!
+}

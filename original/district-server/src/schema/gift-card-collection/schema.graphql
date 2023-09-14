@@ -1,0 +1,15 @@
+type GiftCardCollection {
+  # DB identifier
+  id: ID!
+  # Collection Name
+  name: LocalizedString!
+  # Country where this collection is displayed
+  country: Country!
+  # Status of this card collection
+  status: GiftCardCollectionStatus!
+  # Created date
+  created: Datetime!
+  # last update time
+  updated: Datetime!
+  giftCardTemplates(limit: Int): [GiftCardTemplate]
+}

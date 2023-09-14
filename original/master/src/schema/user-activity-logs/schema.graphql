@@ -1,0 +1,15 @@
+"""
+UserActivityLog Schema
+"""
+type UserActivityLog {
+  id: ID!
+  srcPlatform: String
+  stream_id: String
+  stream: String
+  action: String
+  query: String
+  operationName: String
+  srcPlatformVersion: String
+  referenceUser: Admin!
+  created: Datetime!
+}

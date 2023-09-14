@@ -1,0 +1,22 @@
+type GiftCardTransaction {
+  # DB identifier
+  id: ID!
+  # Gift Card related to this transaction
+  giftCard: GiftCard!
+  # transaction order type
+  orderType: GiftCardTransactionOrderType!
+  # reference id of the order
+  referenceOrderId: ID!
+  # currency credited to gift card
+  credit: CurrencyValue
+  # currency debited from gift card
+  debit: CurrencyValue
+  # customer
+  customer: Customer!
+  # currency of transaction
+  currency: Currency!
+  # Created date
+  created: Datetime!
+  # last update time
+  updated: Datetime!
+}

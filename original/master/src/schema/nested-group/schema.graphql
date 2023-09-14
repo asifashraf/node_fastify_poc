@@ -1,0 +1,25 @@
+"""
+NestedGroup for admins
+"""
+type NestedGroup {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Group
+  """
+  group: Group!
+  """
+  Nested Group
+  """
+  nestedGroup: Group!
+  """
+  NestedGroup created at
+  """
+  created: Datetime!
+  """
+  NestedGroup updated at
+  """
+  updated: Datetime!
+}

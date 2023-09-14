@@ -1,0 +1,102 @@
+"""
+A customer's saved delivery address
+"""
+type CustomerAddress {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Customer's name for this address
+  """
+  friendlyName: String!
+  """
+  the name or number of the building
+  """
+  buildingName: String
+  """
+  Customer provided note for this address
+  """
+  note: String
+  """
+  Whether this is the customer's default address
+  """
+  isDefault: Boolean!
+  """
+  The longitude component of the geo coordinates for this address, in degrees
+  """
+  longitude: Float!
+  """
+  The longitude component of the geo coordinates for this address, in degrees
+  """
+  latitude: Float!
+  """
+  This is analogous with a "neigbourhood" in Google Maps lingo.  Will be populated from Google Maps as "Block x"
+  """
+  block: String
+  """
+  This is street name
+  """
+  street: String
+  """
+  An optional avenue field
+  """
+  avenue: String
+  """
+  Reference to neighborhood for this address
+  """
+  neighborhood: Neighborhood
+  """
+  The number for this street, in string format (ie "234" part of "234 somewhere st")
+  """
+  streetNumber: String
+  """
+  Which type of address is this
+  """
+  type: CustomerAddressType
+  """
+  Floor for an apartment/office
+  """
+  floor: String
+  """
+  Unit number. Required for type apartment/office
+  """
+  unitNumber: String
+  """
+  City name
+  """
+  city: String
+  """
+  Country code
+  """
+  countryCode: String
+  """
+  Dynamic fields
+  """
+  extraFields: [ExtraField!]
+  """
+  it can be useful to show full address easily
+  """
+  asString: String
+}
+
+type CustomerAddressStatus {
+  status: Boolean!
+  type: AddressType!
+  addressId: ID
+  label: LocalizedString
+}
+
+"""
+The address type
+"""
+enum AddressType {
+  """
+  Customer Address that is saved
+  """
+  STATIC
+  """
+  For Current or selected location
+  """
+  DYNAMIC
+}

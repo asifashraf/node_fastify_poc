@@ -1,0 +1,93 @@
+type Tag {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Tag name
+  """
+  name: LocalizedString!
+  """
+  Tag description
+  """
+  description: LocalizedString!
+  """
+  Tag status
+  """
+  status: TagStatus!
+  """
+  Date and time the comment was created
+  """
+  created: Datetime!
+  """
+  Brand Locations by tagId
+  """
+  brandLocations: [BrandLocation!]
+  """
+  Brand Locations by tagId
+  """
+  menuItems: [MenuItem!]
+  """
+  The localized color of the badge
+  """
+  textColor: String
+  """
+  The localized URL of the icon
+  """
+  iconUrl: LocalizedString
+  """
+  The localized background color of the badge
+  """
+  backgroundColor: String
+}
+
+type TagPayload {
+  tag: Tag
+  error: TagSaveError
+}
+
+input TagInput {
+  id: ID
+  name: LocalizedStringInput!
+  description: LocalizedStringInput!
+  status: TagStatus!
+  textColor: String
+  iconUrl: LocalizedStringInput
+  backgroundColor: String
+}
+
+input TagFilters {
+  id: ID
+  status: TagStatus
+  searchText: String
+}
+
+enum TagSaveError {
+  INVALID_INPUT
+  MISSING_FIELD_NAME
+  MISSING_FIELD_DESCRIPTION
+  NAME_ALREADY_EXIST
+}
+
+enum TagStatus {
+  ACTIVE
+  INACTIVE
+  DELETED
+}
+
+extend type Query {
+  tags(
+    """
+    Tag filters
+    """
+    filters: TagFilters
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+  ): [Tag!]
+}
+
+extend type Mutation {
+  saveTag(tag: TagInput!): TagPayload @requireAuth @requirePermissions(permissions: ["tags:upsert"])
+}

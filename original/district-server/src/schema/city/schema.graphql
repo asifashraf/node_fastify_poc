@@ -1,0 +1,25 @@
+"""
+City
+"""
+type City {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Country name
+  """
+  name: LocalizedString!
+  """
+  Country status
+  """
+  status: StatusType
+  """
+  Reference to currency
+  """
+  country: Country!
+  """
+  List of Neighborhoods
+  """
+  neighborhoods(filters: NeighborhoodFilters): [Neighborhood!]
+}

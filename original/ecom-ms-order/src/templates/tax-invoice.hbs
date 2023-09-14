@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+      .line-height-1 {
+        line-height: 1;
+      }
+
+      .font-14 {
+        font-size: 14px;
+      }
+
+      .font-22 {
+        font-size: 22px;
+      }
+
+      .font-12 {
+        font-size: 12px;
+      }
+
+      .font-10 {
+        font-size: 10px;
+      }
+
+      .font-8 {
+        font-size: 8px;
+      }
+
+      .font-7 {
+        font-size: 7px;
+      }
+
+      .font-regular {
+        font-weight: 400;
+      }
+
+      .font-medium {
+        font-weight: 500;
+      }
+
+      .font-semi-bold {
+        font-weight: 600;
+      }
+
+      .font-bold {
+        font-weight: 700;
+      }
+
+      .font-extra-bold {
+        font-weight: 800;
+      }
+
+      .family-nunito {
+        font-family: 'Nunito', sans-serif;
+      }
+
+      .family-tajawal {
+        font-family: 'Tajawal', sans-serif;
+      }
+
+      .border {
+        border: 1px solid #D8DFE8;
+      }
+
+      .font-color {
+        color: #1C3047;
+      }
+
+      .font-color-light {
+        color: #a1a8b1;
+      }
+
+      .border-top-1px {
+        border-top: 1px solid #D8DFE8;
+      }
+
+      .border-bottom-1px {
+        border-bottom: 1px solid #D8DFE8;
+      }
+
+      .border-top-5px {
+        border-top: 5px solid #D8DFE8;
+      }
+
+      .border-bottom-5px {
+        border-bottom: 5px solid #D8DFE8;
+      }
+
+      .border-right-1px {
+        border-right: 1px solid #D8DFE8;
+      }
+
+      .border-left-1px {
+        border-left: 1px solid #D8DFE8;
+      }
+
+      .width-100 {
+        width: 100%;
+      }
+
+      .border-collapse {
+        border-collapse: collapse;
+      }
+
+      .test {
+        /*  width:100%;*/
+        height: 8px;
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: 100% auto;
+        padding: 4px 10px 5px;
+        word-break: break-all;
+        text-align: center;
+      }
+
+      @page {
+        header: page-header;
+        footer: page-footer;
+      }
+
+    </style>
+  </head>
+
+  <body>
+{{#each products as |page|}}
+    <div style="width: 100%; margin: 0 auto; page-break-after:always;">
+    <htmlpageheader name="page-header">
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td>
+              <table class="width-100 border-top-5px border-bottom-5px">
+                <tbody>
+                  <tr>
+                    <td align="left" width="33%" class="family-nunito font-color font-22 font-medium" style="padding: 10px 0;line-height: 1;">
+                      <span style="display: inline-block;vertical-align: middle;width: 20px;text-align: left;">
+                        <img style="display: block;" src="https://cdn.ekuep.com/img/cms/Home Banners/right-arrow.png" />
+                      </span>
+                      <span style="display: inline-block;vertical-align:middle;">Tax Invoice</span>
+                    </td>
+                    {{!-- <td align="center" width="34%" style="padding: 10px 0;">
+                      <img src="https://s3.eu-west-1.amazonaws.com/content.cofeadmin.com/media/production/debecb82-2e30-4814-9374-9bf026ba5be3.png" width="110px" />
+                    </td> --}}
+                    <td align="right" width="33%" class="family-tajawal font-color font-22 font-bold" style="padding: 10px 0;line-height: 1;">
+                      <span style="display: inline-block;vertical-align:middle;">فاتورة ضريبية</span>
+                      <span style="display: inline-block;vertical-align: middle;width: 20px;text-align: right;">
+                        <img style="display: block;" src="https://cdn.ekuep.com/img/cms/Home Banners/left-arrow.png" />
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </htmlpageheader>
+
+    <div style="width: 100%; margin: 0 auto;">
+      <table class="width-100 border-collapse">
+        <tbody>
+          <tr>
+            <td colspan="2">
+              <table style="width: 100%;border-collapse: collapse;">
+                <tbody>
+                  <tr>
+                    <td align="left" width="33%" class="family-nunito font-medium font-14 font-color" style="padding: 5px 0;">Invoice#</td>
+                    <td align="center" width="34%" class="family-nunito font-medium font-14 font-color" style="padding: 5px 0;">INV-{{../invoiceNumber}}</td>
+                    <td align="right" width="33%" class="family-tajawal font-medium font-14 font-color" style="padding: 5px 0;">رقم الفاتورة</td>
+                  </tr>
+                  <tr>
+                    <td align="left" width="33%" class="family-nunito font-medium font-14 font-color" style="padding: 5px 0;">Invoice Issue Date</td>
+                    <td align="center" width="34%" class="family-nunito font-medium font-14 font-color" style="padding: 5px 0;">{{../orderDate}}</td>
+                    <td align="right" width="33%" class="family-tajawal font-medium font-14 font-color" style="padding: 5px 0;">تاريخ اصدار الفاتورة</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td width="50%" class="border-top-1px border-bottom-1px border-right-1px">
+              <table class="width-100 border-collapse">
+                <tbody>
+                  <tr>
+                    <td width="50%" align="left" class="family-nunito font-14 font-regular" style="padding: 10px 0;">
+                      <span>Seller Information</span>
+                    </td>
+                    <td width="50%" align="right" class="family-tajawal font-14 font-regular" style="padding: 10px 0;">
+                      <span style="padding-right: 10px;">معلومات المورد</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td width="50%" class="border-top-1px border-bottom-1px">
+              <table class="width-100">
+                <tbody>
+                  <tr>
+                    <td width="50%" align="left" class="family-nunito font-14 font-regular" style="padding: 10px 0;">
+                      <span style="padding-left: 10px;">Buyer Information</span>
+                    </td>
+                    <td width="50%" align="right" class="family-tajawal font-14 font-regular" style="padding: 10px 0 10px 0;">
+                      <span>معلومات العميل</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td width="50%" valign="top" class="border-right-1px family-tajawal font-16" style="padding: 5px 10px 10px 0;vertical-align: top;text-align: right;">
+              <span class="supplier-name"><strong style="font-size:17px">{{page.supplierInformation.locations.0.company}}</strong></span><br>
+              {{!-- <span class="address">{{page.supplierInformation.locations.0.address}},</span><br>
+              <span class="font-bold city-country">{{page.supplierInformation.locations.0.country_name}}</span><br>
+              <span class="font-bold phone-number">{{page.supplierInformation.locations.0.phone}}</span> --}}
+            </td>
+            <td width="50%" valign="top" class="family-tajawal font-16" style="padding: 5px 10px 10px 0;vertical-align: top;text-align: right;">
+
+              <strong style="font-size:17px"><span style="line-height: 1">{{../customerDetails.firstName}} {{../customerDetails.lastName}}</span></strong>
+              <br>
+              <span style="line-height: 1">{{../customerDetails.shippingAddress.address}},</span>
+              <br>
+              <span class="font-bold">{{../customerDetails.shippingAddress.country}}</span><br>
+              <span class="font-bold">{{../customerDetails.phoneNumber}}</span>
+            </td>
+          </tr>
+          <tr>
+            <td width="50%" class="border-right-1px border-bottom-1px">
+              <table style="width: 100%;">
+                <tbody>
+                  <tr>
+                    <td width="50%" class="family-nunito font-14 font-semi-bold">
+                      <table width="100%">
+                        <tbody>
+                          <tr>
+                            <td class="test family-nunito family-tajawal" style="text-align:center;">{{page.supplierInformation.vat_number}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                    <td width="50%" align="right">
+                      <span class="family-nunito font-14 font-regular">VAT#</span><br>
+                      <span class="family-tajawal font-14 font-regular">الرقم الضريبي</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td width="50%" class="border-bottom-1px">
+              <table style="width: 100%;">
+                <tbody>
+                  <tr>
+                    <td width="50%" class="family-nunito font-14 font-semi-bold">
+                      <table width="100%">
+                        <tbody>
+                          <tr>
+                            <td class="test family-nunito family-tajawal" style="text-align:center;">{{../customerDetails.vatNumber}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                    <td width="50%" align="right">
+                      <span class="family-nunito font-14 font-regular">VAT#</span><br>
+                      <span class="family-tajawal font-14 font-regular">الرقم الضريبي</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td align="left" class="family-nunito font-14 font-regular border-bottom-1px" style="height: 35px;">
+              Line Items
+            </td>
+            <td align="right" class="family-tajawal font-14 font-regular border-bottom-1px" style="height: 35px;">
+              توصيف السلعة أو الخدمة
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <table class="width-100 border" style="border-collapse: collapse; margin: 20px 0 20px 0;">
+                <tbody>
+                  <tr style="background-color: #E6ECF2;">
+                    <th width="25%" align="center" class="line-height-1" style="border: 1px solid #D8DFE8;">
+                      <span class="family-nunito font-regular font-10 font-color">Items/Services</span><br>
+                      <span class="family-tajawal font-medium font-10 font-color">تفاصيل السلع أو الخدمات</span>
+                    </th>
+                    <th width="10%" align="center" class="line-height-1" style="border: 1px solid #D8DFE8;">
+                      <span class="family-nunito font-regular font-10 font-color">
+                        <span class="font-8">(Excl. VAT)</span>
+                        <br>
+                        <span>Unit Price</span>
+                      </span>
+                      <br>
+                      <span class="family-tajawal font-medium font-10 font-color">
+                        <span>سعر الوحدة</span>
+                        <br>
+                        <span class="family-tajawal font-medium font-7 font-color-light">بدون الضريبة</span>
+                      </span>
+                    </th>
+                    <th width="" align="center" class="line-height-1" style="border: 1px solid #D8DFE8;">
+                      <span class="family-nunito font-medium font-10 font-color">Quantity</span><br>
+                      <span class="family-tajawal font-medium font-10 font-color">الكمية</span>
+                    </th>
+                    <th width="10%" align="center" class="line-height-1" style="border: 1px solid #D8DFE8;">
+                      <span class="family-nunito font-medium font-10 font-color">
+                        <span class="font-8">(Excl. VAT)</span>
+                        Discount
+                      </span>
+                      <br>
+                      <span class="family-tajawal font-medium font-10 font-color">
+                        <span>الخصومات</span>
+                        <br>
+                        <span class="font-color-light font-7">بدون الضريبة</span>
+                      </span>
+                    </th>
+                    <th width="20%" align="center" class="line-height-1" style="border: 1px solid #D8DFE8;">
+                      <span class="family-nunito font-medium font-10 font-color">
+                        <span class="font-8">(Excl. VAT) </span>
+                        <br>
+                        Taxable Amount
+                      </span>
+                      <br>
+                      <span class="family-tajawal font-medium font-10 font-color">
+                        <span>المبلغ الخاضع للضريبة</span>
+                        <br>
+                        <span class="font-color-light">بدون الضريبة</span>
+                      </span>
+                    </th>
+                    <th width="10%" align="center" class="line-height-1" style="border: 1px solid #D8DFE8;">
+                      <span class="family-nunito font-medium font-10 font-color">Tax Rate</span><br>
+                      <span class="family-tajawal font-medium font-10 font-color">نسبة الضريبة</span>
+                    </th>
+                    <th width="10%" align="center" class="line-height-1" style="border: 1px solid #D8DFE8;">
+                      <span class="family-nunito font-medium font-10 font-color">Tax Amount</span><br>
+                      <span class="family-tajawal font-medium font-10 font-color">مبلغ الضريبة</span>
+                    </th>
+
+                    <th width="10%" align="center" class="line-height-1" style="border: 1px solid #D8DFE8;">
+                      <span class="family-nunito font-medium font-10 font-color">
+                        <span class="font-8">(Incl. VAT)</span>
+                        <br>
+                        <span>Item Subtotal </span>
+                      </span>
+                      <br>
+                      <span class="family-tajawal font-medium font-10 font-color">
+                        <span>المجموع</span>
+                        <br>
+                        <span class="font-color-light font-7"> شامل الضريبة</span>
+                      </span>
+                    </th>
+                  </tr>
+                  {{#each page.products as |product|}}
+                      <tr>
+                        <td width="25%" align="center" class="border-right-1px border-bottom-1px" style="padding: 5px ;">
+                          <span class="family-nunito font-medium font-10 font-color">{{product.product_reference}}</span><br>
+                          <span class="family-tajawal font-bold font-10 font-color">{{product.product_name}}</span>
+                        </td>
+                        <td width="" align="center" class="border-right-1px border-bottom-1px family-nunito font-semi-bold font-10 font-color">{{../paymentInfo.currency}} {{product.unit_price_tax_excl}}</td>
+                        <td width="" align="center" class="border-right-1px border-bottom-1px family-nunito font-semi-bold font-10 font-color">{{product.product_quantity}}</td>
+
+                        <td width="" align="center" class="border-right-1px border-bottom-1px family-nunito font-semi-bold font-10 font-color">
+                          {{../paymentInfo}} {{product.reduction_amount_tax_excl}}
+                        </td>
+                        <td width="10%" align="center" class="border-right-1px border-bottom-1px family-nunito font-semi-bold font-10 font-color">{{../paymentInfo.currency}} {{product.total_price_tax_excl}}</td>
+                        <td width="" align="center" class="border-right-1px border-bottom-1px family-nunito font-semi-bold font-10 font-color">{{product.vat_rate}}%</td>
+                        <td width="" align="center" class="border-right-1px border-bottom-1px family-nunito font-semi-bold font-10 font-color">{{../paymentInfo.currency}} {{product.tax_amount}}</td>
+
+                        <td width="" align="center" class="border-right-1px border-bottom-1px family-nunito font-semi-bold font-10 font-color">{{../paymentInfo.currency}} {{product.total_price_tax_incl}}</td>
+                      </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <table style="width:100%; border-top: 1px solid #D8DFE8;border-bottom: 1px solid #D8DFE8;">
+                <tbody>
+                  <tr>
+                    <td align="left" width="50" class="font-14 font-regular font-color family-nunito" style="padding: 6px 0;">Total Amounts</td>
+                    <td align="right" width="50" class="font-14 font-regular font-color family-tajawal" style="padding: 5px 0;">إجمالي المبلغ</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <table style="width: 100%;border-collapse: collapse;">
+                <tbody>
+                  <tr>
+                    <td align="left" width="33%" class="family-nunito font-bold font-14 font-color" style="padding: 5px 0;">Total <span style="font-weight: 400;font-size: 12px;"> (Excl. VAT)</span> </td>
+                    <td align="center" width="34%" class="family-nunito font-medium font-14 font-color" style="padding: 5px 0;">{{../paymentInfo.currency}} {{pricing.totalProductsTaxExcl}}</td>
+                    <td align="right" width="33%" class="family-tajawal font-bold font-14 font-color" style="padding: 5px 0; direction:rtl;"><span>الإجمالي</span> <span class="font-regular font-12"> (غير شامل الضريبة) </span></td>
+                  </tr>
+
+                  <tr>
+                    <td align="left" width="33%" class="family-nunito font-bold font-14 font-color" style="padding: 5px 0;">VAT</td>
+                    <td align="center" width="34%" class="family-nunito font-medium font-14 font-color" style="padding: 5px 0;">{{../paymentInfo.currency}} {{pricing.vat}}</td>
+                    <td align="right" width="33%" class="family-tajawal font-bold font-14 font-color" style="padding: 5px 0;">الضريبة</td>
+                  </tr>
+                  
+                  <tr>
+                    <td align="left" width="33%" class="family-nunito font-bold font-14 font-color" style="padding: 5px 0;">Total Amount Due
+                      <span style="font-weight: 400;font-size: 12px;"> (Incl. VAT)</span>
+                    </td>
+                    <td align="center" width="34%" class="family-nunito font-bold font-14 font-color" style="padding: 5px 0;">{{../paymentInfo.currency}} {{pricing.totalProductsTaxIncl}}</td>
+                    <td align="right" width="33%" class="family-tajawal font-bold font-14 font-color" style="padding: 5px 0;direction:rtl;"><span>إجمالي المبلغ المستحق <span class="font-regular font-12"> (شامل الضريبة) </span></span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td align="left" width="33%" class="family-nunito font-bold font-14 font-color" style="padding: 5px 0;">Discount </td>
+                    <td align="center" width="34%" class="family-nunito font-medium font-14 font-color" style="padding: 5px 0;">- {{../paymentInfo.currency}} {{pricing.totalDiscountTaxIncl}}</td>
+                    <td align="right" width="33%" class="family-tajawal font-bold font-14 font-color" style="padding: 5px 0;">مجموع الخصومات</td>
+                  </tr>
+
+                  <tr>
+                    <td align="left" width="33%" class="family-nunito font-bold font-14 font-color" style="padding: 5px 0;">Shipping Fee</td>
+                    <td align="center" width="34%" class="family-nunito font-medium font-14 font-color" style="padding: 5px 0;">{{../paymentInfo.currency}} {{pricing.totalShippingTaxIncl}}</td>
+                    <td align="right" width="33%" class="family-tajawal font-bold font-14 font-color" style="padding: 5px 0;direction:rtl;">
+                      <span>رسوم التوصيل</span>
+                    </td>
+                  </tr>
+                 
+                  <tr>
+                    <td align="left" width="33%" class="family-nunito font-bold font-14 font-color border-bottom-1px" style="padding: 5px 0;">Cash On Delivery Fee</td>
+                    <td align="center" width="34%" class="family-nunito font-medium font-14 font-color border-bottom-1px" style="padding: 5px 0;">{{../paymentInfo.currency}} {{pricing.codFee}}</td>
+                    <td align="right" width="33%" class="family-tajawal font-bold font-14 font-color border-bottom-1px" style="padding: 5px 0;direction:rtl;">
+                      <span>رسوم الدفع عند الاستلام</span>
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td align="left" width="33%" class="family-nunito font-bold font-14 font-color" style="padding: 5px 0;">Total Payable</td>
+                    <td align="center" width="34%" class="family-nunito font-bold font-14 font-color" style="padding: 5px 0;">{{../paymentInfo.currency}} {{pricing.totalPaidTaxIncl}}</td>
+                    <td align="right" width="33%" class="family-tajawal font-bold font-14 font-color" style="padding: 5px 0;direction:rtl;"><span>إجمالي المبلغ المستحق <span class="font-regular font-12"> (شامل الضريبة) </span></span>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" style="height: 60px;"></td>
+          </tr>
+          <!-- for old invoices this check is added-->
+          <tr>
+            <td colspan="2">
+              <table style="width: 100%;border-collapse: collapse;">
+                <tbody>
+                  <tr>
+                    <td align="left" width="47%" class="family-nunito font-medium font-14 font-color" style="padding: 5px 0;">
+                      {{#if page.qrCode}}
+                        <img width="100" height="100" style="border:1px solid #000;" src="{{page.qrCode}}">
+                      {{/if}}
+                    </td>
+                    <td align="right" width="53%">
+                      <table style="width:100%;">
+                        <tbody>
+                          {{#if ../etaDays}}
+                            <tr>
+                              <td align="right" width="50" class="font-14 font-regular font-color family-tajawal" style="padding: 6px 0;"> تاريخ الشحن: {{../etaDays}} أيام عمل. لمزيد من المعلومات, تفضل بزيارة سجل الطلبات في حسابك على</td>
+                            </tr>
+                          {{/if}}  
+                          <tr>
+                            <td align="right" width="50" class="font-14 font-regular font-color family-tajawal" style="padding: 5px 0;"><a href="">https://www.cofeapp.com</a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <htmlpagefooter name="page-footer">
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td colspan="2">
+              <table style="width:100%;">
+                <tbody>
+                  <tr>
+                    <td align="right" class="family-tajawal font-medium font-10 font-color">لمزيد من المعلومات حول الطلب، المنتجات، والضمان، يرجى الاطلاع على ملخص الطلب</td>
+                  </tr>
+                  <tr>
+                    <td align="right" class="family-nunito font-medium font-10 font-color">For more information about the order, items and warranty, please see the <span class="font-bold">Order Summary</span> </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </htmlpagefooter>
+
+    </div>
+
+{{/each}}
+
+  </body>
+</html>

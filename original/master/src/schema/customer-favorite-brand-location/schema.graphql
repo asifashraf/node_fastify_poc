@@ -1,0 +1,28 @@
+# A comment
+type CustomerFavoriteBrandLocation {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Date and time the comment was created
+  """
+  created: Datetime!
+  """
+  Customer id of the user
+  """
+  customerId: ID!
+  """
+  Branch id of the favorite branch
+  """
+  brandLocationId: ID!
+  """
+  Brand of the favorite branch
+  """
+  brand: Brand
+  """
+  Brand Location info of the favorite branch
+  """
+  brandLocation: BrandLocation
+  
+}

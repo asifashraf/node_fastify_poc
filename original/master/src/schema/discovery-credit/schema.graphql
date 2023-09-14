@@ -1,0 +1,19 @@
+type DiscoveryCredit {
+  id: ID!
+  country: Country!
+  currency: Currency!
+  amount: CurrencyValue!
+  amountPerOrder: CurrencyValue!
+  noOfOrdersPerBrand: Int!
+  minOrderAmount: CurrencyValue!
+  expiresOn: Date!
+  """
+  a flag to display the popup or bar on mobile.
+  logic we will write in resolver to figure out for info bar occourances
+  """
+  showInfoBar: WalletInfoBarOptions! @deprecated
+  """
+  how many count discovery credits are usable on brands
+  """
+  usableOnBrandCount: Int
+}

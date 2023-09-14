@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`customer can be Updated 1`] = `
+Object {
+  "data": Object {
+    "customerUpdate": Object {
+      "customer": Object {
+        "firstName": "Linus",
+        "id": "75a6e8d6-4a83-47e3-88ae-77862f3ccbfc",
+      },
+      "error": null,
+    },
+  },
+}
+`;
+
+exports[`customer can be retrieved by auth 1`] = `
+Object {
+  "data": Object {
+    "customerByAuth": Object {
+      "firstName": "Frodo",
+      "id": "a788e584-866d-4eb0-9b05-d3459e05a86c",
+      "lastName": "Baggins",
+      "totalKdSpent": "14.140",
+      "totalOrders": 14,
+    },
+  },
+}
+`;
+
+exports[`customer can resolve its credit balance 1`] = `
+Object {
+  "data": Object {
+    "customerByAuth": Object {
+      "creditBalance": "10060.000",
+      "firstName": "Frodo",
+      "id": "a788e584-866d-4eb0-9b05-d3459e05a86c",
+      "lastName": "Baggins",
+      "totalKdSpent": "14.140",
+      "totalOrders": 14,
+    },
+  },
+}
+`;
+
+exports[`customer update validations  1`] = `
+Object {
+  "data": Object {
+    "customerUpdate": Object {
+      "customer": null,
+      "error": "INVALID_CUSTOMER",
+    },
+  },
+}
+`;
+
+exports[`customers can be retrieved by search term 1`] = `
+Object {
+  "data": Object {
+    "customers": Array [
+      Object {
+        "firstName": "Frodo",
+        "id": "a788e584-866d-4eb0-9b05-d3459e05a86c",
+        "lastName": "Baggins",
+        "loyaltyTier": "GREEN",
+      },
+    ],
+  },
+}
+`;
+
+exports[`customers can be retrieved with paging and by Loyalty Tier 1`] = `
+Object {
+  "data": Object {
+    "customers": Array [
+      Object {
+        "firstName": "Caesar",
+        "id": "75a6e8d6-4a83-47e3-88ae-77862f3ccbfc",
+        "lastName": "Feest",
+        "loyaltyTier": "GREEN",
+        "totalKdSpent": "14.140",
+        "totalOrders": 14,
+      },
+      Object {
+        "firstName": "Arvid",
+        "id": "1ea196af-783b-4452-acd6-10c9fab447c3",
+        "lastName": "Sipes",
+        "loyaltyTier": "GREEN",
+        "totalKdSpent": "14.140",
+        "totalOrders": 14,
+      },
+      Object {
+        "firstName": "Edwardo",
+        "id": "0ae3e447-8099-492f-a4b3-086fb7680c80",
+        "lastName": "Carter",
+        "loyaltyTier": "GREEN",
+        "totalKdSpent": "14.140",
+        "totalOrders": 14,
+      },
+    ],
+  },
+}
+`;

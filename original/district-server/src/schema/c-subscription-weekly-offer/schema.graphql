@@ -1,0 +1,47 @@
+type CSubscriptionWeeklyOffer {
+  id: ID!
+  brandId: ID!
+  imageUrl: LocalizedString @toCDN
+  countryId: ID!
+  created: Datetime
+  updated: Datetime
+  sortOrder: Int!
+}
+
+enum CSubscriptionWeeklyOfferSaveError {
+  INVALID_BRAND
+  INVALID_COUNTRY
+  UNAUTHORIZED_PROCESS
+  SORT_ORDER_ALREADY_EXIST
+}
+
+input CSubscriptionWeeklyOfferInput {
+  id: ID
+  brandId: ID!
+  imageUrl: LocalizedStringInput!
+  sortOrder: Int!
+}
+
+type SaveCSubscriptionWeeklyOfferPayload {
+  errors: [CSubscriptionWeeklyOfferSaveError]
+  subscriptionWeeklyOffer: CSubscriptionWeeklyOffer
+}
+
+input CSubscriptionWeeklyOfferFilters {
+  id: ID
+  brandId: ID
+  countryId: ID
+}
+
+extend type Mutation {
+  saveCSubscriptionWeeklyOffer(
+    subscriptionWeeklyOffer: CSubscriptionWeeklyOfferInput!
+  ): SaveCSubscriptionWeeklyOfferPayload @requireAuth
+}
+
+extend type Query {
+  getCSubscriptionWeeklyOffersByFilters(
+    filters: CSubscriptionWeeklyOfferFilters
+    paging: PagingInput
+  ): [CSubscriptionWeeklyOffer!]
+}

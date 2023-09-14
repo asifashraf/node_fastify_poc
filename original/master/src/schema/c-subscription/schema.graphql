@@ -1,0 +1,151 @@
+extend type Mutation {
+  saveCSubscription(
+    subscription: CSubscriptionInput!
+  ): SaveCSubscriptionPayload @requireAuth
+}
+
+extend type Query {
+  getCSubscriptionsByFilters(
+    filters: CSubscriptionFilters
+    paging: PagingInput
+  ): [CSubscription!]
+  getCSubscriptionTypes: [CSubscriptionTypeInfo!]!
+  getCSubscriptionBrands(
+    countryId: ID!
+    location: GISLocationInput!
+    searchText: String
+    searchTextLanguage: AvailableLanguage
+    paging: RefreshPagingInput
+  ): CSubscriptionBrandListPayload
+  getAvailableSortOrders(
+    brandId: ID!
+    ): AvailableSortOrdersPayload
+}
+
+type AvailableSortOrdersPayload{
+  availableActiveSortOrders: [Int]
+  availableInactiveSortOrders: [Int]
+  availableDeletedSortOrders: [Int]
+  isActiveSubscribable: Boolean
+  isInactiveSubscribable: Boolean
+  isDeletedSubscribable: Boolean
+}
+
+enum CSubscriptionStatus {
+  ACTIVE
+  INACTIVE
+  DELETED
+}
+
+enum CSubscriptionType {
+  CUP
+  BUNDLE
+}
+
+type CSubscription {
+  id: ID!
+  name: LocalizedString!
+  description: LocalizedString
+  imageUrl: LocalizedString
+  compareAtPrice: CurrencyValue
+  price: CurrencyValue
+  totalCupsCount: Int
+  perDayCupsCount: Int
+  perOrderMaxCupsCount: Int
+  """
+  period in days
+  """
+  period: Int
+  currencyId: ID!
+  countryId: ID!
+  brandId: ID
+  status: CSubscriptionStatus
+  created: Datetime
+  updated: Datetime
+  periodInMinutes: Int
+  savedLabel: LocalizedString
+  vat: Int
+  brand: Brand
+  commonContents(slugs: [String!]): [CommonContentAndCategory!]
+  iconUrl: LocalizedString
+  shortDescription: LocalizedString
+  sortOrder: Int
+  mostPopular: Boolean!
+  mostPopularDescription: LocalizedString
+  activePlan: Boolean!
+  activePlanDescription: LocalizedString
+  remainingCups: Int
+  subscriptionType: CSubscriptionTypeInfo!
+  badges: [Badge]
+  isRedeemed: Boolean
+  autoRenewalStatus: CSubscriptionCustomerAutoRenewalStatus
+}
+
+type CSubscriptionTypeInfo {
+  name: CSubscriptionType!
+  iconPath: URL!
+}
+
+enum CSubscriptionSaveError {
+  INVALID_PRICE
+  INVALID_COMPARE_AT_PRICE
+  INVALID_TOTAL_CUPS_COUNT
+  INVALID_PER_DAY_CUPS_COUNT
+  INVALID_PER_ORDER_MAX_CUPS_COUNT
+  INVALID_PERIOD
+  INVALID_CURRENCY
+  INVALID_COUNTRY
+  INVALID_BRAND
+  DUPLICATE_NAME
+  MAX_BRAND_SUBSCRIPTION
+  INVALID_SUBSCRIPTION_ID
+  SUBSCRIPTION_BRAND_CAN_NOT_UPDATED
+  INVALID_SORT_ORDER
+  MOST_POPULAR_ALREADY_EXIST
+  UNAUTHORIZED_PROCESS
+}
+
+input CSubscriptionInput {
+  id: ID
+  name: LocalizedStringInput!
+  description: LocalizedStringInput!
+  imageUrl: LocalizedStringInput
+  compareAtPrice: CurrencyValue!
+  price: CurrencyValue!
+  totalCupsCount: Int!
+  perDayCupsCount: Int!
+  perOrderMaxCupsCount: Int!
+  period: Int!
+  brandId: ID!
+  status: CSubscriptionStatus!
+  iconUrl: LocalizedStringInput
+  mostPopular: Boolean
+  subscriptionType: CSubscriptionType!
+  shortDescription: LocalizedStringInput!
+  sortOrder: Int!
+}
+
+type SaveCSubscriptionPayload {
+  errors: [CSubscriptionSaveError]
+  subscription: CSubscription
+}
+
+input CSubscriptionFilters {
+  countryId: ID!
+  currencyId: ID
+  status: CSubscriptionStatus
+  id: ID
+  brandId: ID
+  subscriptionType: CSubscriptionType
+}
+
+type CSubscriptionBrandListPayload {
+  brandList: [CSubscriptionBrandList]
+  paging: RefreshPaging
+}
+
+type CSubscriptionBrandList {
+  brand: Brand
+  activePlanCount: Int
+  nearestBranchDistance: Float
+}

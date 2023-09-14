@@ -1,0 +1,33 @@
+"""
+Card (Debit-Credit...etc) Information for Voucher Locking
+"""
+type BankCard {
+  id: ID!
+  """
+  BIN Identifier
+  """
+  identifier: String!
+  """
+  Name of the card
+  """
+  name: String!
+  """
+  Status of the card for voucher operations (if disabled don't allow voucher validation)
+  """
+  status: BankCardStatus!
+  """
+  Bank which issued the card
+  """
+  bank : Bank!
+
+  # Created date
+  created: Datetime!
+  # last update time
+  updated: Datetime!
+}
+
+enum BankCardStatus {
+  ACTIVE
+  DISABLED
+}
+

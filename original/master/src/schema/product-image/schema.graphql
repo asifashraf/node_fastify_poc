@@ -1,0 +1,13 @@
+"""
+A product image
+"""
+type ProductImage {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Image Url
+  """
+  url: String!
+}

@@ -1,0 +1,771 @@
+"""
+This accounts for multiple scheduled orders
+"""
+type OrderSet {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  A user-facing code that can be used to look up an order set. It is not guaranteed to be unique among all order sets, however collisions are very unlikely. Example code: `A6FDC9`
+  """
+  shortCode: String!
+  """
+  When this order was successfully completed (payment received)
+  """
+  createdAt: Datetime!
+  """
+  Whether the order has been awknowledge by an order queue user
+  """
+  acknowledged: Boolean!
+  """
+  Which customer placed this order
+  """
+  customer: Customer!
+  """
+  Which location this order was made for
+  """
+  brandLocation: BrandLocation!
+  """
+  The information used for
+  """
+  payment: PaymentInfo
+  """
+  An order-wide note, intended for the brand location. Max length is 4,096 bytes.
+  """
+  note: String
+  """
+  The subtotal of all items within the order
+  """
+  subtotal: CurrencyValue!
+  """
+  The total price of the order
+  """
+  total: CurrencyValue!
+  """
+  The due amount of an order
+  """
+  amountDue: CurrencyValue
+  """
+  All of the items within the order
+  """
+  items: [OrderItem!]!
+  """
+  A list of comments added by users
+  """
+  internalComments: [InternalComment!]
+  """
+  The fee that were charged to this order
+  """
+  fee: CurrencyValue!
+  """
+  The coupon discounts applied
+  """
+  coupon: Coupon
+  """
+  The coupon discounts applied
+  """
+  couponAmount: CurrencyValue
+  """
+  The reward discounts applied
+  """
+  rewardAmount: CurrencyValue
+  """
+  The current/latest order set Status
+  """
+  currentStatus: OrderSetStatusName
+  """
+  Status History
+  """
+  statusHistory: [OrderSetStatus!]
+  """
+  Whether or not the customer loyalty credits were used for this transaction
+  """
+  creditsUsed: Boolean!
+  """
+  Indicates that the order has not been paid for yet, and the merchant must accept cash
+  """
+  cashOnDelivery: Boolean
+  """
+  Customer Support Comments for this Order Set
+  """
+  comments: [OrderSetComment!]
+  """
+  New Payment method
+  """
+  paymentMethod: PaymentMethod
+  """
+  used perks on this order
+  """
+  usedPerks: [CustomerUsedPerk!]
+  """
+  get order fulfillment details
+  """
+  fulfillment: OrderFulfillment
+  """
+  Clients need a way to differentiate between an Order in ACCEPTED status that is to be fulfilled today vs. those that are scheduled for days in the future.
+  """
+  isBeingFulfilled: Boolean!
+  """
+  If the order is refunded fully or not
+  """
+  refunded: Boolean
+  """
+  Refunded Reason, it can be null for previous order
+  """
+  refundReason: OrderSetRefundReason
+  """
+  The source from where the order from created.
+  """
+  src: OrderSetSource
+  """
+  customer reward info if on any tier
+  """
+  currentRewardProgramDetails: CustomerRewardProgramDetails
+  """
+  the currency used when order was placed
+  """
+  currency: Currency!
+  currencyId: ID
+  """
+  VAT aplied for this order set
+  """
+  vat: Float!
+  """
+  VAT value added to the total price
+  """
+  totalVat: CurrencyValue!
+  """
+  Platform from where the order was placed (e.g. iOS, Android)
+  This info is sent through X-App-OS header
+  """
+  srcPlatform: String
+  """
+  Platform version from where the order was placed
+  This info is sent through X-App-Version header
+  """
+  srcPlatformVersion: String
+  """
+  Coupon details used on this order set
+  """
+  usedCouponDetails: [UsedCouponDetail]
+  """
+  Compute invoice
+  """
+  computeInvoice: Invoice
+  """
+  pre_paid: if credits or gift card was used to make an order
+  """
+  prePaid: PrePaid
+  """
+  deliveryOrder: DeliveryOrder!
+  """
+  deliveryOrderStatus: DeliverOrderStatus
+  """
+  true if the coupon is applied and its cashback!
+  """
+  isCashbackCoupon: Boolean
+  """
+  If customer is new for brand customer is placing an order to
+  """
+  newCustomer: Boolean!
+  """
+  Information of the arriving time
+  """
+  arrivingTime: ArrivingTime
+  """
+  Pop-up status for dynamical arriving time (If false, popup should be displayed)
+  """
+  isPopupShown: Boolean
+  """
+  This field is for 'I have arrived' button activity in order detail
+  """
+  isArrivalEnabled: Boolean
+  """
+  If order rated return rating value
+  """
+  orderRating: OrderRatingInfo
+  """
+  Status of the order rating
+  """
+  ratingStatus: OrderRatingStatus
+  """
+  General payment information about the order including partial amounts
+  """
+  generalPaymentInformation: GeneralPaymentInformation
+  """
+  If fulfillment type is Express Delivery, driver info should be added
+  """
+  driverInfo: Driver
+  """
+  Status Image by current statuses
+  """
+  statusImageContent(filters: ImageContentInput): ImageContent
+  """
+  Order queue by fulfillment, brandLocation, day
+  """
+  queue: Int
+  """
+  Express Delivery Order ETA
+  """
+  expressOrderETA: Datetime
+}
+
+type PrePaid {
+  creditsUsed: CurrencyValue
+  giftCards: [PrePaidGiftCard]
+}
+
+type PrePaidGiftCard {
+  id: ID!
+  value: CurrencyValue!
+}
+
+type PaymentInfo {
+  """
+  The payment id received from the third party payment gateway. KNET refers to this as their PaymentID
+  It would only be null if payment initialization failed.
+  """
+  merchantId: String
+  """
+  An additional reference id received from KNET, intended for display in receipts
+  It would only be null if payment initialization failed.
+  """
+  referenceId: String
+  """
+  The most recent status of this order
+  """
+  currentStatus: PaymentStatus!
+  """
+  All of the statuses of this order, listed chronologically
+  """
+  statusHistory: [PaymentStatus!]!
+}
+
+type Invoice {
+  components: [InvoiceComponent]
+  """
+  will be used to show information if customers can use discovery credits
+  with higher order amount
+  """
+  isDiscoveryCreditsUsable: Boolean
+  isCouponUsable: Boolean
+  beans: Int
+  currency: Currency
+  isSubscriptionAvailable: Boolean
+  rewardDetails: [InvoiceRewardLineItem]
+  subscriptionDetails: [SubscriptionInvoiceDetail]
+  isStampRewardAvailable: Boolean
+  stampRewardValue: CurrencyValue
+  error: OrderCreateError
+  errors: [OrderCreateError]
+}
+
+type InvoiceRewardLineItem {
+  """
+  Item reference
+  """
+  itemId: ID!
+  """
+  quantity
+  """
+  quantity: Int!
+  """
+  List of item option references
+  """
+  selectedOptions: [InvoiceRewardLineItemOption!]
+  """
+  Item-specific notes
+  """
+  note: String
+  """
+  free drink/free food count
+  """
+  freeByReward: Int
+}
+
+type InvoiceRewardLineItemOption {
+  """
+  The identifier of the referenced MenuItemOption.
+  """
+  optionId: ID!
+  price: CurrencyValue
+}
+
+type SubscriptionInvoiceDetail {
+  id: ID!
+  name: LocalizedString!
+  value: CurrencyValue!
+  usedCupsCount: Int
+}
+
+type InvoiceComponent {
+  type: InvoiceComponentType!
+  value: CurrencyValue!
+}
+
+extend type Mutation {
+  """
+  Customer placing a new order
+  """
+  orderCreate(order: OrderInput!): OrderCreatePayload! @requireAuth
+
+  createOrder(order: OrderInput!): OrderCreatePayload! @requireAuth
+  """
+  customer skipping the rating
+  """
+  skipOrderRating(orderSetId: ID!): SkipOrderRatingPayload @requireAuth
+}
+
+type SkipOrderRatingPayload {
+  errors: [SkipOrderRatingError]
+}
+
+type OrderCreatePayload {
+  """
+  The payment url
+  """
+  paymentUrl: String
+  """
+  The order set just created
+  """
+  orderSet: OrderSet
+  """
+  The first validation error that occured
+  """
+  error: OrderCreateError
+  """
+  All validation errors
+  """
+  errors: [OrderCreateError!]
+}
+
+"""
+Possible errors when creating a regular order
+"""
+enum OrderCreateError {
+  """
+  Brand Location Provided is Invalid
+  """
+  INVALID_BRAND_LOCATION
+  """
+  An menu item id is invalid
+  """
+  INVALID_MENU_ITEM
+  """
+  A menu item option id is invalid
+  """
+  INVALID_MENU_ITEM_OPTION
+  INVALID_MENU_ITEM_OPTION_PRICE
+  """
+  Outside of the available requested fulfillment hours
+  """
+  OUTSIDE_AVAILABLE_HOURS
+  """
+  Quantity must be larger than 0
+  """
+  ZERO_QUANTITY_REQUESTED
+  """
+  Unable to initiate merchant transaction
+  """
+  MERCHANT_INITIALIZATION_ERROR
+  """
+  Invalid Customer (does not exist)
+  """
+  INVALID_CUSTOMER
+  """
+  Need to provide either tower or addressId
+  """
+  ADDRESS_REQUIRED
+  """
+  Invalid tower delivery info
+  """
+  INVALID_TOWER_DELIVERY
+  """
+  Wrong Customer Address (address does not belong to customer)
+  """
+  WRONG_CUSTOMER_ADDRESS
+  """
+  Invalid Customer Address (Does not exist)
+  """
+  INVALID_CUSTOMER_ADDRESS
+  """
+  Missing Vehicle Color (when deliverToVehicle = true)
+  """
+  MISSING_VEHICLE_COLOR
+  """
+  Missing Vehicle Description (when deliverToVehicle = true)
+  """
+  MISSING_VEHICLE_DESCRIPTION
+  """
+  Brand Location Not Accepting Orders
+  """
+  BRAND_LOCATION_NOT_ACCEPTING_ORDERS
+  """
+  Invalid or Expired Coupon used
+  """
+  INVALID_COUPON
+  """
+  Customer loyalty credit balance is insufficient for this order
+  """
+  INSUFFICIENT_CREDITS
+  """
+  The brand does not accept COD orders and the orderSet is marked as cashOnDelivery
+  """
+  BRAND_DOESNT_ACCEPT_CASH
+  """
+  try to use a perk that doesn't exist or is unavailable
+  """
+  INVALID_PERK
+  INVALID_GIFT_CARD
+  INSUFFICIENT_GIFT_CARD_CREDITS
+  INVALID_GIFT_CARD_CURRENCY
+  VEHICLE_REQUIRED
+  INVALID_CUSTOMER_VEHICLE
+  WRONG_CUSTOMER_VEHICLE
+  PAYMENT_METHOD_REQUIRED
+  INSUFFICIENT_DELIVERY_ORDER_VALUE
+  INSUFFICIENT_EXPRESS_DELIVERY_ORDER_VALUE
+  """
+  If order has already been created in 5 mins and user is trying to create again unaware
+  """
+  ORDER_ALREADY_PROCESSED
+  """
+  with siri, only certain payment schemes can be used
+  """
+  SIRI_NOT_SUPPORTED_THIS_PAYMENT_SCHEME
+  """
+  menu item stock error
+  """
+  MENU_ITEM_OUT_OF_STOCK
+  """
+  invalid fulfillment type error
+  """
+  INVALID_FULFILLMENT_TYPE
+  """
+  address out of delivery zone error
+  """
+  ADDRESS_OUT_OF_DELIVERY_ZONE
+  """
+  menu item option stock error
+  """
+  MENU_ITEM_OPTION_OUT_OF_STOCK
+  """
+  menu item not available error
+  """
+  MENU_ITEM_OPTION_NOT_AVAILABLE
+  """
+  missing primary menu item option
+  """
+  MISSING_PRIMARY_MENU_ITEM_OPTION
+  """
+  Dynamic arrival time does not support for the branch
+  """
+  I_AM_HERE_NOT_SUPPORTED
+  """
+  Selected arrival time is not in country config
+  """
+  INVALID_ARRIVAL_TIME
+  """
+  Invalid brand
+  """
+  INVALID_BRAND
+  """
+  menu item option duplicate in same item
+  """
+  MENU_ITEM_OPTION_DUBLICATE_IN_ITEM
+  """
+  only one option can selected
+  """
+  MULTIBLE_OPTION_CAN_NOT_SELECTED
+  """
+  invalid option for menu item
+  """
+  OPTION_CAN_NOT_FOUND_IN_ITEM
+}
+
+input OrderInput {
+  """
+  The items included with this order
+  """
+  items: [OrderItemInput!]!
+  """
+  The brand location being picked up from
+  """
+  brandLocationId: ID!
+  """
+  Order fulfillment
+  """
+  fulfillment: OrderFulfillmentInput!
+  """
+  Any order-level notes
+  """
+  note: String
+  """
+  Boolean optional value which overides the user profile settings value.
+  if the value in null the backend should use the default value from the user settings
+  """
+  useCredits: Boolean
+  """
+  Giftcard to be used towards the purchase of the order.
+  """
+  giftCardIds: [ID!]
+  """
+  The coupon ID to apply (Optional)
+  """
+  couponId: ID
+  """
+  payment method to be used for this order. it an optional field.
+  if the credits or voucher or giftcards or any combination of those can cover the full order amount i.e the amount due is 0.
+  the value send will be null
+  """
+  paymentMethod: PaymentMethodInput
+  """
+  use available benefits from reward program tier
+  """
+  usePerks: [PerkInput!]
+  """
+  unique basket id. it must be changed in every valid order
+  to recognize if the customer is trying the same order again with aware
+  """
+  basketId: ID
+  """
+  The source from where the order from created.
+  """
+  src: OrderSetSource
+  """
+  Dynamical Arriving Time Option (0 for I'm here)
+  """
+  selectedArrivalTime: Int
+}
+
+input OrderFulfillmentInput {
+  type: OrderFulfillmentType!
+  """
+  The id is an optional field and corresponds the OrderFulfillmentType selected
+  """
+  id: ID
+}
+
+enum OrderFulfillmentType {
+  """
+  Has no id in OrderFulfillmentInput
+  """
+  PICKUP
+  """
+  Has id in OrderFulfillmentInput
+  """
+  CAR
+  """
+  Has id in OrderFulfillmentInput
+  """
+  DELIVERY
+  """
+  merging airport, office, class, hospital
+  """
+  EXPRESS_DELIVERY
+}
+
+type DeliverOrderStatus {
+  id: ID!
+  status: String!
+  reference: String!
+  riderId: String
+  riderName: String
+  riderContactNo: String
+  riderCoordinates: RiderCoordinates
+  deliveryOrder: DeliveryOrder!
+  orderUrl: String
+  trackUrl: String
+}
+
+type DeliveryOrder {
+  """
+  Distance in KM
+  """
+  distance: Float
+  """
+  Estimated time to reach customer in mins
+  """
+  estimatedTime: Float
+  message: String
+  partnerOrderId: String
+  partnerReferenceId: String
+}
+
+type RiderCoordinates {
+  longitude: Float!
+  latitude: Float!
+}
+
+"""
+Orders Lite for the portal list
+"""
+type OrderSetLite {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  A user-facing code that can be used to look up an order set. It is not guaranteed to be unique among all order sets, however collisions are very unlikely. Example code: `A6FDC9`
+  """
+  shortCode: String!
+  """
+  When this order was successfully completed (payment received)
+  """
+  createdAt: Datetime!
+  """
+  which brand will accept this order
+  """
+  brandName: String!
+  """
+  which branch will accept this order
+  """
+  branchName: String!
+  """
+  The total price of the order
+  """
+  total: CurrencyValue!
+  """
+  The current/latest order set Status
+  """
+  currentStatus: OrderSetStatusName
+  """
+  get order fulfillment details
+  """
+  fulfillmentType: OrderFulfillmentType!
+  """
+  order fulfillment courierName
+  """
+  courierName: String
+  """
+  Customer first name
+  """
+  customerFirstName: String
+  """
+  Customer last name
+  """
+  customerLastName: String
+  """
+  Customer email
+  """
+  customerEmail: String
+  """
+  Customer phone
+  """
+  customerPhoneNumber: String
+  """
+  Information of the arriving time
+  """
+  arrivingTime: ArrivingTime
+  """
+  If order is rating, displayed rate value
+  """
+  rating: Int
+}
+
+type TotalItems {
+  totalItems: Int
+}
+
+type TrackedOrderSet {
+  """
+  Database identifier
+  """
+  id: ID!
+
+  """
+  get order fulfillment type
+  """
+  fulfillmentType: OrderFulfillmentType!
+  """
+  The current/latest order set Status
+  """
+  status: OrderSetStatusName
+  """
+  A user-facing code that can be used to look up an order set. It is not guaranteed to be unique among all order sets, however collisions are very unlikely. Example code: `A6FDC9`
+  """
+  shortCode: String!
+  """
+  If fulfillment type is Express Delivery, driver info should be added
+  """
+  driverInfo: Driver
+  """
+  Status Image by current statuses
+  """
+  statusImageContent(filters: ImageContentInput): ImageContent
+  """
+  Express Delivery Order ETA
+  """
+  expressOrderETA: Datetime
+}
+
+type OrderSetCard {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  A user-facing code that can be used to look up an order set. It is not guaranteed to be unique among all order sets, however collisions are very unlikely. Example code: `A6FDC9`
+  """
+  shortCode: String!
+  """
+  The current/latest order set Status
+  """
+  currentStatus: OrderSetStatusName
+  """
+  When this order was (successfully/failed) completed
+  """
+  createdAt: Datetime!
+  """
+  Brand Identifier
+  """
+  brandId: ID
+  """
+  Brand name
+  """
+  brandName: LocalizedString
+  """
+  Branch Identifier
+  """
+  branchId: ID
+  """
+  Branch name
+  """
+  branchName: LocalizedString
+  """
+  a favicon for the brand
+  """
+  favicon: String
+  """
+  is past order
+  """
+  isPast: Boolean
+  """
+  order rating details with questions
+  """
+  orderRatingWithQuestions: OrderRatingWithQuestions
+}
+
+enum DeliveryOrderError {
+  TECHNOCAL_ERROR
+}
+
+type OrderRatingInfo {
+  id: ID!
+  rating: Int!
+  comment: String
+  details: [QuestionDetail]
+}
+
+enum SkipOrderRatingError {
+  ORDER_NOT_FOUND
+  WRONG_RATING_STATUS
+}
+
+enum OrderSetRefundReason {
+  VENDOR_RELATED
+  CUSTOMER_RELATED
+  COFE_RELATED
+  DELIVERY_PARTNER
+}

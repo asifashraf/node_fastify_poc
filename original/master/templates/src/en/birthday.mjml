@@ -1,0 +1,129 @@
+<mjml>
+  <mj-head>
+    <mj-font name="Nunito" href="https://fonts.googleapis.com/css?family=Nunito:200,400,700" />
+    <mj-style inline="inline">
+      .cofe-link-nostyle {
+        color: inherit;
+        text-decoration: none
+      }
+
+      .cofe-link-style {
+        color: #0BBFB0;
+        text-decoration: none;
+        font-weight: 'bold';
+      }
+
+      .cofe-brand-name {
+        color: #0BBFB0;
+        font-weight: 'bold';
+      }
+
+      .item-name div {
+        color: #0BBFB0 !important;
+        font-weight: 700 !important;
+        font-size: 16px !important;
+        line-height: 22px !important;
+      }
+
+      .h1-bold div {
+        color: #ff0000;
+        font-size: 20px !important;
+        font-weight: 700;
+        line-height: 32px !important;
+      }
+
+      .h1 div {
+        color: #ff0000;
+        font-size: 18px !important;
+        font-weight: 200;
+        line-height: 26px !important;
+      }
+
+      .h2-bold div {
+        color: #ff0000;
+        font-size: 18px !important;
+        font-weight: bold;
+        line-height: 26px !important;
+      }
+    </mj-style>
+    <mj-style>
+      .p-bold div {
+        font-weight: bold;
+      }
+
+      .p div {
+        font-size: 12px !important;
+        line-height: 18px !important;
+      }
+
+      .p-light div {
+        font-size: 12px !important;
+        font-weight: 200;
+        line-height: 18px !important;
+      }
+
+      .disclaimer div {
+        font-size: 12px !important;
+        font-weight: 200;
+        line-height: 18px !important;
+      }
+    </mj-style>
+    <mj-attributes>
+      <mj-text padding="5px 25px" line-height="24px" />
+      <mj-group width="100%" />
+      <mj-all font-family="Nunito" color="#594A42" align="left" direction="ltr" />
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#ffffff">
+    <mj-wrapper padding="10px" background-url="https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/rewards/cofe-rewards-bg.svg" background-repeat="no-repeat" background-color="white">
+      <mj-raw>
+        <!-- Header -->
+      </mj-raw>
+      <mj-section padding="10px">
+        <mj-column>
+          <mj-image padding="20px 0px" width="0" src="https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/rewards/cofe-rewards-logo.svg"></mj-image>
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        <!-- Rewards -->
+      </mj-raw>
+      <mj-section padding="10px">
+        <mj-column>
+          <mj-image padding="20px 0px" src="https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/rewards/cofe-reward-birthday.svg"></mj-image>
+          <mj-text align="center" padding='0' css-class="h1-bold">Happy Birthday ${customerName}!</mj-text>
+          <mj-text align="center" padding='0' css-class="p"><b class="cofe-brand-name">${locationName}</b> wishes you a happy birthday.</mj-text>
+          <mj-text align="center" padding='0' css-class="p"><b class="cofe-brand-name">${beans}</b> has been added to your account.</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section padding="10px">
+        <mj-group width="50%">
+          <mj-column>
+            <mj-image padding="20px 0px" src="https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/rewards/cofe-reward-birthday.svg"></mj-image>
+          </mj-column>
+          <mj-column>
+            <mj-image padding="20px 0px" src="https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/rewards/cofe-reward-bean.svg"></mj-image>
+            <mj-text align="center" padding='0' css-class="p"><b class="cofe-brand-name">+${beans}</b></mj-text>
+            <mj-text align="center" padding='0' css-class="p">Reward Beans</mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+      <mj-section padding="10px">
+        <mj-column width="60%">
+          <mj-text align="center" padding='0' css-class="p">You are recieving this email because you are registered in the <b>COFE Reward Program</b> with <b>${locationName}</b>.</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        <!-- Divider -->
+      </mj-raw>
+      <mj-section background-color="#F3F0EB" padding="0">
+        <mj-column width="100%">
+          <mj-divider border-width="1px" border-style="solid" border-color="#E7E1D6" padding="0px 15px"></mj-divider>
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        <!-- Social Links -->
+      </mj-raw>
+      <mj-include path="./footer.mjml" />
+    </mj-wrapper>
+  </mj-body>
+</mjml>

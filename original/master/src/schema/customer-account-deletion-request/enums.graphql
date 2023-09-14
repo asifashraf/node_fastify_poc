@@ -1,0 +1,5 @@
+enum CustomerAccountDeletionRequestError {
+  INVALID_REASON
+  INVALID_CUSTOMER
+  FAILED_OTP_CHALLENGE
+}

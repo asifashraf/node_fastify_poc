@@ -1,0 +1,3 @@
+extend type Mutation {
+  toggleAllBranches( toggleInput : BranchToggleInput ) : BranchTogglePayload @requireAuth @requirePermissions(permissions: ["branchesstatus:update"])
+}

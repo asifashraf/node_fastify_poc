@@ -1,0 +1,8 @@
+type IconButtonItemSetting{
+    id: ID
+    itemId: ID
+    countryId: ID
+    sortOrder: Int
+    created: Datetime
+    updated: Datetime
+}

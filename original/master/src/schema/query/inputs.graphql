@@ -1,0 +1,380 @@
+directive @requireAuth on FIELD_DEFINITION
+directive @requirePermissions(permissions: [String]!) on FIELD_DEFINITION
+directive @requireRoles(roles: [String]!) on FIELD_DEFINITION
+directive @cacheControl(
+  maxAge: Int
+  scope: CacheControlScope
+) on FIELD_DEFINITION | OBJECT | INTERFACE
+
+enum CacheControlScope {
+  PUBLIC
+  PRIVATE
+}
+
+input BrandFilters {
+  status: BrandStatus
+  searchText: String
+}
+
+input CategoryFilters {
+  status: StatusType
+  searchText: String
+}
+
+input ProductFilters {
+  status: StatusType
+  searchText: String
+  brandIds: [ID!]
+  categoryIds: [ID!]
+  countryCode: String
+}
+
+input PickupLocationFilters {
+  brandIds: [ID!]
+  countryId: ID
+  neighborhoodId: ID
+  cityId: ID
+  searchText: String
+  status: PickupLocationStatus
+}
+
+input ShippingPolicyFilters {
+  countryId: ID
+  status: ShippingPolicyStatus
+}
+
+input StoreHeaderFilters {
+  countryId: ID
+}
+
+input RewardFilters {
+  status: String
+  searchText: String
+}
+
+input AdminFilters {
+  status: String
+  searchText: String
+}
+
+input BrandLocationFilters {
+  status: String
+  searchText: String
+  brandId: ID
+  fulfillmentType: OrderFulfillmentType
+  distinctByBrand: Boolean
+  tagId: ID
+  brandIds: [ID!]
+  tagIds: [ID!]
+  fulfillmentTypes: [OrderFulfillmentType!]
+}
+
+input BrandLocationPayloadFilters {
+  filterSetId: ID
+  searchText: String
+}
+
+input CountryFilters {
+  status: String
+  searchText: String
+}
+
+input CityFilters {
+  status: String
+  searchText: String
+}
+
+input NeighborhoodFilters {
+  status: String
+  searchText: String
+}
+
+input CouponFilters {
+  status: String
+}
+
+input CurrencyFilters {
+  status: String
+  searchText: String
+}
+
+input LoyaltyOrdersFilters {
+  sku: String
+  dateRange: DateRange
+  countryId: ID
+}
+
+input CustomerFilters {
+  rewardId: ID
+  rewardTierId: ID
+}
+
+input ReferralFilters {
+  status: String
+  searchText: String
+}
+
+input ComputeInvoiceInput {
+  """
+  Optional customerId for the front-end (web), for mobile we will be retreiving from context (token)
+  """
+  customerId: ID
+  """
+  The list of items to be calculated
+  """
+  items: [InvoiceLineItem!]!
+  """
+  Available perks which are used
+  """
+  usePerks: [InvoiceUsedRewardPerk]
+  """
+  Voucher Used
+  """
+  couponId: ID
+  """
+  brandLocationId
+  """
+  brandLocationId: ID!
+  """
+  fulfillment
+  """
+  fulfillment: OrderFulfillmentInput!
+  """
+  If set to be true we will incorprate this in due amount
+  it would be the amount due on customer. If customer is using cofe credits,
+  we will incorporate credits in due amount and tell customer how much is due on him.
+  if not using credits total amount will be due.
+  """
+  useCredits: Boolean
+  """
+  Gift card IDs,
+  its array, later it will support multiple gift card ids
+  """
+  giftCardIds: [ID]
+  """
+  unique basket id. it must be changed in every valid order
+  to recognize if the customer is trying the same order again with aware
+  """
+  basketId: ID
+}
+
+input InvoiceLineItem {
+  """
+  Item reference
+  """
+  itemId: ID!
+  """
+  quantity
+  """
+  quantity: Int!
+  """
+  List of item option references
+  """
+  selectedOptions: [InvoiceLineItemOption!]
+  """
+  Item-specific notes
+  """
+  note: String
+}
+
+input ComputeStoreOrderSetInvoiceInput {
+  """
+  Optional customerId for the front-end (web), for mobile we will be retreiving from context (token)
+  """
+  customerId: ID
+  """
+  The list of items to be calculated
+  """
+  items: [StoreOrderSetInvoiceLineItem]!
+  customerAddressId: ID!
+  """
+  If set to be true we will incorprate this in due amount
+  it would be the amount due on customer. If customer is using cofe credits,
+  we will incorporate credits in due amount and tell customer how much is due on him.
+  if not using credits total amount will be due.
+  """
+  useCredits: Boolean
+}
+
+input StoreOrderSetInvoiceLineItem {
+  """
+  Product id
+  """
+  id: ID!
+  """
+  quantity
+  """
+  quantity: Int!
+}
+
+input InvoiceLineItemOption {
+  """
+  The identifier of the referenced MenuItemOption.
+  """
+  optionId: ID!
+  price: CurrencyValue
+}
+
+input InvoiceUsedRewardPerk {
+  type: RewardTierPerkType!
+  quantity: Float!
+}
+
+input GiftCardCollectionsFilters {
+  status: GiftCardCollectionStatus
+  searchText: String
+  countryId: ID
+}
+
+input GiftCardTemplatesFilters {
+  status: GiftCardTemplateStatus
+  searchText: String
+  collectionId: ID
+  brandId: ID
+  countryId: ID
+  currencyId: ID
+}
+
+input GiftCardOrdersFilters {
+  searchText: String
+  collectionId: ID
+  brandId: ID
+  countryId: ID
+  currencyId: ID
+}
+
+input GiftCardsFilters {
+  status: GiftCardStatus
+  searchText: String
+  countryId: ID
+}
+
+input SignupPromoFilters {
+  status: String
+  searchText: String
+}
+
+input StoreOrderSetsFilters {
+  searchText: String
+  customerId: ID
+  brandId: ID
+  countryId: ID
+  currencyId: ID
+  """
+  Optional ability to filter by date range
+  """
+  dateRange: DateRange
+  paid: Boolean
+  statuses: [StoreOrderSetStatusName!]
+}
+
+input StoreOrdersFilters {
+  searchText: String
+  brandId: ID
+  """
+  Optional ability to filter by date range
+  """
+  dateRange: DateRange
+  statuses: [StoreOrderStatusName!]
+}
+
+"""
+Coordinates input
+"""
+input Coordinates {
+  """
+  The longitude component of the geo coordinates for this address, in degrees
+  """
+  longitude: Float!
+  """
+  The longitude component of the geo coordinates for this address, in degrees
+  """
+  latitude: Float!
+}
+
+"""
+Input type for fetching Monthly Reports
+"""
+input MonthlyOrdersReportsInput {
+  """
+  Ex/ 2020
+  """
+  year: Int!
+  """
+  Ex/ 1 -> January, 2->February etc...
+  """
+  month: Int!
+}
+
+"""
+Input type for fetching Daily Care Team Reports
+"""
+input CareTeamReportsInput {
+  """
+  Country Id for targeted country
+  """
+  countryId: ID!
+  """
+  Ex/ 2020
+  """
+  year: Int!
+  """
+  Ex/ 1 -> January, 2->February etc...
+  """
+  month: Int!
+}
+
+input CustomerGroupFilters {
+  searchText: String
+}
+
+"""
+Input type for fetching Daily Financial Reports
+"""
+input DailyOrdersReportsInput {
+  """
+  Country Id for targeted country
+  """
+  countryId: ID!
+  """
+  Ex/ 2020
+  """
+  year: Int!
+  """
+  Ex/ 1 -> January, 2->February etc...
+  """
+  month: Int!
+}
+
+"""
+Input type for fetching Weekly Reports
+"""
+input WeeklyOrdersReportsInput {
+  """
+  Ex/ 2020
+  """
+  year: Int!
+  """
+  Ex/ 1 -> January, 2->February etc...
+  """
+  month: Int!
+}
+
+input TransactionHistoryFilters {
+  currencyId: ID!
+  type: TransactionsHistoryType!
+}
+
+input OrderRatingFilters {
+  minRating: Int
+  maxRating: Int
+}
+
+input OrderRatingQuestionFiltersInput {
+  pickup: Boolean
+  car_window: Boolean
+  delivery: Boolean
+  express_delivery: Boolean
+  question_type: OrderRatingQuestionType
+  status: OrderRatingQuestionStatus
+}

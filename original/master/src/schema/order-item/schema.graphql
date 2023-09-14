@@ -1,0 +1,84 @@
+"""
+A single product within an order. OrderItem mirrors MenuItem and is used for archival purposes to record the particular values of a given MenuItem at the time it was used in a customer's order, since the values of the referenced MenuItem being referenced may change in the future.
+"""
+type OrderItem {
+  """
+  Database identifier. This is unique per record, not equivalent to the corresponding MenuItem's id.
+  """
+  id: ID!
+  """
+  The particular order this item belongs to.
+  """
+  orderSet: OrderSet!
+  """
+  The name/label of the MenuItem at the time the associated order was created.
+  """
+  name: LocalizedString!
+  """
+  How many of this item
+  """
+  quantity: Int!
+  """
+  Which menu item was ordered
+  """
+  menuItemId: ID!
+  """
+  the actual linked menu item
+  """
+  menuItem: MenuItem
+  """
+  The specific options that were selected for this product. Please note that the purchase price of an order item is a composite of the prices of all the OrderItemOptions selected by the customer at the time of purchase. For this reason, the `selectedOptions` array must contain at least one option, to serve as the base price for the item.
+  """
+  selectedOptions: [OrderItemOption]!
+  """
+  Any note about this specific item within an order. Max length is 4,096 bytes.
+  """
+  note: String
+  """
+  If the order item is refunded or not
+  """
+  refunded: Boolean
+  """
+  Number of refunded items
+  """
+  refundedQuantity: Int
+  """
+  Free quantity from the reward
+  """
+  freeQuantity: Int
+  """
+  Coupon discount per quantity
+  """
+  couponPerQuantity: CurrencyValue
+  """
+  The perk multiplier for discount
+  """
+  perkDiscountMultiplier: CurrencyValue
+  """
+  A url to a photo of this item
+  """
+  photo: String
+  subscriptionQuantity: Int
+}
+
+"""
+An item included within an order being created
+"""
+input OrderItemInput {
+  """
+  Item reference
+  """
+  itemId: ID!
+  """
+  List of item option references
+  """
+  selectedOptions: [OrderItemOptionInput!]
+  """
+  Desired quanty of this item
+  """
+  quantity: Int!
+  """
+  Item-specific notes
+  """
+  note: String
+}

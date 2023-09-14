@@ -1,0 +1,12 @@
+"""
+An inventory for products or product options
+"""
+type Inventory {
+  """
+  Database identifier
+  """
+  id: ID!
+  quantity: Int!
+  product: Product!
+  pickupLocation: PickupLocation!
+}

@@ -1,0 +1,15 @@
+type AdminBranchSubscriptionPayload {
+  subscriptionId: ID
+  error: AdminSubscriptionError
+  errors: [AdminSubscriptionError]
+}
+
+type AdminBranchUnsubscriptionPayload {
+  status: Boolean
+  error: AdminSubscriptionError
+  errors: [AdminSubscriptionError]
+}
+
+enum AdminSubscriptionError {
+  INVALID_BRANCH
+}

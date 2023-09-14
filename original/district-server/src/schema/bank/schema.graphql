@@ -1,0 +1,40 @@
+"""
+Bank Information for Voucher Locking
+"""
+type Bank {
+  id: ID!
+  """
+  If bank has a unique bin identifier, if not it is just a wrapper for bank cards
+  """
+  hasUniqueIdentifier: Boolean!
+  """
+  BIN Identifier for a bank
+  """
+  identifier: String
+  """
+  Name of the bank
+  """
+  name: String!
+  """
+  Status of the bank for voucher operations (if disabled don't allow voucher validation)
+  """
+  status: BankStatus!
+  """
+  Country in which the bank operates in
+  """
+  country : Country!
+  """
+  Cards issued by this bank
+  """
+  bankCards : [BankCard!]!
+  # Created date
+  created: Datetime!
+  # last update time
+  updated: Datetime!
+}
+
+enum BankStatus {
+  ACTIVE
+  DISABLED
+}
+

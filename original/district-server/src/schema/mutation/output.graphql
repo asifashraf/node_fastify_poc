@@ -1,0 +1,2433 @@
+type BrandSavePayload {
+  """
+  The branch which was saved
+  """
+  brand: Brand
+  """
+  The first validation error that occured
+  """
+  error: BrandSaveError
+  """
+  All validation errors
+  """
+  errors: [BrandSaveError!]
+  """
+  Authentication provider user password
+  """
+  authProviderPassword: String
+  """
+  Authentication Provider Error
+  """
+  authenticationError: String
+  """
+  Error Description
+  """
+  errorDescription: String
+  """
+  list of added admins
+  """
+  admins: [AdminPayload]
+}
+type AdminPayload {
+  email: String!
+  password: String!
+}
+
+enum BrandSaveError {
+  """
+  Brand must exist, if an id is specified
+  """
+  INVALID_BRAND
+  """
+  Name must be unique, if it is a new brand
+  """
+  DUPLICATE_NAME
+  """
+  Authorization error while creating BrandLocation User
+  """
+  AUTH_PROVIDER_ERROR
+  """
+  When already admins of other brand or branch
+  """
+  ADMIN_ALREADY_EXISTS
+  """
+  When brand is based on commision and commission not provided
+  """
+  COMMISSION_MISSING
+  BRANCH_ADMIN_CAN_NOT_BE_BRAND_ADMIN
+  INVALID_ADMIN
+}
+
+type CreateGroupAdminPayload {
+  """
+  The admin which was registered
+  """
+  admin: Admin
+  """
+  The first validation error that occured
+  """
+  error: AdminRegisterError
+  """
+  All validation errors
+  """
+  errors: [AdminRegisterError!]
+  """
+  Auth0 Error
+  """
+  authenticationError: String
+  """
+  error description
+  """
+  errorDescription: String
+  """
+  Authentication provider user password
+  """
+  authProviderPassword: String
+}
+
+type UpdateGroupAdminPayload {
+  """
+  The admin which was registered
+  """
+  admin: Admin
+  """
+  The first validation error that occured
+  """
+  error: AdminRegisterError
+  """
+  All validation errors
+  """
+  errors: [AdminRegisterError!]
+  """
+  Auth0 Error
+  """
+  authenticationError: String
+  """
+  error description
+  """
+  errorDescription: String
+}
+
+type RemoveGroupAdminPayload {
+  group: Group
+  """
+  The first validation error that occured
+  """
+  error: RemoveGroupAdminError
+  """
+  All validation errors
+  """
+  errors: [RemoveGroupAdminError!]
+}
+
+type CustomerRegisterPayloadLite {
+  """
+  Access token for authentication
+  """
+  authentication: LoginResponse
+  """
+  The first validation error that occured
+  """
+  error: CustomerRegisterLiteError
+  """
+  All validation errors
+  """
+  errors: [CustomerRegisterLiteError!]
+#  """
+#  The first validation error enum that occured
+#  """
+#  enumError: CustomerRegisterLiteError
+#  """
+#  The validation error enums that occured
+#  """
+#  enumErrors: [CustomerRegisterLiteError!]
+}
+
+enum CustomerRegisterError {
+  """
+  Auth0 Error
+  """
+  AUTH_PROVIDER_ERROR
+  """
+  Customer must exist
+  """
+  INVALID_CUSTOMER
+  """
+  Duplicate Customer's phone number
+  """
+  DUPLICATE_PHONE
+  """
+  Email must be unique
+  """
+  DUPLICATE_EMAIL
+  """
+  ID must be unique
+  """
+  DUPLICATE_ID
+  """
+  Required phone number
+  """
+  PHONE_REQUIRED
+  """
+  Required phone country
+  """
+  PHONE_COUNTRY_REQUIRED
+  """
+  Invalid country code
+  """
+  INVALID_COUNTRY_CODE
+  """
+  OTP Code Not Provided
+  """
+  OTP_CODE_NOT_PROVIDED
+  """
+  OTP Validation Failed
+  """
+  OTP_VALIDATION_FAILED
+  """
+  Invalid Email
+  """
+  INVALID_EMAIL
+  """
+  Email already exist
+  """
+  EMAIL_ALREADY_EXIST
+  """
+  Information about terms and conditions status of user
+  """
+  TERMS_AND_CONDITIONS_MUST_BE_ACCEPTED
+  """
+  Email already exist
+  """
+  PRIVACY_POLICY_MUST_BE_ACCEPTED
+  """
+  Unhandled error
+  """
+  SERVICE_ERROR
+}
+
+enum CustomerRegisterLiteError {
+  """
+  Customer must exist
+  """
+  INVALID_CUSTOMER
+  """
+  Duplicate Customer's phone number
+  """
+  DUPLICATE_PHONE
+  """
+  Email must be unique
+  """
+  DUPLICATE_EMAIL
+  """
+  ID must be unique
+  """
+  DUPLICATE_ID
+  """
+  OTP Validation Failed
+  """
+  OTP_VALIDATION_FAILED
+  """
+  OTP Code Not Provided
+  """
+  OTP_CODE_NOT_PROVIDED
+  """
+  Invalid Email
+  """
+  INVALID_EMAIL
+  """
+  Information about terms and conditions status of user
+  """
+  TERMS_AND_CONDITIONS_MUST_BE_ACCEPTED
+  """
+  Email already exist
+  """
+  PRIVACY_POLICY_MUST_BE_ACCEPTED
+  """
+  Unhandled error
+  """
+  SERVICE_ERROR
+}
+
+
+enum AdminRegisterError {
+  """
+  Auth0 Error
+  """
+  AUTH_PROVIDER_ERROR
+  """
+  Email must be unique
+  """
+  DUPLICATE_EMAIL
+  """
+  Admin already have CSE permissions  (order queue access)
+  """
+  ORDER_QUEUE_ADMIN
+  """
+  Already Admin
+  """
+  ALREADY_ADMIN
+  """
+  The account can not be assigned to CSE and any other group at the same time
+  """
+  GROUP_CONFLICT
+}
+
+enum RemoveGroupAdminError {
+  INVALID_GROUP
+  INVALID_ADMIN
+}
+
+type CustomerUpdatePayload {
+  """
+  The customer which was updated
+  """
+  customer: Customer
+  """
+  The first validation error that occured
+  """
+  error: CustomerUpdateError
+  """
+  All validation errors
+  """
+  errors: [CustomerUpdateError!]
+}
+
+enum CustomerUpdateError {
+  """
+  Customer must exist
+  """
+  INVALID_CUSTOMER
+  """
+  Duplicate Customer's phone number
+  """
+  DUPLICATE_PHONE
+  """
+  Duplicate Customer's email address
+  """
+  DUPLICATE_EMAIL
+  """
+  Required phone number
+  """
+  PHONE_REQUIRED
+  """
+  Required phone country
+  """
+  PHONE_COUNTRY_REQUIRED
+  """
+  Invalid country code
+  """
+  INVALID_COUNTRY_CODE
+  """
+  OTP Failed For Phone Number Change
+  """
+  OTP_FAILED_FOR_PHONE_NUMBER_CHANGE
+  """
+  OTP Phone Record Already Exists
+  """
+  OTP_PHONE_NUMBER_ALREADY_IN_USE
+  TERMS_AND_CONDITIONS_MUST_BE_ACCEPTED
+  PRIVACY_POLICY_MUST_BE_ACCEPTED
+}
+
+type CustomerSetLoyaltyTierPayload {
+  """
+  The customer which was updated
+  """
+  customer: Customer
+  """
+  The first validation error that occured
+  """
+  error: CustomerSetLoyaltyTierError
+  """
+  All validation errors
+  """
+  errors: [CustomerSetLoyaltyTierError!]
+}
+
+"""
+Errors when manually setting customer loyalty tier
+"""
+enum CustomerSetLoyaltyTierError {
+  """
+  Customer must exist
+  """
+  INVALID_CUSTOMER
+  """
+  Must specify valid loyalty tier
+  """
+  INVALID_LOYALTY_TIER
+}
+
+type BrandLocationScheduleExceptionSavePayload {
+  """
+  The Schedule Exception which was saved
+  """
+  scheduleExceptions: [ScheduleException!]
+  """
+  The first validation error that occured
+  """
+  error: BrandLocationScheduleExceptionSaveError
+  """
+  All validation errors
+  """
+  errors: [BrandLocationScheduleExceptionSaveError!]
+}
+
+enum BrandLocationScheduleExceptionSaveError {
+  """
+  Brand Location must be valid
+  """
+  INVALID_BRAND_LOCATION
+  """
+  Start Time must be smaller than endTime
+  """
+  INVALID_START_END_RANGE
+  """
+  No Overlapping
+  """
+  EXISTING_EXCEPTION_OVERLAP
+}
+
+type ConfigurationSavePayload {
+  """
+  The Schedule Exception which was saved
+  """
+  configuration: Configuration
+  """
+  The first validation error that occured
+  """
+  error: ConfigurationSaveError
+  """
+  All validation errors
+  """
+  errors: [ConfigurationSaveError!]
+}
+
+type ConfigurationWeeklyScheduleSavePayload {
+  """
+  The global weekly schedule
+  """
+  schedule: [WeeklySchedule!]
+  """
+  The first validation error that occured
+  """
+  error: WeeklyScheduleError
+  """
+  All validation errors
+  """
+  errors: [WeeklyScheduleError!]
+}
+
+enum ConfigurationSaveError {
+  """
+  The deliveryWindowMin cannot be greater than deliveryWindowMax
+  """
+  INVALID_DELIVERY_WINDOW
+}
+
+type OrderSetUpdatePayload {
+  """
+  The Order Set which was saved/updated
+  """
+  orderSet: OrderSet
+  """
+  The first validation error that occured
+  """
+  error: OrderSetError
+  """
+  All validation errors
+  """
+  errors: [OrderSetError!]
+}
+
+enum OrderSetError {
+  """
+  Note must be less than 4096 chars
+  """
+  NOTE_MAX_LENGTH_EXCEEDED
+  """
+  Order set must exist
+  """
+  INVALID_ORDER_SET
+}
+
+type BrandLocationWeeklyScheduleSavePayload {
+  """
+  The Order Set which was saved/updated
+  """
+  schedule: [WeeklySchedule!]
+  """
+  The first validation error that occured
+  """
+  error: WeeklyScheduleError
+  """
+  All validation errors
+  """
+  errors: [WeeklyScheduleError!]
+}
+
+type BrandLocationDeliveryScheduleSavePayload {
+  """
+  The Order Set which was saved/updated
+  """
+  schedule: [WeeklySchedule!]
+  """
+  The first validation error that occured
+  """
+  error: WeeklyScheduleError
+  """
+  All validation errors
+  """
+  errors: [WeeklyScheduleError!]
+}
+
+enum WeeklyScheduleError {
+  """
+  The Brand Location must Exist
+  """
+  INVALID_BRAND_LOCATION
+  """
+  Weekly schedules must not overlap.
+  """
+  OVERLAPPING_SCHEDULES
+  """
+  The open time string must be in this format: 'HH:mm'
+  """
+  INVALID_OPEN_TIME_FORMAT
+  """
+  The open time string must be in this format: 'HH:mm'
+  """
+  INVALID_DELIVERY_OPEN_TIME_FORMAT
+  """
+  If openAllDay is false or null, an openTime value is required.
+  """
+  MISSING_OPEN_TIME
+  """
+  If openAllDay is false or null, an openTime value is required.
+  """
+  MISSING_DELIVERY_OPEN_TIME
+  """
+  If openAllDay is false or null, an openDuration value is required.
+  """
+  MISSING_OPEN_DURATION
+  """
+  If openAllDay is false or null, an openDuration value is required.
+  """
+  MISSING_DELIVERY_OPEN_DURATION
+}
+
+type SetBrandLocationAcceptingOrdersPayload {
+  success: Boolean
+  brandLocation: BrandLocation
+  """
+  The first validation error that occured
+  """
+  error: SetBrandLocationAcceptingOrdersError
+  """
+  All validation errors
+  """
+  errors: [SetBrandLocationAcceptingOrdersError!]
+}
+
+enum SetBrandLocationAcceptingOrdersError {
+  INVALID_BRAND_LOCATION
+  REASON_MUST_BE_SET
+  REASON_MAX_LENGTH_EXCEEDED
+  ALREADY_NOT_ACCEPTING_ORDER
+}
+
+type BrandLocationUnavailableMenuItemPayload {
+  """
+  The Order Set which was saved/updated
+  """
+  menuItem: MenuItem
+  """
+  The first validation error that occured
+  """
+  error: BrandLocationUnavailableMenuItemError
+  """
+  All validation errors
+  """
+  errors: [BrandLocationUnavailableMenuItemError!]
+}
+
+enum BrandLocationUnavailableMenuItemError {
+  """
+  The menu is invalid
+  """
+  INVALID_MENU
+  """
+  The BrandLocation is Invalid
+  """
+  INVALID_BRAND_LOCATION
+  """
+  The menu item is invalid
+  """
+  INVALID_MENU_ITEM
+  """
+  The item is subscriple
+  """
+  SUBSCRIBABLE_ITEM
+  """
+  Menu item is inactive
+  """
+  MENU_ITEM_IS_INACTIVE
+  """
+  section must be active  to update menu item
+  """
+  SECTION_MUST_BE_ACTIVE_TO_UPDATE_MENU_ITEM
+  ITEM_MUST_BE_ACTIVE_TO_UNAVAILABLE_PROCESS
+  MENU_ITEM_AND_BRAND_NOT_MATCHED
+}
+
+type BrandMenuSavePayload {
+  """
+  The Menu
+  """
+  menu: Menu
+  """
+  The first validation error that occured
+  """
+  error: BrandMenuError
+  """
+  All validation errors
+  """
+  errors: [BrandMenuError!]
+}
+
+enum BrandMenuError {
+  """
+  The brand must exist
+  """
+  INVALID_BRAND
+}
+
+type BrandMenuSectionSavePayload {
+  """
+  The Menu section saved
+  """
+  menuSection: MenuSection
+  """
+  The first validation error that occured
+  """
+  error: BrandMenuSectionError
+  """
+  All validation errors
+  """
+  errors: [BrandMenuSectionError!]
+}
+
+enum BrandMenuSectionError {
+  """
+  The menu must exist
+  """
+  INVALID_MENU
+  """
+  Name must be unique
+  """
+  DUPLICATE_NAME
+  """
+  Section have items, can not be deleted.
+  """
+  HAVE_ITEMS
+}
+
+type BrandMenuItemSavePayload {
+  """
+  The Menu Item which was saved/updated
+  """
+  menuItem: MenuItem
+  """
+  The first validation error that occured
+  """
+  error: BrandMenuItemError
+  """
+  All validation errors
+  """
+  errors: [BrandMenuItemError!]
+}
+
+type brandMenuItemDeletePayload {
+  """
+  The Menu Item which was deleted
+  """
+  deleted: Boolean
+  """
+  The first validation error that occured
+  """
+  error: BrandMenuItemError
+  """
+  All validation errors
+  """
+  errors: [BrandMenuItemError!]
+}
+
+type brandMenuItemSectionPayload {
+  """
+  The Menu section which was deleted
+  """
+  deleted: Boolean
+  """
+  The first validation error that occured
+  """
+  error: BrandMenuSectionError
+  """
+  All validation errors
+  """
+  errors: [BrandMenuSectionError!]
+}
+
+type brandMenuSectionSortingPayload {
+  """
+  The Menu section which was sorted
+  """
+  sorted: Boolean
+  """
+  The first validation error that occured
+  """
+  error: BrandMenuSectionError
+  """
+  All validation errors
+  """
+  errors: [BrandMenuSectionError!]
+}
+
+type brandMenuItemSortingPayload {
+  """
+  The Menu Item which was sorted
+  """
+  sorted: Boolean
+  """
+  The first validation error that occured
+  """
+  error: BrandMenuItemError
+  """
+  All validation errors
+  """
+  errors: [BrandMenuItemError!]
+}
+
+type ProductsSortingPaylod {
+  """
+  Products was sorted
+  """
+  sorted: Boolean
+  """
+  The first validation error that occured
+  """
+  error: ProductSaveError
+  """
+  All validation errors
+  """
+  errors: [ProductSaveError!]
+}
+
+type ProductImagesSortingPaylod {
+  """
+  Product images were sorted
+  """
+  sorted: Boolean
+}
+
+type StoreHeadersSortingPaylod {
+  """
+  Store headers were sorted
+  """
+  sorted: Boolean
+}
+
+type ProductOptionSetsSortingPaylod {
+  """
+  Product option sets were sorted
+  """
+  sorted: Boolean
+}
+
+type ProductOptionsSortingPaylod {
+  """
+  Product options were sorted
+  """
+  sorted: Boolean
+}
+
+enum BrandMenuItemError {
+  """
+  Section Must Exist
+  """
+  INVALID_SECTION
+  """
+  Must have at least 1 option Set
+  """
+  MISSING_OPTION_SET
+  """
+  Must have at least 1 option set Option
+  """
+  MISSING_OPTIONS
+  WRONG_OPTIONS
+  SUBSCRIBABLE_ITEM
+  """
+  Section Must be Active
+  """
+  SECTION_MUST_BE_ACTIVE_TO_UPDATE_MENU_ITEM
+}
+
+type BrandLocationSavePayload {
+  """
+  The Brand Location which was saved/updated
+  """
+  brandLocation: BrandLocation
+  """
+  The first validation error that occured
+  """
+  error: BrandLocationError
+  """
+  All validation errors
+  """
+  errors: [BrandLocationError!]
+  """
+  error description
+  """
+  errorDescription: String
+  """
+  Authentication provider user password
+  """
+  authProviderPassword: String
+  """
+  Authentication Provider Error
+  """
+  authenticationError: String
+  """
+  list of added admins
+  """
+  admins: [AdminPayload]
+}
+
+enum BrandLocationError {
+  """
+  Brand Must Exist
+  """
+  INVALID_BRAND
+  """
+  Specified delivery location must exits
+  """
+  INVALID_DELIVERY_LOCATION
+  """
+  Authorization error while creating BrandLocation User
+  """
+  AUTH_PROVIDER_ERROR
+  # Neighbhorhood must exist
+  INVALID_NEIGHBORHOOD
+  INVALID_CITY
+  INVALID_CURRENCY
+  ADMIN_ALREADY_EXISTS
+  """
+  required if branch is accepting express delivery orders
+  """
+  EXPRESS_DELIVERY_RADIUS_REQUIRED
+  ONLY_ONE_PRIMARY_COONTACT_ALLOWED
+  ONE_PRIMARY_COONTACT_REQUIRED
+  INVALID_ADMIN
+  BRAND_ADMIN_CAN_NOT_BE_BRANCH_ADMIN
+}
+
+type CustomerAddressPayload {
+  """
+  The Customer witch address has been updated
+  """
+  customer: Customer
+  """
+  The Customer address
+  """
+  address: CustomerAddress
+  """
+  The first validation error that occured
+  """
+  error: CustomerAddressError
+  """
+  All validation errors
+  """
+  errors: [CustomerAddressError!]
+}
+
+enum CustomerAddressError {
+  """
+  Customer must exist
+  """
+  INVALID_CUSTOMER
+  """
+  Address must exist
+  """
+  INVALID_ADDRESS
+  """
+  Customer / Address combination must exist
+  """
+  INVALID_CUSTOMER_ADDRESS
+}
+
+type CustomerCarPayload {
+  """
+  The Customer whitch car has been updated
+  """
+  customer: Customer
+  """
+  The Customer car (added)
+  """
+  car: CustomerCar
+  """
+  The first validation error that occured
+  """
+  error: CustomerCarError
+  """
+  All validation errors
+  """
+  errors: [CustomerCarError!]
+}
+
+type CustomerCarPayloadLite {
+  """
+  The first validation error that occured
+  """
+  error: CustomerCarError
+  """
+  All validation errors
+  """
+  errors: [CustomerCarError!]
+}
+
+enum CustomerCarError {
+  """
+  Customer must exist
+  """
+  INVALID_CUSTOMER
+  """
+  Car must exist
+  """
+  INVALID_CAR
+  """
+  Customer / Car combination must exist
+  """
+  INVALID_CUSTOMER_CAR
+}
+
+type CustomerDeviceMetadataPayload {
+  """
+  The Customer whitch car has been updated
+  """
+  customer: Customer
+  """
+  The Customer car (added)
+  """
+  deviceMetadata: CustomerDeviceMetadata
+  """
+  The first validation error that occured
+  """
+  error: CustomerCarError
+  """
+  All validation errors
+  """
+  errors: [CustomerCarError!]
+}
+
+enum CustomerDeviceMetadataError {
+  """
+  CustomerId must exist
+  """
+  MISSING_CUSTOMER_ID
+  """
+  DeviceId must exist
+  """
+  MISSING_DEVICE_ID
+  """
+  Device Identifier Type Must Exists
+  """
+  MISSING_DEVICE_IDENTIFIER_TYPE
+}
+
+#type OrderCreatePayload {
+#  """
+#  The payment url
+#  """
+#  paymentUrl: String
+#  """
+#  The order set just created
+#  """
+#  orderSet: OrderSet
+#  """
+#  The first validation error that occured
+#  """
+#  error: OrderCreateError
+#  """
+#  All validation errors
+#  """
+#  errors: [OrderCreateError!]
+#}
+
+"""
+The result of creating a loyalty order
+"""
+type LoyaltyOrderCreatePayload {
+  """
+  The payment url
+  """
+  paymentUrl: String
+  """
+  The order set just created
+  """
+  order: LoyaltyOrder
+  """
+  The first validation error that occured
+  """
+  error: LoyaltyOrderCreateError
+  """
+  All validation errors
+  """
+  errors: [LoyaltyOrderCreateError!]
+}
+
+"""
+Possible errors when creating a loyalty order
+"""
+enum LoyaltyOrderCreateError {
+  """
+  Unable to initiate merchant transaction
+  """
+  MERCHANT_INITIALIZATION_ERROR
+  """
+  Invalid Customer (does not exist)
+  """
+  INVALID_CUSTOMER
+  """
+  Invalid loyalty SKU (does not exist)
+  """
+  INVALID_SKU
+  """
+  Invalid TopUp Ammount (0 or not provided)
+  """
+  INVALID_TOPUP_AMMOUNT
+  INVALID_PAYMENT_METHOD
+}
+
+type StoreOrderCreatePayload {
+  """
+  The payment url
+  """
+  paymentUrl: String
+  """
+  The order just created
+  """
+  order: StoreOrder
+  """
+  The first validation error that occured
+  """
+  error: StoreOrderCreateError
+  """
+  All validation errors
+  """
+  errors: [StoreOrderCreateError!]
+}
+
+type StoreOrderUpdatePayload {
+  """
+  The order just created
+  """
+  order: StoreOrder
+  """
+  The first validation error that occured
+  """
+  error: StoreOrderCreateError
+  """
+  All validation errors
+  """
+  errors: [StoreOrderCreateError!]
+}
+
+enum StoreOrderCreateError {
+  INVALID_STORE_ORDER
+}
+
+type OrderAssignCourierPayload {
+  """
+  The Courier Name Assigned
+  """
+  courierName: String
+  """
+  The Order that got assigned this courier
+  """
+  orderSet: OrderSet
+  """
+  The first validation error that occured
+  """
+  error: OrderAssignCourierError
+  """
+  All validation errors
+  """
+  errors: [OrderAssignCourierError!]
+}
+
+enum OrderAssignCourierError {
+  """
+  The order id provided does not exist / is invalid
+  """
+  INVALID_ORDER
+  """
+  Courier name is invalid
+  """
+  INVALID_COURIER
+}
+
+type SetCustomerPresentPayload {
+  orderSet: OrderSet
+  error: SetCustomerPresentError
+}
+
+enum SetCustomerPresentError {
+  INVALID_ORDER
+  INVALID_CUSTOMER
+}
+
+enum OrderSetStatusError {
+  """
+  no one can complete the order complete if payment is pending or failed
+  """
+  PAYMENT_DUE
+  """
+  if status has been already changed to the state that desired to be changed.
+  should not change the status again
+  """
+  STATUS_HAS_BEEN_ALREADY_CHANGED
+  """
+  If requested status is unsuitable for order status flow
+  should return error
+  """
+  UNEXPECTED_REQUESTED_STATUS
+  """
+  if request is coming from Admin Portal, they must enter a note
+  """
+  INVALID_STATUS_NOTE
+  """
+  admin portal can not update a mpos pickup order
+  """
+  ADMIN_PORTAL_CAN_NOT_UPDATE_MPOS_PICKUP_ORDER
+  """
+  admin portal can not update a mpos delivery order
+  """
+  ADMIN_PORTAL_CAN_NOT_UPDATE_MPOS_DELIVERY_ORDER
+  """
+  Not entering order set id or invalid order set id
+  """
+  INVALID_ORDER_SET_ID
+  """
+  Invalid order set status
+  """
+  INVALID_ORDER_SET_STATUS
+  """
+  Updated order number should be less than bulk limit
+  """
+  BULK_CHANGE_IS_LIMITED_TO_10_ORDERS
+  """
+  There is no order that is matched with updated status
+  """
+  UPDATED_STATUS_NOT_MATCHED_AN_ORDER_IN_LIST
+  """
+  Transactional Error
+  """
+  TRANSACTIONAL_ERROR
+  """
+  Unauthorized process
+  """
+  UNAUTHORIZED_PROCESS
+}
+
+enum StoreOrderStatusError {
+  """
+  no one can complete the order complete if payment is pending or failed
+  """
+  PAYMENT_DUE
+  UNEXPECTED_ERROR
+  INVALID_ORDER
+  INVALID_STATE
+  ORDER_ALREADY_PROCESSED
+  STATUS_HAS_BEEN_ALREADY_CHANGED
+}
+
+type OrderSetStatusPayload {
+  orderSetStatus: OrderSetStatus
+  """
+  The first validation error that occured
+  """
+  error: OrderSetStatusError
+  """
+  All validation Errors
+  """
+  errors: [OrderSetStatusError!]
+}
+
+type BulkOrderSetStatusPayload {
+  orderSetList: [OrderSet]
+  """
+  The updated status
+  """
+  orderSetStatusList: [OrderSetStatus]
+  """
+  The first validation error that occured
+  """
+  error: OrderSetStatusError
+  """
+  All validation Errors
+  """
+  errors: [OrderSetStatusError!]
+}
+
+type SetStoreOrderStatusPayload {
+  storeOrderStatus: StoreOrderStatus
+  """
+  The first validation error that occured
+  """
+  error: StoreOrderStatusError
+  """
+  All validation Errors
+  """
+  errors: [StoreOrderStatusError!]
+}
+
+type MarketingNotificationSavePayload {
+  """
+  The notification just created
+  """
+  notification: MarketingNotification
+  """
+  The first validation error that occured
+  """
+  error: MarketingNotificationSaveError
+  """
+  All validation Errors
+  """
+  errors: [MarketingNotificationSaveError!]
+}
+
+enum MarketingNotificationSaveError {
+  """
+  If an ID is provided to update then it must exist
+  """
+  INVALID_MARKETING_NOTIFICATION
+  """
+  A date must be provided that is in the future
+  """
+  INVALID_DATE
+  """
+  A platform must be selected (targetAll, targetAndroid, or targetIos)
+  """
+  INVALID_TARGET
+  """
+  An attempt was made to update a notification that is not in 'pending' status
+  """
+  CAN_ONLY_UPDATE_PENDING_NOTIFICATIONS
+}
+
+type OrderSetCommentPayload {
+  """
+  The comment just created
+  """
+  orderSetComment: OrderSetComment
+  """
+  The first validation error that occured
+  """
+  error: OrderSetCommentError
+  """
+  All validation Errors
+  """
+  errors: [OrderSetCommentError!]
+}
+
+enum OrderSetCommentError {
+  """
+  The Order Set Must Exist
+  """
+  INVALID_ORDER_SET
+}
+
+type RewardSavePayload {
+  """
+  The Brand Reward Program Tier which was saved/updated
+  """
+  reward: Reward
+  """
+  The first validation error that occured
+  """
+  error: RewardError
+  """
+  All validation errors
+  """
+  errors: [RewardError!]
+}
+
+enum RewardError {
+  """
+  Brand Must Exist
+  """
+  INVALID_BRAND
+  """
+  Brand already have a reward
+  """
+  BRAND_ALREADY_HAVE_REWARD
+  """
+  Child brand already rewared
+  """
+  CHILD_BRAND_ALREADY_HAVE_REWARD
+}
+
+type RewardTierSavePayload {
+  rewardTier: RewardTier
+  """
+  The first validation error that occured
+  """
+  error: RewardTierError
+  """
+  All validation errors
+  """
+  errors: [RewardTierError!]
+}
+
+type RewardTiersSavePayload {
+  rewardTiers: [RewardTier]
+  """
+  The first validation error that occured
+  """
+  error: RewardTierError
+  """
+  All validation errors
+  """
+  errors: [RewardTierError!]
+  """
+  error description
+  """
+  errorDescription: String
+}
+
+enum RewardTierError {
+  """
+  Reward Must Exist
+  """
+  INVALID_REWARD
+  """
+  TIER_BEING_USED
+  """
+  TIER_IN_USE
+  """
+  TIER limit must exist
+  """
+  INVALID_TIER_LIMIT
+}
+
+type RewardTierPerkSavePayload {
+  rewardTierPerk: RewardTierPerk
+  """
+  The first validation error that occured
+  """
+  error: RewardTierPerkError
+  """
+  All validation errors
+  """
+  errors: [RewardTierPerkError!]
+}
+
+type RewardTierPerksSavePayload {
+  rewardTierPerks: [RewardTierPerk]
+  """
+  The first validation error that occured
+  """
+  error: RewardTierPerkError
+  """
+  All validation errors
+  """
+  errors: [RewardTierPerkError!]
+}
+
+enum RewardTierPerkError {
+  """
+  Reward Must Exist
+  """
+  INVALID_REWARD_TIER
+   """
+  menuItem Must Exist
+  """
+  INVALID_MENU_ITEM
+   """
+  menuItem Must be Active
+  """
+  INACTIVE_MENU_ITEM
+}
+
+enum NeighborhoodError {
+  # Currency Must Exist
+  INVALID_CITY
+  NEIGHBORHOOD_ALREADY_EXISTS
+}
+
+type NeighborhoodSavePayload {
+  """
+  The Brand Reward Program Tier which was saved/updated
+  """
+  neighborhood: Neighborhood
+  # The first validation error that occured
+  error: NeighborhoodError
+  # All validation errors
+  errors: [NeighborhoodError!]
+}
+
+type CurrencySavePayload {
+  # The Brand Reward Program Tier which was saved/updated
+  currency: Currency
+}
+
+enum CountryError {
+  """
+  Currency Must Exist
+  """
+  INVALID_CURRENCY
+  """
+  Country already exist with iso code or name
+  """
+  ALREADY_EXISTS
+}
+
+enum CityError {
+  """
+  Currency Must Exist
+  """
+  INVALID_COUNTRY
+}
+
+type CountrySavePayload {
+  """
+  The Brand Reward Program Tier which was saved/updated
+  """
+  country: Country
+  """
+  The first validation error that occured
+  """
+  error: CountryError
+  """
+  All validation errors
+  """
+  errors: [CountryError!]
+}
+
+type CitySavePayload {
+  """
+  The Brand Reward Program Tier which was saved/updated
+  """
+  city: City
+  """
+  The first validation error that occured
+  """
+  error: CityError
+  """
+  All validation errors
+  """
+  errors: [CityError!]
+}
+
+type BrandLocationPriceRuleSavePayload {
+  priceRules: [BrandLocationPriceRule]
+  error: BrandLocationPriceRuleError
+  errors: [BrandLocationPriceRuleError!]
+}
+
+enum BrandLocationPriceRuleError {
+  """
+  The BrandLocation is Invalid
+  """
+  INVALID_BRAND_LOCATION
+  UNAUTHORIZED_ADMIN
+}
+
+type OrderSetRefundPayload {
+  orderSet: OrderSet
+  error: OrderSetRefundError
+  errors: [OrderSetRefundError!]
+}
+
+enum OrderSetRefundError {
+  """
+  Already refunded
+  """
+  ALREADY_REFUNDED
+  """
+  Invalid order
+  """
+  INVALID_ORDER
+  """
+  Not paid yet. Can't refund until the payment is done.
+  """
+  NOT_PAID
+}
+
+type OrderItemsRefundPayload {
+  orderSet: OrderSet
+  error: OrderItemsRefundError
+  errors: [OrderItemsRefundError!]
+}
+
+enum OrderItemsRefundError {
+  """
+  Invalid order
+  """
+  INVALID_ORDER
+  """
+  INVALID_QUANTITY
+  """
+  INVALID_QUANTITY
+  """
+  Already refunded
+  """
+  ALREADY_REFUNDED
+  """
+  Not paid yet. Can't refund until the payment is done.
+  """
+  NOT_PAID
+}
+
+type StoreOrderProductsRefundPayload {
+  storeOrderSet: StoreOrderSet
+  error: StoreOrderProductsRefundError
+  errors: [StoreOrderProductsRefundError!]
+}
+
+type StoreOrderPayWithCashPayload {
+  storeOrderStatus: StoreOrderStatus
+  error: StoreOrderStatusError
+}
+
+"""
+Partial Refund Errors
+"""
+enum StoreOrderProductsRefundError {
+  """
+  Invalid order
+  """
+  INVALID_ORDER
+  """
+  INVALID_QUANTITY
+  """
+  INVALID_QUANTITY
+  """
+  Already refunded
+  """
+  ALREADY_REFUNDED
+  """
+  Not paid yet. Can't refund until the payment is done.
+  """
+  NOT_PAID
+}
+
+type StoreOrderSetRefundPayload {
+  storeOrderSet: StoreOrderSet
+  error: StoreOrderSetRefundError
+  errors: [StoreOrderSetRefundError!]
+}
+
+"""
+Total Store Order Refund Errors
+"""
+enum StoreOrderSetRefundError {
+  """
+  Already refunded
+  """
+  ALREADY_REFUNDED
+  """
+  Invalid order
+  """
+  INVALID_ORDER
+  """
+  Not paid yet. Can't refund until the payment is done.
+  """
+  NOT_PAID
+}
+
+type BannerSavePayload {
+  """
+  The Banner which was saved/updated
+  """
+  banner: Banner
+  """
+  The first validation error that occured
+  """
+  error: BannerError
+  """
+  All validation errors
+  """
+  errors: [BannerError!]
+}
+
+enum BannerError {
+  """
+  Banner must exist, if an id is specified
+  """
+  INVALID_BANNER
+}
+
+type GoldenCofePayload {
+  imageUrl: LocalizedString! @toCDN
+  terms: [LocalizedString]!
+  """
+  Date range
+  """
+  dateRange: GoldenCofePayloadDateRange
+  """
+  The list of brands participating in the contest
+  """
+  brands: [Brand!]
+}
+
+type GoldenCofePayloadDateRange {
+  """
+  Start date of the terms
+  """
+  startDate: String
+  """
+  End date of the terms
+  """
+  endDate: String
+}
+
+type AddressFieldSavePayload {
+  """
+  The new address fields
+  """
+  addressFields: [AddressField!]
+}
+
+type LoyaltyTierSavePayload {
+  """
+  The Loyalty tier which was saved/updated
+  """
+  loyaltyTier: LoyaltyTier
+  """
+  The first validation error that occured
+  """
+  error: LoyaltyTierSaveError
+  """
+  All validation errors
+  """
+  errors: [LoyaltyTierSaveError!]
+}
+
+enum LoyaltyTierSaveError {
+  """
+  This sku is already in DB, choose another sku
+  """
+  DUPLICATE_SKU
+  """
+  One bonus allowed for fixed type loyalty tier
+  """
+  ONE_BONUS_ALLOWED_FOR_FIXED_LOYALTY_TIER
+  """
+  Invalid bounds. Lower bound must be less than or equal to upper bound
+  """
+  INVALID_LOYALTY_BONUS_BOUNDS
+  """
+  Loyalty bonus bounds are overlapping
+  """
+  OVERLAPPING_BONUS_BOUNDS
+  """
+  Invalid custom amount. Min and max amount must be required
+  """
+  INVALID_CUSTOM_AMOUNT
+  """
+  Max amount must be greater than or equal to min amount
+  """
+  INVALID_MIN_AND_MAX_AMOUNT
+}
+
+type BrandAdminPayload {
+  """
+  The first validation error that occured
+  """
+  error: BrandAdminError
+  """
+  All validation errors
+  """
+  errors: [BrandAdminError!]
+  """
+  Brand admin payload
+  """
+  admin: Admin
+}
+
+enum BrandAdminError {
+  """
+  ID Not exists
+  """
+  NOT_EXISTS
+  """
+  Invalid Email
+  """
+  INVALID_VALID
+  """
+  Email must be unique, if it is a new admin
+  """
+  DUPLICATE_EMAIL
+}
+
+type GroupSavePayload {
+  """
+  Group
+  """
+  group: Group
+  """
+  The first validation error that occured
+  """
+  error: GroupError
+  """
+  All validation errors
+  """
+  errors: [GroupError!]
+}
+
+enum GroupError {
+  DUPLICATE_NAME
+}
+
+type RoleSavePayload {
+  """
+  Role
+  """
+  role: Role
+  """
+  The first validation error that occured
+  """
+  error: RoleError
+  """
+  All validation errors
+  """
+  errors: [RoleError!]
+}
+
+enum RoleError {
+  DUPLICATE_NAME
+}
+
+type PermissionSavePayload {
+  """
+  Permission
+  """
+  permission: Permission
+  """
+  The first validation error that occured
+  """
+  error: PermissionError
+  """
+  All validation errors
+  """
+  errors: [PermissionError!]
+}
+
+enum PermissionError {
+  DUPLICATE_NAME
+}
+type CustomerCardTokenSavePayload {
+  """
+  The Customer card token which was saved/updated
+  """
+  customerCardToken: CustomerCardToken
+  """
+  The first validation error that occured
+  """
+  error: CustomerCardTokenSaveError
+  """
+  All validation errors
+  """
+  errors: [CustomerCardTokenSaveError!]
+}
+
+type CustomerCardSavePayload {
+  """
+  If Card Save requires redirection for validating card
+  """
+  requiresRedirect: Boolean!
+  """
+  If Card Save requires redirection for validating card
+  """
+  redirectUrl: String
+  """
+  The Customer card token which was saved/updated
+  """
+  saveStatus: CustomerCardSaveStatus!
+  """
+  The first validation error that occured
+  """
+  error: CustomerCardTokenSaveError
+  """
+  All validation errors
+  """
+  errors: [CustomerCardTokenSaveError!]
+}
+
+enum CustomerCardSaveStatus {
+  """
+  Card Saved without 3-ds Verification
+  """
+  CARD_SAVED_SUCCESSFULLY
+  """
+  Card is not saved for any reason
+  """
+  CARD_SAVE_FAILED
+  """
+  Additional Verification SMS/Email OTP Needed
+  """
+  ADDITIONAL_VERIFICATION_NEEDED
+}
+
+enum CustomerCardTokenSaveError {
+  """
+  This token is already saved
+  """
+  DUPLICATE_TOKEN
+  """
+  Customer must exist
+  """
+  INVALID_CUSTOMER
+  """
+  Token is missing from the request
+  """
+  MISSING_TOKEN
+  """
+  Customer Id is missing/couldn't be decoded from auth token
+  """
+  MISSING_CUSTOMER_ID
+  """
+  Country ISO is missing from the request
+  """
+  MISSING_COUNTRY_ISO
+}
+
+type ImportCitiesPayload {
+  error: ImportCitiesError
+  errorDescription: String
+  errors: [ImportCitiesError!]
+}
+
+enum ImportCitiesError {
+  INVALID_FILE
+  INVALID_CONTENT
+  INVALID_COUNTRY
+  INVALID_NAME
+  DUPLICATE_NAME
+  INVALID_STATUS
+  INVALID_FILE_FORMAT
+}
+
+type ImportNeighborhoodsPayload {
+  error: ImportNeighborhoodsError
+  errorDescription: String
+  errors: [ImportNeighborhoodsError!]
+}
+
+enum ImportNeighborhoodsError {
+  INVALID_FILE
+  INVALID_CONTENT
+  INVALID_COUNTRY
+  INVALID_CITY
+  INVALID_NAME
+  DUPLICATE_NAME
+  INVALID_STATUS
+  INVALID_FILE_FORMAT
+}
+
+type CreateZendeskTicketResponse {
+  success: Boolean
+  message: String
+  error: String
+  ticketId: String
+}
+
+type CouponPayload {
+  coupon: Coupon
+  error: CouponPayloadError
+  errors: [CouponPayloadError!]
+  errorDescription: String
+}
+
+enum CouponPayloadError {
+  DUPLICATE_TYPE
+  DUPLICATE_CODE
+  CASHBACK_EXPIRY_DAYS_MISSING
+  FIRST_ORDERS_TYPE_MISSING
+  INVALID_NO_OF_FIRST_ORDERS
+  INVALID_PAID_PERCENTAGE_SUM
+}
+
+type ResetAdminPasswordPayload {
+  admin: Admin
+  error: ResetAdminPasswordError
+  errors: [ResetAdminPasswordError!]
+  authProviderPassword: String
+  authenticationError: String
+}
+
+enum ResetAdminPasswordError {
+  NOT_EXISTS
+  AUTH_PROVIDER_ERROR
+}
+
+type RedeemVoucherPayload {
+  redeemed: Boolean!
+  error: RedeemVoucherError
+  errors: [RedeemVoucherError!]
+}
+
+enum RedeemVoucherError {
+  """
+  Invalid or Expired Voucher used
+  """
+  INVALID_VOUCHER
+}
+
+type GiftCardCollectionSavePayload {
+  giftCardCollection: GiftCardCollection
+  error: GiftCardCollectionSaveError
+  errors: [GiftCardCollectionSaveError]
+}
+enum GiftCardCollectionSaveError {
+  INVALID_COUNTRY
+  INVALID_COLLECTION_NAME
+  ALREADY_EXISTS
+  NOT_EXISTS
+}
+
+type GiftCardTemplateSavePayload {
+  giftCardTemplate: GiftCardTemplate
+  error: GiftCardTemplateSaveError
+  errors: [GiftCardTemplateSaveError]
+}
+
+enum GiftCardTemplateSaveError {
+  NOT_EXISTS
+  INVALID_PAID_PERCENTAGE_SUM
+  INVALID_AVAILABLE_TIME
+}
+
+type GiftCardOrderCreatePayload {
+  paymentUrl: String
+  order: GiftCardOrder
+  error: GiftCardOrderCreateError
+  errors: [GiftCardOrderCreateError]
+}
+
+type RedeemGiftCardPayload {
+  redeemed: Boolean!
+  giftCard: GiftCard
+  error: RedeemGiftCardError
+}
+
+enum RedeemGiftCardError {
+  INVALID_CODE
+  ALREADY_REDEEMED
+  INVALID_CUSTOMER
+}
+
+type InactiveGiftCard {
+  deactivated: Boolean
+  giftCardOrder: GiftCardOrder
+  error: InactiveGiftCardError
+}
+
+enum InactiveGiftCardError {
+  INVALID_GIFT_CARD
+  ALREADY_REDEEMED
+  ALREADY_REVOKE
+  ALREADY_INACTIVE
+  STATUS_MUST_BE_ACTIVE
+  UNAUTHORIZED_ADMIN
+}
+
+type UpdateCofeCreditsPayload {
+  success: Boolean
+  error: UpdateCofeCreditsError
+  errors: [UpdateCofeCreditsError]
+}
+
+type ProductSavePayload {
+  """
+  Product which was saved/updated
+  """
+  product: Product
+  """
+  The first validation error that occured
+  """
+  error: ProductSaveError
+  """
+  All validation errors
+  """
+  errors: [ProductSaveError!]
+}
+
+enum ProductSaveError {
+  PRODUCT_HAS_MINIMUN_ONE_CATEGORY
+  INVALID_CATEGORY_ID
+  BRAND_COUNTRY_NOT_MATCHED_CATEGORY_COUNTRY
+  INVALID_ID
+  MULTIPLE_CASH_PRODUCT
+  PROCESS_FAILED
+}
+
+type PickupLocationSavePayload {
+  """
+  Pickup location which was saved/updated
+  """
+  pickupLocation: PickupLocation
+  """
+  The first validation error that occured
+  """
+  error: PickupLocationSaveError
+  """
+  All validation errors
+  """
+  errors: [PickupLocationSaveError!]
+}
+
+enum PickupLocationSaveError {
+  INVALID_BRAND
+}
+
+type InventoriesSavePayload {
+  """
+  Inventories which were saved/updated
+  """
+  inventories: [Inventory]
+  """
+  The first validation error that occured
+  """
+  error: InventorySaveError
+  """
+  All validation errors
+  """
+  errors: [InventorySaveError!]
+}
+
+enum InventorySaveError {
+  INVALID_PICKUP_LOCATION
+}
+
+type ShippingPolicySavePayload {
+  """
+  Shipping policy which was saved/updated
+  """
+  shippingPolicy: ShippingPolicy
+  """
+  The first validation error that occured
+  """
+  error: ShippingPolicySaveError
+  """
+  All validation errors
+  """
+  errors: [ShippingPolicySaveError!]
+}
+
+enum ShippingPolicySaveError {
+  INVALID_PICKUP_LOCATION
+}
+
+type StoreHeaderSavePayload {
+  """
+  Shipping policy which was saved/updated
+  """
+  storeHeader: StoreHeader
+  """
+  The first validation error that occured
+  """
+  error: StoreHeaderSaveError
+  """
+  All validation errors
+  """
+  errors: [StoreHeaderSaveError!]
+}
+
+enum StoreHeaderSaveError {
+  INVALID_COUNTRY
+}
+
+type ReturnPolicySavePayload {
+  """
+  Return policy which was saved/updated
+  """
+  returnPolicy: ReturnPolicy
+  """
+  The first validation error that occured
+  """
+  error: ReturnPolicySaveError
+  """
+  All validation errors
+  """
+  errors: [ReturnPolicySaveError!]
+}
+
+enum ReturnPolicySaveError {
+  INVALID_PRODUCT
+}
+
+type SignupPromoPayload {
+  """
+  The Brand Reward Program Tier which was saved/updated
+  """
+  signupPromo: SignupPromo
+  """
+  The first validation error that occured
+  """
+  error: SignupPromoError
+  """
+  All validation errors
+  """
+  errors: [SignupPromoError!]
+}
+
+enum SignupPromoError {
+  INVALID_CURRENCY
+  INVALID_COUNTRY
+  INVALID_SIGNUP_PROMO
+}
+
+type StoreOrderTrackingInfoSavePayload {
+  """
+  Store tracking info create
+  """
+  trackingInfo: TrackingInfo
+  """
+  The first validation error that occured
+  """
+  error: StoreOrderTrackingInfoSaveError
+  """
+  All validation errors
+  """
+  errors: [StoreOrderTrackingInfoSaveError!]
+}
+
+enum StoreOrderTrackingInfoSaveError {
+  INVALID_ORDER_TYPE
+  INVALID_STORE_ORDER
+}
+
+type StoreOrderSetPayload {
+  """
+  Store order create
+  """
+  storeOrderSet: StoreOrderSet
+  paymentUrl: String
+  """
+  The first validation error that occured
+  """
+  error: StoreOrderSetCreateError
+  """
+  All validation errors
+  """
+  errors: [StoreOrderSetCreateError!]
+}
+
+enum StoreOrderSetCreateError {
+  """
+  Unable to initiate merchant transaction
+  """
+  MERCHANT_INITIALIZATION_ERROR
+  """
+  Invalid Customer (does not exist)
+  """
+  INVALID_CUSTOMER
+  """
+  Invalid Product (does not exist)
+  """
+  INVALID_PRODUCT
+  """
+  Invalid Customer Address (Does not exist)
+  """
+  INVALID_CUSTOMER_ADDRESS
+  """
+  Wrong Customer Address (address does not belong to customer)
+  """
+  WRONG_CUSTOMER_ADDRESS
+  """
+  Quantity must be larger than 0
+  """
+  ZERO_QUANTITY_REQUESTED
+  INSUFFICIENT_CREDITS
+  PAYMENT_METHOD_REQUIRED
+  CASH_NOT_AVAILABLE
+}
+
+type CustomerCurrentLocationPayload {
+  """
+  Current location of the customer
+  """
+  currentLocation: CustomerCurrentLocationCache
+  """
+  The first validation error that occured
+  """
+  error: CustomerCurrentLocationError
+  """
+  All validation errors
+  """
+  errors: [CustomerCurrentLocationError!]
+}
+
+enum CustomerCurrentLocationError {
+  INVALID_CUSTOMER
+}
+
+type CustomerGroupSavePayload {
+  customerGroup: CustomerGroup
+  error: CustomerGroupPayloadError
+  errors: [CustomerGroupPayloadError!]
+  errorDescription: String
+}
+
+enum CustomerGroupPayloadError {
+  INVALID_CUSTOMER
+  CUSTOMER_NOT_FOUND
+  INVALID_FORMAT
+  INVALID_CURRENCY
+  CUSTOMER_GROUP_ALREADY_EXISTS
+}
+
+type AddCreditsForCustomersPayload {
+  customers: [ID!]
+  error: AddCreditsForCustomersPayloadError
+  errors: [AddCreditsForCustomersPayloadError!]
+  errorDescription: String
+}
+
+type ImportBranchContactsPayload {
+  branches: [ID!]
+  error: ImportBranchContactsPayloadError
+  errors: [ImportBranchContactsPayloadError!]
+  errorDescription: String
+}
+
+enum AddCreditsForCustomersPayloadError {
+  INVALID_CUSTOMER
+  CUSTOMER_NOT_FOUND
+  INVALID_FORMAT
+}
+
+enum ImportBranchContactsPayloadError {
+  INVALID_BRANCH
+  INVALID_FORMAT
+}
+
+type UpdateCustomerStatusResponse {
+  success: Boolean
+  error: UpdateCustomerStatusError
+}
+
+enum BrandLocationActivityEventSaveError {
+  INVALID_EVENT_TYPE
+}
+
+type BrandLocationActivityEventSavePayload {
+  """
+  Save Status
+  """
+  isSaved: Boolean
+  """
+  The first validation error that occured
+  """
+  error: BrandLocationActivityEventSaveError
+  """
+  All validation errors
+  """
+  errors: [BrandLocationActivityEventSaveError!]
+}
+
+type SaveBankStatusResponse {
+  success: Boolean
+  bank: Bank
+  error: SaveBankError
+  """
+  All validation errors
+  """
+  errors: [SaveBankError!]
+}
+
+enum SaveBankError {
+  MISSING_IDENTIFIER
+  INVALID_LENGTH_IDENTIFIER
+  MISSING_NAME
+  MISSING_COUNTRY_ID
+  ALREADY_EXISTS_IDENTIFIER
+}
+
+type SaveBankCardStatusResponse {
+  success: Boolean
+  bankCard: BankCard
+  error: SaveBankCardError
+  """
+  All validation errors
+  """
+  errors: [SaveBankCardError!]
+}
+
+enum SaveBankCardError {
+  MISSING_IDENTIFIER
+  INVALID_LENGTH_IDENTIFIER
+  MISSING_NAME
+  MISSING_BANK_ID
+}
+
+type NewBrandsSavePayload {
+  newBrands: [NewBrand]
+  error: NewBrandsSaveError
+  errors: [NewBrandsSaveError!]
+  errorDescription: String
+}
+
+type BrandSubscriptionModelPayload {
+  brandSubscriptionModel: BrandSubscriptionModel
+  error: BrandSubscriptionModelError
+  errors: [BrandSubscriptionModelError!]
+  errorDescription: String
+}
+
+type CustomerFavoriteBrandLocationSavePayload {
+  customerFavoriteBrandLocations: [CustomerFavoriteBrandLocation]
+  error: CustomerFavoriteBrandLocationError
+  errors: [CustomerFavoriteBrandLocationError!]
+}
+
+type CustomerFavoriteBrandLocationDeletePayload {
+  deleted: Boolean
+  error: CustomerFavoriteBrandLocationError
+  errors: [CustomerFavoriteBrandLocationError!]
+}
+
+type CustomerNotificationForBrandLocationOpenPayload {
+  status: Boolean
+  notifications: [CustomerNotificationsForBrandLocationOpen]
+  error: CustomerNotificationForBrandLocationOpenError
+  errors: [CustomerNotificationForBrandLocationOpenError!]
+}
+
+type CustomerNotificationsForBrandLocationOpen {
+  id: ID!
+  brandLocationId: ID!
+  status: Boolean!
+  created: Datetime!
+  updated: Datetime!
+}
+
+type OrderRatingQuestionSavePayload {
+  orderRatingQuestion: OrderRatingQuestion
+  error: OrderRatingQuestionSaveError
+  errors: [OrderRatingQuestionSaveError!]
+}
+
+type DiscoveryBrandsElement {
+  nearByBranchesCount: Int
+  distance: Float
+  brandRedemptionLimit: Int!
+  redeemedForBrand: Int!
+  brand: Brand!
+}
+
+type CountryWalletPayload {
+  brands: [DiscoveryBrandsElement!]
+  account: WalletAccount!
+}
+
+type SavePaymentGatewayChargeResponse {
+  success: Boolean
+  paymentGatewayCharge: PaymentGatewayCharge
+  error: SavePaymentGatewayChargeError
+  """
+  All validation errors
+  """
+  errors: [SavePaymentGatewayChargeError!]
+}
+
+enum SavePaymentGatewayChargeError {
+  INVALID_COUNTRY_ID
+  ALREADY_EXISTS
+}
+
+type ImportBrandSubscriptionPayload {
+  error: ImportBrandSubscriptionError
+  errorDescription: String
+  errors: [ImportBrandSubscriptionError!]
+}
+
+enum ImportBrandSubscriptionError {
+  MISSING_PARAMETERS
+  INVALID_URL
+  INVALID_FILE
+  INVALID_CONTENT
+  INVALID_FILE_FORMAT
+  INVALID_COUNTRY
+  INVALID_BRAND
+  INVALID_FLAT_RATE
+  INVALID_PICKUP_COMMISSION
+  INVALID_DELIVERY_COMMISSION
+  INVALID_COFE_STORE_COMMISSION
+  INVALID_SIGN_DATE
+  INVALID_EXPIRY_DATE
+  INVALID_AUTO_RENEWAL
+  INVALID_REVENUE_MODEL
+}
+
+type MPosDevicePairingPayload {
+  id: ID
+  """
+  The MPos Device which was pairing/unpairing
+  """
+  deviceId: ID
+  """
+  The first validation error that occured
+  """
+  error: MPosDevicePairingError
+  """
+  All validation errors
+  """
+  errors: [MPosDevicePairingError!]
+}
+
+enum MPosDevicePairingError {
+  """
+  Device Code must exist
+  """
+  INVALID_DEVICE_CODE
+  """
+  Device can not found
+  """
+  INVALID_DEVICE
+  """
+  Duplicate Device
+  """
+  DEVICE_ALREADY_PAIRED
+  """
+  Invalid Brand Location or Deleted
+  """
+  INVALID_BRAND_LOCATION
+  """
+  Brand Location already paired another device
+  """
+  BRAND_LOCATION_ALREADY_PAIRED
+}
+
+type MyFatoorahPaymentCallbackOutput {
+  status: String
+  paymentStatus: PaymentStatusName
+  message: String
+}
+
+type OrderRatingSavePayload {
+  orderRating: OrderRating
+  isOpenDetailScreen: Boolean
+  error: OrderRatingSaveError
+  errors: [OrderRatingSaveError]
+  errorDescription: String
+}
+
+type OrderRatingDetailSavePayload {
+  orderRating: OrderRating
+  error: OrderRatingDetailSaveError
+  errors: [OrderRatingDetailSaveError]
+  errorDescription: String
+}

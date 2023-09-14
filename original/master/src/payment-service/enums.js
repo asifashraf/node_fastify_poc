@@ -1,0 +1,58 @@
+exports.paymentSchemes = {
+  LEGACY: 'LEGACY',
+  KNET: 'KNET',
+  CASH: 'CASH',
+  STC_PAY: 'STC_PAY',
+  MADA: 'MADA',
+  AMEX: 'AMEX',
+  TOKEN: 'TOKEN',
+  CARD: 'CARD',
+  ADD_CARD: 'ADD_CARD',
+  SAVED_CARD: 'SAVED_CARD',
+  APPLE_PAY: 'APPLE_PAY',
+  GOOGLE_PAY: 'GOOGLE_PAY',
+};
+
+exports.paymentServiceError = {
+  COUNTRY_CODE_REQUIRED: 'COUNTRY_CODE_REQUIRED',
+};
+
+exports.paymentProviders = {
+  INTERNAL: 'INTERNAL',
+  MY_FATOORAH: 'MY_FATOORAH',
+  CHECKOUT: 'CHECKOUT',
+  MOBILE_EXPRESS: 'MOBILE_EXPRESS',
+  TAP: 'TAP',
+};
+
+exports.paymentLogsRequestType = {
+  INITIATE_PAYMENT: 'InitiatePayment',
+  EXECUTE_PAYMENT: 'ExecutePayment',
+  GET_PAYMENT_STATUS: 'GetPaymentStatus',
+  CANCEL_AUTHORIZED_PAYMENT: 'CancelAuthorizedPayment',
+};
+
+
+exports.paymentMethodType = {
+  LEGACY: 'LEGACY',
+  KNET: 'KNET',
+  CASH: 'CASH',
+  STC_PAY: 'STC_PAY',
+  MADA: 'MADA',
+  AMEX: 'AMEX',
+  TOKEN: 'TOKEN',
+  CARD: 'CARD',
+  ADD_CARD: 'ADD_CARD',
+  SAVED_CARD: 'SAVED_CARD',
+  APPLE_PAY: 'APPLE_PAY',
+  GOOGLE_PAY: 'GOOGLE_PAY',
+  VISA: 'VISA',
+  MASTER_CARD: 'MASTER_CARD',
+  AMERICAN_EXPRESS: 'AMERICAN_EXPRESS',
+  VOUCHER: 'VOUCHER',
+  REWARD_DISCOUNT: 'REWARD_DISCOUNT',
+  GIFT_CARD: 'GIFT_CARD',
+  CREDITS: 'CREDITS',
+  CASHBACK: 'CASHBACK',
+  DISCOVERY_CREDITS: 'DISCOVERY_CREDITS'
+};

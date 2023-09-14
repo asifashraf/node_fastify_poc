@@ -1,0 +1,44 @@
+<mj-raw>
+  <!-- Social Links -->
+</mj-raw>
+<mj-section padding="30px 10px 0" background-color="#fff">
+  <mj-column>
+    <mj-text font-weight="bold" font-size="16px" padding="0 0 8px">Sen kahve istedikçe COFE seninle! Bizi takip et</mj-text>
+    <mj-social mode="horizontal" padding="5px 0" border-radius="0">
+      <mj-social-element icon-size="25px" name="twitter-noshare" background-color="transparent" padding="0 15px 0 0" href="https://twitter.com/getcofe/" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/email/cofe-twitter_3x.png" />
+      <mj-social-element icon-size="25px" name="facebook-noshare" background-color="transparent" padding="0 15px" href="https://www.facebook.com/cofeapp/" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/email/cofe-facebook_3x.png" />
+      <mj-social-element icon-size="25px" name="instagram-noshare" background-color="transparent" padding="0 15px" href="https://www.instagram.com/getcofe/" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/email/cofe-instagram_3x.png" />
+      <mj-social-element icon-size="25px" name="linkedin-noshare" background-color="transparent" padding="0 15px" href="https://www.linkedin.com/company/cofeapp/" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/email/cofe-linkedin_3x.png" />
+      <mj-social-element icon-size="25px" name="youtube-noshare" background-color="transparent" padding="0 15px" href="https://www.youtube.com/channel/UCpPigW9Rim-J6DlZVJUNq_Q" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/email/cofe-youtube_3x.png" />
+    </mj-social>
+  </mj-column>
+  </mj-column>
+</mj-section>
+<mj-raw>
+  <!-- Help -->
+</mj-raw>
+<mj-section padding="30px 10px 0" background-color="#fff">
+  <mj-column>
+    <mj-text css-class="p-bold" font-size="16px" line-height="22px" padding="0">Soruların var mı? Bize ulaşın</mj-text>
+    <mj-text padding="0" font-size="14px" line-height="20px">Tüm sorularınız için ${countryPhoneNumber} numarasından ya da <a class="cofe-link-style" href="mailto:hello@cofeapp.com?subject=Sipariş Hakkında #${shortCode}">hello@cofeapp.com</a> adresinden bize ulaşın.
+    </mj-text>
+  </mj-column>
+</mj-section>
+<mj-raw>
+  <!-- Disclaimer -->
+</mj-raw>
+<mj-section padding="30px 10px 0">
+  <mj-column>
+    <mj-text css-class="disclaimer" padding="0" color="#7E7367">
+      Feragatname: <br /><a class="cofe-link-nostyle" href="http://www.cofeapp.com">cofeapp.com</a> üzerinden sipariş edilen tüm kahveler, COFE üzerinden bulunan mağazalar tarafından hazırlanmaktadır. <a class="cofe-link-nostyle" href="http://www.cofeapp.com">cofeapp.com</a> siparişin hazırlanması, üretimi veya fiyatlandırılması sürecine hiçbir şekilde dahil değildir.  Sipariş edilen ürünün sipariş kalitesinden, fiyatından ve geçerliliğinden COFE uygulamasına kayıtlı olan COFE Mağazası sorumludur. Buna karşılık COFe, bu işlem sırasında ortaya çıkabilecek herhangi bir hasardan dolayı sorumluluk kabul etmez. Bu rapor, bu işlemin aytınrılarının bir kanıtı olarak siparişe eklenir ve teslimat ücretini yansıtılır. COFE Mağazası'nın fiyatlandırma sorumluluğu tamamen kendilerine aittir. COFE Mağazası'na ait menü ile sunulan fiyatlar arasında olabilecek her türlü farklılık mağaza sorumluluğu dahilinde olacaktır. Bu işlem, <a class="cofe-link-nostyle" href="http://www.cofeapp.com">cofeapp.com</a> web sitesinin hüküm ve koşullarına tabidir.
+    </mj-text>
+  </mj-column>
+</mj-section>
+<mj-raw>
+  <!-- Footer -->
+</mj-raw>
+<mj-section>
+  <mj-column>
+    <mj-text css-class="p-light" padding="50px" align="center" color="#7E7367"><b>COFE</b> | KIPCO Tower, Sharq, Kuwait.<br>&copy; ${year} Tüm Hakları Saklıdır.</mj-text>
+  </mj-column>
+</mj-section>

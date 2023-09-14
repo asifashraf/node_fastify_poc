@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`save golden cofe details 1`] = `
+Object {
+  "data": Object {
+    "goldenCofeSave": Object {
+      "brands": Array [
+        Object {
+          "id": "82f509cf-7600-4cf3-9ff4-4725e05591cc",
+          "name": Object {
+            "en": "Costa Coffee",
+          },
+          "profilePhoto": null,
+        },
+        Object {
+          "id": "82b0cd94-54ca-4987-852e-e3cba0e012d2",
+          "name": Object {
+            "en": "No-Menu Brand",
+          },
+          "profilePhoto": null,
+        },
+      ],
+      "dateRange": Object {
+        "endDate": "2019-09-26",
+        "startDate": "2019-09-01",
+      },
+      "terms": Array [
+        Object {
+          "ar": "insert test - ar",
+          "en": "insert test - en",
+        },
+      ],
+    },
+  },
+}
+`;

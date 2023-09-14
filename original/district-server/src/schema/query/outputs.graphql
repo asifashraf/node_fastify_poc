@@ -1,0 +1,84 @@
+type DailyOrdersReport {
+  fileKey: String!
+  originalKey: String!
+  s3Url: String!
+}
+
+type WeeklyOrdersReport {
+  fileKey: String!
+  originalKey: String!
+  s3Url: String!
+}
+
+type MonthlyOrdersReport {
+  fileKey: String!
+  originalKey: String!
+  s3Url: String!
+}
+
+type CareTeamReport {
+  fileKey: String!
+  originalKey: String!
+  s3Url: String!
+}
+
+"""
+Output type for fetching Daily Financial Reports
+"""
+type DailyOrdersReportsPayload {
+  error: DailyOrdersReportsError
+  errors: [DailyOrdersReportsError!]
+  reports: [DailyOrdersReport!]
+}
+
+"""
+Output type for fetching Weekly Financial Reports
+"""
+type WeeklyOrdersReportsPayload {
+  error: WeeklyOrdersReportsError
+  errors: [WeeklyOrdersReportsError!]
+  reports: [WeeklyOrdersReport!]
+}
+
+"""
+Return newBrandLite with errors
+"""
+type newBrandsLiteResponse {
+  error: NewBrandLiteError
+  newBrands: [NewBrandLite]
+}
+
+"""
+Return locationsInRadiusLiteResponse with errors
+"""
+type locationsInRadiusLiteResponse {
+  error: locationsInRadiusLiteError
+  brandLocations: [BrandLocationLite!]
+}
+
+"""
+Output type for fetching Monthly Financial Reports
+"""
+type MonthlyOrdersReportsPayload {
+  error: MonthlyOrdersReportsError
+  errors: [MonthlyOrdersReportsError!]
+  reports: [MonthlyOrdersReport!]
+}
+
+"""
+Output type for fetching Monthly Financial Reports
+"""
+type CareTeamReportsPayload {
+  error: CareTeamReportsError
+  errors: [CareTeamReportsError!]
+  reports: [CareTeamReport!]
+}
+
+"""
+Output type for Reverse Address
+"""
+type ReverseAddressPayload {
+  error: ReverseAddressError
+  errors: [ReverseAddressError!]
+  address: ReverseAddress
+}

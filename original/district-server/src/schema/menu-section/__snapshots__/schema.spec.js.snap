@@ -1,0 +1,221 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`menu items can resolve their menu sections 1`] = `
+Object {
+  "data": Object {
+    "brand": Object {
+      "menu": Object {
+        "sections": Array [
+          Object {
+            "items": Array [
+              Object {
+                "section": Object {
+                  "id": "62ee1779-4312-40ee-95c4-7cce956c11ae",
+                  "name": Object {
+                    "ar": "مشروبات",
+                    "en": "Drinks",
+                  },
+                },
+              },
+              Object {
+                "section": Object {
+                  "id": "62ee1779-4312-40ee-95c4-7cce956c11ae",
+                  "name": Object {
+                    "ar": "مشروبات",
+                    "en": "Drinks",
+                  },
+                },
+              },
+              Object {
+                "section": Object {
+                  "id": "62ee1779-4312-40ee-95c4-7cce956c11ae",
+                  "name": Object {
+                    "ar": "مشروبات",
+                    "en": "Drinks",
+                  },
+                },
+              },
+            ],
+          },
+          Object {
+            "items": Array [
+              Object {
+                "section": Object {
+                  "id": "ac7a3fe1-5d8d-4f74-984c-eecb7c105adb",
+                  "name": Object {
+                    "ar": "طعام",
+                    "en": "Food",
+                  },
+                },
+              },
+              Object {
+                "section": Object {
+                  "id": "ac7a3fe1-5d8d-4f74-984c-eecb7c105adb",
+                  "name": Object {
+                    "ar": "طعام",
+                    "en": "Food",
+                  },
+                },
+              },
+              Object {
+                "section": Object {
+                  "id": "ac7a3fe1-5d8d-4f74-984c-eecb7c105adb",
+                  "name": Object {
+                    "ar": "طعام",
+                    "en": "Food",
+                  },
+                },
+              },
+            ],
+          },
+          Object {
+            "items": Array [
+              Object {
+                "section": Object {
+                  "id": "6c52f1d1-7d39-41bb-8b0f-6e147183265c",
+                  "name": Object {
+                    "ar": "مجمد",
+                    "en": "Frozen",
+                  },
+                },
+              },
+              Object {
+                "section": Object {
+                  "id": "6c52f1d1-7d39-41bb-8b0f-6e147183265c",
+                  "name": Object {
+                    "ar": "مجمد",
+                    "en": "Frozen",
+                  },
+                },
+              },
+            ],
+          },
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`menu sections can be saved 1`] = `
+Object {
+  "data": Object {
+    "brandMenuSectionSave": Object {
+      "error": null,
+      "errors": null,
+      "menuSections": Array [
+        Object {
+          "id": "62ee1779-4312-40ee-95c4-7cce956c11ae",
+          "name": Object {
+            "ar": "مشروبات",
+            "en": "Drinks",
+          },
+        },
+        Object {
+          "id": "9f03ad20-3fc0-4896-8917-35324e810d58",
+          "name": Object {
+            "ar": "لو القائمة القسم 1",
+            "en": "Le Menu Section 1 ",
+          },
+        },
+        Object {
+          "id": "ac7a3fe1-5d8d-4f74-984c-eecb7c105adb",
+          "name": Object {
+            "ar": "طعام",
+            "en": "Food",
+          },
+        },
+        Object {
+          "id": "c81d4284-9dbf-4dee-9e71-72d5546407a7",
+          "name": Object {
+            "ar": "لو القائمة القسم 2",
+            "en": "Le Menu Section 2 ",
+          },
+        },
+        Object {
+          "id": "6c52f1d1-7d39-41bb-8b0f-6e147183265c",
+          "name": Object {
+            "ar": "مجمد",
+            "en": "Frozen",
+          },
+        },
+        Object {
+          "id": "1e39e901-0b91-4ff9-b741-98042a8f1a14",
+          "name": Object {
+            "ar": "لو القائمة القسم 3",
+            "en": "Le Menu Section 3 ",
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`menu sections can be updated 1`] = `
+Object {
+  "data": Object {
+    "brandMenuSectionSave": Object {
+      "error": null,
+      "errors": null,
+      "menuSections": Array [
+        Object {
+          "id": "62ee1779-4312-40ee-95c4-7cce956c11ae",
+          "name": Object {
+            "ar": "لو القائمة القسم 0",
+            "en": "Le Menu Section 0",
+          },
+        },
+        Object {
+          "id": "ac7a3fe1-5d8d-4f74-984c-eecb7c105adb",
+          "name": Object {
+            "ar": "لو القائمة القسم 1",
+            "en": "Le Menu Section 1",
+          },
+        },
+        Object {
+          "id": "6c52f1d1-7d39-41bb-8b0f-6e147183265c",
+          "name": Object {
+            "ar": "لو القائمة القسم 2",
+            "en": "Le Menu Section 2",
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`menus can resolve menu sections 1`] = `
+Object {
+  "data": Object {
+    "brand": Object {
+      "menu": Object {
+        "sections": Array [
+          Object {
+            "id": "62ee1779-4312-40ee-95c4-7cce956c11ae",
+            "name": Object {
+              "ar": "مشروبات",
+              "en": "Drinks",
+            },
+          },
+          Object {
+            "id": "ac7a3fe1-5d8d-4f74-984c-eecb7c105adb",
+            "name": Object {
+              "ar": "طعام",
+              "en": "Food",
+            },
+          },
+          Object {
+            "id": "6c52f1d1-7d39-41bb-8b0f-6e147183265c",
+            "name": Object {
+              "ar": "مجمد",
+              "en": "Frozen",
+            },
+          },
+        ],
+      },
+    },
+  },
+}
+`;

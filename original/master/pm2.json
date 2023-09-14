@@ -1,0 +1,15 @@
+{
+    "apps": [
+        {
+            "script": "index.js",
+            "instances": "1",
+            "exec_mode": "cluster",
+            "name": "primary"
+        },
+        {
+            "script": "index.js",
+            "instances": "-1",
+            "name": "replica"
+        }
+    ]
+}

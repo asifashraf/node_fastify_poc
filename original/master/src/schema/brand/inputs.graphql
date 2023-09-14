@@ -1,0 +1,4 @@
+input BranchToggleInput {
+  brandId : ID!
+  status : BranchToggleStatus!
+}

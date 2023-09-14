@@ -1,0 +1,51 @@
+type LoyaltyBonus {
+  id: ID!
+  """
+  Loyalty Tier Id
+  """
+  loyaltyTierId: ID!
+  """
+  Type of Bonus - ['percent', 'flat']
+  """
+  type: String!
+  """
+  Value of bonus - x% or x amount flat
+  """
+  value: CurrencyValue!
+  """
+  Min applicable range
+  """
+  lowerBound: Int!
+  """
+  Max applicable range
+  """
+  upperBound: Int
+}
+
+input LoyaltyBonusInput {
+  id: ID
+  """
+  Loyalty Tier Id
+  """
+  loyaltyTierId: ID
+  """
+  Type of Bonus - ['percent', 'flat']
+  """
+  type: String!
+  """
+  Value of bonus - x% or x amount flat
+  """
+  value: CurrencyValue!
+  """
+  Min applicable range
+  """
+  lowerBound: Int!
+  """
+  Max applicable range
+  """
+  upperBound: Int
+  """
+  Deleted
+  """
+  deleted: Boolean
+}

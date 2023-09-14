@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<rss xmlns:g="http://base.google.com/ns/1.0" version="1.0">
+  <channel>
+    <item>
+      <g:id>b96715e4-27a0-4d50-93d4-fec27c7d1ac1</g:id>
+      <g:sku>test</g:sku>
+      <g:title>test</g:title>
+      <g:description>test</g:description>
+      <g:quantity>1</g:quantity>
+      <g:price>1.000</g:price>
+      <g:brand>BE.K Cafe</g:brand>
+      <g:image_link>https://s3.eu-west-1.amazonaws.com/content.cofeadmin.com/media/development/80a652fd-9bd5-446e-bf9e-22e1ab7e31c1.png</g:image_link>
+    </item>
+    <item>
+      <g:id>e574d29f-11b1-4abf-a636-a0198452a7d4</g:id>
+      <g:sku>123</g:sku>
+      <g:title>Cafe do Brasil - Drinks Regular Coffee Store KW</g:title>
+      <g:description>Cafe do Brasil - Drinks Regular Coffee Store KW</g:description>
+      <g:quantity>12</g:quantity>
+      <g:price>120.000</g:price>
+      <g:brand>Regular Coffee Store Brand</g:brand>
+      <g:image_link>https://res.cloudinary.com/cofedistrict/image/upload/v1586459060/qvcksrbijsnb91m16tf5.jpg</g:image_link>
+    </item>
+    <item>
+      <g:id>7286b7d9-7a3a-49a9-af7a-b43ed7b4ba81</g:id>
+      <g:sku>sku_one</g:sku>
+      <g:title>Beans &amp; Merch - Regular Coffee Store KW</g:title>
+      <g:description>Beans &amp; Merch - Regular Coffee Store KW</g:description>
+      <g:quantity>100</g:quantity>
+      <g:price>11.530</g:price>
+      <g:brand>Regular Coffee Store Brand</g:brand>
+      <g:image_link>https://res.cloudinary.com/cofedistrict/image/upload/v1586538238/okrwfe4lzrrvgtakvbso.jpg</g:image_link>
+    </item>
+    <item>
+      <g:id>0a4d73ba-09e5-4412-b335-192ab5d5340b</g:id>
+      <g:sku>111</g:sku>
+      <g:title>New prod posy</g:title>
+      <g:description>New prod posy</g:description>
+      <g:quantity>1</g:quantity>
+      <g:price>12.000</g:price>
+      <g:brand>POSY</g:brand>
+      <g:image_link>https://res.cloudinary.com/cofedistrict/image/upload/v1586960243/kmdqtbp3v0noh20redi6.jpg</g:image_link>
+    </item>
+    <item>
+      <g:id>b91d9bfd-3ea9-4914-998c-bb56b2575e35</g:id>
+      <g:sku>SKU_02</g:sku>
+      <g:title>Professional Coffee Grinder</g:title>
+      <g:description>Professional Coffee Grinder</g:description>
+      <g:quantity>1</g:quantity>
+      <g:price>1.550</g:price>
+      <g:brand>POSY</g:brand>
+      <g:image_link>https://res.cloudinary.com/cofedistrict/image/upload/v1586703677/ybuffkcj8pmnvtr193af.jpg</g:image_link>
+    </item>
+    <item>
+      <g:id>ad71c4b0-0881-44bd-84b7-3cfd4cc3d629</g:id>
+      <g:sku>testi</g:sku>
+      <g:title>Test</g:title>
+      <g:description>Test</g:description>
+      <g:quantity>20</g:quantity>
+      <g:price>20.000</g:price>
+      <g:brand>20 Grams</g:brand>
+      <g:image_link>N/A</g:image_link>
+    </item>
+    <item>
+      <g:id>29815781-f752-40eb-b600-97b8dfe8772d</g:id>
+      <g:sku>10101</g:sku>
+      <g:title>Nespresso Expert Anthracite D80-EU3-GR-NE, 19 bar, 1600 W, 1.1 l, Black or White. </g:title>
+      <g:description>Nespresso Expert Anthracite D80-EU3-GR-NE, 19 bar, 1600 W, 1.1 l, Black or White. </g:description>
+      <g:quantity>2</g:quantity>
+      <g:price>3.000</g:price>
+      <g:brand>Nespresso</g:brand>
+      <g:image_link>https://res.cloudinary.com/cofedistrict/image/upload/v1586616857/eo4eyolgg6lefjl92avt.jpg</g:image_link>
+    </item>
+    <item>
+      <g:id>ae132aed-3f22-4408-bf6f-802a9cbdcc34</g:id>
+      <g:sku>SKU1</g:sku>
+      <g:title>value</g:title>
+      <g:description>value</g:description>
+      <g:quantity>2</g:quantity>
+      <g:price>0.000</g:price>
+      <g:brand>Caribou Coffee</g:brand>
+      <g:image_link>https://s3.eu-west-1.amazonaws.com/content.cofeadmin.com/media/development/productimage-a480fc01-2bb5-4d17-a145-66964273c4d1.png</g:image_link>
+    </item>
+    <item>
+      <g:id>a230c095-6fce-4a8f-9a71-43c20417c8ce</g:id>
+      <g:sku>test</g:sku>
+      <g:title>test</g:title>
+      <g:description>test</g:description>
+      <g:quantity>1</g:quantity>
+      <g:price>1.000</g:price>
+      <g:brand>20 Grams</g:brand>
+      <g:image_link>N/A</g:image_link>
+    </item>
+  </channel>
+</rss>

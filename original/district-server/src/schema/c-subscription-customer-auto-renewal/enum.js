@@ -1,0 +1,18 @@
+exports.cSubscriptionCustomerAutoRenewalStatus = {
+  ACTIVE: 'ACTIVE',
+  INACTIVE: 'INACTIVE',
+  CANCELED: 'CANCELED',
+};
+
+exports.cSubscriptionCustomerAutoRenewalValidationErrors = {
+  AUTO_RENEWAL_IS_NOT_ACTIVE: 'AUTO_RENEWAL_IS_NOT_ACTIVE',
+  ALREADY_RENEWED: 'ALREADY_RENEWED',
+};
+
+exports.cSubscriptionCustomerAutoRenewalErrors = {
+  PAYMENT_FAILURE: 'PAYMENT_FAILURE',
+  UNSPECIFIED_ERROR: 'UNSPECIFIED_ERROR',
+  NOT_FULLY_REDEEMED: 'NOT_FULLY_REDEEMED',
+  NO_SUBSCRIPTION_FOUND: 'NO_SUBSCRIPTION_FOUND',
+  SERVICE_ERROR: 'SERVICE_ERROR',
+};

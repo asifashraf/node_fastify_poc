@@ -1,0 +1,11 @@
+type StoreHeader {
+  id: ID!
+  image: LocalizedString!
+  availableFrom: Datetime
+  availableUntil: Datetime
+  country: Country!
+  action: String
+  name: String
+  status: StatusType!
+  target: UITarget
+}

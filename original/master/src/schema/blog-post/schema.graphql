@@ -1,0 +1,61 @@
+"""
+Blog Post
+"""
+type BlogPost {
+  """
+  Database identifier
+  """
+  id: ID
+  """
+  Blog post title
+  """
+  title: String
+  """
+  Blog post description
+  """
+  description: String
+  """
+  Blog post creating time
+  """
+  created: Date
+  """
+  Blog post updating time
+  """
+  updated: Date
+  """
+  Blog post author
+  """
+  author: String
+  """
+  Foreign key blog category id
+  """
+  categoryId: ID
+  """
+  Blog post meta title
+  """
+  metaTitle: String
+  """
+  Blog post meta descripton
+  """
+  metaDescription: String
+  """
+  Blog post meta tags
+  """
+  metaTags: String
+  """
+  Blog post status
+  """
+  status: String
+  """
+  Blog post image
+  """
+  image: String
+  """
+  Blog post thumbnail image for list view
+  """
+  thumbnailImage: String
+  """
+  Blog post permalink
+  """
+  permalink: String
+}

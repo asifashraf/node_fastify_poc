@@ -1,0 +1,39 @@
+"""
+BrandSubscriptionModel
+"""
+type BrandSubscriptionModel {
+  """
+  Database identifier
+  """
+  id: ID!
+  brand: Brand!
+  country: Country!
+  currency: Currency!
+  autoRenewal: Boolean!
+  revenueModel: BrandSubscriptionRevenueModel!
+  flatRate: Float
+  pickupCommission: Float
+  deliveryCommission: Float
+  cofeStoreCommission: Float
+  """
+  The time the location opens on this date
+  """
+  signDate: Datetime!
+  """
+  The time the location closes on this date
+  """
+  expiryDate: Datetime
+  """
+  Subscription status
+  """
+  status: StatusType
+  hasTrial: Boolean
+  """
+  The trial start time
+  """
+  trialStartDate: Datetime
+  """
+  The trial end time
+  """
+  trialEndDate: Datetime
+}

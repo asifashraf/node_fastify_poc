@@ -1,0 +1,34 @@
+"""
+A section within a menu, ie 'Coffee'
+"""
+type MenuSection {
+  """
+  Database identifier, string
+  """
+  id: ID!
+  """
+  The name of this section, ie 'Coffee'
+  """
+  name: LocalizedString!
+  """
+  The list of items within this section
+  """
+  items: [MenuItem]!
+  """
+  Sort Order
+  """
+  sortOrder: Int!
+  """
+  Menu section status 
+  """
+  status: MenuSectionStatus
+  """
+  Menu section layout type
+  """
+  layoutType: MenuSectionLayoutType
+}
+
+enum MenuSectionLayoutType {
+  LIST_DISPLAY
+  GRID_DISPLAY
+}

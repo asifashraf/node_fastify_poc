@@ -1,0 +1,82 @@
+type FilterSet {
+  id: ID!
+  title: LocalizedString!
+  analyticsEventName: String!
+  isSearchable: Boolean!
+  emptyData: EmptyData!
+  fulfillmentTypes: [OrderFulfillmentType!]
+  brands: [Brand!]
+  tags: [Tag!]
+  created: Datetime!
+  updated: Datetime!
+}
+
+input FilterSetInput {
+  id: ID
+  title: LocalizedStringInput!
+  analyticsEventName: String!
+  isSearchable: Boolean!
+  emptyData: EmptyDataInput!
+  fulfillmentTypes: [OrderFulfillmentType!]
+  brandIds: [ID!]
+  tagIds: [ID!]
+}
+
+type EmptyData {
+  icon: LocalizedString!
+  title: LocalizedString!
+  description: LocalizedString!
+  buttonTitle: LocalizedString!
+  deeplink: String!
+}
+
+input EmptyDataInput {
+  icon: LocalizedStringInput!
+  title: LocalizedStringInput!
+  description: LocalizedStringInput!
+  buttonTitle: LocalizedStringInput!
+  deeplink: String!
+}
+
+type FilterSetPayload {
+  filterSet: FilterSet
+  error: FilterSetSaveError
+}
+
+enum FilterSetSaveError {
+  INVALID_INPUT
+  INVALID_TITLE
+  INVALID_ANALYTICS_TAG
+  INVALID_SEARCHABLE
+  INVALID_EMPTY_DATA_ICON
+  INVALID_EMPTY_DATA_TITLE
+  INVALID_EMPTY_DATA_DESCRIPTION
+  INVALID_EMPTY_DATA_BUTTON_TITLE
+  INVALID_EMPTY_DATA_DEEPLINK
+  INVALID_BRAND_IDS
+  INVALID_TAG_IDS
+  INVALID_FULFILLMENT_TYPES
+}
+
+extend type Mutation {
+  saveFilterSet(input: FilterSetInput!): FilterSetPayload @requireAuth @requirePermissions(permissions: ["filterSets:upsert"])
+  deleteFilterSet(input: ID!): Boolean @requireAuth @requirePermissions(permissions: ["filterSets:delete"])
+}
+
+input FilterSetFilters {
+  id: ID
+  searchText: String
+}
+
+extend type Query {
+  filterSets(
+    """
+    FilterSet filters
+    """
+    filters: FilterSetFilters
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+  ): [FilterSet!]
+}

@@ -1,0 +1,26 @@
+"""
+A customer's saved delivery address
+"""
+type CustomerStats {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Total number of orders for this customer
+  """
+  totalOrders: Int!
+  """
+  Total KD spent by this customer.
+  This is the sum of all `total` values for each orderSet in this customer's history.
+  """
+  totalKdSpent: CurrencyValue!
+  """
+  Creation Date
+  """
+  createdAt: Datetime!
+  """
+  Last Update
+  """
+  updatedAt: Datetime!
+}

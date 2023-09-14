@@ -1,0 +1,28 @@
+extend type Query {
+  """
+  Getting a payment gateway information
+  """
+  paymentGatewayCharge(id: ID!): PaymentGatewayCharge @requireAuth
+  # """
+  # List all bank for voucher locking
+  # """
+  # paymentGatewayCharges(
+  #   """
+  #   Optional ability to leverage pagination
+  #   """
+  #   paging: PagingInput
+  #   """
+  #   Optional Search Term for filtering
+  #   """
+  #   searchTerm: String
+  #   """
+  #   Country Id for country level filtering
+  #   """
+  #   countryId: ID!
+  # ): PaymentGatewayChargePaged @requireAuth
+}
+
+type PaymentGatewayChargePaged {
+  paging: Paging
+  items: [PaymentGatewayCharge!]
+}

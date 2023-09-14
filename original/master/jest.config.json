@@ -1,0 +1,6 @@
+{
+  "testEnvironment": "node",
+  "testRegex": "(/__tests__/.*|\\.(test|spec))\\.jsx?$",
+  "testPathIgnorePatterns": ["/node_modules/"],
+  "globalSetup": "<rootDir>/test/global-setup.js"
+}

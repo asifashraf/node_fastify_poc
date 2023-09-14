@@ -1,0 +1,45 @@
+type CSubscriptionMenuItemOption {
+  id: ID
+  subscriptionId: ID
+  subscriptionMenuItemId: ID
+  menuItemOptionId: ID
+  optionSetId: ID
+  created: Datetime
+  updated: Datetime
+}
+
+enum CSubscriptionMenuItemOptionsDeleteError {
+  INVALID_ID
+  INVALID_SUBSCRIPTION_ID
+  INVALID_CSUBSCRIPTION_MENU_ITEM_ID
+  UNAUTHORIZED_PROCESS
+}
+
+input CSubscriptionMenuItemOptionFilters {
+  id: ID
+  subscriptionId: ID
+  subscriptionMenuItemId: ID
+  menuItemOptionId: ID
+}
+
+type CSubscriptionMenuItemOptionsDeletePayload {
+  errors: [CSubscriptionMenuItemOptionsDeleteError]
+  deleted: Boolean
+}
+
+extend type Query {
+  getCSubscriptionMenuItemOptionsByFilters(
+    filters: CSubscriptionMenuItemOptionFilters
+    paging: PagingInput
+  ): [CSubscriptionMenuItemOption!] @requireAuth
+}
+
+extend type Mutation {
+  """
+  menu item options can be deleted by using subscriptionId, csubscriptionMenuItemId and id
+  """
+  deleteCSubscriptionMenuItemOption(
+    subscriptionId: ID!
+    menuItemOptionIds: [ID!]
+  ): CSubscriptionMenuItemOptionsDeletePayload @requireAuth
+}

@@ -1,0 +1,54 @@
+node_modules
+npm-debug.log
+.DS_Store
+.env
+.idea
+doc/schema
+coverage
+jspm_packages
+.serverless
+cached_sha
+yarn-error.log
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+*_flymake.*
+flycheck_*.*
+.byebug_history
+
+# Scratch notes.
+notes.org
+
+# docker dev
+docker-compose.yml
+containers
+
+# JS GraphQL IntelliJ Plugin
+graphql.config.json
+orders_report_csv_*
+brands_report_csv_*
+brand_locations_report_csv_*
+rewards_report_csv_*
+vouchers_report_csv_*
+customers_report_csv_*
+financial_report_csv_*
+credit_orders_report_csv_*
+referrals_report_csv_*
+gift_card_orders_report_csv_*
+store_order_financial_report_csv_*
+fix_platform_order_report_csv_*
+query-time-*
+
+tmp/*
+!tmp/.gitkeep
+dump.rdb
+
+newrelic_agent.log

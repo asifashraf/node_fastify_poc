@@ -1,0 +1,80 @@
+type CarouselItem {
+  id: ID
+  image: LocalizedString
+  deeplink: String
+  countryId: ID
+  sortOrder: Int
+  status: CarouselItemStatusEnum
+  created: Datetime
+  updated: Datetime
+  sectionId:ID!
+  carouselSettingId:ID
+  name:String
+}
+
+input CarouselItemInput {
+  id: ID
+  image: LocalizedStringInput!
+  deeplink: String
+  status: CarouselItemStatusEnum!
+  sectionId:ID!
+  name:String
+}
+
+input CarouselItemSettingInput {
+  countryId: ID!
+  sortOrder: Int!
+  id:ID
+}
+
+enum CarouselItemStatusEnum {
+  ACTIVE
+  INACTIVE
+  DELETED
+}
+
+enum SaveCarouselItemErrorEnum {
+  NOT_EXIST
+  MISSING_ARGUMENT
+  SORT_ORDER_EXIST
+  INVALID_SECTION_ID
+  ID_AND_SETTING_ID_BOTH_REQUIRED_FOR_UPDATE
+}
+
+enum SaveCarouselItemTypeEnum {
+  CAROUSEL_ITEM
+  CAROUSEL_ITEM_SETTING
+  SECTION_ID
+}
+
+type SaveCarouselItemError {
+  error: SaveCarouselItemErrorEnum
+  type: SaveCarouselItemTypeEnum
+  countryId: ID
+}
+
+type SaveCarouselItemPayload {
+  errors: [SaveCarouselItemError]
+  items: [CarouselItem]
+}
+
+type CarouselItemData {
+  sectionMetadata: HomePageSection
+  items: [CarouselItem!]
+}
+
+extend type Query {
+  getCarouselItems(input: HomePageSectionArgs): CarouselItemData
+  getCarouselItemsForAdmin(countryId:ID! sectionId:ID status:CarouselItemStatusEnum): [CarouselItem!]
+}
+
+extend type Mutation {
+  saveCarouselItem(
+    carouselItemInfo: CarouselItemInput
+    carouselItemSettingInfo: [CarouselItemSettingInput]
+  ): SaveCarouselItemPayload  @requireAuth
+
+  deleteCarouselItem(
+    id: ID!
+  ): Boolean!  @requireAuth
+}

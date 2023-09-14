@@ -1,0 +1,50 @@
+"""
+A brand reward program
+"""
+type Reward {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  The brand reward program id.
+  """
+  brand: Brand!
+  """
+  The name of the reward program
+  """
+  title: LocalizedString!
+  """
+  Points conversion rate
+  """
+  conversionRate: Float!
+  """
+  When this item was created
+  """
+  created: Datetime!
+  """
+  When this item was edited last time
+  """
+  updated: Datetime!
+  """
+  reward program status
+  """
+  status: RewardStatus
+  """
+  tiers belonging to this reward program
+  """
+  tiers: [RewardTier!]
+  """
+  Child Brands
+  """
+  childBrands: [Brand]
+  """
+  Used to display conversion info(e.g. 100 Fils -> in app will be displayed 1 bean for 100 Fils)
+  """
+  conversionName: LocalizedString
+}
+
+type RewardsPaged {
+  paging: Paging!
+  items: [Reward!]!
+}

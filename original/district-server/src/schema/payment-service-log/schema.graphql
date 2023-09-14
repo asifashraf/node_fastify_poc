@@ -1,0 +1,39 @@
+enum PaymentLogsByOrderIdError {
+  ORDER_NOT_FOUND
+  NO_PAYMENT_LOG_FOUND
+}
+
+type PaymentServiceLog {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Payment Gateway for the log MyFatoorah, Checkout ...etc
+  """
+  paymentService : String
+  """
+  Request Type, ExecutePayment, GetPaymentStatus... etc
+  """
+  requestType : String
+  """
+  Order Set, Loyalty Order Set ...etc
+  """
+  orderType : String
+  """
+  Request Logs for the action
+  """
+  request : String
+  """
+  Request Logs for the the response from payment provider
+  """
+  response : String
+  """
+  Creation Time
+  """
+  created: Datetime!
+  """
+  Last Update Time
+  """
+  updated: Datetime!
+}

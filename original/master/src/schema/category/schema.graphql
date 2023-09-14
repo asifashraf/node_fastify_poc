@@ -1,0 +1,56 @@
+"""
+Category
+"""
+type Category {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Category name
+  """
+  name: LocalizedString!
+  """
+  Category status
+  """
+  status: StatusType
+  """
+  Category photo
+  """
+  photo: String
+  """
+  All products in this category in the country provided as argument
+  """
+  productsInCountry(countryCode: String!):[Product]!
+  productsInCountryByCountryId(countryId: ID!):[Product]!
+  products: [Product]!
+}
+
+
+"""
+Category
+"""
+type CategoryNew{
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Category name
+  """
+  name: LocalizedString!
+  """
+  Category status
+  """
+  status: StatusType
+  """
+  Category photo
+  """
+  photo: String
+  """
+  All products in this category in the country provided as argument
+  """
+  productsInCountry(countryId: ID!):[ProductNew]!
+  products: [ProductNew]!
+}
+

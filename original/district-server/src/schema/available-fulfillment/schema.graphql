@@ -1,0 +1,13 @@
+"""
+The types of order fulfillment offered by this location
+"""
+type AvailableFulfillment {
+  """
+  Delivery to the customer
+  """
+  delivery: Boolean!
+  """
+  Customer picks up from the store
+  """
+  pickup: Boolean!
+}

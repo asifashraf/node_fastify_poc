@@ -1,0 +1,21 @@
+"""
+Blog Category
+"""
+type BlogCategory {
+  """
+  Database identifier
+  """
+  id: ID
+  """
+  Blog category name
+  """
+  name: String
+  """
+  Blog category permalink
+  """
+  permalink: String
+  """
+  Blog category status
+  """
+  status: StatusType
+}

@@ -1,0 +1,23 @@
+"""
+Brand Location Activity Log
+"""
+type BrandLocationActivityLog {
+  id: ID!
+  """
+  Unique UUID String from the device
+  """
+  branchId: ID!
+  """
+  Identifier for device type
+  """
+  eventType: BrandLocationActivityEventType!
+  """
+  Optional Event Data can be sent in stringified JSON format
+  """
+  eventData: String
+
+  # Created date
+  created: Datetime!
+  # last update time
+  updated: Datetime!
+}

@@ -1,0 +1,188 @@
+type Tag {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Tag name
+  """
+  name: LocalizedString!
+  """
+  Tag description
+  """
+  description: LocalizedString!
+  """
+  Tag status
+  """
+  status: TagStatus!
+  """
+  Date and time the comment was created
+  """
+  created: Datetime!
+  """
+  Brand Locations by tagId
+  """
+  brandLocations: [BrandLocation!]
+  """
+  Brand by tagId
+  """
+  brands: [Brand]
+  """
+  Excluded Brand Locations
+  """
+  excludedAndSelectedBrandLocations: [ExcludedAndSelectedBrandLocations!]
+  """
+  Brand Locations by tagId
+  """
+  menuItems: [MenuItem!]
+  """
+  The localized color of the badge
+  """
+  textColor: String
+  """
+  The localized URL of the icon
+  """
+  iconUrl: LocalizedString @toCDN
+  """
+  The localized background color of the badge
+  """
+  backgroundColor: String
+  """
+  Tag Type
+  """
+  type: TagType
+  """
+  Tag Schedule
+  """
+  schedules: [Schedule!]
+}
+
+type ExcludedAndSelectedBrandLocations {
+  countryId: ID
+  brand: Brand
+  selectedBrandLocations: [BrandLocation!]
+  excludedBrandLocations: [BrandLocation!]
+  tagAssignmentType: String
+  excludeBranchesCheck: Boolean
+}
+
+type Schedule {
+  id: ID!
+  tagId: ID!
+  endTime: Datetime!
+  startTime: Datetime!
+}
+
+input StartEndDateFilter {
+  startDate: Datetime!
+  endDate: Datetime!
+}
+
+type TagPayload {
+  tag: Tag
+  error: TagSaveError
+  errors: [TagSaveError]
+}
+
+input TagInput {
+  id: ID
+  name: LocalizedStringInput!
+  description: LocalizedStringInput!
+  status: TagStatus!
+  textColor: String
+  iconUrl: LocalizedStringInput
+  backgroundColor: String
+  type: TagType!
+  isScheduled: Boolean!
+  schedules: [StartEndTime!]
+  selectedBrandLocations: [SelectedBrandLocationInput!]!
+}
+
+input SelectedBrandLocationInput {
+  brandId: ID!
+  selectAll: Boolean!
+  brandLocationIds: [ID!]
+  isExclude: Boolean!
+}
+
+input StartEndTime {
+  id: ID
+  startTime: Datetime!
+  endTime: Datetime!
+  status: TagScheduleStatus!
+}
+
+enum TagScheduleStatus {
+  ACTIVE
+  DELETED
+}
+
+input TagFilters {
+  id: ID
+  status: TagStatus
+  searchText: String
+  type: TagType
+  dateRange: StartEndDateFilter
+  brandLocationIds: [ID]
+  countryId: ID
+  brandIds: [ID]
+}
+
+enum TagSaveError {
+  INVALID_INPUT
+  MISSING_FIELD_NAME
+  MISSING_FIELD_DESCRIPTION
+  NAME_ALREADY_EXIST
+  MISSING_FIELD_TYPE
+  INVALID_TAG_TYPE
+  MISSING_TEXT_COLOR
+  MISSING_ICON_URL
+  MISSING_BACKGROUND_COLOR
+  #Tag Schedules
+  MISSING_FIELD_ID
+  MISSING_FIELD_START_TIME
+  MISSING_FIELD_END_TIME
+  START_TIME_MUST_BE_BEFORE_END_TIME
+  INTERSECTION_TIME_IN_TAG_SCHEDULES
+  MISSING_FIELD_SCHEDULE_ID
+  MISSING_FIELD_SCHEDULE_ID_FOR_DELETING_SCHEDULE
+  MISSING_TAG_SCHEDULE_PARAMETERS
+  MISSING_SCHEDULES_IF_IS_SCHEDULED_PASSED
+  SCHEDULE_MUST_BE_ENTERING
+  TAG_AND_TAG_SCHEDULE_NOT_MATCHED
+  INVALID_BRAND
+  INVALID_BRANCH_LOCATION
+  BRAND_HAS_NOT_BRAND_LOCATION
+  SHOULD_BE_SELECTED_A_BRAND_LOCATION
+  INVALID_BRAND_LOCATION_LIST
+}
+
+enum TagStatus {
+  ACTIVE
+  INACTIVE
+  DELETED
+}
+
+enum TagType {
+  OFFER
+  OTHER
+}
+
+extend type Query {
+  tags(
+    """
+    Tag filters
+    """
+    filters: TagFilters
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+  ): [Tag!]
+}
+
+extend type Mutation {
+  saveTag(tag: TagInput!): TagPayload
+    @requireAuth
+    @requirePermissions(permissions: ["tags:upsert"])
+}

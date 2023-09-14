@@ -1,0 +1,30 @@
+type BrandLocationFulfillmentStoreStatus {
+  pickup: BrandLocationStoreStatus!
+  delivery: BrandLocationStoreStatus!
+  expressDelivery: BrandLocationStoreStatus!
+}
+
+enum BrandLocationStoreStatus {
+  STORE_OPEN
+  STORE_CLOSED
+  STORE_CLOSING_SOON
+  #This is set when there is a field missing in db regarding scheduling (like missing day on weekly_schedules)
+  SCHEDULING_INCONSISTENCY
+}
+
+enum BrandLocationStoreStatusFull {
+  STORE_OPEN
+  STORE_CLOSED
+  STORE_CLOSING_SOON
+  STORE_CLOSED_FOR_PICKUP
+  STORE_CLOSED_FOR_CAR
+  STORE_CLOSED_FOR_DELIVERY
+  STORE_CLOSED_FOR_EXPRESS
+  STORE_BUSY
+  STORE_BUSY_FOR_PICKUP
+  STORE_BUSY_FOR_CAR
+  STORE_BUSY_FOR_DELIVERY
+  STORE_BUSY_FOR_EXPRESS
+  #This is set when there is a field missing in db regarding scheduling (like missing day on weekly_schedules)
+  SCHEDULING_INCONSISTENCY
+}

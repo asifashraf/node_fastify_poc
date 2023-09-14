@@ -1,0 +1,105 @@
+extend type Mutation {
+  saveBadge(badge: BadgeInput!): SaveBadgePayload
+  # addBadgeRelations(badgeId: ID!, relIds: [ID!]!): saveBadgeRelationsPayload
+  # deleteBadgeRelations(badgeId: ID!, relIds: [ID!]!): saveBadgeRelationsPayload
+  # deleteRelationsByBadgeId(badgeId: ID!): saveBadgeRelationsPayload
+}
+
+extend type Query {
+  getBadgesByFilters(filters: BadgeFilters): [Badge!]
+}
+
+# A badge
+type Badge {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  The type to show
+  """
+  type: BadgeType!
+  """
+  The localized name of the badge
+  """
+  name: LocalizedString!
+  """
+  The localized text of the badge
+  """
+  text: LocalizedString
+  """
+  The localized color of the badge
+  """
+  textColor: String
+  """
+  The localized URL of the icon
+  """
+  iconUrl: LocalizedString
+  """
+  The localized background color of the badge
+  """
+  backgroundColor: String
+  """
+  The status of the badge
+  """
+  status: BadgeStatus!
+}
+
+enum BadgeStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum BadgeType {
+  SUBSCRIPTION_MOST_POPULAR
+  SUBSCRIPTION_TYPE_CUP
+  SUBSCRIPTION_TYPE_BUNDLE
+}
+
+input BadgeInput {
+  id: ID
+  type: BadgeType!
+  name: LocalizedStringInput!
+  text: LocalizedStringInput
+  textColor: String
+  iconUrl: LocalizedStringInput
+  backgroundColor: String
+  status: BadgeStatus!
+}
+
+type SaveBadgePayload {
+  badge: Badge
+  error: BadgeSaveError
+  errors: [BadgeSaveError]
+}
+
+input BadgeFilters {
+  status: BadgeStatus
+  badgeType: BadgeType
+}
+
+"""
+ type saveBadgeRelationsPayload {
+  status: Boolean
+  error: BadgeSaveError
+  errors: [BadgeSaveError]
+}
+
+type BadgeRelatedObject {
+  relId: ID!
+  relType: BadgeType!
+}
+"""
+enum BadgeSaveError {
+  TRANSACTIONAL_ERROR
+  UNAUTHORIZED_PROCESS
+  INVALID_BADGE_ID
+  BADGE_MUST_HAVE_LEAST_ONE_ATTRIBUTE
+  BADGE_TEXT_COLOR_MUST_BE_REQUIRED
+  INVALID_TEXT_COLOR_CODE
+  INVALID_BACKGROUND_COLOR_CODE
+  THE_BADGE_CANNOT_ASSOCIATE_ANY_OBJECT
+  INVALID_SUBSCRIPTION_ID
+  RELATION_ID_LIST_CANNOT_BE_EMPYT
+  INVALID_REL_ID
+}

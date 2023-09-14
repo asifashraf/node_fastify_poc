@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`orders can resolve their fulfillments 1`] = `
+Object {
+  "data": Object {
+    "customer": Object {
+      "orderSets": Array [
+        Object {
+          "fulfillment": Object {
+            "asap": false,
+            "deliverToVehicle": false,
+            "id": "f9b84a2f-bddd-4e5a-a224-3951d460ce1e",
+            "isCustomerPresent": false,
+            "note": "Eos nihil ut libero quia. Voluptatem distinctio ut molestias molestias harum dolorum. At hic repudiandae aperiam. Aspernatur et nulla a laborum at cumque voluptate unde. Consequatur totam facilis voluptatem.",
+            "time": "2017-11-01T08:43:00Z",
+            "type": "PICKUP",
+            "vehicleColor": null,
+            "vehicleDescription": null,
+          },
+        },
+        Object {
+          "fulfillment": Object {
+            "asap": false,
+            "deliverToVehicle": false,
+            "id": "8551dd98-3c2f-476f-93e3-d25c172239b9",
+            "isCustomerPresent": false,
+            "note": "Quidem laborum sint et ipsam. Deserunt ut dignissimos architecto et cumque et. Fugiat iure tempore atque. Nobis qui labore at excepturi sunt velit inventore est.",
+            "time": "2017-11-02T05:00:00Z",
+            "type": "DELIVERY",
+            "vehicleColor": null,
+            "vehicleDescription": null,
+          },
+        },
+      ],
+    },
+  },
+}
+`;

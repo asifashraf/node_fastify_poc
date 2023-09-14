@@ -1,0 +1,57 @@
+type WalletAccount {
+  id: ID
+  total: CurrencyValue
+  currency: Currency
+  regularAmount: CurrencyValue
+  referralAmount: CurrencyValue
+  referralAmountExpiresOn: Date
+  nearestReferral: WalletAccountReferral
+  referrals: [WalletAccountReferral!]
+  cashbackAmount: CurrencyValue
+  cashbackAmountExpiresOn: Date
+  nearestCashback: WalletAccountCashback
+  cashbacks: [WalletAccountCashback!]
+  discoveryAmount: CurrencyValue
+  discoveryAmountExpiresOn: Date
+  dynamicCreditTypes: [DynamicCreditType!]
+}
+
+type CustomerWalletAccount {
+  """
+  Customer's first name
+  """
+  firstName: String!
+  """
+  Customer's last name
+  """
+  lastName: String!
+  """
+  The url of the customer's avatar
+  """
+  photo: String
+  isEmailVerified: Boolean!
+  isPhoneVerified: Boolean!
+  walletTotal: CurrencyValue
+}
+
+type DynamicCreditType {
+  type: CreditTypes!
+  amount: CurrencyValue!
+  nearest: NearestDynamicCreditType
+  show: Boolean!
+  currency: Currency!
+}
+
+type NearestDynamicCreditType {
+  amount: CurrencyValue!
+  expiresOn: Date!
+  currency: Currency!
+}
+
+
+
+type WalletAccountLite {
+  id: ID!
+  total: CurrencyValue
+  currencyId: ID
+}

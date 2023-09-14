@@ -1,0 +1,15 @@
+"""
+CustomerGroup
+"""
+type CustomerGroup {
+  id: ID!
+  name: String!
+  generated: Boolean
+  fileUrl: String
+  # Created date
+  created: Datetime!
+  # last update time
+  updated: Datetime!
+  customers: [Customer!]
+  totalCustomers: Int!
+}

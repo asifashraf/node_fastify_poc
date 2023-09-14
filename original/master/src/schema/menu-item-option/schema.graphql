@@ -1,0 +1,63 @@
+"""
+An option for a menu item, ie size or toppings. Every purchased item will have at least one item option to serve as it's base price (see OrderItem and OrderItemOption, the historical counterparts to MenuItem and MenuItemOption).
+"""
+type MenuItemOption {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Option name '14oz'
+  """
+  value: LocalizedString!
+  """
+  Item price in menu, additive to base price
+  """
+  price: CurrencyValue!
+  """
+  Make compare at price the original price and enter the lower amount into price
+  """
+  compareAtPrice: CurrencyValue
+  """
+  Sort Order
+  """
+  sortOrder: Int!
+  """
+  Availability of the option to subscribe
+  """
+  isSubscribable: Boolean
+  """
+  Option Icon URL
+  """
+  iconUrl: LocalizedString
+}
+
+"""
+An option for a menu item, ie size or toppings
+"""
+input MenuItemOptionInput {
+  """
+  Database identifier
+  """
+  id: ID
+  """
+  Option name '14oz'
+  """
+  value: LocalizedStringInput!
+  """
+  Item price in menu, additive to base price
+  """
+  price: CurrencyValue!
+  """
+  Make compare at price the original price and enter the lower amount into price
+  """
+  compareAtPrice: CurrencyValue
+  """
+  Flag this entity for deletion
+  """
+  deleted: Boolean
+  """
+  Option Icon URL
+  """
+  iconUrl: LocalizedStringInput
+}

@@ -1,0 +1,21 @@
+"""
+Customer current location caches
+"""
+type CustomerCurrentLocationCache {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  The longitude component of the geo coordinates for this address, in degrees
+  """
+  longitude: Float!
+  """
+  The longitude component of the geo coordinates for this address, in degrees
+  """
+  latitude: Float!
+  """
+  The line 1 address
+  """
+  line1: String!
+}

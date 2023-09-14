@@ -1,0 +1,830 @@
+[
+  {
+    "id": "5765880a-aca0-456b-bc1c-9e23cbd5785d",
+    "name": "Salam",
+    "name_ar": "السلام",
+    "city_id": "656c27ad-c794-45ad-ad8b-c2baaff50d16"
+  },
+  {
+    "id": "62b99864-eebe-4904-b985-824f8bcdff1f",
+    "name": "Adailiya",
+    "name_ar": "العديلية",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "78c93fc3-2864-478c-b459-a7bf4b576f59",
+    "name": "Daiya",
+    "name_ar": "الدعية",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "e5912a85-9fec-42a7-ac44-56751b258d23",
+    "name": "Jaber Al Ahmad",
+    "name_ar": "جابر الاحمد",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "815fadf8-70f9-4acc-8b79-2615d7ba64df",
+    "name": "Kuwait Free Trade Zone",
+    "name_ar": "منطقة التجارة الحرة الكويتية",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "c3a7c835-5354-4d9c-ba4b-cab7e545e309",
+    "name": "Nahda",
+    "name_ar": "النهضة",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "ed413cb4-3794-4586-823d-dabbec1fe8c3",
+    "name": "Qairawan",
+    "name_ar": "القيروان",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "c5b580cb-e93b-46d1-9eca-88d098f3691e",
+    "name": "Salhiya",
+    "name_ar": "الصالحية",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "21319c7b-a6d1-4135-a862-9c67a401a9d4",
+    "name": "Shuwaikh Administrative",
+    "name_ar": "شويخ الادارية",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "a769ab27-33e3-4492-b19c-639e2287d6fd",
+    "name": "Sabhan Industrial",
+    "name_ar": "صبحان الصناعية",
+    "city_id": "eaf262b3-2c5d-4624-805f-79125bb2ec29"
+  },
+  {
+    "id": "4e56baf3-aad2-4ed5-abff-e4d1a8c91cde",
+    "name": "Rehab",
+    "name_ar": "الرحاب",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "a4164365-e93a-42e7-baae-8cc48e0dec05",
+    "name": "Egaila",
+    "name_ar": "العقيلة",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "9dbba58d-9b53-482d-8454-2b23e258a15c",
+    "name": "Oyoun",
+    "name_ar": "العيون",
+    "city_id": "67286b0a-400a-4a4c-8b7f-96ef21873468"
+  },
+  {
+    "id": "ea16b773-e551-4f73-8400-7e99ed2418c8",
+    "name": "North West Sulaibikhat",
+    "name_ar": "شمال غرب الصليبخات",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "3c75bae0-be8f-4320-91e3-f9fb7f39d765",
+    "name": "Andalous",
+    "name_ar": "الأندلس",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "0a840566-e585-47f4-bed1-2f3700424d5d",
+    "name": "South Doha",
+    "name_ar": "جنوب الدوحة",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "7d760530-3535-4965-b699-49d2997696c6",
+    "name": "Al-Bidea",
+    "name_ar": "البدع",
+    "city_id": "656c27ad-c794-45ad-ad8b-c2baaff50d16"
+  },
+  {
+    "id": "0bf079d3-e559-4d1c-b258-e98fcdabd61b",
+    "name": "Bayan",
+    "name_ar": "بيان",
+    "city_id": "656c27ad-c794-45ad-ad8b-c2baaff50d16"
+  },
+  {
+    "id": "ea24cf32-14cd-4e16-ab43-d70b7dde7278",
+    "name": "Mina Abdullah",
+    "name_ar": "مينا عبدالله",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "19245f2a-5723-47c6-a920-6f3f65dde2ff",
+    "name": "Ministries Zone",
+    "name_ar": "منطقة الوزارات",
+    "city_id": "656c27ad-c794-45ad-ad8b-c2baaff50d16"
+  },
+  {
+    "id": "21d3e6f9-7574-4111-992e-e7fcb1841ae0",
+    "name": "Sabahiya",
+    "name_ar": "الصباحية",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "f3a6a94b-7580-454a-b2d6-5467b08d557f",
+    "name": "Nuzha",
+    "name_ar": "النزهة",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "6d9e0d85-1776-468b-bb5b-2994c39af959",
+    "name": "Mubarakiya Camps",
+    "name_ar": "المباركية",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "db9f8d62-fc50-4114-bb56-f662a521b247",
+    "name": "Mubarak Al-Abdullah - West Mishref",
+    "name_ar": "مشرف الغربي",
+    "city_id": "656c27ad-c794-45ad-ad8b-c2baaff50d16"
+  },
+  {
+    "id": "f4c42549-6c93-4edc-9fe2-9b75731abd1d",
+    "name": "Salwa",
+    "name_ar": "سلوى",
+    "city_id": "656c27ad-c794-45ad-ad8b-c2baaff50d16"
+  },
+  {
+    "id": "22b49e03-3c26-450c-8812-57d9618076c1",
+    "name": "Coast Strip B",
+    "name_ar": "الشريط الساحلي B",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "79a81b9c-f078-4d02-b611-9b5afc75f66d",
+    "name": "Sharq",
+    "name_ar": "شرق",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "a8aa4044-6e1e-462d-a3d3-136993c453d3",
+    "name": "Dhaher",
+    "name_ar": "ضاهر",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "19598c45-39f6-446e-ad7e-5db39b9e069c",
+    "name": "Fahad Al Ahmad",
+    "name_ar": "فهد الاحمد",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "6e5903c6-bcf7-412a-ae82-686b5b758814",
+    "name": "Fintas",
+    "name_ar": "الفنطاس",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "2518d8aa-a3b2-48cd-87b0-7e35f60b0695",
+    "name": "Hadiya",
+    "name_ar": "هدية",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "882ff1de-57f7-479d-ae1d-56341b7554f5",
+    "name": "Mahboula",
+    "name_ar": "المهبولة",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "975d2d9d-9191-4dbb-8703-8fe16bbdf9cf",
+    "name": "Mangaf",
+    "name_ar": "المنقف",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "2a42b133-4190-43e8-a940-164108b18824",
+    "name": "Rumaithiya",
+    "name_ar": "الرميثية",
+    "city_id": "656c27ad-c794-45ad-ad8b-c2baaff50d16"
+  },
+  {
+    "id": "c7dc8c0c-6dcc-4cb6-b1b3-82461483b574",
+    "name": "Shalayhat Al Dubaiya",
+    "name_ar": "شليهات دبيية",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "b75a0313-ecf0-410a-8cc3-e24ad55210b5",
+    "name": "Port of Shuaiba",
+    "name_ar": "ميناء الشعيبة",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "0e6c6dd3-7d23-44bf-8419-70d6cffa08d1",
+    "name": "Zour",
+    "name_ar": "الزور",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "7d498565-8c07-4e67-bbe0-ee46f8d9bb8d",
+    "name": "Reggae",
+    "name_ar": "الريغي",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "3d074723-4c8d-4193-b0a4-2a583b081e22",
+    "name": "Rai",
+    "name_ar": "الراي",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "719c1188-c54b-4017-8a5a-3011453e69fd",
+    "name": "Qibla",
+    "name_ar": "القبلة",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "303ff942-0b6d-4f1e-bf62-f0ccfa819293",
+    "name": "Omariya",
+    "name_ar": "العمرية",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "86e59dc7-a5d3-46f4-b70e-a7980c04e9d2",
+    "name": "Al Jahra",
+    "name_ar": "الجهراء",
+    "city_id": "67286b0a-400a-4a4c-8b7f-96ef21873468"
+  },
+  {
+    "id": "2ce7db3f-20d3-4ed8-9ac8-30ab0a9c1ed8",
+    "name": "Sulaibiya",
+    "name_ar": "الصليبية",
+    "city_id": "67286b0a-400a-4a4c-8b7f-96ef21873468"
+  },
+  {
+    "id": "5c7de86c-c633-4776-b72f-3ed3dc7af973",
+    "name": "Sulaibiya Industrial 2",
+    "name_ar": "الصليبية الصناعية 2",
+    "city_id": "67286b0a-400a-4a4c-8b7f-96ef21873468"
+  },
+  {
+    "id": "0371b60d-3cd7-4e85-879d-727d0a4f83a3",
+    "name": "Sulaibiya Residential",
+    "name_ar": "الصليبية السكنية",
+    "city_id": "67286b0a-400a-4a4c-8b7f-96ef21873468"
+  },
+  {
+    "id": "1345422d-2b1c-405a-8700-a61c4cef0359",
+    "name": "Naeem",
+    "name_ar": "نعيم",
+    "city_id": "67286b0a-400a-4a4c-8b7f-96ef21873468"
+  },
+  {
+    "id": "e57662b8-2448-49ee-b791-6c59c4137a1f",
+    "name": "Mubarak Al-Kabeer",
+    "name_ar": "مبارك الكبير",
+    "city_id": "eaf262b3-2c5d-4624-805f-79125bb2ec29"
+  },
+  {
+    "id": "ad4480bf-bcf5-4f8e-90fc-404459843a67",
+    "name": "Al Soor Gardens",
+    "name_ar": "حدائق السور",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "3e322992-35a7-456b-80fa-586988fd9442",
+    "name": "West Mishref",
+    "name_ar": "مشرف الغربي",
+    "city_id": "656c27ad-c794-45ad-ad8b-c2baaff50d16"
+  },
+  {
+    "id": "c97ecbc8-e06b-4103-8f86-8820b7bb69a6",
+    "name": "Sheikh Saad Al Abdallah Airport",
+    "name_ar": "مطار الشيخ سعد العبدالله",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "5ec18474-5adf-40e6-9ccd-694845664979",
+    "name": "Shaab",
+    "name_ar": "الشعب",
+    "city_id": "656c27ad-c794-45ad-ad8b-c2baaff50d16"
+  },
+  {
+    "id": "3fc6db3e-2891-4408-be1a-f9513fca5ee0",
+    "name": "Qasr",
+    "name_ar": "قصر",
+    "city_id": "67286b0a-400a-4a4c-8b7f-96ef21873468"
+  },
+  {
+    "id": "e0ad28b7-12a9-4fd8-8da0-cc63565db6cb",
+    "name": "Salmiya",
+    "name_ar": "لسالمية",
+    "city_id": "656c27ad-c794-45ad-ad8b-c2baaff50d16"
+  },
+  {
+    "id": "15fb2f79-76ea-4696-ad3e-02303677dc0c",
+    "name": "Saad Al Abdullah",
+    "name_ar": "سعد العبدالله",
+    "city_id": "67286b0a-400a-4a4c-8b7f-96ef21873468"
+  },
+  {
+    "id": "268bec89-8269-4d31-bb4c-dadf733ff84d",
+    "name": "Taima",
+    "name_ar": "تيماء",
+    "city_id": "67286b0a-400a-4a4c-8b7f-96ef21873468"
+  },
+  {
+    "id": "9e6b57e9-a961-4b50-af5a-28e26c8de739",
+    "name": "Waha",
+    "name_ar": "الواحة",
+    "city_id": "67286b0a-400a-4a4c-8b7f-96ef21873468"
+  },
+  {
+    "id": "b1039955-9ebb-4b92-b6dd-971ace0f45ed",
+    "name": "Al-Shadadiya",
+    "name_ar": "الشدادية",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "86b0e909-9269-4c97-afb9-6f9c8e0bc3df",
+    "name": "Doha",
+    "name_ar": "الدوحة",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "cfce614a-56d5-4083-9e89-64d17505eefc",
+    "name": "Khaitan",
+    "name_ar": "خيطان",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "851604e9-a67a-4ed3-9d30-5d2a0f7aaa31",
+    "name": "Al Khiran",
+    "name_ar": "الخيران",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "e328bc48-dea0-40df-a942-3d154ea0e2f0",
+    "name": "Al Qusor",
+    "name_ar": "القصور",
+    "city_id": "eaf262b3-2c5d-4624-805f-79125bb2ec29"
+  },
+  {
+    "id": "3c7b9bc7-859e-4779-9c17-21c89a7d2889",
+    "name": "Al-Siddeeq",
+    "name_ar": "الصديق",
+    "city_id": "656c27ad-c794-45ad-ad8b-c2baaff50d16"
+  },
+  {
+    "id": "f434f4a3-1aba-4708-9e1a-a91764d34ef2",
+    "name": "Anjafa",
+    "name_ar": "أنجفة",
+    "city_id": "656c27ad-c794-45ad-ad8b-c2baaff50d16"
+  },
+  {
+    "id": "c3f4c072-3057-4dfd-bd47-2784acc59581",
+    "name": "Farwaniya",
+    "name_ar": "الفروانية",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "3b8f5021-69eb-439b-b332-ae05bb129106",
+    "name": "Ferdous",
+    "name_ar": "الفردوس",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "24fd9191-c978-4ca8-8bb4-a15972e52a80",
+    "name": "Hateen",
+    "name_ar": "حطين",
+    "city_id": "656c27ad-c794-45ad-ad8b-c2baaff50d16"
+  },
+  {
+    "id": "be32f723-3384-4dbf-956c-8830d2b52ffd",
+    "name": "Hawally",
+    "name_ar": "حولي",
+    "city_id": "656c27ad-c794-45ad-ad8b-c2baaff50d16"
+  },
+  {
+    "id": "2ea768ea-0754-4d7b-8e33-7f804db92d9e",
+    "name": "Jeleeb Al-Shuyoukh",
+    "name_ar": "جليب الشيوخ",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "68b0c01e-07ec-428a-ab90-1a2f05c7b671",
+    "name": "Kabed",
+    "name_ar": "كبد",
+    "city_id": "67286b0a-400a-4a4c-8b7f-96ef21873468"
+  },
+  {
+    "id": "b3c0d444-abb9-4d17-88d9-10c9a9b3ce73",
+    "name": "Maidan Hawally",
+    "name_ar": "ميدان حولي",
+    "city_id": "656c27ad-c794-45ad-ad8b-c2baaff50d16"
+  },
+  {
+    "id": "4b6108d1-6695-41e7-b779-e1c006b9c5fe",
+    "name": "Mina Al Ahmadi",
+    "name_ar": "ميناء الأحمدي",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "6df0b1ba-be6f-4438-b161-85ddd94c19c6",
+    "name": "Mishref",
+    "name_ar": "مشرف",
+    "city_id": "656c27ad-c794-45ad-ad8b-c2baaff50d16"
+  },
+  {
+    "id": "7c9682b8-edcb-41e8-b893-f8c5f4056c2d",
+    "name": "Mubarak Al-Abdullah",
+    "name_ar": "ضاحية مبارك العبدالله",
+    "city_id": "656c27ad-c794-45ad-ad8b-c2baaff50d16"
+  },
+  {
+    "id": "ced78b52-2244-403c-8e13-30830f4a819c",
+    "name": "Sabah Al Nasser",
+    "name_ar": "صباح الناصر",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "8f5fb9e3-86fa-43d4-b069-e881a6a056fa",
+    "name": "Zahra",
+    "name_ar": "الزهراء",
+    "city_id": "656c27ad-c794-45ad-ad8b-c2baaff50d16"
+  },
+  {
+    "id": "dd787c15-e96c-445a-905e-2932f0544b5f",
+    "name": "Shuhada",
+    "name_ar": "الشهداء",
+    "city_id": "656c27ad-c794-45ad-ad8b-c2baaff50d16"
+  },
+  {
+    "id": "cb56745a-a8b2-4a1a-a499-10bbe37d9dff",
+    "name": "Abbasiya",
+    "name_ar": "عباسيه",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "60ddce4c-9710-4999-827c-6b5b554c61e6",
+    "name": "Adan",
+    "name_ar": "العدن",
+    "city_id": "eaf262b3-2c5d-4624-805f-79125bb2ec29"
+  },
+  {
+    "id": "d912c1b2-717d-4e19-b8ad-92fb7a19878c",
+    "name": "Ahmadi",
+    "name_ar": "الأحمدي",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "77f37047-b4a2-43fc-b4ca-b95597412582",
+    "name": "Abu Halifa",
+    "name_ar": "أبو حليفة",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "04f62788-b140-431e-a646-00db5fe9886d",
+    "name": "Abdullah Al-Salem",
+    "name_ar": "عبدالله السالم",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "22b5e8e9-adb2-487a-8157-36aa4bbc367d",
+    "name": "Bneid Al Qar",
+    "name_ar": "بنيد القار",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "32913a88-5f8d-407c-9b03-a05f4bf641c7",
+    "name": "Dasma",
+    "name_ar": "الدسمة",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "a78461b2-42ae-40c0-bf6c-1461366df3f1",
+    "name": "Dasman",
+    "name_ar": "دسمان",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "3412aa3a-2756-4ed5-8339-0919232159bc",
+    "name": "Granada",
+    "name_ar": "غراندا",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "172ffcc7-61da-4d3d-b05f-1e50119e93d9",
+    "name": "Jibla",
+    "name_ar": "جبلة",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "02b6b906-3c5b-4ee6-a0a8-2b0dba93fe30",
+    "name": "Kaifan",
+    "name_ar": "كيفان",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "3677e99b-a8be-477f-9231-ac9efab57fb4",
+    "name": "Kuwait City",
+    "name_ar": "مدينة الكويت",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "57e99499-a6ec-49ed-81ac-676e0cba58de",
+    "name": "Mansouriya",
+    "name_ar": "المنصورية",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "753eb8c5-a748-4117-81fd-42dd33da15d8",
+    "name": "Mirqab",
+    "name_ar": "المرقاب",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "86bb70b2-7792-4faf-8419-cb5c5a062b89",
+    "name": "Qadsiya",
+    "name_ar": "القادسية",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "08242df3-0548-4ae3-bc7a-75fab95d9537",
+    "name": "Qortuba",
+    "name_ar": "قرطبة",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "5c3ffd13-681f-4375-945d-b94c80eddc04",
+    "name": "Rawda",
+    "name_ar": "الروضة",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "1fcfe4ec-2cc2-4db3-a30a-71d33833e762",
+    "name": "Shamiya",
+    "name_ar": "الشامية",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "b6fd97c2-5e22-4ab2-a447-7a9db3ec2f6f",
+    "name": "Shuwaikh",
+    "name_ar": "الشويخ",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "155fbd2f-485f-4592-afd4-bba28c0a2085",
+    "name": "Shuwaikh Educational",
+    "name_ar": "شويخ التعليمية",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "ec638ef3-35b2-4816-9a8f-49cf61dea531",
+    "name": "Shuwaikh Industrial 2",
+    "name_ar": "شويخ الصناعية 2",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "078eb2b0-8fe9-4999-acd9-4812864678d4",
+    "name": "Shuwaikh Medical",
+    "name_ar": "شويخ الطبية",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "a0e1d73b-3c4d-4775-acb8-900759787455",
+    "name": "Sulaibikhat",
+    "name_ar": "الصليبخات",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "4789109e-ca3a-41f3-867d-b344d5f620f5",
+    "name": "Surra",
+    "name_ar": "السرة",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "b82ef835-a494-4c7f-b3fd-7e282a75ed19",
+    "name": "Yarmouk",
+    "name_ar": "اليرموك",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "83ee1216-26fe-48e3-a3d1-a0f2a2092407",
+    "name": "Abu Fatira",
+    "name_ar": "ابو فطيرة",
+    "city_id": "eaf262b3-2c5d-4624-805f-79125bb2ec29"
+  },
+  {
+    "id": "1f94d633-1bc9-4c46-8082-af6d169c6408",
+    "name": "Al Masayel",
+    "name_ar": "المسايل",
+    "city_id": "eaf262b3-2c5d-4624-805f-79125bb2ec29"
+  },
+  {
+    "id": "8208c975-bb8f-4a0f-9427-ac7a31c20253",
+    "name": "Fnaitees",
+    "name_ar": "القرين",
+    "city_id": "eaf262b3-2c5d-4624-805f-79125bb2ec29"
+  },
+  {
+    "id": "ef6104d2-824c-4097-afca-0f63e27fc3dd",
+    "name": "Mubarak Al Kabeer",
+    "name_ar": "مبارك الكبير",
+    "city_id": "eaf262b3-2c5d-4624-805f-79125bb2ec29"
+  },
+  {
+    "id": "0acf385b-dbc7-4a80-b9ce-b93ee238846b",
+    "name": "Sabah Al-Salem",
+    "name_ar": "صباح السالم",
+    "city_id": "eaf262b3-2c5d-4624-805f-79125bb2ec29"
+  },
+  {
+    "id": "9aeef8b1-885d-46d3-956d-5422d92c185e",
+    "name": "Wista",
+    "name_ar": "وسطى",
+    "city_id": "eaf262b3-2c5d-4624-805f-79125bb2ec29"
+  },
+  {
+    "id": "ec497b03-2030-448c-b9d7-418a81dedee5",
+    "name": "Ali Sabah Al Salem",
+    "name_ar": "علي صباح السالم",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "08511575-16c2-40c5-911c-d5c812c86800",
+    "name": "Al-Nuwaiseeb",
+    "name_ar": "النويصيب",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "0e00c2a4-86c8-47be-9cf8-b41a27f8beeb",
+    "name": "Al-Riqqa",
+    "name_ar": "الرقة",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "09ea9033-9337-409e-a972-df37d24dfa24",
+    "name": "Bnaider",
+    "name_ar": "بنيدر",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "07984a4d-b9fc-4bdd-b778-64688324b67d",
+    "name": "Rabia",
+    "name_ar": "ربيعة",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "2ee717d7-f5af-4e5b-b0cb-20c4e10d5346",
+    "name": "Abdullah Al Mubarak Al Sabah",
+    "name_ar": "عبدالله المبارك الصباح",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "bcafb022-b052-47ef-8597-f48bbc9e14e7",
+    "name": "Sahara",
+    "name_ar": "الصحراء",
+    "city_id": "eaf262b3-2c5d-4624-805f-79125bb2ec29"
+  },
+  {
+    "id": "15bc1642-7337-45ab-8884-248f7908f32f",
+    "name": "Faiha",
+    "name_ar": "الفيحاء",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "f1ad3549-f3b0-43e0-957c-e15a8a01d2d0",
+    "name": "Khaldiya",
+    "name_ar": "الخالدية",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "02aedb90-0995-4e6c-a9ba-6d80bc40258e",
+    "name": "Shuwaikh Industrial 1",
+    "name_ar": "شويخ الصناعية 1",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "8b326316-d3c7-42f9-b696-c894ed8bee79",
+    "name": "Shuwaikh Industrial 3",
+    "name_ar": "شويخ الصناعية 3",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "a563043d-8ebb-42a2-9a88-7d2683d2d2bb",
+    "name": "Shuwaikh Residential",
+    "name_ar": "شويخ السكنية",
+    "city_id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e"
+  },
+  {
+    "id": "0d0430d3-eebb-47db-ac7c-d3f31e3761e8",
+    "name": "Abu Al Hasaniya",
+    "name_ar": "ابو الحصانية",
+    "city_id": "eaf262b3-2c5d-4624-805f-79125bb2ec29"
+  },
+  {
+    "id": "472e4f36-9e68-4ad9-9cc5-af34526c29d7",
+    "name": "Messila",
+    "name_ar": "المسيلة",
+    "city_id": "eaf262b3-2c5d-4624-805f-79125bb2ec29"
+  },
+  {
+    "id": "7e115bbd-d407-4c4a-938a-b602526465b9",
+    "name": "Qurain",
+    "name_ar": "القرين",
+    "city_id": "eaf262b3-2c5d-4624-805f-79125bb2ec29"
+  },
+  {
+    "id": "f167e6c8-cd2d-4957-89a2-d974be278b43",
+    "name": "Al Julaia'a",
+    "name_ar": "الجليعة",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "ce47b6b6-a64b-4476-9dd5-83244f85f53d",
+    "name": "Al Wafrah",
+    "name_ar": "الوفرة",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "db6a127d-37fd-4dd4-9082-a1e609a60d21",
+    "name": "Fahaheel",
+    "name_ar": "الفحيحيل",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "ad5099fb-977d-4b28-bdb2-25d80705f196",
+    "name": "Jaber Al Ali",
+    "name_ar": "جابر العلي",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "02b60f20-b984-4232-8b43-7c6cc75b9a3a",
+    "name": "Sabah Al Ahmad Residential",
+    "name_ar": "صباح الأحمد السكنية",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "ea598d51-7bdf-4e97-8e2a-1e59daeb605b",
+    "name": "Shalayhat Mina Abdullah",
+    "name_ar": "شليهات ميناء عبدالله",
+    "city_id": "a9414de1-0ae8-4453-a3b1-3237f6a2eec5"
+  },
+  {
+    "id": "d14fc685-1f52-4a90-b3ea-a0533e579480",
+    "name": "West of Abu Fatira Al-Herafia",
+    "name_ar": "غرب أبو فطيرة الحرفية",
+    "city_id": "eaf262b3-2c5d-4624-805f-79125bb2ec29"
+  },
+  {
+    "id": "75cf3a36-d0f1-476e-9911-5610afba187f",
+    "name": "Sulaibiya Industrial 1",
+    "name_ar": "الصليبية الصناعية 1",
+    "city_id": "67286b0a-400a-4a4c-8b7f-96ef21873468"
+  },
+  {
+    "id": "a34d387b-d20d-41d3-be19-d740fcd9b685",
+    "name": "Amgarah Industrial Area",
+    "name_ar": "أمغرة المنطقة الصناعية",
+    "city_id": "67286b0a-400a-4a4c-8b7f-96ef21873468"
+  },
+  {
+    "id": "b04c2dd0-a8ca-4194-ad95-a09f3c318521",
+    "name": "Nasseem",
+    "name_ar": "النسيم",
+    "city_id": "67286b0a-400a-4a4c-8b7f-96ef21873468"
+  },
+  {
+    "id": "d474b38d-a393-40d1-a369-c7e01657e56f",
+    "name": "Al-Dajeej",
+    "name_ar": "الضجيج",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "e6eaf263-5bf4-436f-aa8d-c1f3ae62093a",
+    "name": "Al-Ardiya",
+    "name_ar": "العارضية",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "c5a2c41a-bc04-48e9-bc5a-12ef9e015416",
+    "name": "South Khaitan",
+    "name_ar": "جنوب خيطان",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "593b5062-0dbe-4e6d-a6da-f1a5e15d9afb",
+    "name": "Ishbiliya",
+    "name_ar": "إشبيلية",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  },
+  {
+    "id": "ac8ed4ba-6a09-47e0-8c2a-8ed235fa3f22",
+    "name": "Jabriya",
+    "name_ar": "الجابرية",
+    "city_id": "656c27ad-c794-45ad-ad8b-c2baaff50d16"
+  },
+  {
+    "id": "1d72dc6c-fddf-4a2e-a1b5-7c54dbf52b83",
+    "name": "Kuwait International Airport",
+    "name_ar": "مطار الكويت الدولي",
+    "city_id": "6330d83a-e209-45c8-a62a-4ae71aa5508b"
+  }
+]

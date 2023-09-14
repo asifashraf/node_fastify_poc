@@ -1,0 +1,37 @@
+"""
+Group for admins
+"""
+type Group {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  name
+  """
+  name: String!
+  """
+  description
+  """
+  description: String
+  """
+  Group created at
+  """
+  created: Datetime!
+  """
+  Group updated at
+  """
+  updated: Datetime!
+  """
+  List of roles assigned to this group
+  """
+  roles: [Role]
+  """
+  List of groups nested in this group
+  """
+  nestedGroups: [Group]
+  """
+  Admins for group
+  """
+  admins: [Admin]
+}

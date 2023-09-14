@@ -1,0 +1,103 @@
+type HomePageSection {
+  id: ID!
+  header: LocalizedString
+  itemType: HomePageSectionItemTypeEnum
+  refQueryId: String
+  sortOrder: Int!
+  countryId: ID!
+  isMust: Boolean!
+  isAuthRequired: Boolean!
+  isLocationBased: Boolean!
+  isPaginated: Boolean!
+  perPage: Int
+  status: HomePageSectionStatusEnum
+  isShowHeader:Boolean!
+  pageIndex: Int
+  sectionSettingId:ID
+}
+
+enum HomePageSectionStatusEnum {
+  ACTIVE
+  INACTIVE
+  DELETED
+}
+
+input HomePageSectionInput {
+  id: ID
+  header: LocalizedStringInput
+  itemType: HomePageSectionItemTypeEnum!
+  refQueryId: String!
+  status: HomePageSectionStatusEnum
+}
+
+input HomePageSectionSettingInput {
+  countryId: ID!
+  sortOrder: Int!
+  isMust: Boolean!
+  isAuthRequired: Boolean!
+  isLocationBased: Boolean!
+  isPaginated: Boolean!
+  perPage: Int
+  id:ID
+  sectionId: ID
+}
+
+enum HomePageSectionItemTypeEnum {
+  SEARCH_ITEM
+  REORDER_ITEM
+  ORDER_TRACKING_ITEM
+  CAROUSEL_ITEM
+  ICON_BUTTON_ITEM
+  CARD_LIST_ITEM
+  BORDERED_CARD_ITEM
+  CATEGORY_ITEM
+}
+
+enum SaveSectionErrorEnum {
+  NOT_EXIST
+  MISSING_ARGUMENT
+  ALREADY_EXIST_ITEM_TYPE_AND_REF_QUERY_ID
+  SORT_ORDER_EXIST
+}
+
+enum SaveSectionTypeEnum {
+  SECTION
+  SECTION_SETTING
+}
+
+input HomePageSectionArgs {
+  refQueryId: String!
+  sectionId: ID!
+  countryId: ID!
+  # optional part
+  location: GISLocationInput!
+  page: Int
+}
+
+type SaveSectionError {
+  error: SaveSectionErrorEnum
+  type: SaveSectionTypeEnum
+  countryId: ID
+}
+
+type SaveSectionPayload {
+  errors: [SaveSectionError]
+  sections: [HomePageSection]
+}
+
+input HomePageSectionFilters {
+  status:HomePageSectionStatusEnum
+}
+
+extend type Query {
+  getHomePageSections(countryId: ID!
+  """ filters"""
+  filters: HomePageSectionFilters): [HomePageSection!]
+}
+
+extend type Mutation {
+  saveHomePageSection(
+    sectionInfo: HomePageSectionInput
+    sectionSettingInfo: [HomePageSectionSettingInput]
+  ): SaveSectionPayload @requireAuth
+}

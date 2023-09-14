@@ -1,0 +1,18 @@
+"""
+A menu for a brand
+"""
+type Menu {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  The Brand this menu belongs to
+  """
+  brand: Brand!
+  """
+  The sections within the menu, ie 'Coffee, Frozen, Juices, Smoothies'
+  """
+  sections: [MenuSection]!
+  country: Country
+}

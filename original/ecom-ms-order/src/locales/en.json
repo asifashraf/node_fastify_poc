@@ -1,0 +1,16 @@
+{
+	"order_successful": "Order Successful!",
+	"order_success_desc" : "Your order has been placed successfully.",
+	"order_shipped" : "Order on its way! ",
+	"order_shipped_desc" : "You can track your order here.",
+	"order_delivered" : "Order delivered! ",
+	"order_delivered_desc" : "Hope you enjoyed your purchase!",
+	"order_cancelled":  "Sorry! Out of stock.",
+	"order_cancelled_desc": " Your order has been cancelled due to items being out of stock",
+	"order_not_exist": " Order does not exists.",
+	"order_update_duplicate_products_exist": "Duplicate products found in order.",
+	"out_for_delivery": "Out for delivery",
+	"not_dispatched": "Not dispatched",
+	"delivered": "Delivered",
+	"cancelled": "Cancelled"
+}

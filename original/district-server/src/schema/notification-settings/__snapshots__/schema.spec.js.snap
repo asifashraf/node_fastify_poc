@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`customer can resolve notification settings  1`] = `
+Object {
+  "data": Object {
+    "customer": Object {
+      "notificationSettings": Object {
+        "newOffers": true,
+        "pushDeliveryUpdates": true,
+        "pushPickupUpdates": true,
+        "smsDeliveryUpdates": true,
+        "smsPickupUpdates": true,
+      },
+    },
+  },
+}
+`;

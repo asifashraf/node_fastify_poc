@@ -1,0 +1,5 @@
+input CustomerAccountDeletionRequestInput {
+  reason: ID!
+  description: String
+#  otpCode: String!
+}

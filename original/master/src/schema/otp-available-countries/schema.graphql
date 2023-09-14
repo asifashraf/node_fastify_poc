@@ -1,0 +1,25 @@
+"""
+Otp available countries
+"""
+type OtpAvailableCountries {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Country name
+  """
+  name: LocalizedString!
+  """
+  iso code
+  """
+  isoCode: String
+  """
+  country dailing code
+  """
+  dialCode: String
+  """
+  flag of the country (url)
+  """
+  flagPhoto: String
+}

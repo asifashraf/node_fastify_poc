@@ -1,0 +1,18 @@
+input BrandLocationActivityLogRangeRequestInput {
+  """
+  Brand Location Id for the report
+  """
+  brandLocationId : ID!
+  """
+  Starting date for the report
+  """
+  rangeBegin : Datetime!
+  """
+  Ending date for the report
+  """
+  rangeEnd : Datetime!
+  """
+  Optional filtering by event types
+  """
+  eventTypes : [BrandLocationActivityEventType!]
+}

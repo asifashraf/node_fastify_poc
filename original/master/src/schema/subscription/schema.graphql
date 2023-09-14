@@ -1,0 +1,199 @@
+type Subscription {
+  orderSetEvent: OrderSetEventPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["order:view"])
+  orderSetEventByBrand(brandId: ID!): OrderSetEventPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["order:view"])
+  orderSetEventByBrandLocation(brandLocationId: ID!): OrderSetEventPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["order:view"])
+  storeOrderSetEvent: StoreOrderSetEventPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["order:view"])
+  storeOrderEvent: StoreOrderEventPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["order:view"])
+  mposOrderEvent(deviceId: String!): MposOrderEventPayload!
+  arrivedOrderEventByBrandLocation(
+    brandLocationId: ID!
+  ): ArrivedOrderEventPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["order:view"])
+  operatingHourChangeEventByBrandAdmin(
+    brandId: ID
+  ): OperatingHourChangeEventPayload! @requireAuth
+  #@requirePermissions(permissions: [""]) add new permission for event
+  operatingHourChangeEventByBrandLocationAdmin(
+    brandLocationId: ID
+  ): OperatingHourChangeEventPayload! @requireAuth
+  #@requirePermissions(permissions: [""]) add new permission for event
+}
+
+type OrderSetEventPayload {
+  """
+  The type of event. This is useful for update logic on the clients (frontend)
+  """
+  event: OrderSetSubscriptionEvent!
+  """
+  The order set related to the Event
+  """
+  orderSet: OrderSet!
+}
+
+enum OrderSetSubscriptionEvent {
+  """
+  A new OrderSet has been created
+  """
+  ORDER_SET_CREATED
+  """
+  An existing OrderSet has been updated (payment/etc)
+  """
+  ORDER_SET_UPDATED
+}
+
+type StoreOrderSetEventPayload {
+  """
+  The type of event. This is useful for update logic on the clients (frontend)
+  """
+  event: StoreOrderSetSubscriptionEvent!
+  """
+  The order set related to the Event
+  """
+  storeOrderSet: StoreOrderSet!
+}
+
+enum StoreOrderSetSubscriptionEvent {
+  """
+  A new OrderSet has been created
+  """
+  STORE_ORDER_SET_CREATED
+  """
+  An existing OrderSet has been updated (payment/etc)
+  """
+  STORE_ORDER_SET_UPDATED
+}
+
+type StoreOrderEventPayload {
+  """
+  The type of event. This is useful for update logic on the clients (frontend)
+  """
+  event: StoreOrderSubscriptionEvent!
+  """
+  The order set related to the Event
+  """
+  storeOrder: StoreOrder!
+}
+
+enum StoreOrderSubscriptionEvent {
+  """
+  A new Order has been created
+  """
+  STORE_ORDER_CREATED
+  """
+  An existing Order has been updated (payment/etc)
+  """
+  STORE_ORDER_UPDATED
+}
+
+type MposOrderEventPayload {
+  """
+  The type of event. This is useful for update logic on the clients (frontend)
+  """
+  event: MposOrderSubscriptionEvent!
+  """
+  The order set related to the Event
+  """
+  order: MposOrderPayload!
+}
+
+union MposOrderPayload = MposArrivedOrderPayload | MposNewOrderPayload
+
+type MposArrivedOrderPayload {
+  orderSetId: ID!
+  fulfillmentType: OrderFulfillmentType
+  shortCode: String
+  arrivalTime: Datetime
+}
+
+type MposNewOrderPayload {
+  orderSetId: ID!
+  brandLocationId: ID!
+  shortCode: String
+  createdAt: Datetime!
+  customerId: String!
+  currentStatus: OrderSetStatusName
+  phoneNumber: String
+  type: OrderFulfillmentType
+  arrivalTime: Datetime
+}
+
+enum MposOrderSubscriptionEvent {
+  """
+  A new Order has been created
+  """
+  NEW_ORDER
+  """
+  An existing Order has been updated
+  """
+  COMPLETED_ORDER
+  """
+  An existing order has been updated with arrived options
+  """
+  ARRIVED_ORDER
+}
+
+type ArrivedOrderEventPayload {
+  """
+  The type of event. This is useful for update logic on the clients (frontend)
+  """
+  event: ArrivedOrderSubscriptionEvent!
+  """
+  The order set related to the Event
+  """
+  order: ArrivedOrderPayload!
+}
+
+enum ArrivedOrderSubscriptionEvent {
+  """
+  An existing order has been updated with arrived options
+  """
+  ARRIVED_ORDER_FOR_VENDOR
+  """
+  An arrived order has been updated with completed status
+  """
+  COMPLETED_ORDER_FOR_VENDOR
+}
+
+type ArrivedOrderPayload {
+  orderSetId: ID!
+  fulfillmentType: OrderFulfillmentType
+  shortCode: String
+  arrivalTime: Datetime
+}
+
+type OperatingHourChangeEventPayload {
+  """
+  The type of event. This is useful for update logic on the clients (frontend)
+  """
+  event: OperatingHourChangeEvent!
+  """
+  The weekly schedule
+  """
+  weeklySchedule: [BrandLocationWeeklySchedule]
+  """
+  Brand Location Schedule
+  """
+  exception: BrandLocationScheduleException
+}
+
+enum OperatingHourChangeEvent {
+  """
+  Weekly Schedule Hours Updated
+  """
+  WEEKLY_SCHEDULE_UPDATED
+  """
+  Schedule Exception added / updated
+  """
+  SCHEDULE_EXCEPTION_UPSERTED
+}

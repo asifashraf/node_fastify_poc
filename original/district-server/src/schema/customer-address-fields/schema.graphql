@@ -1,0 +1,58 @@
+# A address field
+type AddressField {
+  """
+  the id of the field
+  """
+  id: ID!
+  """
+  the name of the field
+  """
+  title: LocalizedString!
+  """
+  the type of the field
+  """
+  type: AddressFieldType!
+  """
+  if the field is required
+  """
+  isRequired: Boolean!
+  """
+  The order of the field
+  """
+  order: Int!
+}
+
+# A address extra field
+type ExtraField {
+  """
+  the id of the field
+  """
+  id: ID!
+  """
+  the name of the field
+  """
+  name: LocalizedString!
+  """
+  the type of the field
+  """
+  type: AddressFieldType!
+  """
+  value set by the customer
+  """
+  value: String!
+  """
+  is the field required
+  """
+  isRequired: Boolean!
+}
+
+type AddressFieldsPayload {
+  """
+  The id of the country field
+  """
+  countryId: ID!
+  """
+  Address fields
+  """
+  addressFields: [AddressField!]
+}

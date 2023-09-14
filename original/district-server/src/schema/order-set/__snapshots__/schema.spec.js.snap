@@ -1,0 +1,493 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`active order sets can be retrieved by shortCode 1`] = `
+Object {
+  "data": Object {
+    "orderSetsForShortCode": Array [],
+  },
+}
+`;
+
+exports[`active order sets can be returned 1`] = `
+Object {
+  "data": Object {
+    "activeOrderSets": Array [
+      Object {
+        "acknowledged": false,
+        "brandLocation": Object {
+          "__typename": "BrandLocation",
+          "address": Object {
+            "__typename": "BrandLocationAddress",
+            "id": "17ae5324-e783-44d5-9035-91db8d6c3d4a",
+            "street": "Al Hamra Tower",
+          },
+          "brand": Object {
+            "__typename": "Brand",
+            "id": "82b0cd94-54ca-4987-852e-e3cba0e012d2",
+            "name": Object {
+              "ar": "لا القائمة العلامة التجارية",
+              "en": "No-Menu Brand",
+            },
+          },
+          "id": "c8354376-d536-4847-ae98-aeb660548427",
+          "name": Object {
+            "ar": "لا القائمة الموقع",
+            "en": "No-Menu Location",
+          },
+        },
+        "coupon": null,
+        "couponAmount": "0.000",
+        "createdAt": "2017-11-02T14:14:14Z",
+        "fee": "0.750",
+        "fulfillment": Object {
+          "__typename": "OrderFulfillment",
+          "asap": false,
+          "courierName": null,
+          "id": "ac6f97f7-fd28-47d3-a45e-dd92b807346b",
+          "time": "2017-11-01T17:57:00Z",
+          "type": "DELIVERY",
+        },
+        "id": "a89d5db4-908a-41d7-bf00-312840521b58",
+        "internalComments": Array [
+          Object {
+            "avatar": "https://cdn5.vectorstock.com/i/thumb-large/82/59/anonymous-user-flat-icon-vector-18958259.jpg",
+            "comment": "Distinctio atque odio et.",
+            "id": "e80bb312-874f-4ad3-b81e-4a7080749834",
+            "userName": "Mrs. Geovanni Lowe",
+          },
+          Object {
+            "avatar": "https://cdn5.vectorstock.com/i/thumb-large/82/59/anonymous-user-flat-icon-vector-18958259.jpg",
+            "comment": "Repellat nostrum consequuntur consectetur voluptas qui et quis.",
+            "id": "7bf4765d-9af5-46e8-95f1-379443dca2ef",
+            "userName": "Dr. Anna Douglas",
+          },
+        ],
+        "note": "Est quia qui dolor omnis inventore aut et et.",
+        "shortCode": "NAEXDL",
+        "subtotal": "1.500",
+        "total": "2.250",
+      },
+    ],
+  },
+}
+`;
+
+exports[`customer can resolve order set 1`] = `
+Object {
+  "data": Object {
+    "customer": Object {
+      "orderSets": Array [
+        Object {
+          "acknowledged": false,
+          "brandLocation": Object {
+            "__typename": "BrandLocation",
+            "address": Object {
+              "__typename": "BrandLocationAddress",
+              "id": "8bed2a01-1e20-4c27-a475-3f71dd6d0875",
+              "street": "Al-Shuhada St",
+            },
+            "brand": Object {
+              "__typename": "Brand",
+              "id": "82f509cf-7600-4cf3-9ff4-4725e05591cc",
+              "name": Object {
+                "ar": "كوستا كوفي",
+                "en": "Costa Coffee",
+              },
+            },
+            "id": "c9d9fef2-0856-4467-9bc2-e593704a1582",
+            "name": Object {
+              "ar": "الشهداء",
+              "en": "Al-Shuhada",
+            },
+          },
+          "coupon": null,
+          "couponAmount": "0.000",
+          "createdAt": "2017-11-01T14:14:14Z",
+          "fee": "0.500",
+          "fulfillment": Object {
+            "__typename": "OrderFulfillment",
+            "asap": false,
+            "courierName": null,
+            "id": "f9b84a2f-bddd-4e5a-a224-3951d460ce1e",
+            "time": "2017-11-01T08:43:00Z",
+            "type": "PICKUP",
+          },
+          "id": "ff8f550f-cbd0-4112-9dd9-c50231883b7f",
+          "internalComments": Array [
+            Object {
+              "avatar": "https://cdn5.vectorstock.com/i/thumb-large/82/59/anonymous-user-flat-icon-vector-18958259.jpg",
+              "comment": "Et id quaerat et ut.",
+              "id": "a9d84e52-5991-4f70-9277-909e537eb7be",
+              "userName": "Mrs. Natasha Paucek",
+            },
+            Object {
+              "avatar": "https://cdn5.vectorstock.com/i/thumb-large/82/59/anonymous-user-flat-icon-vector-18958259.jpg",
+              "comment": "Assumenda explicabo velit fugit at delectus ratione nam.",
+              "id": "ee9628d4-ddf2-44a2-8ea4-f9dbf6be09e6",
+              "userName": "Mrs. Freida Goyette",
+            },
+          ],
+          "note": "Placeat tempora quis quae possimus optio architecto.",
+          "shortCode": "C68J8R",
+          "subtotal": "0.250",
+          "total": "0.750",
+        },
+        Object {
+          "acknowledged": true,
+          "brandLocation": Object {
+            "__typename": "BrandLocation",
+            "address": Object {
+              "__typename": "BrandLocationAddress",
+              "id": "52decbff-6063-4813-8a0d-d77c17a32a1b",
+              "street": "Khalid Ibn Al Waleed St",
+            },
+            "brand": Object {
+              "__typename": "Brand",
+              "id": "623c9dfc-f2e8-4800-89d8-9f202f6b7f0e",
+              "name": Object {
+                "ar": "كاريبو كوفي",
+                "en": "Caribou Coffee",
+              },
+            },
+            "id": "99e1be73-2814-4106-8333-3f2f754549dc",
+            "name": Object {
+              "ar": "خالد",
+              "en": "Khalid",
+            },
+          },
+          "coupon": null,
+          "couponAmount": null,
+          "createdAt": "2017-11-01T08:00:00Z",
+          "fee": "2.000",
+          "fulfillment": Object {
+            "__typename": "OrderFulfillment",
+            "asap": false,
+            "courierName": null,
+            "id": "8551dd98-3c2f-476f-93e3-d25c172239b9",
+            "time": "2017-11-02T05:00:00Z",
+            "type": "DELIVERY",
+          },
+          "id": "0eef553b-d817-41a1-80ba-adfd2487e9cb",
+          "internalComments": Array [
+            Object {
+              "avatar": "https://cdn5.vectorstock.com/i/thumb-large/82/59/anonymous-user-flat-icon-vector-18958259.jpg",
+              "comment": "Harum perspiciatis eveniet.",
+              "id": "4a9f5c08-24bd-46de-a756-b8857515d9ac",
+              "userName": "Mrs. Linwood Witting",
+            },
+            Object {
+              "avatar": "https://cdn5.vectorstock.com/i/thumb-large/82/59/anonymous-user-flat-icon-vector-18958259.jpg",
+              "comment": "Voluptatem eum nulla enim est aut.",
+              "id": "889bae9a-bcab-470a-9ba2-8f71af695d08",
+              "userName": "Ms. Kip Abbott",
+            },
+          ],
+          "note": "Quo cum dolorum quod pariatur quia qui. Veritatis pariatur labore voluptas laboriosam in aut inventore mollitia deleniti. Laborum libero est laborum. Blanditiis cumque dolorum eveniet non non occaecati. Vel voluptate quod occaecati quis.",
+          "shortCode": "XYZ789",
+          "subtotal": "4.250",
+          "total": "6.250",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`customer can resolve past and upcoming order sets 1`] = `
+Object {
+  "data": Object {
+    "customer": Object {
+      "pastOrderSets": Array [
+        Object {
+          "acknowledged": false,
+          "brandLocation": Object {
+            "__typename": "BrandLocation",
+            "address": Object {
+              "__typename": "BrandLocationAddress",
+              "id": "7e5c2cbe-bce3-438d-8d28-fdc928eb59d3",
+              "street": "Global Investment Al-Shuhada Street",
+            },
+            "brand": Object {
+              "__typename": "Brand",
+              "id": "623c9dfc-f2e8-4800-89d8-9f202f6b7f0e",
+              "name": Object {
+                "ar": "كاريبو كوفي",
+                "en": "Caribou Coffee",
+              },
+            },
+            "id": "7dbb5759-33bc-49c4-b7ba-278433fe5b8a",
+            "name": Object {
+              "ar": "الاستثمار العالمي",
+              "en": "Global Investment",
+            },
+          },
+          "coupon": Object {
+            "id": "9d36096c-768d-47e8-88bc-7bd906547fd5",
+          },
+          "couponAmount": "0.150",
+          "createdAt": "2017-11-03T14:14:14Z",
+          "fee": "0.250",
+          "fulfillment": Object {
+            "__typename": "OrderFulfillment",
+            "asap": false,
+            "courierName": null,
+            "id": "eb0db6ab-9499-4bda-bcf1-83fb16252251",
+            "time": "2017-11-01T19:33:00Z",
+            "type": "PICKUP",
+          },
+          "id": "209f95f0-682c-4c93-92f6-95efa21d6a31",
+          "internalComments": Array [
+            Object {
+              "avatar": "https://cdn5.vectorstock.com/i/thumb-large/82/59/anonymous-user-flat-icon-vector-18958259.jpg",
+              "comment": "Ut ut facere omnis autem odio numquam.",
+              "id": "23cd8407-d689-45b2-848e-a9db18127ad3",
+              "userName": "Ms. Brenda Fadel",
+            },
+            Object {
+              "avatar": "https://cdn5.vectorstock.com/i/thumb-large/82/59/anonymous-user-flat-icon-vector-18958259.jpg",
+              "comment": "Et debitis quia rerum dolore aliquid maiores.",
+              "id": "e1527295-f115-43cd-aed0-73f99173e64a",
+              "userName": "Ms. Edmond Parisian",
+            },
+            Object {
+              "avatar": "https://cdn5.vectorstock.com/i/thumb-large/82/59/anonymous-user-flat-icon-vector-18958259.jpg",
+              "comment": "Eaque veritatis at rerum.",
+              "id": "9f614e40-226e-4fd5-9b2b-b5b1aef002e8",
+              "userName": "Mr. Laron Rowe",
+            },
+          ],
+          "note": "Sunt et delectus vel adipisci voluptatem.",
+          "shortCode": "VMTDGW",
+          "subtotal": "2.500",
+          "total": "2.600",
+        },
+        Object {
+          "acknowledged": false,
+          "brandLocation": Object {
+            "__typename": "BrandLocation",
+            "address": Object {
+              "__typename": "BrandLocationAddress",
+              "id": "d2604d5b-79db-4f34-8696-89506c2839c3",
+              "street": "Al Hamra Tower",
+            },
+            "brand": Object {
+              "__typename": "Brand",
+              "id": "aed15607-823c-4a04-b33c-4449f3e68c60",
+              "name": Object {
+                "ar": "ستاربكس",
+                "en": "Starbucks",
+              },
+            },
+            "id": "c53540cc-bf83-46cf-9f40-e5dd125a6709",
+            "name": Object {
+              "ar": "ستاربكس 3",
+              "en": "Starbucks 3",
+            },
+          },
+          "coupon": Object {
+            "id": "da007ec3-e994-4027-937a-53d2d8b17b8f",
+          },
+          "couponAmount": "1.500",
+          "createdAt": "2017-11-02T14:14:14Z",
+          "fee": "0.250",
+          "fulfillment": Object {
+            "__typename": "OrderFulfillment",
+            "asap": false,
+            "courierName": null,
+            "id": "a59d759f-f3ca-4827-87ad-ae1798652281",
+            "time": "2017-11-01T10:23:00Z",
+            "type": "PICKUP",
+          },
+          "id": "fdf6d2ac-5eed-42bf-8cef-8aeb900bf52c",
+          "internalComments": Array [
+            Object {
+              "avatar": "https://cdn5.vectorstock.com/i/thumb-large/82/59/anonymous-user-flat-icon-vector-18958259.jpg",
+              "comment": "Laborum esse excepturi qui ullam nulla mollitia et et.",
+              "id": "97c3bf76-88c4-4e15-b6b8-ff2ad9b8fb59",
+              "userName": "Mr. Leanna Stamm",
+            },
+            Object {
+              "avatar": "https://cdn5.vectorstock.com/i/thumb-large/82/59/anonymous-user-flat-icon-vector-18958259.jpg",
+              "comment": "Neque rerum molestias asperiores.",
+              "id": "88254942-c4f8-4abf-92a5-bbc2792e6fa2",
+              "userName": "Ms. Marley Price",
+            },
+          ],
+          "note": "Voluptas suscipit qui sit et qui sit libero.",
+          "shortCode": "FLX1D2",
+          "subtotal": "1.250",
+          "total": "0.000",
+        },
+      ],
+      "upcomingOrderSets": Array [
+        Object {
+          "acknowledged": false,
+          "brandLocation": Object {
+            "__typename": "BrandLocation",
+            "address": Object {
+              "__typename": "BrandLocationAddress",
+              "id": "85573091-6d8e-40e0-9f2b-2be6fc0e470f",
+              "street": "Four Points Sheraton",
+            },
+            "brand": Object {
+              "__typename": "Brand",
+              "id": "aed15607-823c-4a04-b33c-4449f3e68c60",
+              "name": Object {
+                "ar": "ستاربكس",
+                "en": "Starbucks",
+              },
+            },
+            "id": "817a13c0-3085-4563-975d-44e9122e610f",
+            "name": Object {
+              "ar": "ستاربكس 2",
+              "en": "Starbucks 2",
+            },
+          },
+          "coupon": null,
+          "couponAmount": "0.000",
+          "createdAt": "2017-11-01T14:14:14Z",
+          "fee": "0.750",
+          "fulfillment": Object {
+            "__typename": "OrderFulfillment",
+            "asap": false,
+            "courierName": null,
+            "id": "184025b3-3ba2-4d1d-ba92-09b92b454bb5",
+            "time": "2017-11-01T10:42:00Z",
+            "type": "PICKUP",
+          },
+          "id": "ff2fc7c9-8cca-46b5-8a4e-1bd757a7485f",
+          "internalComments": Array [
+            Object {
+              "avatar": "https://cdn5.vectorstock.com/i/thumb-large/82/59/anonymous-user-flat-icon-vector-18958259.jpg",
+              "comment": "Dolores sapiente omnis tempora.",
+              "id": "977d76ba-f448-4836-80f0-be09f2b1bd6b",
+              "userName": "Mr. Shawn Reynolds",
+            },
+          ],
+          "note": "Laborum ea sit.",
+          "shortCode": "WG2DNU",
+          "subtotal": "1.250",
+          "total": "2.000",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`order set mark as Acknowledged 1`] = `
+Object {
+  "data": Object {
+    "orderSetAcknowledge": Object {
+      "error": null,
+      "orderSet": Object {
+        "acknowledged": true,
+        "id": "ff2fc7c9-8cca-46b5-8a4e-1bd757a7485f",
+        "shortCode": "WG2DNU",
+      },
+    },
+  },
+}
+`;
+
+exports[`order set mark as Acknowledged with invalid id 1`] = `
+Object {
+  "data": Object {
+    "orderSetAcknowledge": Object {
+      "error": "INVALID_ORDER_SET",
+      "orderSet": null,
+    },
+  },
+}
+`;
+
+exports[`order set mark orderSetSaveInternalNote  1`] = `
+Object {
+  "data": Object {
+    "orderSetSaveInternalNote": Object {
+      "error": null,
+      "orderSet": Object {
+        "id": "ff2fc7c9-8cca-46b5-8a4e-1bd757a7485f",
+        "shortCode": "WG2DNU",
+      },
+    },
+  },
+}
+`;
+
+exports[`order sets queried by brand id 1`] = `
+Object {
+  "data": Object {
+    "orderSets": Array [
+      Object {
+        "brandLocation": Object {
+          "brand": Object {
+            "name": Object {
+              "ar": "كاريبو كوفي",
+              "en": "Caribou Coffee",
+            },
+          },
+        },
+        "id": "209f95f0-682c-4c93-92f6-95efa21d6a31",
+      },
+      Object {
+        "brandLocation": Object {
+          "brand": Object {
+            "name": Object {
+              "ar": "كاريبو كوفي",
+              "en": "Caribou Coffee",
+            },
+          },
+        },
+        "id": "549b9ea3-5794-4168-a1c4-01a88a271b33",
+      },
+      Object {
+        "brandLocation": Object {
+          "brand": Object {
+            "name": Object {
+              "ar": "كاريبو كوفي",
+              "en": "Caribou Coffee",
+            },
+          },
+        },
+        "id": "84a77c01-7448-4807-ae82-a177012b4303",
+      },
+      Object {
+        "brandLocation": Object {
+          "brand": Object {
+            "name": Object {
+              "ar": "كاريبو كوفي",
+              "en": "Caribou Coffee",
+            },
+          },
+        },
+        "id": "f8307d5e-65b9-4b4a-9583-17fb020051c2",
+      },
+    ],
+  },
+}
+`;
+
+exports[`order sets returned paged,filtered by date range and brand Location 1`] = `
+Object {
+  "data": Object {
+    "orderSets": Array [],
+  },
+}
+`;
+
+exports[`payment cancellation generates appropriate notifications 1`] = `
+Object {
+  "email": Array [],
+  "push": Array [],
+  "sms": Array [],
+}
+`;
+
+exports[`payment failure generates appropriate notifications 1`] = `
+Object {
+  "email": Array [],
+  "push": Array [],
+  "sms": Array [],
+}
+`;

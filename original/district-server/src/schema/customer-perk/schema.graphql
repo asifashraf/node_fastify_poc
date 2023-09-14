@@ -1,0 +1,12 @@
+"""
+A customer available perk
+"""
+type CustomerPerk {
+  """
+  id is optional because perks of type CHOOSE have no id they are cumulated, while special and ongoing perks can have an id
+  """
+  id: ID
+  title: LocalizedString
+  type: RewardTierPerkType!
+  total: Float!
+}

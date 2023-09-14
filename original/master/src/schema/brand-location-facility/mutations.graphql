@@ -1,0 +1,7 @@
+extend type Mutation {
+  brandLocationFacilitySave(
+    facilityInput: BrandLocationFacilityInput!
+  ): BrandLocationFacilityPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:upsert"])
+}

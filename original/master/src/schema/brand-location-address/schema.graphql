@@ -1,0 +1,28 @@
+"""
+A brand location address
+"""
+type BrandLocationAddress {
+  """
+  Database identifier
+  """
+  id: ID!
+#  """
+#  The first line shown for a location's address, ie "Sadu House"
+#  """
+#  shortAddress: LocalizedString!
+  """
+  The second line, ie "Arabian Gulf Street"
+  """
+  street: String!
+  """
+  The longitude component of the geo coordinates for this address, in degrees
+  """
+  longitude: Float!
+  """
+  The longitude component of the geo coordinates for this address, in degrees
+  """
+  latitude: Float!
+  # Neighborhood where this address belong to
+  neighborhood: Neighborhood
+  city: City
+}

@@ -1,0 +1,62 @@
+extend type Query {
+  """
+  if subscriptionId is not given, then it returns all active subscriptions in that country
+  """
+  getAllSubscriptionUsage(
+    countryId: ID!
+    subscriptionId: ID
+  ): [SubscriptionUsagePayload] @requireAuth
+}
+
+type CSubscriptionCustomerTransaction {
+  id: ID!
+  subscriptionCustomerId: ID
+  actionType: CSubscriptionActionType
+  remainingCups: Int
+  remainingMinutes: Int
+  credit: Int
+  debit: Int
+  referenceOrderType: CSubscriptionReferenceOrderType
+  referenceOrderId: ID!
+  created: Datetime
+  updated: Datetime
+  subscriptionId: ID!
+  customerId: ID!
+  currencyId: ID!
+  countryId: ID!
+  brandId: ID
+  branchId: ID
+  brand: Brand
+  branch: BrandLocation
+  title: LocalizedString
+  subtitle: LocalizedString
+  usageDate: Datetime
+  usageCount: Int
+}
+
+enum CSubscriptionReferenceOrderType {
+  SUBSCRIPTION_ORDER
+  ORDER_SET
+}
+
+enum CSubscriptionCustomerTransactionError {
+  INVALID_SUBSCRIPTION
+  PER_DAY_LIMIT_EXCEED
+  PER_ORDER_LIMIT_EXCEED
+  INVALID_MENU_ITEM
+  INVALID_MENU_ITEM_OPTION
+}
+
+enum CSubscriptionActionType {
+  STARTED
+  PAUSED
+  RESUMED
+  FINISHED
+  ORDER_PLACED
+  ORDER_REFUNDED
+}
+
+type SubscriptionUsagePayload {
+  usage: [CSubscriptionCustomerTransaction]
+  overview: CSubscriptionCustomerDetail
+}

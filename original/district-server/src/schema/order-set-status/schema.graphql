@@ -1,0 +1,75 @@
+"""
+This accounts for multiple scheduled orders
+"""
+type OrderSetStatus {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Status Name
+  """
+  status: OrderSetStatusName!
+  """
+  When this order was successfully completed (payment received)
+  """
+  createdAt: Datetime!
+  """
+  The selected reason for rejection
+  """
+  rejectionReason: OrderRejectionReason
+  """
+  The selected reason for report
+  """
+  reportReason: OrderReportReason
+  """
+  Any special notes, ie rejection/report reason. Max length is 4,096 bytes.
+  """
+  note: String
+  """
+  last  added by
+  """
+  createdBy: Admin
+  """
+  Last added by Platform
+  """
+  clientName: String
+}
+
+"""
+Information about a rejection status
+"""
+input RejectionInput {
+  """
+  Reason for rejection
+  """
+  reason: OrderRejectionReason!
+  """
+  Internal note about rejection
+  """
+  note: String!
+}
+
+"""
+Information about a report status
+"""
+input ReportInput {
+  """
+  Reason for rejection
+  """
+  reason: OrderReportReason!
+  """
+  Internal note about rejection
+  """
+  note: String!
+}
+
+extend type Query {
+  """
+  Get next status for bulk update
+  """
+  getNextStatus(
+    currentStatus: OrderSetStatusName!
+    fulfillmentType: OrderFulfillmentType!
+  ): OrderSetStatusName
+}

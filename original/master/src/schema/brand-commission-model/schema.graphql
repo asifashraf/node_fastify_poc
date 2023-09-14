@@ -1,0 +1,21 @@
+type BrandCommissionModel {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Commission Model type
+  zero / non zero commission model type
+  """
+  type: CommissionModelType
+  brand: Brand!
+  percentage: Float!
+  """
+  The time the location opens on this date
+  """
+  startTime: Datetime!
+  """
+  The time the location closes on this date
+  """
+  endTime: Datetime
+}

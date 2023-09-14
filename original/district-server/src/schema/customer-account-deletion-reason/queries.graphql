@@ -1,0 +1,10 @@
+extend type Query {
+  """
+  Getting account deletion page texts for mobile applications
+  """
+  customerAccountDeletionTexts(language: AvailableLanguage): CustomerAccountDeletionTexts @requireAuth
+  """
+  Getting a customer account deletion option list
+  """
+  customerAccountDeletionReasonOptions: [CustomerAccountDeletionReasonOption] @requireAuth
+}

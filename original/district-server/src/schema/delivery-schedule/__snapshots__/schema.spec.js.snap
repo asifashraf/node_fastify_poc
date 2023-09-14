@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`brand locations can resolve deliverySchedule based on weeklySchedule 1`] = `
+Object {
+  "data": Object {
+    "brandLocation": Object {
+      "deliverySchedule": Array [
+        Object {
+          "day": 2,
+          "deliveryOpenDuration": 480,
+          "deliveryOpenTime": "09:00:00",
+          "id": "528d3e1c-d6a1-4a39-a0d5-1fb09d0e307a",
+          "openAllDay": false,
+          "openDuration": 480,
+          "openTime": "09:00:00",
+        },
+        Object {
+          "day": 3,
+          "deliveryOpenDuration": 480,
+          "deliveryOpenTime": "09:00:00",
+          "id": "58194764-1478-4860-b566-342a08bc4238",
+          "openAllDay": false,
+          "openDuration": 480,
+          "openTime": "09:00:00",
+        },
+        Object {
+          "day": 4,
+          "deliveryOpenDuration": 480,
+          "deliveryOpenTime": "09:00:00",
+          "id": "cc991185-38ac-4137-bedc-417fca0bdb0e",
+          "openAllDay": false,
+          "openDuration": 480,
+          "openTime": "09:00:00",
+        },
+        Object {
+          "day": 5,
+          "deliveryOpenDuration": 480,
+          "deliveryOpenTime": "09:00:00",
+          "id": "222ceddd-20d6-446f-a578-3ef0159c98f0",
+          "openAllDay": false,
+          "openDuration": 480,
+          "openTime": "09:00:00",
+        },
+        Object {
+          "day": 6,
+          "deliveryOpenDuration": 480,
+          "deliveryOpenTime": "09:00:00",
+          "id": "231fe205-dfc7-4dae-94a3-a4eb416aad7b",
+          "openAllDay": false,
+          "openDuration": 480,
+          "openTime": "09:00:00",
+        },
+      ],
+      "weeklySchedule": Array [
+        Object {
+          "day": 2,
+          "deliveryOpenDuration": 480,
+          "deliveryOpenTime": "09:00:00",
+          "id": "528d3e1c-d6a1-4a39-a0d5-1fb09d0e307a",
+          "openAllDay": false,
+          "openDuration": 480,
+          "openTime": "09:00:00",
+        },
+        Object {
+          "day": 3,
+          "deliveryOpenDuration": 480,
+          "deliveryOpenTime": "09:00:00",
+          "id": "58194764-1478-4860-b566-342a08bc4238",
+          "openAllDay": false,
+          "openDuration": 480,
+          "openTime": "09:00:00",
+        },
+        Object {
+          "day": 4,
+          "deliveryOpenDuration": 480,
+          "deliveryOpenTime": "09:00:00",
+          "id": "cc991185-38ac-4137-bedc-417fca0bdb0e",
+          "openAllDay": false,
+          "openDuration": 480,
+          "openTime": "09:00:00",
+        },
+        Object {
+          "day": 5,
+          "deliveryOpenDuration": 480,
+          "deliveryOpenTime": "09:00:00",
+          "id": "222ceddd-20d6-446f-a578-3ef0159c98f0",
+          "openAllDay": false,
+          "openDuration": 480,
+          "openTime": "09:00:00",
+        },
+        Object {
+          "day": 6,
+          "deliveryOpenDuration": 480,
+          "deliveryOpenTime": "09:00:00",
+          "id": "231fe205-dfc7-4dae-94a3-a4eb416aad7b",
+          "openAllDay": false,
+          "openDuration": 480,
+          "openTime": "09:00:00",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`brand locations can resolve weeklySchedule 1`] = `
+Object {
+  "data": Object {
+    "brandLocation": Object {
+      "weeklySchedule": Array [
+        Object {
+          "day": 2,
+          "deliveryOpenDuration": 480,
+          "deliveryOpenTime": "09:00:00",
+          "id": "528d3e1c-d6a1-4a39-a0d5-1fb09d0e307a",
+          "openAllDay": false,
+          "openDuration": 480,
+          "openTime": "09:00:00",
+        },
+        Object {
+          "day": 3,
+          "deliveryOpenDuration": 480,
+          "deliveryOpenTime": "09:00:00",
+          "id": "58194764-1478-4860-b566-342a08bc4238",
+          "openAllDay": false,
+          "openDuration": 480,
+          "openTime": "09:00:00",
+        },
+        Object {
+          "day": 4,
+          "deliveryOpenDuration": 480,
+          "deliveryOpenTime": "09:00:00",
+          "id": "cc991185-38ac-4137-bedc-417fca0bdb0e",
+          "openAllDay": false,
+          "openDuration": 480,
+          "openTime": "09:00:00",
+        },
+        Object {
+          "day": 5,
+          "deliveryOpenDuration": 480,
+          "deliveryOpenTime": "09:00:00",
+          "id": "222ceddd-20d6-446f-a578-3ef0159c98f0",
+          "openAllDay": false,
+          "openDuration": 480,
+          "openTime": "09:00:00",
+        },
+        Object {
+          "day": 6,
+          "deliveryOpenDuration": 480,
+          "deliveryOpenTime": "09:00:00",
+          "id": "231fe205-dfc7-4dae-94a3-a4eb416aad7b",
+          "openAllDay": false,
+          "openDuration": 480,
+          "openTime": "09:00:00",
+        },
+      ],
+    },
+  },
+}
+`;

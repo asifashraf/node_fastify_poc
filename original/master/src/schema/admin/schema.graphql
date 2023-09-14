@@ -1,0 +1,85 @@
+"""
+Admins to manage brand and brand locations (brand_admins: related schema)
+"""
+type Admin {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Auth0 ID
+  """
+  authoId: String!
+  """
+  Name of the admin
+  """
+  name: String
+  """
+  Email of the admin
+  """
+  email: String!
+  """
+  status of the admin
+  """
+  status: StatusType
+  """
+  Picture
+  """
+  picture: String
+  """
+  role of the admin
+  """
+  role: String
+  """
+  Admin created at
+  """
+  created: Datetime!
+  """
+  Admin updated at
+  """
+  updated: Datetime!
+  """
+  list of brand or brand locations
+  """
+  forBrands(brandId: ID): [BrandAdmin]!
+  """
+  Groups
+  """
+  groups: [Group]
+  """
+  Admin for brand
+  """
+  brand: Brand
+  """
+  brand for brand location
+  """
+  brandLocation: BrandLocation
+}
+
+type AdminsPaged {
+  paging: Paging!
+  admins: [Admin!]!
+}
+
+type AdminDetailsPayload {
+  id: ID
+  email: String
+  name: String
+  status: String
+  picture: String
+  groups: [String]
+  roles: [String]
+  permissions: [String]
+  brand: Brand
+  brandLocation: BrandLocation
+  error: AdminDetailsPayloadError
+  errors: [AdminDetailsPayloadError!]
+  errorDescription: String
+}
+
+enum AdminDetailsPayloadError {
+  UNAUTHORIZED
+  NOT_FOUND
+  DELETED
+  INACTIVE
+}

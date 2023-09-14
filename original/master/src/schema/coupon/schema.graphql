@@ -1,0 +1,221 @@
+type Coupon {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  A customer-visible code identifying the coupon, e.g. "ILUVCOFFEE"
+  """
+  code: String!
+  """
+  A max limit for percentage based
+  """
+  maxLimit: CurrencyValue
+  """
+  Currency Limit for when the coupon is applicable, e.g. if the subtotal >= 3.000 KD than the coupon can be applied to the order.
+  """
+  minApplicableLimit: CurrencyValue
+  """
+  A running count for the number of times a coupon has been redeemed so far
+  """
+  redemptionCount: Int
+  """
+  A limit for the number of times a coupon can be redeemed
+  """
+  redemptionLimit: Int
+  """
+  A limit for the number of times a coupon can be redeemed per Customer
+  """
+  customerRedemptionLimit: Int
+  """
+  Commission / Percentage share on voucher
+  """
+  commission: Int
+  """
+  If this flag is true the coupon can be applied only to {customerRedemptionLimit} first orders
+  Can be used only with customerRedemptionLimit
+  """
+  onlyFirstOrders: Boolean
+  """
+  Could be COFE or BRAND: onlyFirstOrders would be checked at COFE or BRAND level.
+  """
+  onlyFirstOrdersFor: FirstOrdersType
+  """
+  Required when onlyFirstOrdersFor is set BRAND because we need redemption limit for vendors
+  """
+  firstOrdersRedemptionLimit: Int
+  """
+  Flag that shows if a coupon is referral generated coupon
+  """
+  referralCoupon: Boolean
+  """
+  The date this coupon becomes active
+  """
+  startDate: Datetime!
+  """
+  The time this coupon becomes active
+  """
+  endDate: Datetime!
+  """
+  TimeZoneIdentifier of the country, so that the startDate and endDate can be applied correctly
+  """
+  timeZoneIdentifier: String!
+  """
+  If false, this indicates that the coupon was invalidated without regard to its start or end date. The default is `true`. Note: this is a global value applicable to the coupon itself, not a customer-specific value. See `isValidForThisCustomer` to determine whether this coupon is still valid for the customer making the coupon request.
+  """
+  isValid: Boolean!
+  """
+  If false, this indicates that the customer is unable to use this coupon, e.g. because they have already redeemed it. This value is optional because it is only present when the coupon was fetched via a customer-specific query.
+  """
+  isValidForThisCustomer: Boolean
+  """
+  When this coupon was successfully created
+  """
+  createdAt: Datetime!
+  """
+  A List of Brands that have this coupon assigned
+  """
+  brands: [Brand!]!
+  """
+  A List of Brand Locations that have this coupon assigned
+  """
+  brandLocations: [BrandLocation!]!
+  """
+  A photo related to this coupon
+  """
+  heroPhoto: String
+  """
+  A description related to the coupon's photo
+  """
+  description: String
+  """
+  A running count for the number of times a coupon has been redeemed so far by a provided customer
+  """
+  customerRedemptionsCount: Int
+  """
+  Optional list of email domains this voucher is valid for
+  """
+  validEmailDomains: String
+  """
+  The country the coupon is from
+  """
+  country: Country
+  """
+  the currency of the coupon
+  """
+  currency: Currency
+  """
+  isValid in the same schema is also tracking active/inactive but for consistency we're adding status active/inactive/deleted
+  """
+  status: CouponStatus
+  """
+  List of available coupons
+  """
+  allowedCouponsTypes: [CouponType]
+  """
+  Coupon details
+  """
+  couponDetails: [CouponDetail!]!
+  """
+  Allowed payment mathods.
+  """
+  allowedPaymentMethods: [String]
+  """
+  Allowed banks for voucher locking
+  """
+  allowedBanks: [ID!]
+  """
+  Allowed bank cards for voucher locking
+  """
+  allowedBankCards: [ID!]
+  """
+  Coupon validation error
+  """
+  error: CouponValidationError
+  """
+  Promo Type (regular or cashback )
+  Regular promo is existing promo which will reduce the total value of order.
+  cashback promo will store the value of promo on placing the order and on successful payment we will add the promo value as credits in customer's wallet
+  """
+  type: PromoType
+  """
+  Expire Cashback promo in days (required if promo type is cashback)
+  """
+  cashbackExpireInDays: Int
+  customerIds: [String]
+  customerGroup: CustomerGroup
+  """
+  Percent paid by Cofe - moved to coupon detail
+  """
+  percentPaidByCofe: Int @deprecated
+  """
+  Percent paid by Vendor - moved to coupon detail
+  """
+  percentPaidByVendor: Int @deprecated
+  """
+  Created by
+  """
+  createdBy: CreatedBy
+  """
+  When this coupon was successfully updated
+  """
+  updatedAt: Datetime
+  """
+  Updated by
+  """
+  updatedBy: CreatedBy
+  """
+  Total coupon amount used in orders
+  """
+  totalCouponAmountUsedInOrders: Float
+  """
+  Discount Status on Order
+  """
+  orderDiscountStatus: OrderDiscountStatusForCoupon!
+}
+
+type OrderDiscountStatusForCoupon {
+  withReward: Boolean!
+  withDiscoveryCredit: Boolean!
+}
+
+enum CouponValidationError {
+  """
+  Inapplicable payment method for coupon
+  """
+  INVALID_COUPON_OR_INAPPLICABLE_PAYMENT_METHOD
+  """
+  Inapplicable Bank or BankCard for the coupon
+  """
+  INAPPLICABLE_BANK_OR_CARD_FOR_COUPON
+  """
+  In applicable to the the specific vendor
+  """
+  INAPPLICABLE_VENDOR_FOR_COUPON
+  """
+  When already consumed by the vendor
+  """
+  COUPON_ALREADY_CONSUMED_BY_VENDOR
+  """
+  Unexpected Error
+  """
+  UNEXPECTED_ERROR
+  """
+  This coupon is not usable with Reward Discount
+  """
+  CAN_NOT_BE_USED_WITH_REWARD_DISCOUNT
+  """
+  This coupon is not usable with Discovery Point
+  """
+  CAN_NOT_BE_USED_WITH_DISCOVERY_POINT
+  INVALID_SUBSCRIPTION
+  INVALID_COUPON_TYPE_FOR_SUBSCRIPTION
+  INVALID_PAYMENT_METHOD_FOR_SUBSCRIPTION
+  INVALID_COUPON
+  INVALID_COUPON_FOR_USER
+}
+
+enum CouponOrderType {
+  REGULAR_ORDER
+  SUBSCRIPTION_ORDER
+}

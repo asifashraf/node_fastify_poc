@@ -1,0 +1,50 @@
+enum OTPCodeViewRequestError {
+  NOT_EXISTING_CUSTOMER
+  NO_ACTIVE_OTP_FOUND
+  SERVICE_ERROR
+}
+
+type OTPCodeViewRequestPayload {
+  otpCode: String
+  error: OTPCodeViewRequestError
+  errors: [OTPCodeViewRequestError!]
+}
+
+type OTPRateLimitResetPayload {
+  result: Boolean
+  error: OTPCodeViewRequestError
+  errors: [OTPCodeViewRequestError!]
+}
+
+enum CustomerRequestEmailVerificationError {
+  SUCCESS_EXISTING_USER
+  SUCCESS_NO_USER_RECORD_FOUND
+  DUPLICATE_ACTIVE_RECORDS_FOUND
+  USER_RECORDS_ARE_DISABLED
+  FAILED_OTP_CHALLENGE
+  MAIL_SENDING_ERROR
+  SERVICE_ERROR
+}
+
+type CustomerRequestEmailVerificationPayload {
+  status: Boolean!
+  error: CustomerRequestEmailVerificationError
+  errors: [CustomerRequestEmailVerificationError!]
+}
+
+type OTPRecord {
+  identifier: String!
+  otpCode: String!
+  ttl: String!
+}
+
+enum FirstTimeUsersOTPRecordsError {
+  SERVICE_ERROR
+  UNAUTHORIZED_ADMIN
+}
+
+type FirstTimeUsersOTPRecordsPayload {
+  otpRecordsList: [OTPRecord!]
+  error: FirstTimeUsersOTPRecordsError
+  errors: [FirstTimeUsersOTPRecordsError!]
+}

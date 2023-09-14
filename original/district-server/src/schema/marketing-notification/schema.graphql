@@ -1,0 +1,68 @@
+"""
+A marketing push notification message scheduled to be sent out to a group of customers at a given time.
+"""
+type MarketingNotification {
+  """
+  Db Identifier
+  """
+  id: ID!
+  """
+  Human friendly identifier
+  """
+  shortCode: String!
+  """
+  A datetime the notification should be sent out to customers
+  """
+  embargoDate: Datetime
+  """
+  The title of the notification
+  """
+  title: String!
+  """
+  The content of the notification
+  """
+  message: String!
+  """
+  Send this message to all platforms
+  """
+  targetAll: Boolean!
+  """
+  Send this message to Android platform only
+  """
+  targetAndroid: Boolean!
+  """
+  Send this message to iOS platform only
+  """
+  targetIos: Boolean!
+  """
+  Status of this notification
+  """
+  status: NotificationStatus!
+  """
+  Country
+  """
+  country: Country
+}
+
+"""
+A list of notifications, exposing the total number of results
+"""
+type MarketingNotificationsPaged {
+  """
+  The total number of results
+  """
+  numResults: Int!
+  """
+  All of the notifications in this list
+  """
+  notifications: [MarketingNotification!]!
+}
+"""
+marketing notification result
+"""
+type MarketingNotificationResult {
+  """
+  the node for single marketing notification
+  """
+  notification: MarketingNotification!
+}

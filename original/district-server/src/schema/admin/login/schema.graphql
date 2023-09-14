@@ -1,0 +1,37 @@
+
+ extend type Mutation {
+  adminLogin(loginDetails: LoginInput!): LoginPayload
+}
+
+input LoginInput {
+  email:String!
+  password: String!
+  returnSecureToken: Boolean!
+}
+type LoginData{
+  kind: String!
+  localId: String!
+  email: String!
+  displayName: String
+  idToken: String!
+  registered: Boolean!
+  refreshToken: String!
+  expiresIn: String!
+  passwordHash:String
+  emailVerified:Boolean
+  validSince:String
+  disabled:Boolean
+  lastLoginAt:String
+  createdAt:String
+  lastRefreshAt:String
+}
+type LoginPayload{
+    LoginData:LoginData
+    error:LoginError
+}
+enum LoginError {
+  EMAIL_MISSING
+  PASSWORD_MISSING
+  RETURN_SECURE_TOKEN_MISSING
+  UNKNOWN_ERROR
+}

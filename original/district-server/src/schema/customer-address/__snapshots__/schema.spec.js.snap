@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`customer can resolve addresses 1`] = `
+Object {
+  "data": Object {
+    "customer": Object {
+      "addresses": Array [
+        Object {
+          "extraFields": Array [
+            Object {
+              "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+              "isRequired": false,
+              "name": Object {
+                "ar": "nickname - ar",
+                "en": "nickname",
+              },
+              "value": "my nickname 2",
+            },
+            Object {
+              "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+              "isRequired": false,
+              "name": Object {
+                "ar": "details - ar",
+                "en": "detalils",
+              },
+              "value": "my details 2",
+            },
+          ],
+          "friendlyName": "Work",
+          "id": "5a7888fe-6d54-48a8-a5f5-fffeaf9e3173",
+          "isDefault": false,
+          "latitude": 32.3774796,
+          "longitude": 44.9903626,
+          "neighborhood": Object {
+            "id": "62b99864-eebe-4904-b985-824f8bcdff1f",
+            "name": Object {
+              "ar": "العديلية",
+              "en": "Adailiya",
+            },
+          },
+        },
+        Object {
+          "extraFields": Array [
+            Object {
+              "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+              "isRequired": false,
+              "name": Object {
+                "ar": "nickname - ar",
+                "en": "nickname",
+              },
+              "value": "my nickname 1",
+            },
+            Object {
+              "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+              "isRequired": false,
+              "name": Object {
+                "ar": "details - ar",
+                "en": "detalils",
+              },
+              "value": "my details 1",
+            },
+          ],
+          "friendlyName": "Home",
+          "id": "e4b0f53f-48bc-4f75-a246-9505ab6ee8b3",
+          "isDefault": true,
+          "latitude": 29.3774796,
+          "longitude": 47.9903626,
+          "neighborhood": Object {
+            "id": "5765880a-aca0-456b-bc1c-9e23cbd5785d",
+            "name": Object {
+              "ar": "السلام",
+              "en": "Salam",
+            },
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`customer can resolve defaultAddress 1`] = `
+Object {
+  "data": Object {
+    "customer": Object {
+      "defaultAddress": Object {
+        "extraFields": Array [
+          Object {
+            "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+            "isRequired": false,
+            "name": Object {
+              "ar": "nickname - ar",
+              "en": "nickname",
+            },
+            "value": "my nickname 1",
+          },
+          Object {
+            "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+            "isRequired": false,
+            "name": Object {
+              "ar": "details - ar",
+              "en": "detalils",
+            },
+            "value": "my details 1",
+          },
+        ],
+        "friendlyName": "Home",
+        "id": "e4b0f53f-48bc-4f75-a246-9505ab6ee8b3",
+        "isDefault": true,
+        "latitude": 29.3774796,
+        "longitude": 47.9903626,
+        "neighborhood": Object {
+          "id": "5765880a-aca0-456b-bc1c-9e23cbd5785d",
+          "name": Object {
+            "ar": "السلام",
+            "en": "Salam",
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`customer can save address 1`] = `
+Object {
+  "data": Object {
+    "customerSaveAddress": Object {
+      "customer": Object {
+        "addresses": Array [
+          Object {
+            "countryCode": "AE",
+            "extraFields": Array [],
+            "id": "9f03ad20-3fc0-4896-8917-35324e810d58",
+            "isDefault": true,
+          },
+          Object {
+            "countryCode": "KW",
+            "extraFields": Array [
+              Object {
+                "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+                "isRequired": false,
+                "name": Object {
+                  "ar": "nickname - ar",
+                  "en": "nickname",
+                },
+                "value": "my nickname 2",
+              },
+              Object {
+                "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+                "isRequired": false,
+                "name": Object {
+                  "ar": "details - ar",
+                  "en": "detalils",
+                },
+                "value": "my details 2",
+              },
+            ],
+            "id": "5a7888fe-6d54-48a8-a5f5-fffeaf9e3173",
+            "isDefault": false,
+          },
+          Object {
+            "countryCode": "KW",
+            "extraFields": Array [
+              Object {
+                "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+                "isRequired": false,
+                "name": Object {
+                  "ar": "nickname - ar",
+                  "en": "nickname",
+                },
+                "value": "my nickname 1",
+              },
+              Object {
+                "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+                "isRequired": false,
+                "name": Object {
+                  "ar": "details - ar",
+                  "en": "detalils",
+                },
+                "value": "my details 1",
+              },
+            ],
+            "id": "e4b0f53f-48bc-4f75-a246-9505ab6ee8b3",
+            "isDefault": false,
+          },
+        ],
+        "defaultAddress": Object {
+          "buildingName": "EMPIRE STATE",
+          "city": null,
+          "countryCode": "AE",
+          "extraFields": Array [],
+          "friendlyName": "My Friendly Address",
+          "id": "9f03ad20-3fc0-4896-8917-35324e810d58",
+          "isDefault": true,
+        },
+      },
+      "error": null,
+      "errors": null,
+    },
+  },
+}
+`;

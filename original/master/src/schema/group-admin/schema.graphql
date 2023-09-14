@@ -1,0 +1,25 @@
+"""
+GroupAdmin
+"""
+type GroupAdmin {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Group created at
+  """
+  created: Datetime!
+  """
+  Group updated at
+  """
+  updated: Datetime!
+  """
+  group
+  """
+  group: Group!
+  """
+  admin
+  """
+  admin: Admin!
+}

@@ -1,0 +1,94 @@
+image: node:16
+
+pipelines:
+  branches:
+    develop:
+      - step:
+          name: "Build and Lint"
+          caches:
+            - node
+          script:
+            - npm install
+            - npm run lint
+      - step:
+          name: "Zip file"
+          script:
+            - apt-get update
+            - apt-get install zip
+            - zip -r "cofe-backend-server" . --exclude=*.git* --exclude=*.vs* --exclude=*node_modules*
+          artifacts:
+            - cofe-backend-server.zip
+      - step:
+          name: "Deploy"
+          deployment: develop
+          script:
+            - pipe: atlassian/aws-elasticbeanstalk-deploy:1.0.2
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: "eu-west-1"
+                APPLICATION_NAME: "Cofe Backend"
+                ENVIRONMENT_NAME: "dev-backend-nodejs14"
+                S3_BUCKET: "cofeapp-builds"
+                ZIP_FILE: "cofe-backend-server.zip"
+                VERSION_LABEL: 'dev-cofe-backend-server-$BITBUCKET_BUILD_NUMBER'
+    staging:
+      - step:
+          name: "Build and Lint"
+          caches:
+            - node
+          script:
+            - npm install
+            - npm run lint
+      - step:
+          name: "Zip file"
+          script:
+            - apt-get update
+            - apt-get install zip
+            - zip -r "cofe-backend-server" . --exclude=*.git* --exclude=*.vs* --exclude=*node_modules*
+          artifacts:
+            - cofe-backend-server.zip
+      - step:
+          name: "Deploy"
+          deployment: staging
+          script:
+            - pipe: atlassian/aws-elasticbeanstalk-deploy:1.0.2
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: "eu-west-1"
+                APPLICATION_NAME: "Cofe Backend"
+                ENVIRONMENT_NAME: "stage-nodejs14"
+                S3_BUCKET: "cofeapp-builds"
+                ZIP_FILE: "cofe-backend-server.zip"
+                VERSION_LABEL: 'stg-cofe-backend-server-$BITBUCKET_BUILD_NUMBER'
+    master:
+      - step:
+          name: "Build and Lint"
+          caches:
+            - node
+          script:
+            - npm install
+            - npm run lint
+      - step:
+          name: "Zip file"
+          script:
+            - apt-get update
+            - apt-get install zip
+            - zip -r "cofe-backend-server" . --exclude=*.git* --exclude=*.vs* --exclude=*node_modules*
+          artifacts:
+            - cofe-backend-server.zip
+      - step:
+          name: "Deploy"
+          deployment: production
+          script:
+            - pipe: atlassian/aws-elasticbeanstalk-deploy:1.0.2
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: "eu-west-1"
+                APPLICATION_NAME: "Prod-Backend"
+                ENVIRONMENT_NAME: "prod-backend-api"
+                S3_BUCKET: "cofeapp-builds"
+                ZIP_FILE: "cofe-backend-server.zip"
+                VERSION_LABEL: 'prod-cofe-backend-server-$BITBUCKET_BUILD_NUMBER'

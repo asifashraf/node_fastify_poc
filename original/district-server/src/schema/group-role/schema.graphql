@@ -1,0 +1,25 @@
+"""
+GroupRole for admins
+"""
+type GroupRole {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Group
+  """
+  group: Group!
+  """
+  Role
+  """
+  role: Role!
+  """
+  Group created at
+  """
+  created: Datetime!
+  """
+  Group updated at
+  """
+  updated: Datetime!
+}

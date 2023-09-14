@@ -1,0 +1,20 @@
+type CouponDetail {
+  id: ID!
+  type: CouponType!
+  """
+  Used for ADD_POINTS, FREE_DELIVERY, FREE_DRINK, FREE_FOOD, PERCENTAGE
+  """
+  total: Float
+  """
+  Used for FLAT_AMOUNT
+  """
+  amount: CurrencyValue
+  """
+  Percent paid by Cofe
+  """
+  percentPaidByCofe: Int
+  """
+  Percent paid by Vendor
+  """
+  percentPaidByVendor: Int
+}

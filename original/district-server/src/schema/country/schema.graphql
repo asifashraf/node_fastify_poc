@@ -1,0 +1,123 @@
+"""
+Country
+"""
+type Country {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Country name
+  """
+  name: LocalizedString!
+  """
+  Country status
+  """
+  status: StatusType
+  """
+  Reference to currency
+  """
+  currency: Currency!
+  """
+  list of cities
+  """
+  cities(filters: CityFilters): [City]
+  """
+  iso code
+  """
+  isoCode: String
+  """
+  country dailing code
+  """
+  dialCode: String
+  """
+  flag of the country (url)
+  """
+  flagPhoto: String @toCDN
+  """
+  value used in locationsInRadius as radius - in meters - default is 7000 meters
+  """
+  locationsRadius: Int
+  """
+  Fee added to pickup orders specific for this country
+  """
+  serviceFee: CurrencyValue!
+  """
+  Fee added to delivery orders specific for this country
+  """
+  deliveryFee: CurrencyValue @deprecated
+  """
+  Return a list of fields to be used for addresses from a scecific country
+  """
+  addressFields: [AddressField!]
+  """
+  VAT aplied in a country percentage value e.g 5 => 5%, defaults to 0
+  """
+  vat: Float!
+  """
+  Service phone number
+  """
+  servicePhoneNumber: String
+  """
+  Default identifier for the country location's time zone, e.g. 'Asia/Kuwait'.
+  """
+  timeZoneIdentifier: String
+  """
+  Default offset for the country location's time zone, e.g. 3 or -2.
+  """
+  timeZoneOffset: Int
+  """
+  COFE VAT ID for this country
+  """
+  vatId: String
+  """
+  Flag that shows if a country has vat or no
+  """
+  hasVat: Boolean!
+  """
+  Sender referral amount
+  """
+  senderReferralAmount: String
+  """
+  Receiver referral amount
+  """
+  receiverReferralAmount: CurrencyValue
+  """
+  isReferralActive
+  """
+  isReferralActive: Boolean!
+  """
+  minimum delivery order amount
+  """
+  minimumDeliveryOrderAmount: CurrencyValue
+  """
+  minimum delivery order amount
+  """
+  countryConfig(configurationKeys: [String]): [CountryConfiguration]
+  """
+  Banks available for voucher locking
+  """
+  countryBanks: [Bank!]!
+  """
+  estimated delivery time for store order as a business day
+  """
+  storeOrderDeliveryTime: Int
+  """
+  grouped country configurations for admin panel
+  """
+  groupedCountryConfigurations: [CountryConfigurationsGroup]
+}
+type ReverseAddress {
+  countryId: ID!
+  countryCode: String
+  title: String
+  description: String
+  subpremise: String
+  premise: String
+  streetNumber: String
+  route: String
+  neighborhood: String
+  sublocality: String
+  city: String
+  postalCode: String
+}

@@ -1,0 +1,5 @@
+extend type Mutation {
+  requestAccountDeletion(
+    input: CustomerAccountDeletionRequestInput!
+  ): CustomerAccountDeletionRequestPayload! @requireAuth @requireRoles(roles: ["CUSTOMER"])
+}

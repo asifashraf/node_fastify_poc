@@ -1,0 +1,4 @@
+exports.storeOrderSetExportingError = {
+  INVALID_START_DATE: 'INVALID_START_DATE',
+  INVALID_END_DATE: 'INVALID_END_DATE'
+};

@@ -1,0 +1,45 @@
+"""
+Shipping policy for store
+"""
+type ShippingPolicy {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Shipping policy name. used in admin to name a policy
+  """
+  name: String
+  """
+  Shipping policy property to check
+  """
+  property: ShippingPolicyProperty!
+  """
+  Comparision operator to evaluate property to value
+  """
+  comparisionOperator: ComparisionOperator!
+  """
+  Value to be evaluated usgin the comparisionOperator against property
+  """
+  value: String!
+  """
+  Cost of the shipping if this policy is valid
+  """
+  cost: CurrencyValue!
+  """
+  Delivery estimate if this policy is valid. In hours
+  """
+  deliveryEstimate: Int
+  """
+  Currency of this shipping policy
+  """
+  currency: Currency!
+  """
+  Country where shipping policy applies
+  """
+  country: Country!
+  """
+  Status
+  """
+  status: ShippingPolicyStatus
+}

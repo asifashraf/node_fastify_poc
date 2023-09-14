@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`order sets resolve their order items 1`] = `
+Object {
+  "data": Object {
+    "orderSet": Object {
+      "id": "ff2fc7c9-8cca-46b5-8a4e-1bd757a7485f",
+      "items": Array [
+        Object {
+          "id": "7a8be58c-edb3-44f6-9fa3-28c75c4b4dd8",
+          "menuItem": Object {
+            "baseNutritional": Object {
+              "allergens": Array [
+                Object {
+                  "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+                  "name": "Dairy",
+                },
+                Object {
+                  "id": "bd75ac10-ba7c-4cb6-85a7-0ee44f81ef2d",
+                  "name": "Fish",
+                },
+                Object {
+                  "id": "e6dc574e-7b3e-4fe0-a521-1204f10804ef",
+                  "name": "Latex",
+                },
+                Object {
+                  "id": "e4f0a7e8-dcf5-46e1-9056-e76a23d9a8d0",
+                  "name": "Peanuts",
+                },
+                Object {
+                  "id": "13582fa9-5d17-4a2f-9b1c-e8696c0847be",
+                  "name": "Sesame",
+                },
+                Object {
+                  "id": "07a37612-99e0-47d6-b0af-b7b776b25b7c",
+                  "name": "Shellfish",
+                },
+                Object {
+                  "id": "ba1f8ebb-7eac-49e4-8eb2-d660371aadc9",
+                  "name": "Soy",
+                },
+                Object {
+                  "id": "e4a561ba-897b-49a4-aee6-fa1db9e5bf0e",
+                  "name": "Sulfites",
+                },
+                Object {
+                  "id": "0f490bf5-4eac-413b-a5ac-445082d0a57f",
+                  "name": "Tree Nuts",
+                },
+                Object {
+                  "id": "ea2ae210-c363-4cd8-bbde-fabc2d17d211",
+                  "name": "Wheat",
+                },
+              ],
+            },
+            "id": "7a2ad1d2-cf54-4495-af15-85b94a4224b5",
+            "name": Object {
+              "ar": "شوربة محلية الصنع",
+              "en": "Homemade Soup",
+            },
+            "photo": "https://cofe-district.imgix.net/development/menu-item/menu-item-1517012025725.jpg",
+          },
+          "name": Object {
+            "ar": "شوربة محلية الصنع",
+            "en": "Homemade Soup",
+          },
+          "note": "Quo earum rerum natus provident et sunt placeat perferendis.",
+          "quantity": 2,
+        },
+        Object {
+          "id": "96e32ed3-d0a6-4f94-b0fa-4d8b9041a43a",
+          "menuItem": Object {
+            "baseNutritional": Object {
+              "allergens": Array [
+                Object {
+                  "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+                  "name": "Dairy",
+                },
+                Object {
+                  "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+                  "name": "Egg",
+                },
+                Object {
+                  "id": "bd75ac10-ba7c-4cb6-85a7-0ee44f81ef2d",
+                  "name": "Fish",
+                },
+                Object {
+                  "id": "ef83edac-0214-4f98-b007-4eacbcf41b6d",
+                  "name": "Gluten",
+                },
+                Object {
+                  "id": "e6dc574e-7b3e-4fe0-a521-1204f10804ef",
+                  "name": "Latex",
+                },
+                Object {
+                  "id": "90768e6d-eb09-4246-a865-1c9bb0aa7654",
+                  "name": "Mustard",
+                },
+                Object {
+                  "id": "e4f0a7e8-dcf5-46e1-9056-e76a23d9a8d0",
+                  "name": "Peanuts",
+                },
+                Object {
+                  "id": "13582fa9-5d17-4a2f-9b1c-e8696c0847be",
+                  "name": "Sesame",
+                },
+                Object {
+                  "id": "ba1f8ebb-7eac-49e4-8eb2-d660371aadc9",
+                  "name": "Soy",
+                },
+                Object {
+                  "id": "e4a561ba-897b-49a4-aee6-fa1db9e5bf0e",
+                  "name": "Sulfites",
+                },
+                Object {
+                  "id": "0f490bf5-4eac-413b-a5ac-445082d0a57f",
+                  "name": "Tree Nuts",
+                },
+                Object {
+                  "id": "ea2ae210-c363-4cd8-bbde-fabc2d17d211",
+                  "name": "Wheat",
+                },
+              ],
+            },
+            "id": "4d255e11-5250-4ab8-9085-0ac07d3b26a3",
+            "name": Object {
+              "ar": "مرشح المشروب",
+              "en": "Filter Brew",
+            },
+            "photo": "https://cofe-district.imgix.net/development/menu-item/menu-item-1517011917597.jpg",
+          },
+          "name": Object {
+            "ar": "مرشح المشروب",
+            "en": "Filter Brew",
+          },
+          "note": null,
+          "quantity": 1,
+        },
+      ],
+    },
+  },
+}
+`;

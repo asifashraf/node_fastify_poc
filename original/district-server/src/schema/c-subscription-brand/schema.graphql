@@ -1,0 +1,54 @@
+""" enum CSubscriptionBrandStatus {
+    ACTIVE
+    INACTIVE
+    DELETED
+}
+
+type CSubscriptionBrand {
+    id: ID!
+    subscriptionId: ID!
+    brandId: ID!
+    status: CSubscriptionBrandStatus
+    created: Datetime
+    updated: Datetime
+    brand: Brand
+}
+
+extend type Query {
+  getCSubscriptionBrandsByFilters(
+     filters: CSubscriptionBrandFilters
+     paging: PagingInput
+  ): [CSubscriptionBrand!] @requireAuth
+}
+
+input CSubscriptionBrandFilters {
+    subscriptionId: ID
+    brandId: ID
+    status: CSubscriptionBrandStatus   
+}
+
+enum CSubscriptionBrandSaveError {
+    INVALID_SUBSCRIPTION
+    INVALID_BRAND
+    INVALID_STATUS
+    NOT_SUPPORTED
+    INVALID_COUNTRY
+}
+
+input CSubscriptionBrandInput {
+    id: ID
+    subscriptionId: ID!
+    brandId: ID!
+    status: CSubscriptionBrandStatus
+}
+
+type SaveCSubscriptionBrandPayload {
+    errors: [CSubscriptionBrandSaveError]
+    subscription: [CSubscriptionBrand]
+}
+
+extend type Mutation {
+  saveCSubscriptionBrand(
+     subscription: [CSubscriptionBrandInput]
+  ): SaveCSubscriptionBrandPayload @requireAuth
+} """

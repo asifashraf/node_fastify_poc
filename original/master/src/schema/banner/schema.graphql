@@ -1,0 +1,27 @@
+# A banner
+type Banner {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  The url of the image
+  """
+  imageUrl: LocalizedString!
+  """
+  The type to show
+  """
+  type: String!
+  """
+  The size of the banner
+  """
+  size: Size!
+  """
+  If the banner is active
+  """
+  active: Boolean!
+  """
+  The order of the banner
+  """
+  order: Int!
+}

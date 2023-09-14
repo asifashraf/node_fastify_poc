@@ -1,0 +1,12 @@
+extend type Mutation {
+  """
+  save payment gateway charge to the DB.
+  """
+  savePaymentGatewayCharge(
+    input: PaymentGatewayChargeInput!
+  ): SavePaymentGatewayChargeResponse! @requireAuth
+  """
+  Delete payment gateway charge from DB
+  """
+  deletePaymentGatewayCharge(id: ID!): Boolean!
+}

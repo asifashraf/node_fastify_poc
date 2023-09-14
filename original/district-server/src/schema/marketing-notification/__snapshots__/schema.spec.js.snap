@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create new marketing notification for ALL TARGETS 1`] = `
+Object {
+  "data": Object {
+    "marketingNotificationSave": Object {
+      "error": null,
+      "errors": null,
+      "notification": Object {
+        "embargoDate": "2017-11-16T09:30:00Z",
+        "id": "70627261-5e6c-4ebf-a879-814576ade417",
+        "targetAll": true,
+        "targetAndroid": false,
+        "targetIos": false,
+      },
+    },
+  },
+}
+`;
+
+exports[`delete a marketing notification by id 1`] = `
+Object {
+  "data": Object {
+    "marketingNotificationDelete": true,
+  },
+}
+`;
+
+exports[`get marketing notifications 1`] = `
+Object {
+  "data": Object {
+    "marketingNotifications": Object {
+      "notifications": Array [
+        Object {
+          "embargoDate": "2017-11-04T00:00:00Z",
+          "id": "7edefeb6-be98-4326-84d1-d4c7a7bda898",
+          "message": "You will get 10% off by clicking this notification!",
+          "targetAll": true,
+          "targetAndroid": false,
+          "targetIos": false,
+          "title": "10% Off",
+        },
+        Object {
+          "embargoDate": "2017-07-07T00:00:00Z",
+          "id": "d7e59431-2465-4be0-a217-e9e22c9311b1",
+          "message": "You will get 20% off by clicking this notification!",
+          "targetAll": false,
+          "targetAndroid": true,
+          "targetIos": false,
+          "title": "20% Off",
+        },
+        Object {
+          "embargoDate": "2017-03-10T00:00:00Z",
+          "id": "d70b287d-9f7d-4043-a0af-e1f67bc8b512",
+          "message": "You will get 15% off by clicking this notification!",
+          "targetAll": false,
+          "targetAndroid": false,
+          "targetIos": true,
+          "title": "15% Off",
+        },
+      ],
+      "numResults": 3,
+    },
+  },
+}
+`;

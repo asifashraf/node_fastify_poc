@@ -1,0 +1,160 @@
+<mjml>
+  <mj-head>
+    <mj-font name="Nunito" href="https://fonts.googleapis.com/css?family=Nunito:200,400,700" />
+    <mj-style inline="inline">
+      .cofe-link-nostyle {
+        color: inherit;
+        text-decoration: none
+      }
+
+      .cofe-link-style {
+        color: #0BBFB0;
+        text-decoration: none;
+        font-weight: 'bold';
+      }
+
+      .cofe-brand-name {
+        color: #0BBFB0;
+        font-weight: 'bold';
+      }
+
+      .item-name div {
+        color: #0BBFB0 !important;
+        font-weight: 700 !important;
+        font-size: 16px !important;
+        line-height: 22px !important;
+      }
+
+      .h1-bold div {
+        color: #ff0000;
+        font-size: 20px !important;
+        font-weight: 700;
+        line-height: 32px !important;
+      }
+
+      .h1 div {
+        color: #ff0000;
+        font-size: 18px !important;
+        font-weight: 200;
+        line-height: 26px !important;
+      }
+
+      .h2-bold div {
+        color: #ff0000;
+        font-size: 18px !important;
+        font-weight: bold;
+        line-height: 26px !important;
+      }
+    </mj-style>
+    <mj-style>
+      .p-bold div {
+        font-weight: bold;
+      }
+
+      .p div {
+        font-size: 12px !important;
+        line-height: 18px !important;
+      }
+
+      .p-light div {
+        font-size: 12px !important;
+        font-weight: 200;
+        line-height: 18px !important;
+      }
+
+      .disclaimer div {
+        font-size: 12px !important;
+        font-weight: 200;
+        line-height: 18px !important;
+      }
+    </mj-style>
+    <mj-attributes>
+      <mj-text padding="5px 25px" line-height="24px" />
+      <mj-group width="100%" />
+      <mj-all font-family="Nunito" color="#594A42" align="left" direction="ltr" />
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#ffffff">
+    <mj-raw>
+      <!-- Header -->
+    </mj-raw>
+    <mj-section background-color="#ffffff" padding="10px">
+      <mj-column>
+        <mj-image padding="20px 0px" width="120px" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/email/cofe-logo-header.png"></mj-image>
+        <mj-text padding='0' css-class="h1-bold">Hello ${customerName}!</mj-text>
+        <mj-text padding='0' css-class="h1"><b class="cofe-brand-name">${formatCurrency(totalCredit, loyaltyOrder.currency.decimalPlace, loyaltyOrder.currency.symbol.en)}</b> has been added to your account.</mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-wrapper padding="10px">
+      <mj-raw>
+        <!-- Artwork -->
+      </mj-raw>
+      <mj-section padding="0 0 15px">
+        <mj-column>
+          <mj-image padding="10px 0px" align="center" width="580px" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/email/COFE_Brewing_Animation.gif"></mj-image>
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        <!-- Order Details -->
+      </mj-raw>
+      <mj-section padding="20px 5px" border-radius="12px 12px 0px 0px" background-color="#F3F0EB">
+        <mj-column>
+          <mj-text css-class="h2-bold">
+            Order Summary
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#F3F0EB" padding="0">
+        <mj-column width="100%">
+          <mj-divider border-width="1px" border-style="solid" border-color="#E7E1D6" padding="0px 15px"></mj-divider>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#F3F0EB" padding="10px 0">
+        <mj-column>
+          <mj-text css-class="item-name">${formatCurrency(loyaltyOrder.amount, loyaltyOrder.currency.decimalPlace, loyaltyOrder.currency.symbol.en)} COFE Credits</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section padding="0" background-color="#F3F0EB">
+        <mj-column width="100%">
+          <mj-divider border-width="1px" border-style="solid" border-color="#E7E1D6" padding="0px 15px"></mj-divider>
+        </mj-column>
+      </mj-section>
+      <mj-section border-radius="0 0 12px 12px" background-color="#F3F0EB">
+        <mj-group>
+          <mj-column width="50%">
+            <mj-text css-class="p-bold">Total</mj-text>
+          </mj-column>
+          <mj-column width="50%">
+            <mj-text css-class="p-bold">${formatCurrency(loyaltyOrder.amount, loyaltyOrder.currency.decimalPlace, loyaltyOrder.currency.symbol.en)}</mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+      <mj-raw>
+        <!-- KNET Information -->
+      </mj-raw>
+      <mj-section padding="20px 0" background-color="#fff">
+        <mj-raw>
+          <% if (totalCredit > 0) { %>
+        </mj-raw>
+        <mj-raw>
+          <% if(loyaltyOrder.paymentMethod.paymentScheme === 'KNET') { %>
+        </mj-raw>
+        <mj-column padding="26px" border-radius="10px" background-color="#F3F0EB">
+          <mj-text css-class="p-light" padding="0 0 10px">KNET Reference ID: <b>${knetResponse.ref}</b></mj-text>
+          <mj-text css-class="p-light" padding="0 0 10px">KNET Payment ID: <b>${knetResponse.paymentid}</b></mj-text>
+          <mj-text css-class="p-light" padding="0">KNET Merchant Track ID: <b>${knetResponse.trackid}</b></mj-text>
+        </mj-column>
+        <mj-raw>
+          <% } %>
+        </mj-raw>
+        <mj-raw>
+          <% } %>
+        </mj-raw>
+      </mj-section>
+      <mj-raw>
+        <!-- Link to Footer File -->
+      </mj-raw>
+      <mj-include path="./footer.mjml" />
+    </mj-wrapper>
+  </mj-body>
+</mjml>

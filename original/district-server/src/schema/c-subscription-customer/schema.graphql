@@ -1,0 +1,183 @@
+type CSubscriptionCustomer {
+  id: ID!
+  subscriptionId: ID!
+  customerId: ID!
+  currencyId: ID!
+  subscriptionOrderId: ID!
+  price: CurrencyValue
+  totalCupsCount: Int
+  perDayCupsCount: Int
+  perOrderMaxCupsCount: Int
+  """
+  period in days
+  """
+  period: Int
+  created: Datetime
+  updated: Datetime
+  subscription: CSubscription
+  status: CSubscriptionCustomerStatus
+  periodInMinutes: Int
+}
+
+extend type Query {
+  getCSubscriptionCustomer: [CSubscriptionCustomer!] @requireAuth
+  """
+  if subscriptionId is not given, then it returns the last active subscription
+  """
+  getCSubscriptionCustomerOverview(
+    countryId: ID!
+  ): CSubscriptionOverviewPayload @requireAuth
+  """
+  Listing customer subscription for admin portal
+  """
+  getCSubscriptionCustomerListing(
+    filters: CSubscriptionCustomerFilters
+    paging: PagingInput
+    countryId: ID!
+  ): CSubscriptionCustomerAdminInfoPaged @requireAuth
+  """
+  Detail customer subscription for admin portal
+  """
+  getCSubscriptionCustomerDetail(
+    subscriptionCustomerId: ID!
+  ): CSubscriptionCustomerAdminDetail @requireAuth
+  """
+  Check order set subscription status and errors
+  """
+  checkSubscriptionStatusForOrderSet(
+    orderSetId: ID!
+  ): OrderSetSubscriptionCheckResult @requireAuth
+  """
+  Listing subscription history
+  """
+  getCSubscriptionCustomerHistory(countryId: ID!): CSubscriptionOverviewPayload
+    @requireAuth
+}
+
+type CSubscriptionCustomerDetail {
+  subscriptionId: ID
+  customerId: ID
+  todayRemaining: Int
+  applicableCupsCountPerOrder: Int
+  perDayCupsCount: Int
+  price: CurrencyValue
+  remainingCups: Int
+  subscriptionName: LocalizedString
+  expiryDate: Datetime
+  totalCupsCount: Int
+  status: CSubscriptionCustomerStatus
+  subscription: CSubscription
+  subscriptionCustomer: CSubscriptionCustomer
+  invoiceUrl: String
+  brandId: ID
+  brand: Brand
+  isRedeemed: Boolean
+  autoRenewalStatus: CSubscriptionCustomerAutoRenewalStatus
+  totalRemainingCupsCountByLeftDays: Int
+  remainingDays: Int
+  remainingMinutes: Int
+  redeemedCupsCount: Int
+  totalSaving: CurrencyValue
+  startDate: Datetime
+}
+
+enum CSubscriptionCustomerStatus {
+  ACTIVE
+  INACTIVE
+}
+
+type CSubscriptionOverviewPayload {
+  subscriptionInfo: CSubscriptionCustomerInfo
+}
+
+type CSubscriptionCustomerInfo {
+  subscriptionInfoStatus: CSubscriptionStatusInfo
+  totalSavings: CurrencyValue
+  totalCupsRedeemed: Int
+  subscriptionDetail: [CSubscriptionCustomerDetail]
+}
+
+enum CSubscriptionStatusInfo {
+  NO_SUBSCRIPTION
+  ACTIVE_SUBSCRIPTION
+  INACTIVE_SUBSCRIPTION
+}
+
+type CSubscriptionCustomerAdminInfo {
+  id: ID!
+  subscriptionId: ID!
+  subscriptionName: LocalizedString
+  customerId: ID!
+  firstName: String
+  lastName: String
+  subscriptionOrderId: ID!
+  created: Datetime
+  period: Int
+  usedCupsNumber: Int
+  totalCupsCount: Int
+  status: CSubscriptionCustomerStatus
+}
+
+type CSubscriptionCustomerAdminInfoPaged {
+  paging: Paging
+  items: [CSubscriptionCustomerAdminInfo]
+}
+
+input CSubscriptionCustomerFilters {
+  searchText: String
+  dateRange: DateRange
+  couponId: ID
+  email: String
+  phoneNumber: String
+}
+
+type CSubscriptionCustomerAdminDetail {
+  id: ID!
+  subscriptionId: ID!
+  subscriptionName: LocalizedString
+  customerId: ID!
+  firstName: String
+  lastName: String
+  created: Datetime
+  orders: [OrderSet]
+  previousSubscriptions: [PreviousCSubscriptionCustomer]
+  status: CSubscriptionCustomerStatus
+  totalCupsCount: Int
+  period: Int
+  payment: CSubscriptionOrder
+}
+
+type PreviousCSubscriptionCustomer {
+  id: ID!
+  created: Datetime
+  period: Int
+  shortCode: String!
+}
+
+type CSubscriptionCustomerAdmin {
+  id: ID!
+  customerId: ID!
+  currencyId: ID!
+  subscriptionId: ID!
+  subscriptionOrderId: ID!
+  subscription: CSubscription
+  subscriptionOrder: CSubscriptionOrder
+  status: CSubscriptionCustomerStatus
+  period: Int
+  created: Datetime
+  updated: Datetime
+  totalCupsCount: Int
+  usedCupsNumber: Int
+  renewedCount: Int
+}
+
+type OrderSetSubscriptionCheckResult {
+  doesCustomerHaveSubscription: Boolean
+  subscriptionCustomer: CSubscriptionCustomer
+  isSubscriptionUsed: Boolean
+  subscribableItems: [OrderItem]
+  subscriptionUsedItems: [OrderItem]
+  orderDayTransactions: [CSubscriptionCustomerTransaction]
+  remainingCups: Int
+  remainingDailyCups: Int
+}

@@ -1,0 +1,42 @@
+<mj-raw>
+  <!-- Social Links -->
+</mj-raw>
+<mj-section padding="30px 10px 0" background-color="#fff">
+  <mj-column>
+    <mj-text font-weight="bold" font-size="16px" padding="0 0 8px">Can't get enough of COFE? Follow Us</mj-text>
+    <mj-social mode="horizontal" padding="5px 0" border-radius="0">
+      <mj-social-element icon-size="25px" name="twitter-noshare" background-color="transparent" padding="0 15px 0 0" href="https://twitter.com/getcofe/" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/email/cofe-twitter_3x.png" />
+      <mj-social-element icon-size="25px" name="facebook-noshare" background-color="transparent" padding="0 15px" href="https://www.facebook.com/cofeapp/" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/email/cofe-facebook_3x.png" />
+      <mj-social-element icon-size="25px" name="instagram-noshare" background-color="transparent" padding="0 15px" href="https://www.instagram.com/getcofe/" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/email/cofe-instagram_3x.png" />
+      <mj-social-element icon-size="25px" name="linkedin-noshare" background-color="transparent" padding="0 15px" href="https://www.linkedin.com/company/cofeapp/" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/email/cofe-linkedin_3x.png" />
+      <mj-social-element icon-size="25px" name="youtube-noshare" background-color="transparent" padding="0 15px" href="https://www.youtube.com/channel/UCpPigW9Rim-J6DlZVJUNq_Q" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/email/cofe-youtube_3x.png" />
+    </mj-social>
+  </mj-column>
+  </mj-column>
+</mj-section>
+<mj-raw>
+  <!-- Help -->
+</mj-raw>
+<mj-section padding="30px 10px 0" background-color="#fff">
+  <mj-column>
+    <mj-text css-class="p-bold" font-size="16px" line-height="22px" padding="0">Got Questions? Contact Us</mj-text>
+    <mj-text padding="0" font-size="14px" line-height="20px">Get all your answers at ${countryPhoneNumber} or <a class="cofe-link-style" href="mailto:hello@cofeapp.com?subject=About order #${shortCode}">hello@cofeapp.com</a>
+    </mj-text>
+  </mj-column>
+</mj-section>
+<mj-raw>
+  <!-- Disclaimer -->
+</mj-raw>
+<mj-section padding="30px 10px 0">
+  <mj-column>
+    <mj-text css-class="disclaimer" padding="0" color="#7E7367">Disclaimer: <br />Coffee preparation was prepared by the coffee shop that was ordered from <a class="cofe-link-nostyle" href="http://www.cofeapp.com">cofeapp.com</a>. <a class="cofe-link-nostyle" href="http://www.cofeapp.com">cofeapp.com</a> is not involved in any way in the process of preparation, production or pricing of this order. The Coffee Shop that was ordered from is responsible for the quality, pricing and the validity of the order and in turn COFE disclaims itself from any responsibility for any damage that might arise along this transaction. This report is attached to the order as a proof of the details of this transaction and to reflect the delivery charge. The Coffee Shop has the sole responsibility of pricing and any differences that exist between prices displayed on <a class="cofe-link-nostyle" href="http://www.cofeapp.com">cofeapp.com</a> and the menus of the coffee shop shall be the responsibility. This transaction is subject to the terms and conditions of the website <a class="cofe-link-nostyle" href="http://www.cofeapp.com">cofeapp.com</a></mj-text>
+  </mj-column>
+</mj-section>
+<mj-raw>
+  <!-- Footer -->
+</mj-raw>
+<mj-section>
+  <mj-column>
+    <mj-text css-class="p-light" padding="50px" align="center" color="#7E7367"><b>COFE</b> | KIPCO Tower, Sharq, Kuwait.<br>&copy; ${year} All Rights Reserved.</mj-text>
+  </mj-column>
+</mj-section>

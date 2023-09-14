@@ -1,0 +1,25 @@
+"""
+Permissions for admin roles and groups
+"""
+type Permission {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  name
+  """
+  name: String!
+  """
+  description
+  """
+  description: String
+  """
+  Permissions created at
+  """
+  created: Datetime!
+  """
+  Permissions updated at
+  """
+  updated: Datetime!
+}

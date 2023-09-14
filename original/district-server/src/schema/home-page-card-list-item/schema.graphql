@@ -1,0 +1,37 @@
+type CardListItem {
+  id: ID
+  image: String @toCDN
+  tag: [Tag]
+  title: LocalizedString
+  subtitle: LocalizedString
+  distanceLabel: LocalizedString
+  description: LocalizedString
+  icons: [Icon]
+  storeStatus: BrandLocationStoreStatusFull
+  branchStatusInfo: BranchStatusInfo
+  rating:Float
+}
+
+enum IconPlacementEnum {
+  FOOTER
+  TITLE
+  SUBTITLE
+  DESCRIPTION
+  FAVORITE
+}
+
+type Icon {
+    url: String @toCDN
+    placement: IconPlacementEnum
+    sortOrder:Int
+}
+
+type CardListItemData {
+  sectionMetadata: HomePageSection
+  items: [CardListItem!]
+  isNextPage: Boolean!
+}
+
+extend type Query {
+  getCardListItems(input: HomePageSectionArgs): CardListItemData
+}

@@ -1,0 +1,7 @@
+database/migrations
+database/later-migrations
+database/seeds
+src/scripts
+test
+templates
+doc

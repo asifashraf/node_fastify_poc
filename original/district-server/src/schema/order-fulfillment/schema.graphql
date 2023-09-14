@@ -1,0 +1,76 @@
+type OrderFulfillment {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Whether the order is pickup or delivery
+  """
+  type: OrderFulfillmentType!
+  """
+  Either requested delivery time or pickup time
+  """
+  time: Datetime!
+  """
+  Used for delivery
+  """
+  deliveryAddress: DeliveryAddress
+  """
+  Pickup note ie silver mercedes, or delivery note 'use back door'. Max length is 4,096 bytes.
+  """
+  note: String
+  """
+  Whether pickup order should be "delivered" to vehicle parked in store
+  """
+  deliverToVehicle: Boolean!
+  """
+  Id of the Vehicle used for store pickup
+  """
+  vehicleId: ID
+  """
+  Color of the Vehicle used for store pickup
+  """
+  vehicleColor: String
+  """
+  Additional details on the Vehicle (make/model/license plate)
+  """
+  vehicleDescription: String
+  """
+  Vehicle plate number
+  """
+  vehiclePlateNumber: String
+  """
+  Flag to indicate ASAP pickup
+  """
+  asap: Boolean!
+  """
+  Name of the assigned Courier
+  """
+  courierName: String
+  """
+  Courier Order Id
+  """
+  courierOrderId: Int
+  """
+  Delivery Status as reported by courier
+  """
+  deliveryStatus: String
+  """
+  Las Updated by courier
+  """
+  lastUpdated: Datetime
+  """
+  Delivery time
+  """
+  deliveredAt: Datetime
+  """
+  whether a pickup customer has arrived. NOTE: a `false` value does
+  not mean that a customer _hasn't_ arrived. A true value only means
+  that the customer has pressed the "I'm here" button on the app.
+  """
+  isCustomerPresent: Boolean
+  """
+  Id of the fulfillment used (e: for Car, customerCar.id, for Address, customerAddress.id)
+  """
+  fulfillmentId: ID
+}

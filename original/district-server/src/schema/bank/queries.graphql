@@ -1,0 +1,27 @@
+#extend type Query {
+#  """
+#  Getting a bank information
+#  """
+#  bank(bankId: ID!): Bank @requireAuth
+#  """
+#  List all bank for voucher locking
+#  """
+#  banks(
+#    """
+#    Optional ability to leverage pagination
+#    """
+#    paging: PagingInput
+#    """
+#    Optional Search Term for filtering
+#    """
+#    searchTerm: String
+#    """
+#    Country Id for country level filtering
+#    """
+#    countryId: ID!
+#    """
+#    Optional ability for filtering with status
+#    """
+#    status: BankStatus
+#  ): [Bank!]! @requireAuth
+#}

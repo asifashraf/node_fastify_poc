@@ -1,0 +1,36 @@
+type SplashCategory {
+    id:ID!
+    name: String!
+    isActive: Boolean!
+    contents: [SplashCategoryContent]
+}
+
+input SplashCategoryInput{
+    id: ID
+    name: String!
+    isActive: Boolean!
+}
+
+extend type Mutation {
+  saveSplashCategory(
+    input: SplashCategoryInput!
+  ): SaveSplashCategoryPayload @requireAuth
+}
+
+enum SaveSplashCategoryError {
+  INVALID_NAME
+  ALREADY_ACTIVE_CATEGORY
+  UNAUTHORIZED_PROCESS
+  INVALID_ID
+}
+
+type SaveSplashCategoryPayload {
+  errors: [SaveSplashCategoryError]
+  category: SplashCategory
+}
+
+extend type Query {
+  getSplashCategories: [SplashCategory]
+}
+
+

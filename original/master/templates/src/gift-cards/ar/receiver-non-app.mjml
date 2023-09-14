@@ -1,0 +1,188 @@
+<mjml>
+  <mj-head>
+    <mj-font name="Dubai Light" href="https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/fonts/Dubai-Light.ttf"></mj-font>
+    <mj-font name="Dubai" href="https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/fonts/Dubai-Regular.ttf"></mj-font>
+    <mj-font name="Dubai Bold" href="https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/fonts/Dubai-Bold.ttf"></mj-font>
+    <mj-style>
+      @font-face {
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 400;
+        src: url(https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/fonts/Nunito-Regular.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+      }
+
+      @font-face {
+        font-family: 'Lato-Bold';
+        font-style: normal;
+        font-weight: 600;
+        src: local('Lato Bold'), local('Lato-Bold'), url(https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/fonts/Nunito-Bold.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+      }
+    </mj-style>
+    <mj-font name="Nunito" href="https://fonts.googleapis.com/css?family=Nunito:200,400,700" />
+    <mj-attributes>
+      <mj-all font-family="Nunito, sans-serif" font-size="12px" />
+    </mj-attributes>
+    <mj-style inline="inline">
+      .cofe-link-nostyle {
+        color: inherit;
+        text-decoration: none
+      }
+
+      .cofe-link-style {
+        color: #0BBFB0;
+        text-decoration: none;
+        font-weight: 'bold';
+      }
+
+      .cofe-button-style {
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 10px;
+        color: white;
+        height: 56px;
+        background: #08BFB0;
+        display: inline-block;
+        line-height: 56px;
+        padding: 0 30px;
+      }
+
+      .cofe-brand-name {
+        color: #0BBFB0;
+        font-weight: 'bold';
+        font-family: "Lato", sans-serif;
+      }
+
+      .bold-text {
+        color: #594A42;
+        font-weight: 'bold';
+        font-family: "Lato", sans-serif;
+      }
+
+      .h1 div {
+        color: #ff0000;
+        font-size: 16px !important;
+        font-weight: 200;
+        line-height: 26px !important;
+      }
+
+      .h2 div {
+        color: #979797 !important;
+        font-size: 14px !important;
+        line-height: 22px !important;
+      }
+
+      .images-section {
+        width: 50% !important;
+      }
+    </mj-style>
+    <mj-style>
+      .p-bold div {
+        font-weight: bold;
+        text-align: right !important;
+      }
+
+      .p div {
+        font-size: 12px !important;
+        line-height: 18px !important;
+        text-align: right !important;
+      }
+
+      .p-light div {
+        font-size: 12px !important;
+        font-weight: 200;
+        line-height: 18px !important;
+      }
+
+      .disclaimer div {
+        font-size: 12px !important;
+        font-weight: 200;
+        line-height: 18px !important;
+      }
+
+      .text-align-center div {
+        text-align: center !important;
+      }
+
+      .gift-card-code-text {
+        background: rgba(8, 191, 176, 0.1) !important;
+        padding: 15px 20px !important;
+        border-radius: 8px !important;
+      }
+
+      .bold {
+        font-weight: bold !important;
+      }
+
+      .text-align-right {
+        text-align: right !important;
+      }
+    </mj-style>
+    <mj-attributes>
+      <mj-text padding="5px 25px" line-height="24px" />
+      <mj-group width="100%" />
+      <mj-all font-family="Dubai" color="#594A42" align="right" direction="rtl" />
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#ffffff">
+    <mj-raw>
+      <!-- Header -->
+    </mj-raw>
+    <mj-section background-color="#ffffff" padding="10px">
+      <mj-column>
+        <mj-image padding="20px 0px" width="120px" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/email/cofe-logo-header.png"></mj-image>
+        <mj-text padding='0' css-class="h1 text-align-center"><b class="bold-text">${customerName}</b> أرسل لك بطاقة هدية بقيمة <b class="bold-text">${giftCardAmount} ${currencyCode} ${vendor}</b> من خلال تطبيق كوفي</mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-wrapper padding="10px">
+      <mj-raw>
+        <!-- Artwork -->
+      </mj-raw>
+      <mj-section padding="2px 0">
+        <mj-column>
+          <mj-image padding="10px 0px" align="center" width="300px" src="${imageUrl}"></mj-image>
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        <% if (message) { %>
+      </mj-raw>
+      <mj-section background-color="#ffffff" padding="30px">
+        <mj-column>
+          <mj-text padding='0' css-class="h1 text-align-center">رسالة من: <b class="bold-text">${customerName}</b></mj-text>
+          <mj-text padding='0' css-class="h1 text-align-center"><b class="bold-text">${message}</b></mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        <% } %>
+      </mj-raw>
+      <mj-section background-color="#ffffff" padding="10px">
+        <mj-column>
+          <mj-text padding='0' css-class="h2 bold text-align-center">رمز بطاقة الهدية:</mj-text>
+          <mj-text padding='25px 0' css-class="h1 text-align-center"><b class="gift-card-code-text">${shortCode}</b></mj-text>
+          <mj-divider padding="15px 0" border-width="2px" border-style="solid" border-color="#08BFB0" width="100px" />
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#ffffff" padding="10px">
+        <mj-column css-class="text-align-center">
+          <mj-text padding='0' css-class="h2 text-align-center">إستبدل بطاقة الهدية الخاصة بك عن طريق فتح هذا البريد الإلكتروني من الهاتف و إنشاء حساب في تطبيق كوفي.</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#ffffff" padding="10px">
+        <mj-column css-class="images-section">
+          <mj-image href="https://itunes.apple.com/us/app/cofe/id1339438881?mt=8" width="250px" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/assets/appstore.png"></mj-image>
+        </mj-column>
+        <mj-column css-class="images-section">
+          <mj-image href="https://play.google.com/store/apps/details?id=com.cofedistrict" width="250px" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/assets/playstore.png"></mj-image>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#ffffff" padding="10px">
+        <mj-column>
+          <mj-text padding='0' css-class="h2 text-align-center">إذا لم تقم بإجراء العملية أو تحتاج إلى مساعدة ، الرجاء الإتصال بنا</mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-include path="./footer.mjml" />
+    </mj-wrapper>
+  </mj-body>
+</mjml>

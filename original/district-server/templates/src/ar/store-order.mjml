@@ -1,0 +1,299 @@
+<mjml>
+  <mj-head>
+    <mj-font name="Dubai Light" href="https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/fonts/Dubai-Light.ttf"></mj-font>
+    <mj-font name="Dubai" href="https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/fonts/Dubai-Regular.ttf"></mj-font>
+    <mj-font name="Dubai Bold" href="https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/fonts/Dubai-Bold.ttf"></mj-font>
+    <mj-style inline="inline">
+      .cofe-link-nostyle {
+        color: inherit;
+        text-decoration: none
+      }
+
+      .cofe-link-style {
+        color: #0BBFB0;
+        text-decoration: none;
+        font-weight: 'bold';
+      }
+
+      .cofe-brand-name {
+        color: #0BBFB0;
+        font-weight: 'bold';
+      }
+
+      .item-name div {
+        color: #0BBFB0 !important;
+        font-weight: 'bold' !important;
+        font-size: 16px !important;
+        line-height: 22px !important;
+      }
+
+      .h1-bold div {
+        color: #ff0000;
+        font-size: 20px !important;
+        font-weight: bold;
+        line-height: 32px !important;
+      }
+
+      .h1 div {
+        color: #ff0000;
+        font-size: 20px !important;
+        font-weight: 200;
+        line-height: 32px !important;
+      }
+
+      .h2-bold div {
+        color: #ff0000;
+        font-size: 18px !important;
+        font-weight: bold;
+        line-height: 26px !important;
+      }
+    </mj-style>
+    <mj-style>
+      .bold div {
+        font-weight: bold;
+      }
+
+      .p-bold div {
+        font-weight: bold;
+        text-align: left !important;
+      }
+
+      .p div {
+        font-size: 12px !important;
+        line-height: 18px !important;
+        text-align: left !important;
+      }
+
+      .p-light div {
+        font-size: 12px !important;
+        font-weight: 200;
+        line-height: 18px !important;
+      }
+
+      .disclaimer div {
+        font-size: 12px !important;
+        font-weight: 200;
+        line-height: 18px !important;
+      }
+    </mj-style>
+    <mj-attributes>
+      <mj-text padding="5px 25px" line-height="24px" />
+      <mj-group width="100%" />
+      <mj-all font-family="Dubai" color="#594A42" align="right" direction="rtl" />
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#ffffff">
+    <mj-raw>
+      <!-- Header -->
+    </mj-raw>
+    <mj-section background-color="#ffffff" padding="10px">
+      <mj-column>
+        <mj-image padding="20px 0px" width="120px" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/email/cofe-logo-header.png"></mj-image>
+        <mj-text padding='0' css-class="h1-bold" text-transform="uppercase">مرحبًا ${customerName}!</mj-text>
+        <mj-raw>
+          <mj-text padding='0' css-class="h1"><b class="cofe-brand-name"></mj-text>
+        </mj-raw>
+      </mj-column>
+    </mj-section>
+    <mj-wrapper padding="10px">
+      <mj-raw>
+        <!-- Artwork -->
+      </mj-raw>
+      <mj-section padding="2px 0">
+        <mj-column>
+          <mj-image padding="10px 0px" align="center" width="580px" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/email/COFE_Brewing_Animation.gif"></mj-image>
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        <!-- Order -->
+      </mj-raw>
+      <mj-section padding="20px 0 2px">
+        <mj-column>
+          <mj-text font-size="18px" line-height="18px" font-weight='bold'>
+            رقم الطلب
+          </mj-text>
+          <mj-text color="#08BFB0" font-size="24px" line-height="20px" font-weight='bold'>
+            ${shortCode}
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        <!-- Customer Onboard -->
+      </mj-raw>
+      <mj-section padding="5px 0 0">
+        <mj-group>
+          <mj-column width="50%">
+            <mj-text>
+              طريقة الدفع
+            </mj-text>
+          </mj-column>
+          <mj-column width="50%">
+            <mj-text css-class="p-bold">
+              ${paymentMethod.name.ar}
+            </mj-text>
+          </mj-column>
+        </mj-group>
+        <mj-group>
+          <mj-column width="50%">
+            <mj-text>
+              رقم الهاتف
+            </mj-text>
+          </mj-column>
+          <mj-column width="50%">
+            <mj-text css-class="p-bold">
+              ${formatKuwaitiPhoneNumber(phoneNumber)}
+            </mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+      <mj-raw>
+        <!-- Fulfillment Information -->
+      </mj-raw>
+
+      </mj-section>
+      <mj-raw>
+        <!-- Order Details -->
+      </mj-raw>
+      <mj-section padding="20px 5px" border-radius="12px 12px 0px 0px" background-color="#F3F0EB">
+        <mj-column>
+          <mj-text css-class="h2-bold">
+            تفاصيل الطلب
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#F3F0EB" padding="0">
+        <mj-column width="100%">
+          <mj-divider border-width="1px" border-style="solid" border-color="#E7E1D6" padding="0px 15px"></mj-divider>
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        <% _.forEach(storeOrders, function(item) { %>
+      </mj-raw>
+      <mj-section background-color="#F3F0EB" padding="10px 0 0">
+        <mj-column>
+          <mj-text css-class="item-name">${item.brand.name.ar} x ${item.products.length}</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        <% _.forEach(item.products, function(product) { %>
+      </mj-raw>
+      <mj-section background-color="#F3F0EB" padding="0 0 10px">
+        <mj-group>
+          <mj-column width="50%">
+            <mj-text>${product.name.ar} x ${product.quantity}</mj-text>
+          </mj-column>
+          <mj-column width="50%">
+            <mj-text css-class="p">${formatCurrency(product.price, currency.decimalPlace, currency.code.ar)}</mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+      <mj-raw>
+        <% }) %>
+      </mj-raw>
+      <mj-raw>
+        <% }) %>
+      </mj-raw>
+      <mj-section background-color="#F3F0EB" padding="0">
+        <mj-column width="100%">
+          <mj-divider border-width="1px" border-style="solid" border-color="#E7E1D6" padding="0px 15px"></mj-divider>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#F3F0EB" padding="10px 0 0">
+        <mj-group>
+          <mj-column width="50%">
+            <mj-text>
+              المجموع
+            </mj-text>
+          </mj-column>
+          <mj-column width="50%">
+            <mj-text css-class="p">
+              ${getTotalValue(invoiceComponents, 'SUBTOTAL', currency.code.ar)}
+            </mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+      <mj-raw>
+        <% _.forEach(invoiceComponents, function(item) { %>
+      </mj-raw>
+      <mj-raw>
+        <% if (item.type !== "SUBTOTAL" && item.type !== "TOTAL" && item.type!=="AMOUNT_DUE") { %>
+      </mj-raw>
+      <mj-section background-color="#F3F0EB" padding="0 0 10px">
+        <mj-group>
+          <mj-column width="50%">
+            <mj-text>
+              ${paymentTypesTitle(item.type).ar}
+            </mj-text>
+          </mj-column>
+          <mj-column width="50%">
+            <mj-text css-class="p">${formatCurrency(item.value, currency.decimalPlace, currency.code.ar)} </mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+      <mj-raw>
+        <% } %>
+      </mj-raw>
+      <mj-raw>
+        <% }) %>
+      </mj-raw>
+      <mj-section padding="0" background-color="#F3F0EB">
+        <mj-column width="100%">
+          <mj-divider border-width="1px" border-style="solid" border-color="#E7E1D6" padding="0px 15px"></mj-divider>
+        </mj-column>
+      </mj-section>
+      <mj-section border-radius="0 0 12px 12px" background-color="#F3F0EB">
+        <mj-group>
+          <mj-column width="50%">
+            <mj-text css-class="bold">المبلغ الإجمالي</mj-text>
+          </mj-column>
+          <mj-column width="50%">
+            <mj-text css-class="p-bold">${getTotalValue(invoiceComponents, 'TOTAL', currency.code.ar)}</mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+      <mj-raw>
+        <% if (country.hasVat) { %>
+      </mj-raw>
+      <mj-section padding="10px 0" background-color="#fff"></mj-section>
+      <mj-section border-radius="12px" background-color="#F3F0EB">
+        <mj-group>
+          <mj-column width="50%">
+            <mj-text>رقم التسجيل الضريبي: ${country.vatId}</mj-text>
+          </mj-column>
+          <mj-column width="50%">
+            <mj-text>ضريبة القيمة المضافة(%): ${country.vat}</mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+      <mj-raw>
+        <% } %>
+      </mj-raw>
+      <mj-raw>
+        <!-- KNET Information -->
+      </mj-raw>
+      <mj-section padding="20px 0" background-color="#fff">
+        <mj-raw>
+          <% if (total > 0) { %>
+        </mj-raw>
+        <mj-raw>
+          <% if(paymentMethod.id !== 'CASH' || paymentMethod.id !== 'CREDITS') { %>
+        </mj-raw>
+        <mj-column padding="26px" border-radius="10px" background-color="#F3F0EB">
+          <mj-text css-class="p-light" padding="0 0 10px">رقم مرجع : <b>${knetResponse.ref}</b></mj-text>
+          <mj-text css-class="p-light" padding="0 0 10px">رقم الدفع : <b>${knetResponse.paymentid}</b></mj-text>
+          <mj-text css-class="p-light" padding="0">رقم تتبع : <b>${knetResponse.trackid}</b></mj-text>
+        </mj-column>
+        <mj-raw>
+          <% } %>
+        </mj-raw>
+        <mj-raw>
+          <% } %>
+        </mj-raw>
+      </mj-section>
+      <mj-raw>
+        <!-- Link to Footer -->
+      </mj-raw>
+      <mj-include path="./footer.mjml" />
+    </mj-wrapper>
+  </mj-body>
+</mjml>

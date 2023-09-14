@@ -1,0 +1,23 @@
+# A comment
+type InternalComment {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Date and time the comment was created
+  """
+  created: Datetime!
+  """
+  The name (email) of the user
+  """
+  userName: String
+  """
+  The avatar - image url of the user
+  """
+  avatar: String
+  """
+  The comment of the user
+  """
+  comment: String
+}

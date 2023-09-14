@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can add a comment for an order set 1`] = `
+Object {
+  "data": Object {
+    "orderSetCommentAdd": Object {
+      "error": null,
+      "orderSetComment": Object {
+        "comment": "This is a Test Comment",
+        "userName": "Tester McTesty",
+      },
+    },
+  },
+}
+`;
+
+exports[`order set can resolve comments 1`] = `
+Object {
+  "data": Object {
+    "orderSet": Object {
+      "comments": Array [
+        Object {
+          "comment": "Nisi perferendis veniam nulla eius iusto et voluptatum dolorem. Dolores quo consequuntur fugit ut laborum veniam modi. Ipsa repellendus veniam excepturi exercitationem. Dolores ducimus quisquam maxime sed atque. Nulla quisquam atque ut asperiores eius nisi ut eaque.",
+          "createdAt": "2018-01-05T11:00:00Z",
+          "id": "1ccd51d9-8867-437b-a3ee-c8f3e76fd5f3",
+          "type": "COMPLAIN",
+          "userEmail": "Mackenzie.Rogahn@yahoo.com",
+          "userId": "b54595da-14de-4b14-87dd-3972e8535ab8",
+          "userName": "Mrs. Tony Lang",
+        },
+      ],
+    },
+  },
+}
+`;

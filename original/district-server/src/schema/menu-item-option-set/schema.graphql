@@ -1,0 +1,74 @@
+"""
+A set of options specific to a menu item
+"""
+type MenuItemOptionSet {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Option section label 'Choose a size'
+  """
+  label: LocalizedString!
+  """
+  Within this option set, can only a single one be selected.
+  If true, then radio buttons make sense, otherwise if false then checkboxes
+  """
+  single: Boolean!
+  """
+  Minimum amount of modifier
+  """
+  min: Int
+  """
+  Maximum amount of modifier
+  """
+  max: Int
+  """
+  Free amount of modifier
+  """
+  free: Int
+  """
+  Uniquness information of the option set
+  """
+  unique: Boolean
+  """
+  The options present in this option set
+  """
+  options: [MenuItemOption]!
+  """
+  Sort Order
+  """
+  sortOrder: Int!
+}
+
+input MenuItemOptionSetInput {
+  """
+  Database identifier
+  """
+  id: ID
+  """
+  Option section label 'Choose a size'
+  """
+  label: LocalizedStringInput!
+  """
+  Within this option set, can only a single one be selected.
+  If true, then radio buttons make sense, otherwise if false then checkboxes
+  """
+  single: Boolean!
+  """
+  Minimum amount of modifier
+  """
+  min: Int
+  """
+  Maximum amount of modifier
+  """
+  max: Int
+  """
+  The options present in this option set
+  """
+  options: [MenuItemOptionInput]!
+  """
+  Flag this entity for deletion
+  """
+  deleted: Boolean
+}

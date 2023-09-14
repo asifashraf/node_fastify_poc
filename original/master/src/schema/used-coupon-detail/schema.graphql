@@ -1,0 +1,13 @@
+type UsedCouponDetail {
+  id: ID!
+  type: CouponType!
+  """
+  Used for ADD_POINTS, FREE_DELIVERY, FREE_DRINK, FREE_FOOD, PERCENTAGE
+  """
+  total: Float
+  """
+  Used for FLAT_AMOUNT
+  """
+  amount: CurrencyValue
+  coupon: Coupon!
+}

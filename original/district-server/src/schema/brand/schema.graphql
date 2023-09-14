@@ -1,0 +1,201 @@
+# A brand, or company
+type Brand {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Name of the brand
+  """
+  name: LocalizedString!
+  """
+  Brand-wide order queue login, if this is set then a user is created for this email in auth0 for
+  an order queue view into all locations for this brand.
+  The user is only created once, so if there are changes needed to that user
+  they need to be done manually in auth0.
+  """
+  brandWideOrderQueueLoginEmail: String
+  """
+  Retail locations for this brand, ie physical restaurants.
+  Accepts User's current location for distance calculactions,
+  nullable if user has disabled location services
+  """
+  locations(
+    location: GISLocationInput
+    filters: BrandLocationFilters
+  ): [BrandLocation]!
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:view"])
+  """
+  When set, a brand's primary Location will be the location displayed on the home screen
+  """
+  primaryLocation: BrandLocation
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:view"])
+  """
+  a profile image / logo for the brand
+  """
+  profilePhoto: String @toCDN
+  """
+  a hero / background image for the brand
+  """
+  heroPhoto: String @toCDN
+  """
+  a carousel image for the brand
+  """
+  carouselImage: String
+  """
+  a favicon for the brand
+  """
+  favicon: String
+  """
+  a profile video for the brand
+  """
+  profileVideo: String
+  """
+  The menu for this brand
+  """
+  menu(countryId: ID!): Menu
+    @requireAuth
+    @requirePermissions(permissions: ["menu:view"])
+  """
+  The menu for this brand
+  """
+  menus: [Menu]! @requireAuth @requirePermissions(permissions: ["menu:view"])
+  """
+  The minimum order amount for the brand
+  """
+  minimumOrderAmount: Currency!
+  """
+  Any active coupons for this brand
+  """
+  coupons(paging: PagingInput, countryId: ID!): [Coupon]!
+    @requireAuth
+    @requirePermissions(permissions: ["voucher:view"])
+  """
+  Number of coupons
+  """
+  couponsCount: Int
+    @requireAuth
+    @requirePermissions(permissions: ["voucher:view"])
+  """
+  Reward program
+  """
+  rewards: [Reward]!
+  """
+  Country that brand belong to
+  """
+  country: Country
+  countryId: ID
+  """
+  list of brand admins to manage this brand
+  """
+  brandAdmins: [BrandAdmin]
+    @requireAuth
+    @requirePermissions(permissions: ["brand:view"])
+  """
+  Brand status
+  """
+  status: BrandStatus!
+  """
+  To tell if this brand provide catering or not.
+  """
+  catering: Boolean!
+  """
+  To tell if this brand is integrated with a pos system.
+  """
+  isPos: Boolean! @requireAuth
+  """
+  The Pos System's type
+  """
+  posType: PosType @requireAuth
+  """
+  The Pos System's url
+  """
+  posUrl: String @requireAuth
+  """
+  The Pos System's key
+  """
+  posKey: String @requireAuth
+  """
+  The Pos System's secret
+  """
+  posSecret: String @requireAuth
+  """
+  The Pos System's id
+  """
+  posId: String @requireAuth
+  """
+  List of store orders
+  """
+  storeOrders: [StoreOrder]
+    @requireAuth
+    @requirePermissions(permissions: ["order:view"])
+  currentCommissionModel: BrandCommissionModel
+    @requireAuth
+    @requirePermissions(permissions: ["brand:view"])
+  """
+  The minimum delivery order amount for the brand
+  """
+  minimumDeliveryOrderAmount: CurrencyValue
+  """
+  Fee added to delivery orders
+  """
+  deliveryFee: CurrencyValue!
+  """
+  Fee added to express delivery orders
+  """
+  expressDeliveryFee: CurrencyValue!
+  """
+  applicable discovery credits
+  """
+  applicableDiscoveryCredit: DiscoveryCredit
+  """
+  check for customoer if discovery credits available for this brand
+  """
+  discoveryCreditAvailable: Boolean!
+  """
+  The minimum express delivery order amount for the brand
+  """
+  minimumExpressDeliveryOrderAmount: CurrencyValue
+  """
+  Brand Description Text
+  """
+  brandDescription: LocalizedString
+  """
+  COFElytics is enable for this brand
+  """
+  cofelytics: Boolean
+  """
+  average, total order rating scores and the number of reviews
+  """
+  orderRatingScore: BrandLocationScore
+  """
+  Maintenance is enable for this brand
+  """
+  maintenance: Boolean
+  """
+  this field based on customer. if customer has active subscription from this brand then it is true otherwise false
+  """
+  subscribable: Boolean
+  subscribableBadgeUrl: LocalizedString!
+  """
+  this field based on brand. if brand has active subscription(s) then it returns true, otherwise false
+  """
+  isSubscriptionAvailable: Boolean
+  subscriptionTypeIconUrl: URL
+  availableSubscriptions: [CSubscription]
+  """
+  Allow this brand to connect with Foodics
+  """
+  enableFoodics: Boolean
+  coverImage: String
+  """
+  Enable barista app auto accept order feature for branches of this brand
+  """
+  autoOrderAccept: Boolean
+  """
+  Enable barista app only show subtotal feature for branches of this brand
+  """
+  onlyShowSubtotalForMpos: Boolean
+}

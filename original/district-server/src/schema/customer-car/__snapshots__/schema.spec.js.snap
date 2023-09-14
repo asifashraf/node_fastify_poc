@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`customer can resolve cars 1`] = `
+Array [
+  Object {
+    "brand": "Chevy Camaro",
+    "color": "Black",
+    "id": "b55b45ed-5738-4f67-ba8d-9409b76a6c42",
+    "isDefault": false,
+    "name": "Bitchin Camaro",
+    "note": "Dont forget your Motley Crüe T-shirt!",
+    "plateNumber": "BITCHNB",
+  },
+  Object {
+    "brand": "Maserati",
+    "color": "Silver",
+    "id": "cb964122-7214-4a97-8845-d6f107896298",
+    "isDefault": true,
+    "name": "Bourgie Ride",
+    "note": "This is a note, there are many like me. . . ",
+    "plateNumber": "DEEZNUTZ",
+  },
+]
+`;
+
+exports[`customer can resolve defaultCar 1`] = `
+Object {
+  "brand": "Maserati",
+  "color": "Silver",
+  "id": "cb964122-7214-4a97-8845-d6f107896298",
+  "isDefault": true,
+  "name": "Bourgie Ride",
+  "note": "This is a note, there are many like me. . . ",
+  "plateNumber": "DEEZNUTZ",
+}
+`;
+
+exports[`customer can save car 1`] = `
+Array [
+  Object {
+    "id": "9f03ad20-3fc0-4896-8917-35324e810d58",
+    "isDefault": true,
+    "name": "Lambo 212",
+  },
+  Object {
+    "id": "b55b45ed-5738-4f67-ba8d-9409b76a6c42",
+    "isDefault": false,
+    "name": "Bitchin Camaro",
+  },
+  Object {
+    "id": "cb964122-7214-4a97-8845-d6f107896298",
+    "isDefault": false,
+    "name": "Bourgie Ride",
+  },
+]
+`;
+
+exports[`newly saved car is automatically set as default 1`] = `
+Array [
+  Object {
+    "id": "0f231215-a464-4960-9698-cccd252f6001",
+    "isDefault": true,
+    "name": "Lambo 212",
+  },
+]
+`;

@@ -1,0 +1,4 @@
+input BrandLocationFacilityInput {
+  brandLocationId: ID!
+  facilities: [BrandLocationFacilityType!]!
+}

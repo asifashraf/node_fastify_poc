@@ -1,0 +1,5 @@
+input CustomerAccountDeletionReasonInput {
+  id: ID
+  reasonTranslations: LocalizedStringInput!
+  order: Int!
+}

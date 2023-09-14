@@ -1,0 +1,367 @@
+"""
+A specific brand location, ie store
+"""
+type BrandLocation {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Mailing address of location
+  """
+  address: BrandLocationAddress!
+  """
+  Contact phone
+  """
+  phone: String
+  """
+  Contact email
+  """
+  email: String
+  """
+  Contact name
+  """
+  contactName: String!
+  """
+  Schedule for this location, per day
+  """
+  weeklySchedule: [WeeklySchedule]!
+  """
+  Any exceptions for the above schedule, within the next 30 days
+  """
+  scheduleExceptions: [ScheduleException]!
+  """
+  The distance from the provided location, in m. This value is only present when searching for brand locations via a reference geolocation.
+  """
+  distance: Float
+  """
+  The main photo for this location
+  """
+  heroPhoto: String!
+  """
+  The brand this location belongs to
+  """
+  brand: Brand!
+  """
+  Menu, with any exceptions flagged
+  """
+  menu: Menu!
+  """
+  Computed Menu, only available items and price rules applied
+  """
+  cMenu: CMenu!
+  """
+  Which fulfillment types are available
+  """
+  availableFulfillments: [OrderFulfillmentType!]!
+  """
+  Neighbourhoods associated with this location
+  """
+  neighborhoods: [Neighborhood!]!
+  """
+  For pickup orders, will this location fulfill a delivery to a car
+  (Some locations might not have a parking lot. Default for this is false)
+  """
+  allowDeliverToCar: Boolean
+  """
+  for allowing vendors to bring coffee to the gate
+  """
+  bringItToMyGate: Boolean @deprecated
+  """
+  for allowing vendors to bring coffee to the class
+  """
+  bringItToClass: Boolean @deprecated
+  """
+  for allowing vendors to bring coffee to the office
+  """
+  bringItToOffice: Boolean @deprecated
+  """
+  for allowing vendors to bring coffee to the hospital
+  """
+  bringItToHospital: Boolean @deprecated
+  """
+  If this location doesn't do fulfillment for it's own delivery orders,
+  the `deliveryLocation` field will reference another location from which deliveries are made. Defaults to `null`.
+  """
+  deliveryLocation: BrandLocation
+  """
+  Whether this location is currently accepting orders.
+  """
+  acceptingOrders: Boolean!
+  """
+  Delivery Radius for order delivery.
+  """
+  deliveryRadius: Float!
+  """
+  for allowing vendors to bring coffee as express delivery
+  """
+  allowExpressDelivery: Boolean!
+  """
+  Express Delivery Radius for express delivery order
+  """
+  expressDeliveryRadius: Float!
+  """
+  The identifier for the brand location's time zone, e.g. 'Asia/Kuwait'.
+  """
+  timeZoneIdentifier: String!
+  """
+  When this brand location was successfully created
+  """
+  createdAt: Datetime!
+  """
+  Retrieve time ranges the brand location will be open for pickup/delivery. The returned ranges are adjusted to reflect global platform hours and any relevant schedule exceptions. If you do not provide a `timespanStart` value, the default value will be "now".
+  """
+  openings(
+    timespanStart: Datetime
+    numberOfDaysToScan: Int!
+  ): BrandLocationOpenings!
+
+  openingsNew: BrandLocationOpeningsNew
+  """
+  Stores the storeId field that Flick needs. Each store should have a corresponding Flick Id
+  """
+  flickStoreId: Int
+  """
+  Delivery Schedules
+  """
+  deliverySchedule: [WeeklySchedule!]!
+  """
+  Express Delivery Schedules
+  """
+  expressDeliverySchedule: [WeeklySchedule!]!
+  """
+  Whether or not the brand location accepts cash on delivery orders
+  """
+  acceptsCash: Boolean!
+  currency: Currency
+  """
+  Brand location name
+  """
+  name: LocalizedString
+  """
+  Price rules applied for a brand location
+  """
+  priceRules: [BrandLocationPriceRule]
+  """
+  Brand Location status
+  """
+  status: BrandLocationStatus!
+  """
+  list of brand admins to manage this brand
+  """
+  brandLocationAdmins: [BrandAdmin]
+  hasCounterService: Boolean
+  """
+  if there is automatic delivery integration in country which
+  is brand located. branch can change status for self.
+  """
+  isAutomaticDeliveryIntegrationActive: Boolean
+  """
+  list of phone numbers along with names and exts and one should be primary
+  """
+  contact: [ContactInformationType!]
+  """
+  check for customoer if discovery credits available for this brand
+  """
+  discoveryCreditAvailable: Boolean!
+  """
+  If defined, which facilities are available at that location
+  """
+  facilities: [BrandLocationFacility!]
+  """
+  if distinctByBrand is true returns total branches count which has the same brand
+  """
+  nearbyBrandLocationCount: Int
+  """
+  Store status
+  """
+  storeStatus: BrandLocationStoreStatusFull
+  """
+  Branch closing time in current day
+  Optional, it will be null when out of service
+  """
+  closingTime: Datetime
+  """
+  Branch isBusy data
+  Optional, it will be null when out of service
+  """
+  isBusy: Boolean
+  """
+  Whether this location is currently accepting orders.
+  """
+  busyStatusByFulfillmentType: BusyStatusByFulfillmentType
+  """
+  Branch IAMHERE feature status
+  Optional, daault value false
+  """
+  iAmHere: Boolean
+  """
+  Enable barista app auto accept order feature for this branch
+  """
+  autoOrderAccept: Boolean
+  """
+  Which fulfillment types are current available
+  """
+  currentAvailableFulfillments: [OrderFulfillmentType]!
+  """
+  Paired MPos device list with brand location
+  """
+  pairingDevices: [String]
+  """
+  average, total order rating scores and the number of reviews
+  """
+  orderRatingScore: BrandLocationScore
+  """
+  average, total order rating scores and the number of reviews
+  """
+  orderRatingScoreByFulfillment: [BrandLocationScoreWithFulfillmentType]
+  """
+  Tags
+  """
+  tags: [Tag!]
+  """
+  the brand location status info
+  """
+  branchStatusInfo: BranchStatusInfo
+  branchStatusForAdmin: BranchStatusForAdmin
+  icons: [Icon]
+  """
+  Brand Title
+  """
+  labelTitle: LocalizedString!
+  """
+  Brand SubTitle
+  """
+  labelSubtitle: LocalizedString!
+  """
+  Brand Description
+  """
+  labelDescription: LocalizedString!
+}
+
+"""
+A set of GIS co-ordinates
+"""
+input GISLocationInput {
+  """
+  Longitude, in degrees
+  """
+  longitude: Float!
+  """
+  Latitude, in degrees
+  """
+  latitude: Float!
+}
+
+"""
+Boundary Box for spatial query
+"""
+input BBox {
+  xmin: Float!
+  ymin: Float!
+  xmax: Float!
+  ymax: Float!
+}
+
+type ContactInformationType {
+  name: String
+  phone: String!
+  ext: String
+  isPrimary: Boolean!
+}
+
+type BrandLocationLite {
+  id: ID!
+  brandId: ID!
+  name: LocalizedString!
+  brandName: LocalizedString!
+  """
+  The distance from the provided location, in m. This value is only present when searching for brand locations via a reference geolocation
+  """
+  distance: Float
+  favicon: String
+}
+
+type BrandLocationAvailableFulfillments {
+  id: ID!
+  name: LocalizedString!
+  brandName: LocalizedString!
+  symbol: LocalizedString!
+  currencyIsoCode: String!
+  """
+  Which fulfillment types are available
+  """
+  availableFulfillments: [AvailableFulfillmentObject]!
+}
+
+type AvailableFulfillmentObject {
+  """
+  Fulfillment type
+  """
+  fulfillment: OrderFulfillmentType!
+  """
+  The minimum order amount for the brand with fulfillment
+  """
+  minimumOrderAmount: CurrencyValue
+  """
+  Fee added to delivery orders
+  """
+  deliveryFee: CurrencyValue
+  """
+  Estimated time in minutes
+  """
+  estimatedTimeInMinutes: Int
+  """
+  Branch Status
+  """
+  brandLocationStoreStatus: BrandLocationStoreStatusFull!
+}
+
+type BrandLocationScoreWithFulfillmentType {
+  averageRating: Float
+  totalScore: Int!
+  totalReviews: Int!
+  fulfillment: OrderFulfillmentType!
+}
+
+type BusyStatusByFulfillmentType {
+  pickup: BusyStatus!
+  car: BusyStatus!
+  delivery: BusyStatus!
+  expressDelivery: BusyStatus!
+}
+
+type BusyStatus {
+  isBusy: Boolean
+  busyTime: Datetime
+  fulfillmentType: NewFulfillmentType
+}
+
+type StatusByFulfillmentType {
+  status: BrandLocationStoreStatusFull
+  fulfillmentType: NewFulfillmentType
+}
+
+type BranchStatusInfo {
+  status: BrandLocationStoreStatusFull
+  statusDescription: LocalizedString
+  fulfillmentDescription: LocalizedString
+  busyStatusByFulfillmentType: [BusyStatus]
+  statusByFulfillmentType: [StatusByFulfillmentType]
+}
+
+enum BranchStatusForAdmin {
+  ACCEPTING_ORDER
+  NOT_ACCEPTING_ORDER
+  BUSY
+}
+
+"""
+The fulfillment type of this order
+"""
+enum NewFulfillmentType {
+  PICKUP
+  CAR
+  DELIVERY
+  EXPRESS_DELIVERY
+}

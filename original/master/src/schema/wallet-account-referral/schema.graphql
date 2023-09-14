@@ -1,0 +1,19 @@
+"""
+WalletAccountReferral
+"""
+type WalletAccountReferral {
+  """
+  Database identifier
+  """
+  id: ID!
+  walletAccount: WalletAccount!
+  senderWalletAccount: WalletAccount
+  amount: CurrencyValue
+  consumed: CurrencyValue
+  currency: Currency
+  """
+  Date to expire this cashback. Formatted in the date format by adding hours in current date
+  """
+  expiresOn: Date
+  expired: Boolean!
+}

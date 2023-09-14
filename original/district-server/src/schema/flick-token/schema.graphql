@@ -1,0 +1,13 @@
+"""
+A Flick Token
+"""
+type FlickToken {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  The token
+  """
+  token: String!
+}

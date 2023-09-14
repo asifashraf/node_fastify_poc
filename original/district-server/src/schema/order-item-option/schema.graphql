@@ -1,0 +1,36 @@
+"""
+A type that mirrors MenuItemOption, used for archival purposes to record the values of a given MenuItemOption at the time it was used in a particular order, since the values of the MenuItemOption being referenced may change in the future.
+"""
+type OrderItemOption {
+  """
+  Database identifier. This is unique per record, not equivalent to the corresponding MenuItemOption's id.
+  """
+  id: ID!
+  """
+  The corresponding MenuItemOption.
+  """
+  menuItemOptionId: ID!
+  """
+  The value of the corresponding MenuItemOption value at the time the order was created.
+  """
+  value: LocalizedString!
+  """
+  The value of the corresponding MenuItemOption price at the time the order was created. Please note that the purchase price of an OrderItem is a composite of the prices of all the OrderItemOptions selected by the customer at the time of purchase. (See OrderItem).
+  """
+  price: CurrencyValue!
+  """
+  the currency used when order was placed
+  """
+  currency: Currency
+}
+
+"""
+An option for an item in an order being created
+"""
+input OrderItemOptionInput {
+  """
+  The identifier of the referenced MenuItemOption.
+  """
+  optionId: ID!
+  price: CurrencyValue
+}

@@ -1,0 +1,10 @@
+type PaymentLogsPair {
+  execution : PaymentServiceLog
+  callback : PaymentServiceLog
+}
+
+type PaymentLogsByOrderIdPayload {
+  logs : PaymentLogsPair
+  error : PaymentLogsByOrderIdError
+  errors : [PaymentLogsByOrderIdError!]
+}

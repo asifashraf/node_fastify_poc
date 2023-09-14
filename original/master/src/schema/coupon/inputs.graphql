@@ -1,0 +1,9 @@
+input CouponValidityInput {
+  code: String!
+  countryIso: String!
+  paymentMethod: PaymentScheme
+  sourceId: String
+  brandLocationId: String
+  creditsUsed: Boolean
+  order: OrderInput
+}

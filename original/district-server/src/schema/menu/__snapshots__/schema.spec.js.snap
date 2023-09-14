@@ -1,0 +1,1798 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`brand can resolve menus 1`] = `
+Object {
+  "data": Object {
+    "brand": Object {
+      "menu": Object {
+        "id": "b7a4936a-e6e9-494d-982d-fa8c42a78636",
+        "sections": Array [
+          Object {
+            "id": "62ee1779-4312-40ee-95c4-7cce956c11ae",
+            "items": Array [
+              Object {
+                "baseNutritional": Object {
+                  "allergens": Array [
+                    Object {
+                      "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+                      "name": "Dairy",
+                    },
+                    Object {
+                      "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+                      "name": "Egg",
+                    },
+                    Object {
+                      "id": "ef83edac-0214-4f98-b007-4eacbcf41b6d",
+                      "name": "Gluten",
+                    },
+                    Object {
+                      "id": "13582fa9-5d17-4a2f-9b1c-e8696c0847be",
+                      "name": "Sesame",
+                    },
+                    Object {
+                      "id": "ba1f8ebb-7eac-49e4-8eb2-d660371aadc9",
+                      "name": "Soy",
+                    },
+                    Object {
+                      "id": "e4a561ba-897b-49a4-aee6-fa1db9e5bf0e",
+                      "name": "Sulfites",
+                    },
+                    Object {
+                      "id": "0f490bf5-4eac-413b-a5ac-445082d0a57f",
+                      "name": "Tree Nuts",
+                    },
+                    Object {
+                      "id": "ea2ae210-c363-4cd8-bbde-fabc2d17d211",
+                      "name": "Wheat",
+                    },
+                  ],
+                  "calories": 2,
+                  "carbohydrates": 2,
+                  "fat": 13,
+                  "protein": 14,
+                  "sugar": 10,
+                },
+                "id": "1902b625-d495-4d8c-8265-e0c53a57eef0",
+                "itemDescription": Object {
+                  "ar": "القهوة الباردة الصحافة المصنوعة من مزيج منزلنا الغنية.",
+                  "en": "Cold press coffee made with our rich house blend.",
+                },
+                "name": Object {
+                  "ar": "المشروب البارد",
+                  "en": "Cold Brew",
+                },
+                "optionSets": Array [
+                  Object {
+                    "id": "45f2a845-c83b-49c2-90ae-a227dfb7c513",
+                    "label": Object {
+                      "ar": "اختيار الحجم",
+                      "en": "Choose a size",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "586decab-c8a1-42b0-9a08-61a6f568b954",
+                        "price": "2.500",
+                        "value": Object {
+                          "ar": "14oz",
+                          "en": "14oz",
+                        },
+                      },
+                      Object {
+                        "id": "50f9f2cb-cbe1-490c-8169-4db26eed9953",
+                        "price": "3.000",
+                        "value": Object {
+                          "ar": "16oz",
+                          "en": "16oz",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                  Object {
+                    "id": "af171c34-4ca8-4374-82bf-a418396e375c",
+                    "label": Object {
+                      "ar": "إضافات إضافية",
+                      "en": "Additional Toppings",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "ec3b3029-e906-4414-ab47-d29f1e5a056a",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "صلصة الشوكولا",
+                          "en": "Chocolate Sauce",
+                        },
+                      },
+                      Object {
+                        "id": "1ae5845b-3fbf-4795-8973-a5fbd41f0a4d",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "صلصة الكراميل",
+                          "en": "Caramel Sauce",
+                        },
+                      },
+                    ],
+                    "single": false,
+                  },
+                  Object {
+                    "id": "de8d1457-809b-41b1-9d43-b1fab435a697",
+                    "label": Object {
+                      "ar": "اختيار الحليب",
+                      "en": "Choice of Milk",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "72d0382d-ae46-467a-809a-902b832a9db7",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "هذا لا يوجد",
+                          "en": "None",
+                        },
+                      },
+                      Object {
+                        "id": "79af8e78-311d-47ff-a6a0-7eab0ca93103",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "منتظم",
+                          "en": "Regular",
+                        },
+                      },
+                      Object {
+                        "id": "ffdbdb76-6742-41af-9314-17d464c246d0",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب الصويا",
+                          "en": "Soy Milk",
+                        },
+                      },
+                      Object {
+                        "id": "0afea8d0-7fbd-4350-9fed-cedd8636a34b",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب اللوز",
+                          "en": "Almond Milk",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                ],
+                "photo": "https://cofe-district.imgix.net/development/menu-item/menu-item-1517011821414.jpeg",
+              },
+              Object {
+                "baseNutritional": Object {
+                  "allergens": Array [
+                    Object {
+                      "id": "bd75ac10-ba7c-4cb6-85a7-0ee44f81ef2d",
+                      "name": "Fish",
+                    },
+                    Object {
+                      "id": "ba1f8ebb-7eac-49e4-8eb2-d660371aadc9",
+                      "name": "Soy",
+                    },
+                    Object {
+                      "id": "0f490bf5-4eac-413b-a5ac-445082d0a57f",
+                      "name": "Tree Nuts",
+                    },
+                  ],
+                  "calories": 10,
+                  "carbohydrates": 9,
+                  "fat": 4,
+                  "protein": 12,
+                  "sugar": 13,
+                },
+                "id": "69a8f735-3f7d-44fa-8a82-edcd16f33308",
+                "itemDescription": Object {
+                  "ar": "سكب مزدوج على المياه الساخنة المصفاة.",
+                  "en": "Double-shot poured over our hot filtered water.",
+                },
+                "name": Object {
+                  "ar": "طويل أسود أمريكانو",
+                  "en": "Long Black Americano",
+                },
+                "optionSets": Array [
+                  Object {
+                    "id": "740a35fb-20ba-4be6-8ef4-fe269c327421",
+                    "label": Object {
+                      "ar": "اختيار الحجم",
+                      "en": "Choose a size",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "86b849f6-ccfa-4c8f-b9d9-5fe058276222",
+                        "price": "2.500",
+                        "value": Object {
+                          "ar": "14oz",
+                          "en": "14oz",
+                        },
+                      },
+                      Object {
+                        "id": "280a0103-e099-41c5-8f2d-78fd5f0e56da",
+                        "price": "3.000",
+                        "value": Object {
+                          "ar": "16oz",
+                          "en": "16oz",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                  Object {
+                    "id": "290e2337-15e3-4b30-b50b-0a00763aa4e0",
+                    "label": Object {
+                      "ar": "إضافات إضافية",
+                      "en": "Additional Toppings",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "1ffb8b6d-5e55-43e2-b9a8-9f90cb4d4e13",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "صلصة الشوكولا",
+                          "en": "Chocolate Sauce",
+                        },
+                      },
+                      Object {
+                        "id": "937f56ca-a220-48f2-b81e-8310f9492bda",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "صلصة الكراميل",
+                          "en": "Caramel Sauce",
+                        },
+                      },
+                    ],
+                    "single": false,
+                  },
+                  Object {
+                    "id": "fb3ae49d-2cba-4cfb-8694-96ddc7b1aa4b",
+                    "label": Object {
+                      "ar": "اختيار الحليب",
+                      "en": "Choice of Milk",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "696aaf52-b87d-4332-b396-16b478ed6efd",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "هذا لا يوجد",
+                          "en": "None",
+                        },
+                      },
+                      Object {
+                        "id": "ddf8fe1c-0d7a-4614-bd94-f57d196fc531",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "منتظم",
+                          "en": "Regular",
+                        },
+                      },
+                      Object {
+                        "id": "ddc1bb88-1afb-4a30-ac88-5b33ca34f020",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب الصويا",
+                          "en": "Soy Milk",
+                        },
+                      },
+                      Object {
+                        "id": "1df644c1-7ded-4b42-9580-964992dcc754",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب اللوز",
+                          "en": "Almond Milk",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                ],
+                "photo": "https://cofe-district.imgix.net/development/menu-item/menu-item-1517011886548.jpeg",
+              },
+              Object {
+                "baseNutritional": Object {
+                  "allergens": Array [
+                    Object {
+                      "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+                      "name": "Dairy",
+                    },
+                    Object {
+                      "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+                      "name": "Egg",
+                    },
+                    Object {
+                      "id": "bd75ac10-ba7c-4cb6-85a7-0ee44f81ef2d",
+                      "name": "Fish",
+                    },
+                    Object {
+                      "id": "ef83edac-0214-4f98-b007-4eacbcf41b6d",
+                      "name": "Gluten",
+                    },
+                    Object {
+                      "id": "e6dc574e-7b3e-4fe0-a521-1204f10804ef",
+                      "name": "Latex",
+                    },
+                    Object {
+                      "id": "90768e6d-eb09-4246-a865-1c9bb0aa7654",
+                      "name": "Mustard",
+                    },
+                    Object {
+                      "id": "e4f0a7e8-dcf5-46e1-9056-e76a23d9a8d0",
+                      "name": "Peanuts",
+                    },
+                    Object {
+                      "id": "13582fa9-5d17-4a2f-9b1c-e8696c0847be",
+                      "name": "Sesame",
+                    },
+                    Object {
+                      "id": "ba1f8ebb-7eac-49e4-8eb2-d660371aadc9",
+                      "name": "Soy",
+                    },
+                    Object {
+                      "id": "e4a561ba-897b-49a4-aee6-fa1db9e5bf0e",
+                      "name": "Sulfites",
+                    },
+                    Object {
+                      "id": "0f490bf5-4eac-413b-a5ac-445082d0a57f",
+                      "name": "Tree Nuts",
+                    },
+                    Object {
+                      "id": "ea2ae210-c363-4cd8-bbde-fabc2d17d211",
+                      "name": "Wheat",
+                    },
+                  ],
+                  "calories": 3,
+                  "carbohydrates": 4,
+                  "fat": 7,
+                  "protein": 6,
+                  "sugar": 1,
+                },
+                "id": "4d255e11-5250-4ab8-9085-0ac07d3b26a3",
+                "itemDescription": Object {
+                  "ar": "ليس فقط أي القهوة القياسية. نختار بعناية القهوة العادية والموسمية ونحضر كل ساعة لضمان أقصى نضارة.",
+                  "en": "Not just any standard coffee. We thoughtfully choose our regular and seasonal coffees and brew every hour to ensure maximum freshness.",
+                },
+                "name": Object {
+                  "ar": "مرشح المشروب",
+                  "en": "Filter Brew",
+                },
+                "optionSets": Array [
+                  Object {
+                    "id": "8181c96e-3c32-439d-97f1-f249207f3d56",
+                    "label": Object {
+                      "ar": "اختيار الحجم",
+                      "en": "Choose a size",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "a4145498-1c77-44fc-b7d7-0f84e5f1489a",
+                        "price": "2.500",
+                        "value": Object {
+                          "ar": "14oz",
+                          "en": "14oz",
+                        },
+                      },
+                      Object {
+                        "id": "cb8f36a8-f002-47ad-8627-9c745e69178e",
+                        "price": "3.000",
+                        "value": Object {
+                          "ar": "16oz",
+                          "en": "16oz",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                  Object {
+                    "id": "9c4ded19-bd7a-44c4-a8f0-fa78a157e179",
+                    "label": Object {
+                      "ar": "إضافات إضافية",
+                      "en": "Additional Toppings",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "75156b0a-fbfa-4c81-bf62-3afa53b2f621",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "صلصة الشوكولا",
+                          "en": "Chocolate Sauce",
+                        },
+                      },
+                      Object {
+                        "id": "123b8b3d-355a-40fb-8148-7afe6ee1de79",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "صلصة الكراميل",
+                          "en": "Caramel Sauce",
+                        },
+                      },
+                    ],
+                    "single": false,
+                  },
+                  Object {
+                    "id": "d1943f13-ca04-4798-8473-a9f8656679b5",
+                    "label": Object {
+                      "ar": "اختيار الحليب",
+                      "en": "Choice of Milk",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "a60f1e83-35da-4c27-8084-7f7830bcf2a0",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "هذا لا يوجد",
+                          "en": "None",
+                        },
+                      },
+                      Object {
+                        "id": "8ac8e496-2042-42a5-a324-2c47d9b5c7ff",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "منتظم",
+                          "en": "Regular",
+                        },
+                      },
+                      Object {
+                        "id": "a2f3d0c0-35a8-4dd6-bf15-0c47a5036b6e",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب الصويا",
+                          "en": "Soy Milk",
+                        },
+                      },
+                      Object {
+                        "id": "98f2af1f-463f-410f-a0d8-39a0c9da4ec7",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب اللوز",
+                          "en": "Almond Milk",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                ],
+                "photo": "https://cofe-district.imgix.net/development/menu-item/menu-item-1517011917597.jpg",
+              },
+            ],
+            "name": Object {
+              "ar": "مشروبات",
+              "en": "Drinks",
+            },
+          },
+          Object {
+            "id": "ac7a3fe1-5d8d-4f74-984c-eecb7c105adb",
+            "items": Array [
+              Object {
+                "baseNutritional": Object {
+                  "allergens": Array [
+                    Object {
+                      "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+                      "name": "Egg",
+                    },
+                    Object {
+                      "id": "ef83edac-0214-4f98-b007-4eacbcf41b6d",
+                      "name": "Gluten",
+                    },
+                    Object {
+                      "id": "e6dc574e-7b3e-4fe0-a521-1204f10804ef",
+                      "name": "Latex",
+                    },
+                    Object {
+                      "id": "90768e6d-eb09-4246-a865-1c9bb0aa7654",
+                      "name": "Mustard",
+                    },
+                    Object {
+                      "id": "e4f0a7e8-dcf5-46e1-9056-e76a23d9a8d0",
+                      "name": "Peanuts",
+                    },
+                    Object {
+                      "id": "13582fa9-5d17-4a2f-9b1c-e8696c0847be",
+                      "name": "Sesame",
+                    },
+                    Object {
+                      "id": "07a37612-99e0-47d6-b0af-b7b776b25b7c",
+                      "name": "Shellfish",
+                    },
+                    Object {
+                      "id": "e4a561ba-897b-49a4-aee6-fa1db9e5bf0e",
+                      "name": "Sulfites",
+                    },
+                    Object {
+                      "id": "0f490bf5-4eac-413b-a5ac-445082d0a57f",
+                      "name": "Tree Nuts",
+                    },
+                    Object {
+                      "id": "ea2ae210-c363-4cd8-bbde-fabc2d17d211",
+                      "name": "Wheat",
+                    },
+                  ],
+                  "calories": 3,
+                  "carbohydrates": 11,
+                  "fat": 7,
+                  "protein": 5,
+                  "sugar": 6,
+                },
+                "id": "6e3e377a-aca8-44ca-b70c-214f862d8dfe",
+                "itemDescription": Object {
+                  "ar": "شطيرة لذيذة مع فقط أفضل تشكيلة من ديلي لدينا.",
+                  "en": "Delicious sandwich with only the finest selection from our deli.",
+                },
+                "name": Object {
+                  "ar": "ديلي ساندويتش",
+                  "en": "Deli Sandwich",
+                },
+                "optionSets": Array [
+                  Object {
+                    "id": "3de0b882-3818-4cee-9524-7af1e9be2cb9",
+                    "label": Object {
+                      "ar": "ديلي ساندويتش",
+                      "en": "Deli Sandwich",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "94d96afd-2ad9-4ff2-a8be-9d63249b1046",
+                        "price": "1.000",
+                        "value": Object {
+                          "ar": "ديلي ساندويتش",
+                          "en": "Deli Sandwich",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                ],
+                "photo": "https://cofe-district.imgix.net/development/menu-item/menu-item-1517011951653.jpg",
+              },
+              Object {
+                "baseNutritional": Object {
+                  "allergens": Array [],
+                  "calories": 9,
+                  "carbohydrates": 12,
+                  "fat": 3,
+                  "protein": 15,
+                  "sugar": 2,
+                },
+                "id": "0837b2c8-2ec2-4509-af13-d05b6e7b797f",
+                "itemDescription": Object {
+                  "ar": "طازجة من المخبز.",
+                  "en": "Fresh from the bakery.",
+                },
+                "name": Object {
+                  "ar": "كوكي كبير",
+                  "en": "Large Cookie",
+                },
+                "optionSets": Array [
+                  Object {
+                    "id": "2e039f27-3220-4a4e-877b-c243a0de6869",
+                    "label": Object {
+                      "ar": "كوكي كبير",
+                      "en": "Large Cookie",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "f969c9e1-5c78-442b-8c72-f7a2d08a6dfd",
+                        "price": "0.250",
+                        "value": Object {
+                          "ar": "كوكي كبير",
+                          "en": "Large Cookie",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                ],
+                "photo": "https://cofe-district.imgix.net/development/menu-item/menu-item-1517011982488.jpg",
+              },
+              Object {
+                "baseNutritional": Object {
+                  "allergens": Array [
+                    Object {
+                      "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+                      "name": "Dairy",
+                    },
+                    Object {
+                      "id": "bd75ac10-ba7c-4cb6-85a7-0ee44f81ef2d",
+                      "name": "Fish",
+                    },
+                    Object {
+                      "id": "e6dc574e-7b3e-4fe0-a521-1204f10804ef",
+                      "name": "Latex",
+                    },
+                    Object {
+                      "id": "e4f0a7e8-dcf5-46e1-9056-e76a23d9a8d0",
+                      "name": "Peanuts",
+                    },
+                    Object {
+                      "id": "13582fa9-5d17-4a2f-9b1c-e8696c0847be",
+                      "name": "Sesame",
+                    },
+                    Object {
+                      "id": "07a37612-99e0-47d6-b0af-b7b776b25b7c",
+                      "name": "Shellfish",
+                    },
+                    Object {
+                      "id": "ba1f8ebb-7eac-49e4-8eb2-d660371aadc9",
+                      "name": "Soy",
+                    },
+                    Object {
+                      "id": "e4a561ba-897b-49a4-aee6-fa1db9e5bf0e",
+                      "name": "Sulfites",
+                    },
+                    Object {
+                      "id": "0f490bf5-4eac-413b-a5ac-445082d0a57f",
+                      "name": "Tree Nuts",
+                    },
+                    Object {
+                      "id": "ea2ae210-c363-4cd8-bbde-fabc2d17d211",
+                      "name": "Wheat",
+                    },
+                  ],
+                  "calories": 1,
+                  "carbohydrates": 11,
+                  "fat": 13,
+                  "protein": 7,
+                  "sugar": 8,
+                },
+                "id": "7a2ad1d2-cf54-4495-af15-85b94a4224b5",
+                "itemDescription": Object {
+                  "ar": "حساء المنزل لذيذ أدلى.",
+                  "en": "Deliciously home made soup.",
+                },
+                "name": Object {
+                  "ar": "شوربة محلية الصنع",
+                  "en": "Homemade Soup",
+                },
+                "optionSets": Array [
+                  Object {
+                    "id": "83609e90-f762-4555-865e-002939bdf9c8",
+                    "label": Object {
+                      "ar": "شوربة محلية الصنع",
+                      "en": "Homemade Soup",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "96d646bf-474a-447f-ae49-7b991c2ab933",
+                        "price": "0.250",
+                        "value": Object {
+                          "ar": "شوربة محلية الصنع",
+                          "en": "Homemade Soup",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                ],
+                "photo": "https://cofe-district.imgix.net/development/menu-item/menu-item-1517012025725.jpg",
+              },
+            ],
+            "name": Object {
+              "ar": "طعام",
+              "en": "Food",
+            },
+          },
+          Object {
+            "id": "6c52f1d1-7d39-41bb-8b0f-6e147183265c",
+            "items": Array [
+              Object {
+                "baseNutritional": Object {
+                  "allergens": Array [
+                    Object {
+                      "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+                      "name": "Egg",
+                    },
+                    Object {
+                      "id": "13582fa9-5d17-4a2f-9b1c-e8696c0847be",
+                      "name": "Sesame",
+                    },
+                    Object {
+                      "id": "e4a561ba-897b-49a4-aee6-fa1db9e5bf0e",
+                      "name": "Sulfites",
+                    },
+                  ],
+                  "calories": 12,
+                  "carbohydrates": 11,
+                  "fat": 1,
+                  "protein": 1,
+                  "sugar": 12,
+                },
+                "id": "b91b2161-c8c9-4029-b9ad-a8f80ce41c93",
+                "itemDescription": Object {
+                  "ar": "قهوة مجمدة مع الحليب والكراميل مع الكريما المخفوقة وشراب الشوكولاتة.",
+                  "en": "Frozen coffee with milk and caramel topped with whipped cream and chocolate syrup.",
+                },
+                "name": Object {
+                  "ar": "كراميل جيلي",
+                  "en": "Caramel Jelly",
+                },
+                "optionSets": Array [
+                  Object {
+                    "id": "dd9b2411-e507-40dc-88c3-8c1bb44a42a1",
+                    "label": Object {
+                      "ar": "اختيار الحجم",
+                      "en": "Choose a size",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "93b14083-fa9f-4ffb-b536-4a0f4cafe117",
+                        "price": "3.000",
+                        "value": Object {
+                          "ar": "14oz",
+                          "en": "14oz",
+                        },
+                      },
+                      Object {
+                        "id": "0a6e6072-44ee-44dc-9b54-925e66f1d6f5",
+                        "price": "3.500",
+                        "value": Object {
+                          "ar": "16oz",
+                          "en": "16oz",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                  Object {
+                    "id": "4624f93a-5657-422e-9fd1-26e7489a7ccd",
+                    "label": Object {
+                      "ar": "اختيار الحليب",
+                      "en": "Choice of Milk",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "ad1f9f0e-b543-4885-9e9e-17417a4d45b0",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "هذا لا يوجد",
+                          "en": "None",
+                        },
+                      },
+                      Object {
+                        "id": "75720f34-d784-465a-b85b-4081b3ac45c6",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "منتظم",
+                          "en": "Regular",
+                        },
+                      },
+                      Object {
+                        "id": "83125393-dab9-449a-9154-23948ac2f06a",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب الصويا",
+                          "en": "Soy Milk",
+                        },
+                      },
+                      Object {
+                        "id": "87540cad-be4b-41e8-8d06-e68f4f445198",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب اللوز",
+                          "en": "Almond Milk",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                ],
+                "photo": "https://cofe-district.imgix.net/development/menu-item/menu-item-1517012071484.jpg",
+              },
+              Object {
+                "baseNutritional": Object {
+                  "allergens": Array [],
+                  "calories": 15,
+                  "carbohydrates": 10,
+                  "fat": 4,
+                  "protein": 9,
+                  "sugar": 11,
+                },
+                "id": "87f26eb8-ed27-45df-81e9-2a33c56cb052",
+                "itemDescription": Object {
+                  "ar": "قهوة مجمدة مع حليب مغطى بالكريمة المخفوقة وشراب الشوكولاتة.",
+                  "en": "Frozen coffee with milk topped with whipped cream and chocolate syrup.",
+                },
+                "name": Object {
+                  "ar": "شوكو موز",
+                  "en": "Choco Banana",
+                },
+                "optionSets": Array [
+                  Object {
+                    "id": "2c6740ed-dd27-4550-a245-7ad48c96571f",
+                    "label": Object {
+                      "ar": "اختيار الحجم",
+                      "en": "Choose a size",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "b8dac706-b3bb-499b-bfa4-c75b3d97447a",
+                        "price": "3.000",
+                        "value": Object {
+                          "ar": "14oz",
+                          "en": "14oz",
+                        },
+                      },
+                      Object {
+                        "id": "69d9eed3-ef21-4a7a-97de-414a2232ac45",
+                        "price": "3.500",
+                        "value": Object {
+                          "ar": "16oz",
+                          "en": "16oz",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                  Object {
+                    "id": "e030daf6-ca63-4486-b2d3-9befdf4323d8",
+                    "label": Object {
+                      "ar": "اختيار الحليب",
+                      "en": "Choice of Milk",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "0af547b6-432a-494f-bb15-8e2a2b7a8929",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "هذا لا يوجد",
+                          "en": "None",
+                        },
+                      },
+                      Object {
+                        "id": "97f902e5-1532-4752-b7ef-9ac5afbc0d21",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "منتظم",
+                          "en": "Regular",
+                        },
+                      },
+                      Object {
+                        "id": "d0bab4e6-a2e8-45ea-aae8-0f1d6e2811c2",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب الصويا",
+                          "en": "Soy Milk",
+                        },
+                      },
+                      Object {
+                        "id": "0590660e-0c69-48b6-b86a-ecef888de1f9",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب اللوز",
+                          "en": "Almond Milk",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                ],
+                "photo": "https://cofe-district.imgix.net/development/menu-item/menu-item-1517012105997.jpeg",
+              },
+            ],
+            "name": Object {
+              "ar": "مجمد",
+              "en": "Frozen",
+            },
+          },
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`brand locations can resolve menus 1`] = `
+Object {
+  "data": Object {
+    "brandLocation": Object {
+      "menu": Object {
+        "id": "b7a4936a-e6e9-494d-982d-fa8c42a78636",
+        "sections": Array [
+          Object {
+            "id": "62ee1779-4312-40ee-95c4-7cce956c11ae",
+            "items": Array [
+              Object {
+                "available": true,
+                "baseNutritional": Object {
+                  "allergens": Array [
+                    Object {
+                      "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+                      "name": "Dairy",
+                    },
+                    Object {
+                      "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+                      "name": "Egg",
+                    },
+                    Object {
+                      "id": "ef83edac-0214-4f98-b007-4eacbcf41b6d",
+                      "name": "Gluten",
+                    },
+                    Object {
+                      "id": "13582fa9-5d17-4a2f-9b1c-e8696c0847be",
+                      "name": "Sesame",
+                    },
+                    Object {
+                      "id": "ba1f8ebb-7eac-49e4-8eb2-d660371aadc9",
+                      "name": "Soy",
+                    },
+                    Object {
+                      "id": "e4a561ba-897b-49a4-aee6-fa1db9e5bf0e",
+                      "name": "Sulfites",
+                    },
+                    Object {
+                      "id": "0f490bf5-4eac-413b-a5ac-445082d0a57f",
+                      "name": "Tree Nuts",
+                    },
+                    Object {
+                      "id": "ea2ae210-c363-4cd8-bbde-fabc2d17d211",
+                      "name": "Wheat",
+                    },
+                  ],
+                  "calories": 2,
+                  "carbohydrates": 2,
+                  "fat": 13,
+                  "protein": 14,
+                  "sugar": 10,
+                },
+                "id": "1902b625-d495-4d8c-8265-e0c53a57eef0",
+                "itemDescription": Object {
+                  "ar": "القهوة الباردة الصحافة المصنوعة من مزيج منزلنا الغنية.",
+                  "en": "Cold press coffee made with our rich house blend.",
+                },
+                "name": Object {
+                  "ar": "المشروب البارد",
+                  "en": "Cold Brew",
+                },
+                "optionSets": Array [
+                  Object {
+                    "id": "45f2a845-c83b-49c2-90ae-a227dfb7c513",
+                    "label": Object {
+                      "ar": "اختيار الحجم",
+                      "en": "Choose a size",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "586decab-c8a1-42b0-9a08-61a6f568b954",
+                        "price": "2.500",
+                        "value": Object {
+                          "ar": "14oz",
+                          "en": "14oz",
+                        },
+                      },
+                      Object {
+                        "id": "50f9f2cb-cbe1-490c-8169-4db26eed9953",
+                        "price": "3.000",
+                        "value": Object {
+                          "ar": "16oz",
+                          "en": "16oz",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                  Object {
+                    "id": "af171c34-4ca8-4374-82bf-a418396e375c",
+                    "label": Object {
+                      "ar": "إضافات إضافية",
+                      "en": "Additional Toppings",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "ec3b3029-e906-4414-ab47-d29f1e5a056a",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "صلصة الشوكولا",
+                          "en": "Chocolate Sauce",
+                        },
+                      },
+                      Object {
+                        "id": "1ae5845b-3fbf-4795-8973-a5fbd41f0a4d",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "صلصة الكراميل",
+                          "en": "Caramel Sauce",
+                        },
+                      },
+                    ],
+                    "single": false,
+                  },
+                  Object {
+                    "id": "de8d1457-809b-41b1-9d43-b1fab435a697",
+                    "label": Object {
+                      "ar": "اختيار الحليب",
+                      "en": "Choice of Milk",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "72d0382d-ae46-467a-809a-902b832a9db7",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "هذا لا يوجد",
+                          "en": "None",
+                        },
+                      },
+                      Object {
+                        "id": "79af8e78-311d-47ff-a6a0-7eab0ca93103",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "منتظم",
+                          "en": "Regular",
+                        },
+                      },
+                      Object {
+                        "id": "ffdbdb76-6742-41af-9314-17d464c246d0",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب الصويا",
+                          "en": "Soy Milk",
+                        },
+                      },
+                      Object {
+                        "id": "0afea8d0-7fbd-4350-9fed-cedd8636a34b",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب اللوز",
+                          "en": "Almond Milk",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                ],
+                "photo": "https://cofe-district.imgix.net/development/menu-item/menu-item-1517011821414.jpeg",
+              },
+              Object {
+                "available": true,
+                "baseNutritional": Object {
+                  "allergens": Array [
+                    Object {
+                      "id": "bd75ac10-ba7c-4cb6-85a7-0ee44f81ef2d",
+                      "name": "Fish",
+                    },
+                    Object {
+                      "id": "ba1f8ebb-7eac-49e4-8eb2-d660371aadc9",
+                      "name": "Soy",
+                    },
+                    Object {
+                      "id": "0f490bf5-4eac-413b-a5ac-445082d0a57f",
+                      "name": "Tree Nuts",
+                    },
+                  ],
+                  "calories": 10,
+                  "carbohydrates": 9,
+                  "fat": 4,
+                  "protein": 12,
+                  "sugar": 13,
+                },
+                "id": "69a8f735-3f7d-44fa-8a82-edcd16f33308",
+                "itemDescription": Object {
+                  "ar": "سكب مزدوج على المياه الساخنة المصفاة.",
+                  "en": "Double-shot poured over our hot filtered water.",
+                },
+                "name": Object {
+                  "ar": "طويل أسود أمريكانو",
+                  "en": "Long Black Americano",
+                },
+                "optionSets": Array [
+                  Object {
+                    "id": "740a35fb-20ba-4be6-8ef4-fe269c327421",
+                    "label": Object {
+                      "ar": "اختيار الحجم",
+                      "en": "Choose a size",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "86b849f6-ccfa-4c8f-b9d9-5fe058276222",
+                        "price": "2.500",
+                        "value": Object {
+                          "ar": "14oz",
+                          "en": "14oz",
+                        },
+                      },
+                      Object {
+                        "id": "280a0103-e099-41c5-8f2d-78fd5f0e56da",
+                        "price": "3.000",
+                        "value": Object {
+                          "ar": "16oz",
+                          "en": "16oz",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                  Object {
+                    "id": "290e2337-15e3-4b30-b50b-0a00763aa4e0",
+                    "label": Object {
+                      "ar": "إضافات إضافية",
+                      "en": "Additional Toppings",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "1ffb8b6d-5e55-43e2-b9a8-9f90cb4d4e13",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "صلصة الشوكولا",
+                          "en": "Chocolate Sauce",
+                        },
+                      },
+                      Object {
+                        "id": "937f56ca-a220-48f2-b81e-8310f9492bda",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "صلصة الكراميل",
+                          "en": "Caramel Sauce",
+                        },
+                      },
+                    ],
+                    "single": false,
+                  },
+                  Object {
+                    "id": "fb3ae49d-2cba-4cfb-8694-96ddc7b1aa4b",
+                    "label": Object {
+                      "ar": "اختيار الحليب",
+                      "en": "Choice of Milk",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "696aaf52-b87d-4332-b396-16b478ed6efd",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "هذا لا يوجد",
+                          "en": "None",
+                        },
+                      },
+                      Object {
+                        "id": "ddf8fe1c-0d7a-4614-bd94-f57d196fc531",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "منتظم",
+                          "en": "Regular",
+                        },
+                      },
+                      Object {
+                        "id": "ddc1bb88-1afb-4a30-ac88-5b33ca34f020",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب الصويا",
+                          "en": "Soy Milk",
+                        },
+                      },
+                      Object {
+                        "id": "1df644c1-7ded-4b42-9580-964992dcc754",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب اللوز",
+                          "en": "Almond Milk",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                ],
+                "photo": "https://cofe-district.imgix.net/development/menu-item/menu-item-1517011886548.jpeg",
+              },
+              Object {
+                "available": true,
+                "baseNutritional": Object {
+                  "allergens": Array [
+                    Object {
+                      "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+                      "name": "Dairy",
+                    },
+                    Object {
+                      "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+                      "name": "Egg",
+                    },
+                    Object {
+                      "id": "bd75ac10-ba7c-4cb6-85a7-0ee44f81ef2d",
+                      "name": "Fish",
+                    },
+                    Object {
+                      "id": "ef83edac-0214-4f98-b007-4eacbcf41b6d",
+                      "name": "Gluten",
+                    },
+                    Object {
+                      "id": "e6dc574e-7b3e-4fe0-a521-1204f10804ef",
+                      "name": "Latex",
+                    },
+                    Object {
+                      "id": "90768e6d-eb09-4246-a865-1c9bb0aa7654",
+                      "name": "Mustard",
+                    },
+                    Object {
+                      "id": "e4f0a7e8-dcf5-46e1-9056-e76a23d9a8d0",
+                      "name": "Peanuts",
+                    },
+                    Object {
+                      "id": "13582fa9-5d17-4a2f-9b1c-e8696c0847be",
+                      "name": "Sesame",
+                    },
+                    Object {
+                      "id": "ba1f8ebb-7eac-49e4-8eb2-d660371aadc9",
+                      "name": "Soy",
+                    },
+                    Object {
+                      "id": "e4a561ba-897b-49a4-aee6-fa1db9e5bf0e",
+                      "name": "Sulfites",
+                    },
+                    Object {
+                      "id": "0f490bf5-4eac-413b-a5ac-445082d0a57f",
+                      "name": "Tree Nuts",
+                    },
+                    Object {
+                      "id": "ea2ae210-c363-4cd8-bbde-fabc2d17d211",
+                      "name": "Wheat",
+                    },
+                  ],
+                  "calories": 3,
+                  "carbohydrates": 4,
+                  "fat": 7,
+                  "protein": 6,
+                  "sugar": 1,
+                },
+                "id": "4d255e11-5250-4ab8-9085-0ac07d3b26a3",
+                "itemDescription": Object {
+                  "ar": "ليس فقط أي القهوة القياسية. نختار بعناية القهوة العادية والموسمية ونحضر كل ساعة لضمان أقصى نضارة.",
+                  "en": "Not just any standard coffee. We thoughtfully choose our regular and seasonal coffees and brew every hour to ensure maximum freshness.",
+                },
+                "name": Object {
+                  "ar": "مرشح المشروب",
+                  "en": "Filter Brew",
+                },
+                "optionSets": Array [
+                  Object {
+                    "id": "8181c96e-3c32-439d-97f1-f249207f3d56",
+                    "label": Object {
+                      "ar": "اختيار الحجم",
+                      "en": "Choose a size",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "a4145498-1c77-44fc-b7d7-0f84e5f1489a",
+                        "price": "2.500",
+                        "value": Object {
+                          "ar": "14oz",
+                          "en": "14oz",
+                        },
+                      },
+                      Object {
+                        "id": "cb8f36a8-f002-47ad-8627-9c745e69178e",
+                        "price": "3.000",
+                        "value": Object {
+                          "ar": "16oz",
+                          "en": "16oz",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                  Object {
+                    "id": "9c4ded19-bd7a-44c4-a8f0-fa78a157e179",
+                    "label": Object {
+                      "ar": "إضافات إضافية",
+                      "en": "Additional Toppings",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "75156b0a-fbfa-4c81-bf62-3afa53b2f621",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "صلصة الشوكولا",
+                          "en": "Chocolate Sauce",
+                        },
+                      },
+                      Object {
+                        "id": "123b8b3d-355a-40fb-8148-7afe6ee1de79",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "صلصة الكراميل",
+                          "en": "Caramel Sauce",
+                        },
+                      },
+                    ],
+                    "single": false,
+                  },
+                  Object {
+                    "id": "d1943f13-ca04-4798-8473-a9f8656679b5",
+                    "label": Object {
+                      "ar": "اختيار الحليب",
+                      "en": "Choice of Milk",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "a60f1e83-35da-4c27-8084-7f7830bcf2a0",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "هذا لا يوجد",
+                          "en": "None",
+                        },
+                      },
+                      Object {
+                        "id": "8ac8e496-2042-42a5-a324-2c47d9b5c7ff",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "منتظم",
+                          "en": "Regular",
+                        },
+                      },
+                      Object {
+                        "id": "a2f3d0c0-35a8-4dd6-bf15-0c47a5036b6e",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب الصويا",
+                          "en": "Soy Milk",
+                        },
+                      },
+                      Object {
+                        "id": "98f2af1f-463f-410f-a0d8-39a0c9da4ec7",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب اللوز",
+                          "en": "Almond Milk",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                ],
+                "photo": "https://cofe-district.imgix.net/development/menu-item/menu-item-1517011917597.jpg",
+              },
+            ],
+            "name": Object {
+              "ar": "مشروبات",
+              "en": "Drinks",
+            },
+          },
+          Object {
+            "id": "ac7a3fe1-5d8d-4f74-984c-eecb7c105adb",
+            "items": Array [
+              Object {
+                "available": true,
+                "baseNutritional": Object {
+                  "allergens": Array [
+                    Object {
+                      "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+                      "name": "Egg",
+                    },
+                    Object {
+                      "id": "ef83edac-0214-4f98-b007-4eacbcf41b6d",
+                      "name": "Gluten",
+                    },
+                    Object {
+                      "id": "e6dc574e-7b3e-4fe0-a521-1204f10804ef",
+                      "name": "Latex",
+                    },
+                    Object {
+                      "id": "90768e6d-eb09-4246-a865-1c9bb0aa7654",
+                      "name": "Mustard",
+                    },
+                    Object {
+                      "id": "e4f0a7e8-dcf5-46e1-9056-e76a23d9a8d0",
+                      "name": "Peanuts",
+                    },
+                    Object {
+                      "id": "13582fa9-5d17-4a2f-9b1c-e8696c0847be",
+                      "name": "Sesame",
+                    },
+                    Object {
+                      "id": "07a37612-99e0-47d6-b0af-b7b776b25b7c",
+                      "name": "Shellfish",
+                    },
+                    Object {
+                      "id": "e4a561ba-897b-49a4-aee6-fa1db9e5bf0e",
+                      "name": "Sulfites",
+                    },
+                    Object {
+                      "id": "0f490bf5-4eac-413b-a5ac-445082d0a57f",
+                      "name": "Tree Nuts",
+                    },
+                    Object {
+                      "id": "ea2ae210-c363-4cd8-bbde-fabc2d17d211",
+                      "name": "Wheat",
+                    },
+                  ],
+                  "calories": 3,
+                  "carbohydrates": 11,
+                  "fat": 7,
+                  "protein": 5,
+                  "sugar": 6,
+                },
+                "id": "6e3e377a-aca8-44ca-b70c-214f862d8dfe",
+                "itemDescription": Object {
+                  "ar": "شطيرة لذيذة مع فقط أفضل تشكيلة من ديلي لدينا.",
+                  "en": "Delicious sandwich with only the finest selection from our deli.",
+                },
+                "name": Object {
+                  "ar": "ديلي ساندويتش",
+                  "en": "Deli Sandwich",
+                },
+                "optionSets": Array [
+                  Object {
+                    "id": "3de0b882-3818-4cee-9524-7af1e9be2cb9",
+                    "label": Object {
+                      "ar": "ديلي ساندويتش",
+                      "en": "Deli Sandwich",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "94d96afd-2ad9-4ff2-a8be-9d63249b1046",
+                        "price": "1.000",
+                        "value": Object {
+                          "ar": "ديلي ساندويتش",
+                          "en": "Deli Sandwich",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                ],
+                "photo": "https://cofe-district.imgix.net/development/menu-item/menu-item-1517011951653.jpg",
+              },
+              Object {
+                "available": true,
+                "baseNutritional": Object {
+                  "allergens": Array [],
+                  "calories": 9,
+                  "carbohydrates": 12,
+                  "fat": 3,
+                  "protein": 15,
+                  "sugar": 2,
+                },
+                "id": "0837b2c8-2ec2-4509-af13-d05b6e7b797f",
+                "itemDescription": Object {
+                  "ar": "طازجة من المخبز.",
+                  "en": "Fresh from the bakery.",
+                },
+                "name": Object {
+                  "ar": "كوكي كبير",
+                  "en": "Large Cookie",
+                },
+                "optionSets": Array [
+                  Object {
+                    "id": "2e039f27-3220-4a4e-877b-c243a0de6869",
+                    "label": Object {
+                      "ar": "كوكي كبير",
+                      "en": "Large Cookie",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "f969c9e1-5c78-442b-8c72-f7a2d08a6dfd",
+                        "price": "0.250",
+                        "value": Object {
+                          "ar": "كوكي كبير",
+                          "en": "Large Cookie",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                ],
+                "photo": "https://cofe-district.imgix.net/development/menu-item/menu-item-1517011982488.jpg",
+              },
+              Object {
+                "available": true,
+                "baseNutritional": Object {
+                  "allergens": Array [
+                    Object {
+                      "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+                      "name": "Dairy",
+                    },
+                    Object {
+                      "id": "bd75ac10-ba7c-4cb6-85a7-0ee44f81ef2d",
+                      "name": "Fish",
+                    },
+                    Object {
+                      "id": "e6dc574e-7b3e-4fe0-a521-1204f10804ef",
+                      "name": "Latex",
+                    },
+                    Object {
+                      "id": "e4f0a7e8-dcf5-46e1-9056-e76a23d9a8d0",
+                      "name": "Peanuts",
+                    },
+                    Object {
+                      "id": "13582fa9-5d17-4a2f-9b1c-e8696c0847be",
+                      "name": "Sesame",
+                    },
+                    Object {
+                      "id": "07a37612-99e0-47d6-b0af-b7b776b25b7c",
+                      "name": "Shellfish",
+                    },
+                    Object {
+                      "id": "ba1f8ebb-7eac-49e4-8eb2-d660371aadc9",
+                      "name": "Soy",
+                    },
+                    Object {
+                      "id": "e4a561ba-897b-49a4-aee6-fa1db9e5bf0e",
+                      "name": "Sulfites",
+                    },
+                    Object {
+                      "id": "0f490bf5-4eac-413b-a5ac-445082d0a57f",
+                      "name": "Tree Nuts",
+                    },
+                    Object {
+                      "id": "ea2ae210-c363-4cd8-bbde-fabc2d17d211",
+                      "name": "Wheat",
+                    },
+                  ],
+                  "calories": 1,
+                  "carbohydrates": 11,
+                  "fat": 13,
+                  "protein": 7,
+                  "sugar": 8,
+                },
+                "id": "7a2ad1d2-cf54-4495-af15-85b94a4224b5",
+                "itemDescription": Object {
+                  "ar": "حساء المنزل لذيذ أدلى.",
+                  "en": "Deliciously home made soup.",
+                },
+                "name": Object {
+                  "ar": "شوربة محلية الصنع",
+                  "en": "Homemade Soup",
+                },
+                "optionSets": Array [
+                  Object {
+                    "id": "83609e90-f762-4555-865e-002939bdf9c8",
+                    "label": Object {
+                      "ar": "شوربة محلية الصنع",
+                      "en": "Homemade Soup",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "96d646bf-474a-447f-ae49-7b991c2ab933",
+                        "price": "0.250",
+                        "value": Object {
+                          "ar": "شوربة محلية الصنع",
+                          "en": "Homemade Soup",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                ],
+                "photo": "https://cofe-district.imgix.net/development/menu-item/menu-item-1517012025725.jpg",
+              },
+            ],
+            "name": Object {
+              "ar": "طعام",
+              "en": "Food",
+            },
+          },
+          Object {
+            "id": "6c52f1d1-7d39-41bb-8b0f-6e147183265c",
+            "items": Array [
+              Object {
+                "available": true,
+                "baseNutritional": Object {
+                  "allergens": Array [
+                    Object {
+                      "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+                      "name": "Egg",
+                    },
+                    Object {
+                      "id": "13582fa9-5d17-4a2f-9b1c-e8696c0847be",
+                      "name": "Sesame",
+                    },
+                    Object {
+                      "id": "e4a561ba-897b-49a4-aee6-fa1db9e5bf0e",
+                      "name": "Sulfites",
+                    },
+                  ],
+                  "calories": 12,
+                  "carbohydrates": 11,
+                  "fat": 1,
+                  "protein": 1,
+                  "sugar": 12,
+                },
+                "id": "b91b2161-c8c9-4029-b9ad-a8f80ce41c93",
+                "itemDescription": Object {
+                  "ar": "قهوة مجمدة مع الحليب والكراميل مع الكريما المخفوقة وشراب الشوكولاتة.",
+                  "en": "Frozen coffee with milk and caramel topped with whipped cream and chocolate syrup.",
+                },
+                "name": Object {
+                  "ar": "كراميل جيلي",
+                  "en": "Caramel Jelly",
+                },
+                "optionSets": Array [
+                  Object {
+                    "id": "dd9b2411-e507-40dc-88c3-8c1bb44a42a1",
+                    "label": Object {
+                      "ar": "اختيار الحجم",
+                      "en": "Choose a size",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "93b14083-fa9f-4ffb-b536-4a0f4cafe117",
+                        "price": "3.000",
+                        "value": Object {
+                          "ar": "14oz",
+                          "en": "14oz",
+                        },
+                      },
+                      Object {
+                        "id": "0a6e6072-44ee-44dc-9b54-925e66f1d6f5",
+                        "price": "3.500",
+                        "value": Object {
+                          "ar": "16oz",
+                          "en": "16oz",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                  Object {
+                    "id": "4624f93a-5657-422e-9fd1-26e7489a7ccd",
+                    "label": Object {
+                      "ar": "اختيار الحليب",
+                      "en": "Choice of Milk",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "ad1f9f0e-b543-4885-9e9e-17417a4d45b0",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "هذا لا يوجد",
+                          "en": "None",
+                        },
+                      },
+                      Object {
+                        "id": "75720f34-d784-465a-b85b-4081b3ac45c6",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "منتظم",
+                          "en": "Regular",
+                        },
+                      },
+                      Object {
+                        "id": "83125393-dab9-449a-9154-23948ac2f06a",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب الصويا",
+                          "en": "Soy Milk",
+                        },
+                      },
+                      Object {
+                        "id": "87540cad-be4b-41e8-8d06-e68f4f445198",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب اللوز",
+                          "en": "Almond Milk",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                ],
+                "photo": "https://cofe-district.imgix.net/development/menu-item/menu-item-1517012071484.jpg",
+              },
+              Object {
+                "available": true,
+                "baseNutritional": Object {
+                  "allergens": Array [],
+                  "calories": 15,
+                  "carbohydrates": 10,
+                  "fat": 4,
+                  "protein": 9,
+                  "sugar": 11,
+                },
+                "id": "87f26eb8-ed27-45df-81e9-2a33c56cb052",
+                "itemDescription": Object {
+                  "ar": "قهوة مجمدة مع حليب مغطى بالكريمة المخفوقة وشراب الشوكولاتة.",
+                  "en": "Frozen coffee with milk topped with whipped cream and chocolate syrup.",
+                },
+                "name": Object {
+                  "ar": "شوكو موز",
+                  "en": "Choco Banana",
+                },
+                "optionSets": Array [
+                  Object {
+                    "id": "2c6740ed-dd27-4550-a245-7ad48c96571f",
+                    "label": Object {
+                      "ar": "اختيار الحجم",
+                      "en": "Choose a size",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "b8dac706-b3bb-499b-bfa4-c75b3d97447a",
+                        "price": "3.000",
+                        "value": Object {
+                          "ar": "14oz",
+                          "en": "14oz",
+                        },
+                      },
+                      Object {
+                        "id": "69d9eed3-ef21-4a7a-97de-414a2232ac45",
+                        "price": "3.500",
+                        "value": Object {
+                          "ar": "16oz",
+                          "en": "16oz",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                  Object {
+                    "id": "e030daf6-ca63-4486-b2d3-9befdf4323d8",
+                    "label": Object {
+                      "ar": "اختيار الحليب",
+                      "en": "Choice of Milk",
+                    },
+                    "options": Array [
+                      Object {
+                        "id": "0af547b6-432a-494f-bb15-8e2a2b7a8929",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "هذا لا يوجد",
+                          "en": "None",
+                        },
+                      },
+                      Object {
+                        "id": "97f902e5-1532-4752-b7ef-9ac5afbc0d21",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "منتظم",
+                          "en": "Regular",
+                        },
+                      },
+                      Object {
+                        "id": "d0bab4e6-a2e8-45ea-aae8-0f1d6e2811c2",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب الصويا",
+                          "en": "Soy Milk",
+                        },
+                      },
+                      Object {
+                        "id": "0590660e-0c69-48b6-b86a-ecef888de1f9",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب اللوز",
+                          "en": "Almond Milk",
+                        },
+                      },
+                    ],
+                    "single": true,
+                  },
+                ],
+                "photo": "https://cofe-district.imgix.net/development/menu-item/menu-item-1517012105997.jpeg",
+              },
+            ],
+            "name": Object {
+              "ar": "مجمد",
+              "en": "Frozen",
+            },
+          },
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`get menu by id 1`] = `
+Object {
+  "data": Object {
+    "menu": Object {
+      "id": "b7a4936a-e6e9-494d-982d-fa8c42a78636",
+    },
+  },
+}
+`;
+
+exports[`get menus 1`] = `
+Object {
+  "data": Object {
+    "menus": Array [
+      Object {
+        "id": "b7a4936a-e6e9-494d-982d-fa8c42a78636",
+      },
+      Object {
+        "id": "27146d48-1348-4d1f-8ea5-aab28eeb5d91",
+      },
+      Object {
+        "id": "75023e9d-5ab3-4d45-8f07-8970d92d0c31",
+      },
+      Object {
+        "id": "0dc414ab-b1b3-43b6-9dd7-34c9b05e4ab0",
+      },
+    ],
+  },
+}
+`;

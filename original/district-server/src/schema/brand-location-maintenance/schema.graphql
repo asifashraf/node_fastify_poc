@@ -1,0 +1,512 @@
+extend type Query {
+  """
+  Get The Maintenance Status
+  """
+  getBrandMaintenanceStatus(brandId: ID!, brandLocationId: ID): BrandMaintenance
+  """
+  Get The Maintenance Request List
+  """
+  getMaintenanceRequestList(
+    countryId: ID
+    status: MaintenanceRequestStatus
+  ): MaintenanceRequestListPayload
+  """
+  Get The Maintenance User
+  """
+  getMaintenanceUser(brandLocationId: ID!): SaveMaintenanceUserPayload
+  """
+  Get Area List
+  """
+  getAreaList: TasleehAreaListPayload
+  """
+  Get Available Sub Service List
+  """
+  getAvailableSubServiceList(
+    brandLocationId: ID!
+  ): TasleehAvailableSubServiceListPayload
+  """
+  Get Assessment List By brandLocationID for vendor portal
+  """
+  getAssessmentListByBrandLocationId(
+    brandLocationId: ID!
+  ): AssessmentListPayload
+  """
+  Get Assessment List By brandLocationID for vendor portal
+  """
+  getAssessmentList(
+    countryId: ID
+    status: MaintenanceAssessmentStatus
+  ): AssessmentListPayload
+  """
+  Get Ticket List
+  """
+  getTicketListByAssessmentId(assessmentId: ID!): TicketListPayload
+  """
+  Get Ticket List
+  """
+  getTicketList(
+    countryId: ID
+    brandId: ID
+    brandLocationId: ID
+    assessmentId: ID
+  ): TicketListPayload
+  """
+  Get Branch Address Info
+  """
+  getBranchAddressInfo(brandLocationId: ID!): BranchMaintenanceAddress
+}
+
+extend type Mutation {
+  """
+  Save Maintenance Request
+  """
+  saveMaintenanceRequest(
+    brandId: ID
+    brandLocationId: ID
+  ): SaveMaintenanceRequestPayload
+  """
+  Save Maintenance User
+  """
+  saveMaintenanceUser(
+    userInput: MaintenanceUserInput!
+  ): SaveMaintenanceUserPayload
+  """
+  Save Maintenance Assessment
+  """
+  saveMaintenanceAssessment(
+    assessmentInput: MaintenanceAssessmentInput!
+  ): SaveMaintenanceAssessmentPayload
+  """
+  Save Ticket
+  """
+  saveAssessmentTicket(
+    ticketInput: AssessmentTicketInput!
+  ): SaveAssessmentTicketPayload
+}
+
+type MaintenanceRequestListPayload {
+  status: Boolean!
+  requestList: [MaintenanceRequest]
+  """
+  The first validation error that occured
+  """
+  error: MaintenanceRequestError
+  """
+  All validation errors
+  """
+  errors: [MaintenanceRequestError]
+}
+
+type MaintenanceRequest {
+  id: ID!
+  brandId: ID!
+  brandLocationId: ID
+  brandName: LocalizedString
+  brandLocationName: LocalizedString
+  status: String
+  created: Datetime
+}
+
+type BrandMaintenance {
+  """
+  The request status
+  """
+  status: Boolean!
+  """
+  The Maintenance Status of Brand
+  """
+  brandStatus: Boolean
+  """
+  The Maintenance Status of Country
+  """
+  countryStatus: Boolean
+  """
+  The Maintenance Request of Country
+  """
+  requestStatus: Boolean
+  """
+  The first validation error that occured
+  """
+  error: MaintenanceRequestError
+  """
+  All validation errors
+  """
+  errors: [MaintenanceRequestError]
+}
+
+type SaveMaintenanceRequestPayload {
+  """
+  Successfully saved
+  """
+  status: Boolean!
+  """
+  The first validation error that occured
+  """
+  error: MaintenanceRequestError
+  """
+  All validation errors
+  """
+  errors: [MaintenanceRequestError!]
+}
+
+type BranchMaintenanceAddress {
+  areaId: Int
+  area: String
+  block: String
+  street: String
+  avenue: String
+  buildingNumber: String
+  phoneNumber: String
+}
+
+"""
+Maintenance User
+"""
+type SaveMaintenanceUserPayload {
+  """
+  Successfully saved
+  """
+  status: Boolean!
+  """
+  Maintenance User Identifier
+  """
+  user: TasleehUser
+  """
+  The first validation error that occured
+  """
+  error: MaintenanceRequestError
+  """
+  All validation errors
+  """
+  errors: [MaintenanceRequestError]
+}
+
+"""
+Maintenance User Input
+"""
+input MaintenanceUserInput {
+  """
+  Target Brand Location ID
+  """
+  brandLocationId: ID!
+  """
+  Area Id
+  """
+  areaId: Int!
+  """
+  Area
+  """
+  area: String!
+  """
+  Block Name/Number
+  """
+  block: String!
+  """
+  Street Name/Number
+  """
+  street: String!
+  """
+  Avenue Name/Number
+  """
+  avenue: String
+  """
+  Building Number
+  """
+  buildingNumber: String
+  """
+  Phone Number
+  """
+  phoneNumber: String
+}
+
+type TasleehUser {
+  id: ID
+  brandLocationId: ID
+  name: String
+  email: String
+  phoneNumber: String
+  externalUserId: Int
+  userId: Int
+  status: String
+  addressInfo: BranchMaintenanceAddress
+  created: Datetime
+  updated: Datetime
+}
+
+"""
+Maintenance Assessment Input
+"""
+input MaintenanceAssessmentInput {
+  """
+  Target Brand Location ID
+  """
+  brandLocationId: ID!
+  """
+  Sub Service Id
+  """
+  subServiceId: Int!
+  """
+  Area Id
+  """
+  areaId: Int!
+  """
+  Block Name/Number
+  """
+  block: String!
+  """
+  Street Name/Number
+  """
+  street: String!
+  """
+  Avenue Name/Number
+  """
+  avenue: String
+  """
+  Building Number
+  """
+  buildingNumber: String!
+  """
+  Phone Number
+  """
+  phoneNumber: String!
+}
+
+type SaveMaintenanceAssessmentPayload {
+  status: Boolean!
+  assessmentId: Int
+  assessmentCode: String
+  error: MaintenanceRequestError
+  errors: [MaintenanceRequestError]
+}
+
+type AssessmentListPayload {
+  status: Boolean!
+  assessmentList: [Assessment]
+  availableSubServiceList: [TasleehAvailableSubService]
+  """
+  The first validation error that occured
+  """
+  error: MaintenanceRequestError
+  """
+  All validation errors
+  """
+  errors: [MaintenanceRequestError]
+}
+
+type Assessment {
+  id: ID!
+  brandLocationId: ID!
+  brandId: ID
+  brandName: LocalizedString
+  brandLocationName: LocalizedString
+  assessmentId: Int
+  assessmentCode: String
+  area: Area
+  subService: SubService
+  block: String
+  street: String
+  avenue: String
+  buildingNumber: String!
+  phoneNumber: String!
+  status: String
+  created: Datetime
+  updated: Datetime
+}
+
+type SubService {
+  sub_service_id: Int
+  name: String
+  name_ar: String
+  service_id: Int
+  service: String
+  service_ar: String
+}
+
+type Area {
+  area_id: Int
+  name: String
+  name_ar: String
+  ref_gov_id: Int
+  governorate: String
+  governorate_ar: String
+}
+
+"""
+Maintenance Assessment Ticket Input
+"""
+input AssessmentTicketInput {
+  """
+  Target Brand Location ID
+  """
+  brandLocationId: ID!
+  """
+  Sub Service Id
+  """
+  assessmentId: ID!
+  """
+  Issue Subject
+  """
+  subject: String!
+  """
+  Issue Description
+  """
+  description: String!
+  """
+  Flat Office / Number
+  """
+  flatOffice: String
+  """
+  Phone Number
+  """
+  phoneNumber: String
+}
+
+type SaveAssessmentTicketPayload {
+  status: Boolean!
+  ticketId: Int
+  error: MaintenanceRequestError
+  errors: [MaintenanceRequestError]
+}
+
+type TicketListPayload {
+  status: Boolean!
+  ticketList: [Ticket]
+  """
+  The first validation error that occured
+  """
+  error: MaintenanceRequestError
+  """
+  All validation errors
+  """
+  errors: [MaintenanceRequestError]
+}
+
+type Ticket {
+  id: ID!
+  assessment: Assessment!
+  subject: String
+  description: String
+  flatOffice: String
+  phoneNumber: String
+  status: String
+  created: Datetime
+  updated: Datetime
+}
+
+type TasleehAreaListPayload {
+  status: Boolean!
+  areaList: [TasleehArea]
+  error: MaintenanceRequestError
+  errors: [MaintenanceRequestError]
+}
+
+type TasleehArea {
+  areaId: Int
+  name: String
+  nameAr: String
+  refGovId: Int
+  governorate: String
+  governorateAr: String
+}
+
+type TasleehAvailableSubServiceListPayload {
+  status: Boolean!
+  availableSubServiceList: [TasleehAvailableSubService]
+  error: MaintenanceRequestError
+  errors: [MaintenanceRequestError]
+}
+
+type TasleehAvailableSubService {
+  subServiceId: Int
+  name: String
+  nameAr: String
+  serviceId: Int
+  service: String
+  serviceAr: String
+}
+
+enum MaintenanceRequestError {
+  """
+  The Brand must exist
+  """
+  INVALID_BRAND
+  """
+  The Brand Location must exist
+  """
+  INVALID_BRAND_LOCATION
+  """
+  The Brand Location email must exist
+  """
+  INVALID_BRAND_LOCATION_EMAIL
+  INVALID_BRAND_LOCATION_PHONE
+  """
+  The Brand Location long and lati must exist
+  """
+  MISSING_BRAND_LOCATION_LONGITUDE_LATITUDE
+  """
+  The Feature is already enable for this Brand
+  """
+  ALREADY_ENABLE
+  """
+  The Feature is disable for this Brand
+  """
+  DISABLE_MAINTENANCE_FOR_BRAND
+  """
+  The Feature is disable for this Country
+  """
+  DISABLE_MAINTENANCE_FOR_COUNTRY
+  """
+  The Feature is disable for this Country
+  """
+  BRAND_LOCATION_NOT_REGISTERED
+  """
+  Fill
+  """
+  MAINTENANCE_REQUEST_ALREADY_EXIST
+  """
+  The Feature is disable for this Country
+  """
+  AREA_LIST_ERROR
+  INVALID_AREA
+  """
+  The Feature is disable for this Country
+  """
+  AVAILABLE_SUB_SERVICE_LIST_ERROR
+  INVALID_SUB_SERVICE
+  """
+  The Feature is disable for this Country
+  """
+  ASSESSMENT_ALREADY_GENERATE
+  """
+  The Feature is disable for this Country
+  """
+  ASSESSMENT_GENERATE_ERROR
+  INVALID_ASSESSMENT
+  INACTIVE_ASSESSMENT
+  TICKET_GENERATE_ERROR
+  """
+  The Feature is disable for this Country
+  """
+  USER_NOT_REGISTERED
+  """
+  Can not save a record/s
+  """
+  TRANSACTIONAL_ERROR
+  """
+  Unauthorized process
+  """
+  UNAUTHORIZED_PROCESS
+}
+
+enum MaintenanceRequestStatus {
+  REQUESTED
+  ACCEPTED
+  REJECTED
+}
+
+enum MaintenanceAssessmentStatus {
+  INIT
+  REQUESTED
+  ACTIVE
+  INACTIVE
+}

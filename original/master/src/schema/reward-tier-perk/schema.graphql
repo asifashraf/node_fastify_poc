@@ -1,0 +1,12 @@
+type RewardTierPerk {
+  id: ID!
+  rewardTier: RewardTier!
+  title: LocalizedString!
+  value: Float!
+  type: RewardTierPerkType!
+  # applyType: RewardTierPerkApplyType!
+  sortOrder: Int
+  created: Datetime!
+  updated: Datetime!
+  discountLimit: Float
+}

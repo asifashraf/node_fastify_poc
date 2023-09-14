@@ -1,0 +1,55 @@
+"""
+Schema for authentication
+"""
+type LoginResponse {
+  """
+  Access token to authorize API calls
+  """
+  token: AuthToken
+  """
+  Long lived token to refresh access token
+  """
+  refreshToken: AuthToken
+  """
+  Error message if any
+  """
+  error: SingleSignOnStatus
+  """
+  Error code in case or error
+  """
+  errorCode: Int
+  """
+  Status regarding Single-Sign on progress
+  """
+  status: SingleSignOnStatus
+}
+
+type AuthToken {
+  accessToken: String!
+  tokenType: String!
+  expiresIn: Int
+}
+
+type OTPRequestErrorBody {
+  lockDurationInSeconds: Int!
+  lockDurationInMins: Int!
+  lockDurationInHours: Int!
+  maxAttempt: Int!
+}
+
+type OTPRequestPayload {
+  status : Boolean!
+  providerInfos: [OTPProviderInfo!]!
+  error: OTPRequestError
+  errorBody: OTPRequestErrorBody
+}
+
+type OTPInformation {
+  providerInfos: [OTPProviderInfo!]!
+}
+
+type OTPProviderInfo {
+  priorityType: ProviderPriorityType!
+  label: LocalizedString!
+  icon: String
+}

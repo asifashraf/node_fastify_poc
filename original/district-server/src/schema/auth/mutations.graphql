@@ -1,0 +1,8 @@
+extend type Mutation {
+  requestCustomerEmailVerification(userEmail : String!) : CustomerRequestEmailVerificationPayload! @requireAuth
+  """
+  Reset The OTP Rate Limit of registered/nonregistered user
+  """
+  resetCustomerOTPRateLimit(customerInfo : OTPRateLimitResetRequestInput!) : OTPRateLimitResetPayload! @requireAuth @requirePermissions(permissions: ["sso:view"])
+
+}

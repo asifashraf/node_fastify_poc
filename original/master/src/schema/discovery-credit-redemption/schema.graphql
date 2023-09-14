@@ -1,0 +1,5 @@
+type DiscoveryCreditRedemption {
+  id: ID!
+  discoveryCredit: DiscoveryCredit!
+  brand: Brand!
+}

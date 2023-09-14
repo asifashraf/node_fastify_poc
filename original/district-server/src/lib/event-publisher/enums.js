@@ -1,0 +1,3 @@
+exports.Topic = {
+  ANALYTICS_EVENTS: 'ANALYTICS_EVENTS',
+};

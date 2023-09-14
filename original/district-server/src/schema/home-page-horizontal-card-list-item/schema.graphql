@@ -1,0 +1,79 @@
+extend type Query {
+  getHorizontalCardListItems(
+    input: HomePageSectionArgs
+  ): HorizontalCardListItemData
+
+  getHorizontalCardListItemsForAdmin(
+    countryId: ID!
+    status: HorizontalCardListItemStatus
+    type: HorizontalCardListItemType
+  ): [HorizontalCardListItemForAdmin!] @requireAuth
+}
+
+extend type Mutation {
+  saveHorizontalCardListItems(
+    input: HorizontalCardListInput!
+  ): HorizontalCardListItemPayload @requireAuth
+}
+
+type HorizontalCardListItem {
+  id: ID
+  image: String
+  title: LocalizedString
+  subtitle: LocalizedString
+  description: LocalizedString
+  tag: [Tag]
+}
+
+type HorizontalCardListItemData {
+  sectionMetadata: HomePageSection
+  items: [HorizontalCardListItem!]
+  isNextPage: Boolean!
+}
+
+input HorizontalCardListInput {
+  sectionId: ID!
+  countryId: ID!
+  cardItemIds: [ID!]!
+}
+
+type HorizontalCardListItemPayload {
+  horiziontalCardListItems: HorizontalCardListItemForAdmin
+  error: HorizontalCardListError
+  errors: [HorizontalCardListError]
+}
+
+type HorizontalCardListItemForAdmin {
+  section: HomePageSection!
+  itemType: HorizontalCardListItemType!
+  items: [HorizontalCardItemForAdmin]
+}
+
+type HorizontalCardItemForAdmin {
+  id: ID!
+  itemId: ID!
+  itemName: LocalizedString
+  itemType: HorizontalCardListItemType!
+  status: HorizontalCardListItemStatus!
+}
+
+enum HorizontalCardListItemType {
+  BRAND_LOCATION
+  BRAND
+  SUBSCRIPTION
+}
+
+enum HorizontalCardListItemStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum HorizontalCardListError {
+  INVALID_SECTION
+  SECTION_TYPE_CAN_NOT_SUPPORT_HORIZONTAL_CARD
+  INVALID_BRAND
+  INVALID_BRAND_LOCATION
+  INVALID_SUBSCRIPTION_BRAND
+  TRANSACTIONAL_ERROR
+  UNAUTHORIZED_PROCESS
+}

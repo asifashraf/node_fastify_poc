@@ -1,0 +1,117 @@
+type StoreOrder {
+  """
+  Database ID
+  """
+  id: ID!
+  """
+  The order set of this order
+  """
+  storeOrderSet: StoreOrderSet!
+  """
+  The current/latest order Status
+  """
+  currentStatus: StoreOrderStatusName!
+  """
+  Status History
+  """
+  statusHistory: [StoreOrderStatus!]!
+  """
+  The brand of this order
+  """
+  brand: Brand!
+  """
+  acknowledged of the order
+  """
+  acknowledged: Boolean!
+  """
+  A user-facing code that can be used to look up an order.
+  It is not guaranteed to be unique among all order,
+  however collisions are very unlikely. Example code: `A6FDC9`
+  """
+  shortCode: String!
+  """
+  The total price of the order
+  """
+  total: CurrencyValue!
+  """
+  The list of products included in the store order
+  """
+  products: [StoreOrderProduct!]!
+
+  """
+  created at
+  """
+  created: Datetime!
+  """
+  updated at
+  """
+  updated: Datetime!
+  """
+  created at
+  """
+  createdAt: Datetime!
+  """
+  updated at
+  """
+  updatedAt: Datetime!
+  currency: Currency!
+  trackingInfo: TrackingInfo
+  """
+  Date related to current status
+  conditions:
+  initiated => null
+  placed => estimated delivery time
+  dispatched => estimated delivery time
+  delivered => delivered time
+  canceled => canceled time
+  rejected => rejected time
+  """
+  currentStatusDate: Datetime
+}
+
+type StoreOrderCard {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  A user-facing code that can be used to look up an order set. It is not guaranteed to be unique among all order sets, however collisions are very unlikely. Example code: `A6FDC9`
+  """
+  shortCode: String!
+  """
+  StoreOrderSet identifier
+  """
+  storeOrderSetId: ID
+  """
+  StoreOrderSet code
+  """
+  storeOrderSetShortCode: String
+  """
+  The current/latest order set Status
+  """
+  currentStatusForStoreOrder: StoreOrderStatusName
+  """
+  When this order was (successfully/failed) completed
+  """
+  created: Datetime!
+  """
+  Brand Identifier
+  """
+  brandId: ID
+  """
+  Brand name
+  """
+  brandName: LocalizedString
+  """
+  Address Name
+  """
+  friendlyName: String
+  """
+  a favicon for the brand
+  """
+  favicon: String
+  """
+  is past order
+  """
+  isPast: Boolean
+}

@@ -1,0 +1,32 @@
+extend type Query {
+#  """
+#  Getting a bank-card information
+#  """
+#  bankCard(
+#    bankCardId: ID!
+#  ): BankCard
+#  @requireAuth
+  """
+  List all bank cards for voucher locking
+  """
+  bankCards(
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+    """
+    Optional Search Term for filtering
+    """
+    searchTerm: String
+    """
+    Country Id for Filtering
+    """
+    countryId: ID!
+    """
+    Optional Bank IDs for filtering
+    """
+    bankIds: [ID!]
+  ): [BankCard!]!
+  @requireAuth
+  @requirePermissions(permissions: ["bankCards:view"])
+}

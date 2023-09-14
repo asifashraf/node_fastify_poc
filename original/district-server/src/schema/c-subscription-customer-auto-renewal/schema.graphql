@@ -1,0 +1,39 @@
+extend type Mutation {
+  cancelSubscriptionCustomerAutoRenewal(
+    subscriptionCustomerId: ID!
+  ): Boolean! @requireAuth
+  renewRedeemedSubscriptionNow(
+    subscriptionId: ID!
+  ): CSubscriptionCustomerAutoRenewNowPayload! @requireAuth
+}
+
+#extend type Query {
+#}
+enum CSubscriptionCustomerAutoRenewalError {
+  PAYMENT_FAILURE
+  UNSPECIFIED_ERROR
+  NOT_FULLY_REDEEMED
+  NO_SUBSCRIPTION_FOUND
+  SERVICE_ERROR
+  AUTO_RENEWAL_IS_NOT_ACTIVE
+  ALREADY_RENEWED
+}
+
+type CSubscriptionCustomerAutoRenewNowPayload {
+  status: Boolean
+  subscriptionCustomer: CSubscriptionCustomer
+  error: CSubscriptionCustomerAutoRenewalError
+}
+
+type CSubscriptionOrderAutoRenewalStatus {
+  isShow: Boolean
+  autoRenewalDate: Datetime
+  defaultValue: Boolean
+}
+
+type CSubscriptionCustomerAutoRenewalStatus {
+  isActive: Boolean
+  autoRenewalDate: Datetime
+  paymentMethod: PaymentMethod @deprecated
+  paymentInfo: PaymentInfo
+}

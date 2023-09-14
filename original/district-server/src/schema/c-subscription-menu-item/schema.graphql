@@ -1,0 +1,103 @@
+type CSubscriptionMenuItem {
+  id: ID
+  subscriptionId: ID
+  brandId: ID
+  menuItemId: ID
+  menuSectionId: ID
+  created: Datetime
+  updated: Datetime
+  options: [CSubscriptionMenuItemOption]
+  photo: String!
+  name: LocalizedString!
+}
+
+input CSubscriptionMenuItemWithOptionsInput {
+  menuItemId: ID!
+  options: [ID!]
+}
+
+enum CSubscriptionMenuItemsWithOptionsSaveError {
+  """
+  according to menu item id
+  """
+  INVALID_BRAND
+  """
+  according to menu item id
+  """
+  INVALID_OPTION
+  """
+  subscription is not available (inactive)
+  """
+  INVALID_SUBSCRIPTION
+  INVALID_MENU_ITEM
+  ALREADY_EXIST_MENU_ITEM
+  UNAUTHORIZED_PROCESS
+}
+
+type CSubscriptionMenuItemsWithOptionsSavePayload {
+  errors: [CSubscriptionMenuItemsWithOptionsSaveError]
+  items: [CSubscriptionMenuItem]
+}
+
+enum CSubscriptionMenuItemsWithOptionsDeleteError {
+  INVALID_ID
+  INVALID_SUBSCRIPTION_ID
+  INVALID_BRAND_ID
+  INVALID_MENU_ITEM_ID
+  UNAUTHORIZED_PROCESS
+}
+
+type CSubscriptionMenuItemsDeletePayload {
+  errors: [CSubscriptionMenuItemsWithOptionsDeleteError]
+  deleted: Boolean
+}
+
+extend type Mutation {
+  saveCSubscriptionMenuItemsWithOptions(
+    subscriptionId: ID!
+    items: [CSubscriptionMenuItemWithOptionsInput]
+  ): CSubscriptionMenuItemsWithOptionsSavePayload @requireAuth
+  """
+  menu items can be deleted by using subscriptionId, brandId, menuItemId and id
+  """
+  deleteCSubscriptionMenuItem(
+    subscriptionId: ID!
+    menuItemIds: [ID!]
+  ): CSubscriptionMenuItemsDeletePayload @requireAuth
+}
+
+input CSubscriptionMenuItemFilters {
+  id: ID
+  subscriptionId: ID
+  brandId: ID
+  menuItemId: ID
+}
+
+extend type Query {
+  getCSubscriptionMenuItemsByFilters(
+    filters: CSubscriptionMenuItemFilters
+    paging: PagingInput
+  ): [CSubscriptionMenuItem!]
+  getCupsByLocationForQuickOrder(
+    subscriptionId: ID!
+    location: GISLocationInput!
+  ): [QuickOrderItem] @requireAuth
+}
+
+type QuickOrderItem {
+  brandId: ID!
+  branchId: ID!
+  """
+  brand name
+  """
+  title: LocalizedString!
+  """
+  branch name
+  """
+  description: LocalizedString!
+  photo: String @toCDN
+  """
+  The distance from the provided location, in m. This value is only present when searching for brand locations via a reference geolocation
+  """
+  distance: Float
+}

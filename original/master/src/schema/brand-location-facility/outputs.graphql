@@ -1,0 +1,10 @@
+enum BrandLocationFacilityPayloadError {
+  INVALID_BRAND_LOCATION
+  SERVICE_ERROR
+}
+
+type BrandLocationFacilityPayload {
+  error : BrandLocationFacilityPayloadError
+  errors : [BrandLocationFacilityPayloadError!]
+  facilities : [BrandLocationFacility]
+}

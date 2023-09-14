@@ -1,0 +1,17 @@
+enum BrandLocationFacilityType {
+  SEATING
+  OUTDOOR
+  WIFI
+  PET_FRIENDLY
+  TOILETS
+  PARKING
+  STUDY
+}
+
+type BrandLocationFacility {
+  id: ID!
+  created: Datetime!
+  updated: Datetime!
+  type : BrandLocationFacilityType!
+}
+

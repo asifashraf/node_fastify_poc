@@ -1,0 +1,186 @@
+{
+  "eventId": "d6703cc8-9e79-415d-ac03-a4dc7f6ab43c",
+  "eventTime": "2007-12-03T10:15:30+01:00",
+  "eventType": "menus.menu_publish",
+  "metadata": {
+    "storeId": "partner-store-unique-identifier",
+    "applicationId": "ad4ff59d-04c0-4c7d-8ca3-e3a673f8443d",
+    "resourceId": "resource-id-if-needed",
+    "payload": {
+      "menuData": {
+        "menus": {
+          "ff6dd693-5e55-4a92-a359-ea61b23ed423": {
+            "id": "ff6dd693-5e55-4a92-a359-ea61b23ed423",
+            "name": "Tasty BBQ",
+            "categoryIds": ["b01485b0-034a-47c5-8a0a-0eeca08bf994"],
+            "fulfillmentModes": ["DELIVERY"],
+            "description": "Cooking up BBQ deliciousness from around the globe!",
+            "hoursData": {
+              "timeZone": "America/Los_Angeles",
+              "regularHours": [
+                {
+                  "days": [
+                    "MONDAY",
+                    "TUESDAY",
+                    "WEDNESDAY",
+                    "THURSDAY",
+                    "FRIDAY"
+                  ],
+                  "timeRanges": [
+                    {
+                      "start": "08:00",
+                      "end": "22:00"
+                    }
+                  ]
+                }
+              ],
+              "specialHours": [
+                {
+                  "date": "2021-12-31",
+                  "timeRanges": [
+                    {
+                      "start": "08:00",
+                      "end": "22:00"
+                    }
+                  ],
+                  "type": "CLOSED"
+                }
+              ]
+            },
+            "additionalCharges": [
+              {
+                "chargeType": "PACKAGING_CHARGE",
+                "percentageCharge": {
+                  "decimalValue": 0.03
+                }
+              }
+            ]
+          }
+        },
+        "categories": {
+          "b01485b0-034a-47c5-8a0a-0eeca08bf994": {
+            "name": "Drinks",
+            "description": "All drink items served up nice and fresh!",
+            "id": "b01485b0-034a-47c5-8a0a-0eeca08bf994",
+            "itemIds": ["fa4f0192-4c4e-4455-9db8-61d428c34969"]
+          }
+        },
+        "items": {
+          "fa4f0192-4c4e-4455-9db8-61d428c34969": {
+            "id": "fa4f0192-4c4e-4455-9db8-61d428c34969",
+            "name": "Canned Coke",
+            "description": "Best soda pop ever made",
+            "price": {
+              "currencyCode": "USD",
+              "amount": 7.65
+            },
+            "status": {
+              "saleStatus": "FOR_SALE"
+            },
+            "modifierGroupIds": ["f4c69056-3ae3-4517-9294-5ceec8df5f81"],
+            "photoIds": ["c75d9460-5d48-423d-8d01-f825fd5b1672"],
+            "priceOverrides": [
+              {
+                "rules": [
+                  {
+                    "type": "FulfillmentModeOverrideRule",
+                    "fulfillmentMode": "PICK_UP"
+                  }
+                ],
+                "price": {
+                  "currencyCode": "USD",
+                  "amount": 7
+                }
+              }
+            ],
+            "skuDetails": {
+              "skuSlug": "canned-coke-355ml",
+              "dietaryClassifications": [
+                {
+                  "tag": "VEGAN"
+                }
+              ],
+              "allergenClassifications": [
+                {
+                  "tag": "GLUTEN",
+                  "containsAllergen": false
+                },
+                {
+                  "tag": "PEANUT",
+                  "containsAllergen": true
+                }
+              ],
+              "storageRequirements": [
+                {
+                  "tag": "COLD"
+                },
+                {
+                  "tag": "AVOID_SUNLIGHT"
+                }
+              ],
+              "additives": ["flavor enhancers", "food coloring"],
+              "containsAlcohol": false,
+              "nutritionalInfo": {
+                "energyKcal": {
+                  "low": 1,
+                  "high": 100
+                }
+              },
+              "servings": {
+                "min": 1,
+                "max": 2
+              },
+              "producerInformation": "The Coca-Cola Company",
+              "distributorInformation": "The Coca-Cola Company",
+              "countryOfOriginIso2": "US"
+            },
+            "additionalCharges": [
+              {
+                "chargeType": "PACKAGING_CHARGE",
+                "flatCharge": {
+                  "currencyCode": "USD",
+                  "amount": 1.5
+                }
+              }
+            ],
+            "tax": {
+              "percentageValue": {
+                "decimalValue": 0.513
+              },
+              "isValueAddedTax": true
+            }
+          },
+          "6d53cf04-9d62-40f5-a8b3-706e3377668f": {
+            "id": "6d53cf04-9d62-40f5-a8b3-706e3377668f",
+            "name": "Paper straw",
+            "description": "A paper straw",
+            "price": {
+              "currencyCode": "USD",
+              "amount": 0.5
+            },
+            "status": {
+              "saleStatus": "FOR_SALE"
+            }
+          }
+        },
+        "modifierGroups": {
+          "f4c69056-3ae3-4517-9294-5ceec8df5f81": {
+            "id": "f4c69056-3ae3-4517-9294-5ceec8df5f81",
+            "name": "Add Straw",
+            "minimumSelections": 0,
+            "maximumSelections": 1,
+            "itemIds": ["6d53cf04-9d62-40f5-a8b3-706e3377668f"]
+          }
+        },
+        "photos": {
+          "c75d9460-5d48-423d-8d01-f825fd5b1672": {
+            "id": "c75d9460-5d48-423d-8d01-f825fd5b1672",
+            "fileName": "c75d9460-5d48-423d-8d01-f825fd5b1672.jpeg",
+            "url": "https://example.com/photos/c75d9460-5d48-423d-8d01-f825fd5b1672.jpeg"
+          }
+        }
+      }
+    },
+    "resourceHref": "resource-href-id-if-needed"
+  }
+}

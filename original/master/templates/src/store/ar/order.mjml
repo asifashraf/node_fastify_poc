@@ -1,0 +1,445 @@
+<mjml>
+  <mj-head>
+    <mj-font name="Dubai Light" href="https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/fonts/Dubai-Light.ttf"></mj-font>
+    <mj-font name="Dubai" href="https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/fonts/Dubai-Regular.ttf"></mj-font>
+    <mj-font name="Dubai Bold" href="https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/fonts/Dubai-Bold.ttf"></mj-font>
+
+    <mj-style>
+      @font-face {
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 400;
+        src: url(https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/fonts/Nunito-Regular.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+      }
+
+      @font-face {
+        font-family: 'Lato-Bold';
+        font-style: normal;
+        font-weight: 600;
+        src: local('Lato Bold'), local('Lato-Bold'), url(https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/fonts/Nunito-Bold.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+      }
+    </mj-style>
+    <mj-font name="Nunito" href="https://fonts.googleapis.com/css?family=Nunito:200,400,700" />
+    <mj-attributes>
+      <mj-all font-family="Nunito, sans-serif" font-size="12px" />
+    </mj-attributes>
+    <mj-style inline="inline">
+      .green-color div {
+        color: #89CA00 !important;
+      }
+
+      .cofe-link-nostyle {
+        color: inherit;
+        text-decoration: none
+      }
+
+      .cofe-link-style {
+        color: #0BBFB0;
+        text-decoration: none;
+        font-weight: 'bold';
+      }
+
+      .cofe-button-style {
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 10px;
+        color: white;
+        height: 56px;
+        background: #08BFB0;
+        display: inline-block;
+        line-height: 56px;
+        padding: 0 30px;
+      }
+
+      .cofe-brand-name {
+        color: #0BBFB0;
+        font-weight: 'bold';
+        font-family: "Lato", sans-serif;
+      }
+
+      .bold-text {
+        color: #594A42;
+        font-weight: bold !important;
+        font-family: "Lato", sans-serif;
+      }
+
+      .customer-title div {
+        color: #ff0000;
+        font-size: 22px !important;
+        font-weight: 200;
+        line-height: 26px !important;
+      }
+
+      .h1 div {
+        color: #ff0000;
+        font-size: 16px !important;
+        font-weight: 200;
+        line-height: 26px !important;
+      }
+
+      .h2 div {
+        color: #979797 !important;
+        font-size: 14px !important;
+        line-height: 22px !important;
+      }
+
+      .main-heading div {
+        color: #594A42 !important;
+        font-size: 18px !important;
+        font-weight: bold !important;
+        line-height: 25px !important;
+      }
+
+      .sub-heading div {
+        color: #979797 !important;
+        font-size: 12px !important;
+        font-weight: bold !important;
+        line-height: 16px !important;
+      }
+    </mj-style>
+    <mj-style>
+      .p-bold div {
+        font-weight: bold;
+        text-align: right !important;
+      }
+
+      .p div {
+        font-size: 12px !important;
+        line-height: 18px !important;
+        text-align: right !important;
+      }
+
+      .p-light div {
+        font-size: 12px !important;
+        font-weight: 200;
+        line-height: 18px !important;
+      }
+
+      .disclaimer div {
+        font-size: 12px !important;
+        font-weight: 200;
+        line-height: 18px !important;
+      }
+
+      .text-align-center div {
+        text-align: center !important;
+      }
+
+      .gift-card-code-text {
+        background: rgba(8, 191, 176, 0.1) !important;
+        padding: 15px 20px !important;
+        border-radius: 8px !important;
+      }
+
+      .bold {
+        font-weight: bold !important;
+      }
+
+      .text-align-right {
+        text-align: right !important;
+      }
+    </mj-style>
+    <mj-attributes>
+      <mj-text padding="5px 20px" line-height="24px" />
+      <mj-group width="100%" />
+      <mj-all font-family="Dubai" color="#594A42" align="right" direction="rtl" />
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#ffffff">
+    <mj-raw>
+      <!-- Header -->
+    </mj-raw>
+    <mj-section background-color="#ffffff" padding="10px">
+      <mj-column>
+        <mj-image padding="20px 0px 40px" width="120px" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/email/cofe-logo-header.png"></mj-image>
+        <mj-text padding='0' css-class="customer-title"><b class="bold-text">مرحبًا بك ${customerName}!</b></mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-wrapper padding="10px">
+      <mj-section padding="0px 0 20px">
+        <mj-column>
+          <mj-text padding='0' css-class="h1">
+            Order <b class="bold-text">${shortCode}</b>
+            <mj-raw>
+              <% if (orderStatus === "PLACED") { %>
+            </mj-raw> تم استقبال طلبك!<mj-raw>
+              <% } %>
+            </mj-raw>
+            <mj-raw>
+              <% if (orderStatus === "DISPATCHED") { %>
+            </mj-raw> في طريقه لك!<mj-raw>
+              <% } %>
+            </mj-raw>
+            <mj-raw>
+              <% if (orderStatus === "DELIVERED") { %>
+            </mj-raw> تم توصيل طلبك !<mj-raw>
+              <% } %>
+            </mj-raw>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#CEF0ED" padding="5px 10px" border-radius="6px">
+        <mj-column>
+          <mj-raw>
+            <% if (orderStatus === "PLACED") { %>
+          </mj-raw>
+          <mj-text padding='0' css-class="h2">.تم تأكيد طلبك. سيتم إخطارك عند إرسال الطلب</mj-text>
+          <mj-raw>
+            <% } %>
+          </mj-raw>
+          <mj-raw>
+            <% if (orderStatus === "DISPATCHED") { %>
+          </mj-raw>
+          <mj-text padding='0' css-class="h2">تم إرسال الطلب ، طلبك من <b class="bold-text">${storeOrders[0].brand.name.ar}</b> سيصلك في <b class="bold-text">${deliveryEstimate}</b></mj-text>
+          <mj-raw>
+            <% } %>
+          </mj-raw>
+          <mj-raw>
+            <% if (orderStatus === "DELIVERED") { %>
+          </mj-raw>
+          <mj-text padding='0' css-class="h2">تم توصيل طلبك من. <b class="bold-text">${storeOrders[0].brand.name.ar}</b> في <b class="bold-text">${deliveredAtFormatted}</b></mj-text>
+          <mj-raw>
+            <% } %>
+          </mj-raw>
+        </mj-column>
+      </mj-section>
+      <mj-section padding="20px 0 10px">
+        <mj-column>
+          <mj-text padding='0' css-class="main-heading">حالة الطلب</mj-text>
+          <mj-divider padding="5px 0" border-width="1px" border-style="solid" border-color="#E7E1D6" />
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        <% if (orderStatus === "PLACED") { %>
+      </mj-raw>
+      <mj-section background-color="#ffffff" padding="10px" text-align="center">
+
+        <mj-column>
+          <mj-image align="center" width="64px" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/assets/placed.png"></mj-image>
+          <mj-text align="center" padding='0' font-size="14px" font-weight="bold">${createdAtFormatted}</mj-text>
+          <mj-text align="center" font-size="18px" font-weight="bold" padding='0' css-class="green-color">تم الاستقبال</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        <% } %>
+      </mj-raw>
+      <mj-raw>
+        <% if (orderStatus === "DISPATCHED") { %>
+      </mj-raw>
+      <mj-section background-color="#ffffff" padding="10px" text-align="center">
+        <mj-column>
+          <mj-image align="center" width="64px" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/assets/dispatched.png"></mj-image>
+          <mj-text align="center" padding='0' font-size="14px" font-weight="bold">${dispatchedAtFormatted}</mj-text>
+          <mj-text align="center" font-size="18px" font-weight="bold" padding='0' css-class="green-color">في الطريق</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        <% } %>
+      </mj-raw>
+      <mj-raw>
+        <% if (orderStatus === "DELIVERED") { %>
+      </mj-raw>
+      <mj-section background-color="#ffffff" padding="10px" text-align="center">
+        <mj-column>
+          <mj-image align="center" width="64px" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/assets/delivered.png"></mj-image>
+          <mj-text align="center" padding='0' font-size="14px" font-weight="bold">${deliveredAtFormatted}</mj-text>
+          <mj-text align="center" font-size="18px" font-weight="bold" padding='0' css-class="green-color">تم التوصيل</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        <% } %>
+      </mj-raw>
+      <mj-section padding="20px 0 0px">
+        <mj-column>
+          <mj-text padding='0' css-class="main-heading">ملخص الطلب</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section padding="0 0 10px">
+        <mj-column>
+          <mj-divider padding="5px 0" border-width="1px" border-style="solid" border-color="#E7E1D6" />
+        </mj-column>
+      </mj-section>
+
+      <mj-raw>
+        <% _.forEach(storeOrders, function(item) { %>
+      </mj-raw>
+
+      <mj-section padding="10px 0 0">
+        <mj-column>
+          <mj-text padding='0' css-class="sub-heading" text-transform="uppercase">طلبك من ${item.brand.name.ar}</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section padding="0px">
+        <mj-column padding="0px">
+          <mj-table padding="0px">
+            <mj-raw>
+              <% _.forEach(item.products, function(product) { %>
+            </mj-raw>
+            <tr>
+              <td>
+                <table padding="0px">
+                  <tr>
+                    <td rowspan="3" style="padding: 0 15px 0 0;">
+                      <img width="60px" src="${product.image}">
+                    </td>
+                    <td style="font-size: 14px;font-weight: 600; line-height: 22px;">${product.name.ar}</td>
+                  </tr>
+                  <tr>
+                    <td style="font-size: 12px;line-height: 16px;">x ${product.quantity}</td>
+                  </tr>
+                </table>
+              </td>
+              <td style="font-size: 14px;font-weight: 600; line-height: 19px;text-align:left">${formatCurrency(product.totalPrice, currency.decimalPlace, currency.code.ar)}</td>
+            </tr>
+            <mj-raw>
+              <% }) %>
+            </mj-raw>
+          </mj-table>
+          <mj-divider padding="10px 0" border-width="1px" border-style="solid" border-color="#E7E1D6" />
+        </mj-column>
+      </mj-section>
+
+      <mj-raw>
+        <% }) %>
+      </mj-raw>
+
+
+      <mj-raw>
+        <% if (!storeOrderStatusChange) { %>
+      </mj-raw>
+      <mj-section padding="0px">
+        <mj-column>
+          <mj-table padding="0px">
+            <tr>
+              <td style="font-size: 14px; line-height: 19px;">المجموع </td>
+              <td style="font-size: 14px; line-height: 19px;text-align:left">${formatCurrency(subtotal, currency.decimalPlace, currency.code.ar)}</td>
+            </tr>
+            <tr>
+              <td style="font-size: 14px; line-height: 19px;">المبلغ الإجمالي</td>
+              <td style="font-size: 14px; line-height: 19px;text-align:left">${formatCurrency(total, currency.decimalPlace, currency.code.ar)}</td>
+            </tr>
+
+            <mj-raw>
+              <% _.forEach(invoiceComponents, function(item) { %>
+            </mj-raw>
+            <mj-raw>
+              <% if (item.type !== "SUBTOTAL" && item.type !== "TOTAL" && item.type!=="AMOUNT_DUE") { %>
+            </mj-raw>
+            <tr>
+              <td style="font-size: 14px; line-height: 19px;">${paymentTypesTitle(item.type).ar}</td>
+              <td style="font-size: 14px; line-height: 19px;text-align:left">${formatCurrency(item.value, currency.decimalPlace, currency.code.ar)}</td>
+            </tr>
+            <mj-raw>
+              <% } %>
+            </mj-raw>
+            <mj-raw>
+              <% }) %>
+            </mj-raw>
+
+          </mj-table>
+          <mj-divider padding="15px 0" border-width="1px" border-style="solid" border-color="rgba(200, 199, 204, 0.25);" />
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="0px">
+        <mj-column>
+          <mj-table padding="0px">
+            <tr>
+              <td style="font-size: 14px; line-height: 19px; font-weight: bold;">${paymentTypesTitle("AMOUNT_DUE").ar}</td>
+              <td style="font-size: 14px; line-height: 19px;text-align:left;">${getTotalValue(invoiceComponents, 'AMOUNT_DUE', currency.code.ar)}</td>
+            </tr>
+            <mj-raw>
+              <% if (country.hasVat) { %>
+            </mj-raw>
+            <tr>
+              <td style="padding: 0 15px 0 0;" columnspan="2">كل الأسعار <b>${country.vat}% ضريبة القيمة المضافة</b> شامل ومعرف ضريبة القيمة المضافة <b>${country.vatId}</b></td>
+            </tr>
+            <mj-raw>
+              <% } %>
+            </mj-raw>
+          </mj-table>
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        <% } %>
+      </mj-raw>
+
+      <mj-section padding="20px 0 10px">
+        <mj-column>
+          <mj-text padding='0' css-class="main-heading">تفاصيل الطلب</mj-text>
+          <mj-divider padding="5px 0" border-width="1px" border-style="solid" border-color="#E7E1D6" />
+        </mj-column>
+      </mj-section>
+      <mj-section padding="10px 0 0">
+        <mj-column>
+          <mj-table padding="0px">
+            <tr>
+              <td style="font-size: 14px; line-height: 24px; font-weight: bold;">الإسم</td>
+              <td style="font-size: 14px; line-height: 24px;">${customerName}</td>
+            </tr>
+            <tr>
+              <td style="font-size: 14px; line-height: 24px; font-weight: bold;">تاريخ</td>
+              <td style="font-size: 14px; line-height: 24px;">${createdAtFormatted}</td>
+            </tr>
+            <mj-raw>
+              <% if(paymentMethod || findInvoiceComponent(invoiceComponents, 'CREDITS') || findInvoiceComponent(invoiceComponents, 'GIFT_CARD')) { %>
+            </mj-raw>
+              <tr>
+                <td style="font-size: 14px; line-height: 24px; font-weight: bold;">طريقة الدفع</td>
+                <td style="font-size: 14px; line-height: 24px;">
+
+                  <mj-raw>
+                    <% if(paymentMethod && amountPaidByPaymentMethod(invoiceComponents, currency) > 0) { %>
+                  </mj-raw>
+                    ${paymentMethod.name.ar} (${amountPaidByPaymentMethod(invoiceComponents, currency)} ${currency.symbol.ar})
+                    <br>
+                  <mj-raw>
+                    <% } %>
+                  </mj-raw>
+
+                  <mj-raw>
+                    <% if(findInvoiceComponent(invoiceComponents, 'CREDITS')) { %>
+                  </mj-raw>
+
+                    ${paymentTypesTitle('CREDITS').ar} (${getTotalValue(invoiceComponents, 'CREDITS', currency.symbol.ar)})
+                    <br>
+                  <mj-raw>
+                    <% } %>
+                  </mj-raw>
+
+
+                  <mj-raw>
+                    <% if(findInvoiceComponent(invoiceComponents, 'GIFT_CARD')) { %>
+                  </mj-raw>
+
+                    ${paymentTypesTitle('GIFT_CARD').ar} (${getTotalValue(invoiceComponents, 'GIFT_CARD', currency.symbol.ar)})
+                  <mj-raw>
+                    <% } %>
+                  </mj-raw>
+
+                </td>
+              </tr>
+            <mj-raw>
+              <% } %>
+            </mj-raw>
+            <tr>
+              <td style="font-size: 14px; line-height: 24px; font-weight: bold;">نوع الطلب</td>
+              <td style="font-size: 14px; line-height: 24px;">${fulfillmentType}</td>
+            </tr>
+            <tr>
+              <td style="font-size: 14px; line-height: 24px; font-weight: bold;">الوقت المتوقع للتوصيل</td>
+              <td style="font-size: 14px; line-height: 24px;">${deliveryEstimate}</td>
+            </tr>
+            <tr>
+              <td style="font-size: 14px; line-height: 24px; font-weight: bold;">العنوان</td>
+              <td style="font-size: 14px; line-height: 24px;">${customerAddress}</td>
+            </tr>
+          </mj-table>
+        </mj-column>
+      </mj-section>
+      <mj-include path="./footer.mjml" />
+    </mj-wrapper>
+  </mj-body>
+</mjml>

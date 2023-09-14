@@ -1,0 +1,304 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`menu items can resolve their base nutritional infos 1`] = `
+Object {
+  "data": Object {
+    "brand": Object {
+      "menu": Object {
+        "sections": Array [
+          Object {
+            "items": Array [
+              Object {
+                "baseNutritional": Object {
+                  "allergens": Array [
+                    Object {
+                      "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+                      "name": "Dairy",
+                    },
+                    Object {
+                      "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+                      "name": "Egg",
+                    },
+                    Object {
+                      "id": "ef83edac-0214-4f98-b007-4eacbcf41b6d",
+                      "name": "Gluten",
+                    },
+                    Object {
+                      "id": "13582fa9-5d17-4a2f-9b1c-e8696c0847be",
+                      "name": "Sesame",
+                    },
+                    Object {
+                      "id": "ba1f8ebb-7eac-49e4-8eb2-d660371aadc9",
+                      "name": "Soy",
+                    },
+                    Object {
+                      "id": "e4a561ba-897b-49a4-aee6-fa1db9e5bf0e",
+                      "name": "Sulfites",
+                    },
+                    Object {
+                      "id": "0f490bf5-4eac-413b-a5ac-445082d0a57f",
+                      "name": "Tree Nuts",
+                    },
+                    Object {
+                      "id": "ea2ae210-c363-4cd8-bbde-fabc2d17d211",
+                      "name": "Wheat",
+                    },
+                  ],
+                  "calories": 2,
+                  "carbohydrates": 2,
+                  "fat": 13,
+                  "id": "15877025-303e-4623-8165-625e5fb0fbb9",
+                  "protein": 14,
+                  "sugar": 10,
+                },
+              },
+              Object {
+                "baseNutritional": Object {
+                  "allergens": Array [
+                    Object {
+                      "id": "bd75ac10-ba7c-4cb6-85a7-0ee44f81ef2d",
+                      "name": "Fish",
+                    },
+                    Object {
+                      "id": "ba1f8ebb-7eac-49e4-8eb2-d660371aadc9",
+                      "name": "Soy",
+                    },
+                    Object {
+                      "id": "0f490bf5-4eac-413b-a5ac-445082d0a57f",
+                      "name": "Tree Nuts",
+                    },
+                  ],
+                  "calories": 10,
+                  "carbohydrates": 9,
+                  "fat": 4,
+                  "id": "98bf6ab9-ca7c-4f6c-bf12-081f7a3deff2",
+                  "protein": 12,
+                  "sugar": 13,
+                },
+              },
+              Object {
+                "baseNutritional": Object {
+                  "allergens": Array [
+                    Object {
+                      "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+                      "name": "Dairy",
+                    },
+                    Object {
+                      "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+                      "name": "Egg",
+                    },
+                    Object {
+                      "id": "bd75ac10-ba7c-4cb6-85a7-0ee44f81ef2d",
+                      "name": "Fish",
+                    },
+                    Object {
+                      "id": "ef83edac-0214-4f98-b007-4eacbcf41b6d",
+                      "name": "Gluten",
+                    },
+                    Object {
+                      "id": "e6dc574e-7b3e-4fe0-a521-1204f10804ef",
+                      "name": "Latex",
+                    },
+                    Object {
+                      "id": "90768e6d-eb09-4246-a865-1c9bb0aa7654",
+                      "name": "Mustard",
+                    },
+                    Object {
+                      "id": "e4f0a7e8-dcf5-46e1-9056-e76a23d9a8d0",
+                      "name": "Peanuts",
+                    },
+                    Object {
+                      "id": "13582fa9-5d17-4a2f-9b1c-e8696c0847be",
+                      "name": "Sesame",
+                    },
+                    Object {
+                      "id": "ba1f8ebb-7eac-49e4-8eb2-d660371aadc9",
+                      "name": "Soy",
+                    },
+                    Object {
+                      "id": "e4a561ba-897b-49a4-aee6-fa1db9e5bf0e",
+                      "name": "Sulfites",
+                    },
+                    Object {
+                      "id": "0f490bf5-4eac-413b-a5ac-445082d0a57f",
+                      "name": "Tree Nuts",
+                    },
+                    Object {
+                      "id": "ea2ae210-c363-4cd8-bbde-fabc2d17d211",
+                      "name": "Wheat",
+                    },
+                  ],
+                  "calories": 3,
+                  "carbohydrates": 4,
+                  "fat": 7,
+                  "id": "f0c95172-8679-4726-bdf2-fb6b4e50fa0a",
+                  "protein": 6,
+                  "sugar": 1,
+                },
+              },
+            ],
+          },
+          Object {
+            "items": Array [
+              Object {
+                "baseNutritional": Object {
+                  "allergens": Array [
+                    Object {
+                      "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+                      "name": "Egg",
+                    },
+                    Object {
+                      "id": "ef83edac-0214-4f98-b007-4eacbcf41b6d",
+                      "name": "Gluten",
+                    },
+                    Object {
+                      "id": "e6dc574e-7b3e-4fe0-a521-1204f10804ef",
+                      "name": "Latex",
+                    },
+                    Object {
+                      "id": "90768e6d-eb09-4246-a865-1c9bb0aa7654",
+                      "name": "Mustard",
+                    },
+                    Object {
+                      "id": "e4f0a7e8-dcf5-46e1-9056-e76a23d9a8d0",
+                      "name": "Peanuts",
+                    },
+                    Object {
+                      "id": "13582fa9-5d17-4a2f-9b1c-e8696c0847be",
+                      "name": "Sesame",
+                    },
+                    Object {
+                      "id": "07a37612-99e0-47d6-b0af-b7b776b25b7c",
+                      "name": "Shellfish",
+                    },
+                    Object {
+                      "id": "e4a561ba-897b-49a4-aee6-fa1db9e5bf0e",
+                      "name": "Sulfites",
+                    },
+                    Object {
+                      "id": "0f490bf5-4eac-413b-a5ac-445082d0a57f",
+                      "name": "Tree Nuts",
+                    },
+                    Object {
+                      "id": "ea2ae210-c363-4cd8-bbde-fabc2d17d211",
+                      "name": "Wheat",
+                    },
+                  ],
+                  "calories": 3,
+                  "carbohydrates": 11,
+                  "fat": 7,
+                  "id": "1a23c222-315a-47db-9c04-de7016e3c507",
+                  "protein": 5,
+                  "sugar": 6,
+                },
+              },
+              Object {
+                "baseNutritional": Object {
+                  "allergens": Array [],
+                  "calories": 9,
+                  "carbohydrates": 12,
+                  "fat": 3,
+                  "id": "28303db8-789d-4706-9b98-342f0382f9b7",
+                  "protein": 15,
+                  "sugar": 2,
+                },
+              },
+              Object {
+                "baseNutritional": Object {
+                  "allergens": Array [
+                    Object {
+                      "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+                      "name": "Dairy",
+                    },
+                    Object {
+                      "id": "bd75ac10-ba7c-4cb6-85a7-0ee44f81ef2d",
+                      "name": "Fish",
+                    },
+                    Object {
+                      "id": "e6dc574e-7b3e-4fe0-a521-1204f10804ef",
+                      "name": "Latex",
+                    },
+                    Object {
+                      "id": "e4f0a7e8-dcf5-46e1-9056-e76a23d9a8d0",
+                      "name": "Peanuts",
+                    },
+                    Object {
+                      "id": "13582fa9-5d17-4a2f-9b1c-e8696c0847be",
+                      "name": "Sesame",
+                    },
+                    Object {
+                      "id": "07a37612-99e0-47d6-b0af-b7b776b25b7c",
+                      "name": "Shellfish",
+                    },
+                    Object {
+                      "id": "ba1f8ebb-7eac-49e4-8eb2-d660371aadc9",
+                      "name": "Soy",
+                    },
+                    Object {
+                      "id": "e4a561ba-897b-49a4-aee6-fa1db9e5bf0e",
+                      "name": "Sulfites",
+                    },
+                    Object {
+                      "id": "0f490bf5-4eac-413b-a5ac-445082d0a57f",
+                      "name": "Tree Nuts",
+                    },
+                    Object {
+                      "id": "ea2ae210-c363-4cd8-bbde-fabc2d17d211",
+                      "name": "Wheat",
+                    },
+                  ],
+                  "calories": 1,
+                  "carbohydrates": 11,
+                  "fat": 13,
+                  "id": "90441b72-bc00-48d1-9c9c-14c1fe28f2e1",
+                  "protein": 7,
+                  "sugar": 8,
+                },
+              },
+            ],
+          },
+          Object {
+            "items": Array [
+              Object {
+                "baseNutritional": Object {
+                  "allergens": Array [
+                    Object {
+                      "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+                      "name": "Egg",
+                    },
+                    Object {
+                      "id": "13582fa9-5d17-4a2f-9b1c-e8696c0847be",
+                      "name": "Sesame",
+                    },
+                    Object {
+                      "id": "e4a561ba-897b-49a4-aee6-fa1db9e5bf0e",
+                      "name": "Sulfites",
+                    },
+                  ],
+                  "calories": 12,
+                  "carbohydrates": 11,
+                  "fat": 1,
+                  "id": "5c9b5cc5-6ef8-480e-b398-189dd11dccc6",
+                  "protein": 1,
+                  "sugar": 12,
+                },
+              },
+              Object {
+                "baseNutritional": Object {
+                  "allergens": Array [],
+                  "calories": 15,
+                  "carbohydrates": 10,
+                  "fat": 4,
+                  "id": "bce987f1-5f54-4b2b-9b4e-0b4afdfa440d",
+                  "protein": 9,
+                  "sugar": 11,
+                },
+              },
+            ],
+          },
+        ],
+      },
+    },
+  },
+}
+`;

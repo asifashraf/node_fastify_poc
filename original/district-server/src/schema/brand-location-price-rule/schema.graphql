@@ -1,0 +1,11 @@
+type BrandLocationPriceRule {
+  id: ID!
+  created: Datetime!
+  updated: Datetime!
+  label: String!
+  action: BrandLocationPriceRuleAction!
+  type: BrandLocationPriceRuleType!
+  " E.g. `20` => `20%` , `1.500` => fixed type"
+  value: String!
+}
+

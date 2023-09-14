@@ -1,0 +1,156 @@
+extend type Mutation {
+  subscriptionOrderCreate(
+    input: CSubscriptionOrderInput!
+  ): CSubscriptionOrderPayload @requireAuth
+}
+
+extend type Query {
+  fetchSubscriptionCheckoutData(
+    input: CSubscriptionOrderInput!
+  ): CSubscriptionCheckoutData @requireAuth
+  getCSubscriptionOrdersWithFilters(
+    filters: CSubscriptionOrderFilters
+    paging: PagingInput
+  ): [CSubscriptionOrder] @requireAuth
+  subscriptionOrderAgain(
+    subscriptionCustomerId: ID!
+  ): CSubscriptionOrderAgainPayload @requireAuth
+  checkSubscriptionCoupon(
+    couponInput: SubscriptionCouponValidityInput!
+  ): CouponValidityPayload! @requireAuth
+}
+
+type CSubscriptionOrder {
+  id: ID!
+  shortCode: String!
+  subscriptionId: ID!
+  total: CurrencyValue!
+  subTotal: CurrencyValue!
+  customer: Customer!
+  currency: Currency!
+  country: Country!
+  paymentMethod: PaymentMethod
+  paymentProvider: String
+  prePaid: PrePaid
+  merchantId: String
+  receiptUrl: String
+  errorUrl: String
+  src: OrderSetSource
+  srcPlatform: String
+  srcPlatformVersion: String
+  vat: Float!
+  totalVat: CurrencyValue!
+  creditsUsed: Boolean!
+  created: Datetime!
+  updated: Datetime!
+  status: CSubscriptionOrderStatus!
+  paid: Boolean!
+  refunded: Boolean
+  amountDue: CurrencyValue!
+  invoiceUrl: String!
+  usedCouponDetail: UsedCouponDetail
+}
+
+input CSubscriptionOrderInput {
+  item: CSubscriptionOrderItemInput!
+  useCredits: Boolean
+  autoRenewal: Boolean
+  paymentMethod: PaymentMethodInput
+  src: OrderSetSource
+  couponId: ID
+}
+
+input CSubscriptionOrderItemInput {
+  subscriptionId: ID!
+}
+
+type CSubscriptionOrderPayload {
+  subscriptionOrder: CSubscriptionOrder
+  paymentUrl: String
+  error: CSubscriptionOrderCreateError
+  errors: [CSubscriptionOrderCreateError!]
+}
+
+type CSubscriptionOrderInvoice {
+  components: [InvoiceComponent]
+  currency: Currency
+  error: CSubscriptionOrderCreateError
+  errors: [CSubscriptionOrderCreateError]
+}
+
+type CSubscriptionCheckoutData {
+  invoice: CSubscriptionOrderInvoice
+  subscription: CSubscription
+  termsAndConditions: LocalizedString
+  checkoutLabels: CSubscriptionCheckoutHeaders
+  autoRenewalStatus: CSubscriptionOrderAutoRenewalStatus
+  error: CSubscriptionOrderCreateError
+  errors: [CSubscriptionOrderCreateError]
+}
+
+enum CSubscriptionOrderCreateError {
+  INVALID_CUSTOMER
+  INVALID_SUBSCRIPTION
+  INVALID_SUBSCRIPTION_CUSTOMER
+  INVALID_ITEM
+  ALREADY_EXIST_SUBSCRIPTION
+  PAYMENT_METHOD_REQUIRED
+  MERCHANT_INITIALIZATION_ERROR
+  CASH_NOT_AVAILABLE
+  PAYMENT_FAILURE
+  UNAUTHORIZED_PROCESS
+  PAYMENT_METHOD_INVALID_FOR_AUTO_RENEWAL
+  INVALID_COUPON
+  NON_EXISTING_CUSTOMER_CARD
+  INVALID_COUPON_OR_INAPPLICABLE_PAYMENT_METHOD
+  INAPPLICABLE_BANK_OR_CARD_FOR_COUPON
+  INAPPLICABLE_VENDOR_FOR_COUPON
+  COUPON_ALREADY_CONSUMED_BY_VENDOR
+  UNEXPECTED_ERROR
+  CAN_NOT_BE_USED_WITH_REWARD_DISCOUNT
+  CAN_NOT_BE_USED_WITH_DISCOVERY_POINT
+  INVALID_COUPON_TYPE_FOR_SUBSCRIPTION
+  INVALID_PAYMENT_METHOD_FOR_SUBSCRIPTION
+  INVALID_COUPON_PROMO_TYPE
+  INVALID_COUPON_REFERRAL_CODE_CAN_NOT_BE_SAME_COUPON_CODE
+  INVALID_COUPON_CUSTOMER_REDEMPTION_LIMIT_EXCEEDED
+  INVALID_COUPON_FOR_USER
+  INVALID_COUPON_FIRST_ORDER_REDEMPTION_LIMIT_EXCEEDED
+}
+
+enum CSubscriptionOrderStatus {
+  INITIATED
+  FAILED
+  COMPLETED
+}
+
+input CSubscriptionOrderFilters {
+  id: ID
+  countryId: ID
+  currencyId: ID
+  customerId: String
+  subscriptionId: ID
+  status: CSubscriptionOrderStatus
+}
+
+type CSubscriptionCheckoutHeaders {
+  mainHeader: LocalizedString
+  productName: LocalizedString
+  periodLabel: LocalizedString
+}
+
+type CSubscriptionOrderAgainPayload {
+  subscriptionId: ID
+  error: CSubscriptionOrderCreateError
+  errors: [CSubscriptionOrderCreateError]
+}
+
+input SubscriptionCouponValidityInput {
+  code: String!
+  countryIso: String!
+  paymentMethod: PaymentScheme
+  sourceId: String
+  brandId: String
+  creditsUsed: Boolean
+  order: CSubscriptionOrderInput
+}

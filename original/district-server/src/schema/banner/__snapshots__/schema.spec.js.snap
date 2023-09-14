@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create banner 1`] = `
+Object {
+  "data": Object {
+    "bannerSave": Object {
+      "banner": Object {
+        "active": true,
+        "id": "90092bcf-9015-477b-9ab7-bec102416a01",
+        "imageUrl": Object {
+          "ar": "test2",
+          "en": "test1",
+        },
+        "order": 501,
+        "size": "MEDIUM",
+        "type": "test",
+      },
+    },
+  },
+}
+`;
+
+exports[`delete existing banner 1`] = `
+Object {
+  "data": Object {
+    "bannerDelete": true,
+  },
+}
+`;
+
+exports[`delete non-existing banner 1`] = `
+Object {
+  "data": Object {
+    "bannerDelete": false,
+  },
+}
+`;
+
+exports[`get all active banners by country code 1`] = `
+Object {
+  "data": Object {
+    "banners": Array [
+      Object {
+        "id": "01c73b60-2c6a-45f1-8dbf-88a5ce4ad179",
+        "imageUrl": Object {
+          "ar": "https://source.unsplash.com/k0okLYIjoxo/1200x600",
+          "en": "https://source.unsplash.com/k0okLYIjoxo/1200x600",
+        },
+        "size": "MEDIUM",
+        "type": "banner1",
+      },
+      Object {
+        "id": "01c73b60-2c6a-45f1-8dbf-88a5ce4ad179",
+        "imageUrl": Object {
+          "ar": "https://source.unsplash.com/k0okLYIjoxo/1200x600",
+          "en": "https://source.unsplash.com/k0okLYIjoxo/1200x600",
+        },
+        "size": "SMALL",
+        "type": "banner2",
+      },
+    ],
+  },
+}
+`;
+
+exports[`get all active banners by country id 1`] = `
+Object {
+  "data": Object {
+    "banners": Array [
+      Object {
+        "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+        "imageUrl": Object {
+          "ar": "https://source.unsplash.com/k0okLYIjoxo/1200x600",
+          "en": "https://source.unsplash.com/k0okLYIjoxo/1200x600",
+        },
+        "size": "MEDIUM",
+        "type": "banner1",
+      },
+      Object {
+        "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+        "imageUrl": Object {
+          "ar": "https://source.unsplash.com/k0okLYIjoxo/1200x600",
+          "en": "https://source.unsplash.com/k0okLYIjoxo/1200x600",
+        },
+        "size": "SMALL",
+        "type": "banner2",
+      },
+    ],
+  },
+}
+`;
+
+exports[`get all banners 1`] = `
+Object {
+  "data": Object {
+    "banners": Array [
+      Object {
+        "active": false,
+        "id": "bd75ac10-ba7c-4cb6-85a7-0ee44f81ef2d",
+        "imageUrl": Object {
+          "ar": "https://source.unsplash.com/k0okLYIjoxo/1200x600",
+          "en": "https://source.unsplash.com/k0okLYIjoxo/1200x600",
+        },
+        "order": 100,
+        "size": "SMALL",
+        "type": "banner3",
+      },
+      Object {
+        "active": true,
+        "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+        "imageUrl": Object {
+          "ar": "https://source.unsplash.com/k0okLYIjoxo/1200x600",
+          "en": "https://source.unsplash.com/k0okLYIjoxo/1200x600",
+        },
+        "order": 200,
+        "size": "MEDIUM",
+        "type": "banner1",
+      },
+      Object {
+        "active": true,
+        "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+        "imageUrl": Object {
+          "ar": "https://source.unsplash.com/k0okLYIjoxo/1200x600",
+          "en": "https://source.unsplash.com/k0okLYIjoxo/1200x600",
+        },
+        "order": 300,
+        "size": "SMALL",
+        "type": "banner2",
+      },
+    ],
+  },
+}
+`;
+
+exports[`get banner by id 1`] = `
+Object {
+  "data": Object {
+    "banner": Object {
+      "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+      "imageUrl": Object {
+        "ar": "https://source.unsplash.com/k0okLYIjoxo/1200x600",
+        "en": "https://source.unsplash.com/k0okLYIjoxo/1200x600",
+      },
+      "size": "MEDIUM",
+      "type": "banner1",
+    },
+  },
+}
+`;
+
+exports[`update banner 1`] = `
+Object {
+  "data": Object {
+    "bannerSave": Object {
+      "banner": Object {
+        "active": false,
+        "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+        "imageUrl": Object {
+          "ar": "test2-updated",
+          "en": "test1-updated",
+        },
+        "order": 111,
+        "size": "SMALL",
+        "type": "test-updated",
+      },
+    },
+  },
+}
+`;

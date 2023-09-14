@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it handles a push 1`] = `
+Object {
+  "customerId": "a788e584-866d-4eb0-9b05-d3459e05a86c",
+  "dateCreated": 2018-01-01T12:00:00.000Z,
+  "dateOfMostRecentAttempt": null,
+  "embargoDate": null,
+  "id": "ab463b8b-a76c-4f6a-a726-75ab5730b69b",
+  "medium": "push",
+  "numberOfAttempts": 0,
+  "status": "delivered",
+}
+`;
+
+exports[`it handles an email 1`] = `
+Object {
+  "customerId": "a788e584-866d-4eb0-9b05-d3459e05a86c",
+  "dateCreated": 2018-01-01T12:00:00.000Z,
+  "dateOfMostRecentAttempt": null,
+  "embargoDate": null,
+  "id": "9f03ad20-3fc0-4896-8917-35324e810d58",
+  "medium": "email",
+  "numberOfAttempts": 0,
+  "status": "delivered",
+}
+`;
+
+exports[`it handles an sms 1`] = `
+Object {
+  "customerId": "a788e584-866d-4eb0-9b05-d3459e05a86c",
+  "dateCreated": 2018-01-01T12:00:00.000Z,
+  "dateOfMostRecentAttempt": null,
+  "embargoDate": null,
+  "id": "0bbf9978-7442-4af6-941c-c981d69f4712",
+  "medium": "sms",
+  "numberOfAttempts": 0,
+  "status": "delivered",
+}
+`;

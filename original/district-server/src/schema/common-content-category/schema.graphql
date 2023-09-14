@@ -1,0 +1,75 @@
+enum CommonContentCategoryStatus {
+    ACTIVE
+    INACTIVE
+    DELETED
+}
+
+type CommonContentCategory {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  unique key
+  """
+  slug: String!
+  """
+  title
+  """
+  title: LocalizedString!
+  """
+  status of common content ACTIVE/IN_ACTIVE
+  """
+  status: CommonContentCategoryStatus
+  created: Datetime
+  updated: Datetime
+  countryId: ID!
+}
+
+input CreateCCCategory {
+  slug: String!
+  title: LocalizedStringInput!
+  status: CommonContentCategoryStatus
+  countryId: ID!
+}
+
+input UpdateCCCategory {
+  id: ID!
+  slug: String
+  title: LocalizedStringInput
+  status: CommonContentCategoryStatus
+  countryId: ID
+}
+
+type CCCategoryResponse {
+  data: CommonContentCategory
+  error: String
+  errors: [String!]
+}
+
+type CommonContentAndCategory {
+  id: ID!
+  slug: String!
+  title: LocalizedString!
+  commonContents: [CommonContent!]
+  created: Datetime
+  updated: Datetime
+  countryId: ID!
+
+}
+
+type Mutation {
+  createCommonContentCategory(category: CreateCCCategory!): CCCategoryResponse!
+  @requireAuth
+  @requirePermissions(permissions: ["commonContentCategory:upsert"])
+
+  updateCommonContentCategory(category: UpdateCCCategory!): CCCategoryResponse!
+  @requireAuth
+  @requirePermissions(permissions: ["commonContentCategory:upsert"])
+}
+
+type Query {
+  getCommonContentCategory(id: ID!): CommonContentCategory!
+  getAllCommonContentCateogry: [CommonContentCategory!]
+  getCategoryAndContentBySlug(slugs: [String!] countryId:ID!): [CommonContentAndCategory!]
+}

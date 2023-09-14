@@ -1,0 +1,13 @@
+"""
+A list of available delivery towers
+"""
+type Tower {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Tower name, ie 'Al Hamra Tower'
+  """
+  name: String!
+}

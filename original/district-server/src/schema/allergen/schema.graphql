@@ -1,0 +1,10 @@
+type Allergen {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Allergen Name
+  """
+  name: String!
+}

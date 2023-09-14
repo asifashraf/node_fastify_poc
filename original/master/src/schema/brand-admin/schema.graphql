@@ -1,0 +1,37 @@
+"""
+Admins to manage brand and brand locations (admins: related schema)
+"""
+type BrandAdmin {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  linked admin
+  """
+  admin: Admin!
+  """
+  Access on the brand
+  """
+  brand: Brand!
+  """
+  Access on the brand location
+  """
+  brandLocation: BrandLocation
+  """
+  status of the admin
+  """
+  status: String
+  """
+  role of the admin
+  """
+  role: String
+  """
+  Admin created at
+  """
+  created: Datetime!
+  """
+  Admin updated at
+  """
+  updated: Datetime!
+}

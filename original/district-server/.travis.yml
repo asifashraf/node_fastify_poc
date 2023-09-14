@@ -1,0 +1,77 @@
+language: node_js
+env:
+  global:
+    - NODE_ENV=localtest
+    - DATABASE_URL=postgres://localhost:5432/cofe-district-test
+    - REDIS_CONNECTION_URL=redis://localhost:6379/0
+services:
+  - postgresql
+  - redis-server
+addons:
+  ssh_known_hosts:
+    - cofedistrictapi.com
+    - ec2-63-34-177-140.eu-west-1.compute.amazonaws.com
+    - ec2-18-200-95-165.eu-west-1.compute.amazonaws.com
+    - ec2-34-243-219-146.eu-west-1.compute.amazonaws.com
+    - ec2-54-171-71-180.eu-west-1.compute.amazonaws.com
+    - ec2-54-195-46-185.eu-west-1.compute.amazonaws.com
+  postgresql: "9.6"
+  apt:
+    packages:
+      - postgresql-9.6-postgis-2.3
+      - postgresql-9.6-postgis-2.3-scripts
+before_script:
+  - psql -c 'create database "cofe-district-test";' -U postgres
+  - psql -U postgres -c "create extension postgis"
+script:
+  - yarn lint
+cache: yarn
+branches:
+  only:
+    - master
+    - staging
+    - develop
+    - /release\/.*/
+    - f/beanstalk-infra
+before_deploy:
+  - zip -r "cofe-backend-server" . --exclude=*.git* --exclude=*.vs* --exclude=*node_modules*
+deploy:
+  - provider: elasticbeanstalk
+    access_key_id: "$ACCESSKEYID"
+    secret_access_key: "$SECRETACCESSKEY"
+    region: "eu-west-1"
+    app: "Cofe Backend"
+    env: "stage-nodejs14"
+    bucket_name: "cofeapp-builds"
+    zip-file: "cofe-backend-server.zip"
+    bucket_path: "cofe-backend-server"
+    skip_cleanup: true
+    only_create_app_version: false
+    on:
+      branch: staging
+
+  - provider: elasticbeanstalk
+    access_key_id: $ACCESSKEYID
+    secret_access_key: "$SECRETACCESSKEY"
+    region: "eu-west-1"
+    app: "Cofe Backend"
+    env: "dev-backend-nodejs14"
+    bucket_name: "cofeapp-builds"
+    zip-file: cofe-backend-server.zip
+    skip_cleanup: true
+    only_create_app_version: false
+    on:
+      branch: develop
+
+  - provider: elasticbeanstalk
+    access_key_id: $ACCESSKEYID
+    secret_access_key: "$SECRETACCESSKEY"
+    region: "eu-west-1"
+    app: "Prod-Backend"
+    env: "prod-backend-api"
+    bucket_name: "cofeapp-builds"
+    zip-file: cofe-backend-server.zip
+    skip_cleanup: true
+    only_create_app_version: false
+    on:
+      branch: master

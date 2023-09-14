@@ -1,0 +1,2593 @@
+"""
+A list of the root query types
+"""
+type Query {
+  """
+  the git hub revision being served
+  """
+  version: String!
+  """
+  Return a list of current allergens
+  """
+  allergens: [Allergen]! @requireAuth
+  """
+  Lookup a customer by id
+  """
+  customer(id: ID!): Customer @requireAuth
+  """
+  Lookup a customer by the currently logged in user id
+  """
+  customerByAuth: Customer @requireAuth @deprecated
+  """
+  Lookup a customer by the currently logged in user id
+  """
+  getCustomerByAuth: Customer @requireAuth
+  """
+  customer's current reward programs
+  """
+  currentRewardProgramsDetailsByAuth(
+    brandId: ID
+  ): [CustomerRewardProgramDetails!] @requireAuth
+  """
+  customer reward program details by country
+  """
+  customerRewardProgramDetailsByCountry(
+    countryId: ID!
+    brandId: ID
+  ): [CustomerRewardProgramDetails!] @requireAuth
+  """
+  The user profile notification settings
+  """
+  notificationSettingsByAuth: NotificationSettings! @requireAuth
+  """
+  A list of all cars customer has saved
+  """
+  carsByAuth: [CustomerCar]! @requireAuth
+  """
+  A list of all addresses customer has saved
+  """
+  getAddressesByAuth: [CustomerAddress] @requireAuth
+  """
+  List of addresses saved by the customer in the fulfillment radius
+  """
+  getCustomerAddressesInFulfillmentRadius(
+    """
+    filter customer addresses by branch location delivery radius
+    """
+    brandLocationId: ID!
+    fulfillmentType: OrderFulfillmentType!
+  ): [CustomerAddress] @requireAuth
+  """
+  Customer wallet, in here COFE credits
+  """
+  walletByAuth: Wallet @requireAuth
+  """
+  Get customer wallet account with specified country code
+  """
+  getWalletAccountByCountryCode(countryCode: String!): WalletAccount
+    @requireAuth
+  """
+  Get customer and wallet account with specified country code
+  """
+  getAccountLiteByCountryId(countryId: ID!): CustomerWalletAccount @requireAuth
+  """
+  Customer saved card tokens
+  """
+  cardTokensByAuth(countryIso: String): [CustomerCardToken] @requireAuth
+  """
+  Lookup a customer device metadata by customer id and device id
+  """
+  deviceMetadata(customerId: ID!, deviceId: String!): CustomerDeviceMetadata
+    @requireAuth
+  """
+  All brand locations
+  """
+  brandLocations(
+    countryId: ID
+    """
+    Status to access specific brand locations
+    """
+    filters: BrandLocationFilters
+  ): [BrandLocation!]!
+  """
+  All brand locations paged
+  """
+  brandLocationsPaged(
+    countryId: ID
+    """
+    Status to access specific brand locations
+    """
+    filters: BrandLocationFilters
+    paging: PagingInput
+  ): BrandLocationsPaged!
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:view"])
+  """
+  All brand locations for cofelytics
+  """
+  brandLocationsAll(brandId: ID): [BrandLocation!]!
+    @requireAuth
+    @requirePermissions(permissions: ["cofelyticsbranch:view"])
+  """
+  All brand locations by country id
+  """
+  brandLocationsByCountryId(
+    countryId: ID!
+    """
+    Status to access specific brand locations
+    """
+    filters: BrandLocationFilters
+  ): [BrandLocation!]! @requireAuth
+  """
+  All brand locations that have a delivery fulfillment type
+  """
+  brandLocationsThatDeliver(
+    """
+    Status to access specific brand locations
+    """
+    filters: BrandLocationFilters
+  ): [BrandLocation!]! @requireAuth
+  """
+  Lookup a specific brand location, ie store
+  """
+  brandLocation(id: ID!): BrandLocation
+  """
+  get address from coordinates
+  """
+  getAddressFromGeocoding(
+    location: GISLocationInput!
+    preferredLanguage: AvailableLanguage
+  ): ReverseAddressPayload
+  """
+  Fetch all price rules for a brand location
+  """
+  getBrandLocationPriceRules(brandLocationId: ID!): [BrandLocationPriceRule]
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:view"])
+  """
+  Lookup an order set by id
+  """
+  orderSet(id: ID!): OrderSet @requireAuth
+  """
+  callback query
+  """
+  orderSetForCallbacks(id: ID!): OrderSet
+  """
+  Customer's order sets
+  """
+  orderSetsByAuth(
+    paging: PagingInput
+    orderStatuses: [OrderSetStatusName]
+    """
+    If you want to get just selected country orders you can use currencyId
+    """
+    currencyId: ID
+  ): [OrderSet]! @requireAuth
+  """
+  Lookup an delivery order by short code
+  """
+  getDeliveryStatusByShortCode(shortCode: String!): DeliverOrderStatus
+  """
+  Calculate total number of orderSet statuses existing as per the order set statuses
+  """
+  orderSetStatusTotal(
+    """
+    Optional ability to filter by date range
+    """
+    dateRange: DateRange
+    """
+    Optional ability to retrieve orders for a specific brand location
+    """
+    brandLocationId: ID
+    """
+    Optional ability to retrieve orders by brand
+    """
+    brandId: ID
+    """
+    Optional ability to retrieve orders by country id
+    """
+    countryId: ID
+    """
+    Optional searchTerm to seach orders by keyword
+    """
+    searchTerm: String
+    """
+    Optional searchTerm to seach orders by order type
+    """
+    fulfillmentType: OrderFulfillmentType
+    """
+    Order Sets by Coupon Id
+    """
+    couponId: ID
+    """
+    Order Sets by Coupon Code
+    """
+    couponCode: String
+  ): OrderSetStatusTotalDetails
+    @requireAuth
+    @requirePermissions(permissions: ["order:view"])
+  """
+  Lookup an order set by short code
+  """
+  orderSetsForShortCode(shortCode: String!): [OrderSet]! @requireAuth
+  """
+  List of all order sets
+  """
+  orderSets(
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+    """
+    Optional ability to filter by date range
+    """
+    dateRange: DateRange
+    """
+    Optional ability to retrieve orders for a specific brand location
+    """
+    brandLocationId: ID
+    """
+    Optional ability to retrieve orders by brand
+    """
+    brandId: ID
+    """
+    Optional ability to retrieve orders by country id
+    """
+    countryId: ID
+    """
+    Optional searchTerm to seach orders by keyword
+    """
+    searchTerm: String
+    """
+    Optional filterType to retrieve specific orders with given filterType
+    """
+    filterType: OrderSetStatusName
+    """
+    Optional fulfillmentType to retrieve specific orders with given fulfillmentType
+    """
+    fulfillmentType: OrderFulfillmentType
+    """
+    Order Sets by Coupon Id
+    """
+    couponId: ID
+    """
+    Order Sets by Coupon Code
+    """
+    couponCode: String
+  ): OrderSetsPaged!
+    @requireAuth
+    @requirePermissions(permissions: ["order:view"])
+  """
+  List of all order sets with less field for portal
+  """
+  orderSetsLite(
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput!
+    """
+    Optional ability to filter by date range
+    """
+    dateRange: DateRange
+    """
+    Optional ability to retrieve orders for a specific brand location
+    """
+    brandLocationId: ID
+    """
+    Optional ability to retrieve orders by brand
+    """
+    brandId: ID
+    """
+    Optional ability to retrieve orders by country id
+    """
+    countryId: ID
+    """
+    Optional searchTerm to seach orders by keyword
+    """
+    searchTerm: String
+    """
+    Optional filterType to retrieve specific orders with given filterType
+    """
+    filterType: OrderSetStatusName
+    """
+    Optional filterTypes to retrieve specific orders with given filterTypes
+    """
+    filterTypes: [OrderSetStatusName]
+    """
+    Optional fulfillmentType to retrieve specific orders with given fulfillmentType
+    """
+    fulfillmentType: OrderFulfillmentType
+  ): [OrderSetLite]
+    @requireAuth
+    @requirePermissions(permissions: ["order:view"])
+  """
+  List of all order sets with less field for portal
+  """
+  orderSetsLiteTotalItemCount(
+    """
+    Optional ability to filter by date range
+    """
+    dateRange: DateRange
+    """
+    Optional ability to retrieve orders for a specific brand location
+    """
+    brandLocationId: ID
+    """
+    Optional ability to retrieve orders by brand
+    """
+    brandId: ID
+    """
+    Optional ability to retrieve orders by country id
+    """
+    countryId: ID
+    """
+    Optional searchTerm to seach orders by keyword
+    """
+    searchTerm: String
+    """
+    Optional filterType to retrieve specific orders with given filterType
+    """
+    filterType: OrderSetStatusName
+    """
+    Optional filterTypes to retrieve specific orders with given filterTypes
+    """
+    filterTypes: [OrderSetStatusName]
+    """
+    Optional fulfillmentType to retrieve specific orders with given fulfillmentType
+    """
+    fulfillmentType: OrderFulfillmentType
+  ): TotalItems! @requireAuth @requirePermissions(permissions: ["order:view"])
+  """
+  List of all order sets for order queue
+  """
+  orderQueueSets(
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+    """
+    Optional ability to retrieve orders for a specific brand location
+    """
+    brandLocationId: ID
+    """
+    Optional ability to retrieve orders by brand
+    """
+    brandId: ID
+    """
+    orders for specific date
+    """
+    curDate: Date!
+    """
+    Optional filterType to retrieve specific orders with given filterType
+    """
+    groupFilterType: OrderQueueSetStatusName
+    """
+    Optional fulfillmentType to retrieve specific orders with given fulfillmentType
+    """
+    fulfillmentType: OrderFulfillmentType
+  ): [OrderSet]! @requireAuth @requirePermissions(permissions: ["order:view"])
+  """
+  Calculate total number of orderSet statuses existing as per the order set statuses
+  """
+  orderQueueSetStatusTotal(
+    """
+    Optional ability to retrieve orders for a specific brand location
+    """
+    brandLocationId: ID
+    """
+    Optional ability to retrieve orders by brand
+    """
+    brandId: ID
+    """
+    orders for specific date
+    """
+    curDate: Date!
+  ): OrderQueueSetStatusTotalDetails
+    @requireAuth
+    @requirePermissions(permissions: ["order:view"])
+  """
+  List of all delayed order sets
+  """
+  delayedOrderSets(
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+    """
+    Optional ability to filter by date range
+    """
+    dateRange: DateRange
+    """
+    Optional ability to retrieve orders for a specific brand location
+    """
+    brandLocationId: ID
+    """
+    Optional ability to retrieve orders by brand
+    """
+    brandId: ID
+    """
+    Optional ability to retrieve orders by country id
+    """
+    countryId: ID
+    """
+    Optional searchTerm to seach orders by keyword
+    """
+    searchTerm: String
+    """
+    Optional filterType to retrieve specific orders with given filterType
+    """
+    filterType: OrderSetStatusName
+    """
+    Optional fulfillmentType to retrieve specific orders with given fulfillmentType
+    """
+    fulfillmentType: OrderFulfillmentType
+  ): OrderSetsPaged!
+    @requireAuth
+    @requirePermissions(permissions: ["order:view"])
+
+  """
+  List of all delayed order sets with less field for portal
+  """
+  delayedOrderSetsLite(
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+    """
+    Optional ability to filter by date range
+    """
+    dateRange: DateRange
+    """
+    Optional ability to retrieve orders for a specific brand location
+    """
+    brandLocationId: ID
+    """
+    Optional ability to retrieve orders by brand
+    """
+    brandId: ID
+    """
+    Optional ability to retrieve orders by country id
+    """
+    countryId: ID
+    """
+    Optional searchTerm to seach orders by keyword
+    """
+    searchTerm: String
+    """
+    Optional filterType to retrieve specific orders with given filterType
+    """
+    filterType: OrderSetStatusName
+    """
+    Optional filterTypes to retrieve specific orders with given filterTypes
+    """
+    filterTypes: [OrderSetStatusName]
+    """
+    Optional fulfillmentType to retrieve specific orders with given fulfillmentType
+    """
+    fulfillmentType: OrderFulfillmentType
+  ): [OrderSetLite]
+    @requireAuth
+    @requirePermissions(permissions: ["order:view"])
+  """
+  List of all order sets with less field for portal
+  """
+  delayedOrderSetsLiteTotalItemCount(
+    """
+    Optional ability to filter by date range
+    """
+    dateRange: DateRange
+    """
+    Optional ability to retrieve orders for a specific brand location
+    """
+    brandLocationId: ID
+    """
+    Optional ability to retrieve orders by brand
+    """
+    brandId: ID
+    """
+    Optional ability to retrieve orders by country id
+    """
+    countryId: ID
+    """
+    Optional searchTerm to seach orders by keyword
+    """
+    searchTerm: String
+    """
+    Optional filterType to retrieve specific orders with given filterType
+    """
+    filterType: OrderSetStatusName
+    """
+    Optional filterTypes to retrieve specific orders with given filterTypes
+    """
+    filterTypes: [OrderSetStatusName]
+    """
+    Optional fulfillmentType to retrieve specific orders with given fulfillmentType
+    """
+    fulfillmentType: OrderFulfillmentType
+  ): TotalItems! @requireAuth @requirePermissions(permissions: ["order:view"])
+  """
+  List of all active order sets
+  """
+  activeOrderSets(
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+  ): [OrderSet]! @requireAuth
+  """
+  Returns a list of brand locations in a radius
+  """
+  locationsInRadius(
+    """
+    User's current location
+    """
+    location: GISLocationInput!
+    """
+    Search Radius
+    """
+    radius: Float
+    """
+    flag to omit radius if necessary
+    """
+    omitRadius: Boolean
+    """
+    Filters results to those brand locations that belong to specified brands
+    """
+    brandIds: [ID!]
+    """
+    Status to access specific brand locations
+    """
+    filters: BrandLocationFilters
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+    """
+    country iso code like 'KW'
+    """
+    countryIso: String
+  ): [BrandLocation]!
+  """
+  Near by locations for home page
+  """
+  locationsInRadiusLite(
+    """
+    User's current location
+    """
+    location: GISLocationInput!
+    """
+    Search Radius
+    """
+    radius: Float
+    """
+    flag to omit radius if necessary
+    """
+    omitRadius: Boolean
+    """
+    Filters results to those brand locations that belong to specified brands
+    """
+    brandIds: [ID!]
+    """
+    Status to access specific brand locations
+    """
+    filters: BrandLocationFilters
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+    """
+    countryId
+    """
+    countryId: ID!
+  ): locationsInRadiusLiteResponse!
+  """
+  Near by locations for home page
+  """
+  ngLocationsInRadiusLite(
+    """
+    User's current location
+    """
+    location: GISLocationInput!
+    """
+    Search Radius
+    """
+    radius: Float
+    """
+    Filters results to those brand locations that belong to specified brands
+    """
+    brandIds: [ID!]
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+    """
+    countryId
+    """
+    countryId: ID!
+  ): locationsInRadiusLiteResponse!
+  """
+  Return a list of brand locations for the iOS app home screen.
+  The list returned will only have one location returned per brand.
+  """
+  locationsForHomeScreen(
+    """
+    Filters results to those in the specified neighborhood. Optional.
+    """
+    neighborhoodId: ID
+    """
+    Filters results to those that support delivery fulfillments. Optional.
+    """
+    hasDelivery: Boolean
+    """
+    User's current location, nullable if user has disabled location services
+    """
+    location: GISLocationInput
+    """
+    Status to access specific brand locations
+    """
+    filters: BrandLocationFilters
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+  ): [BrandLocation]! @requireAuth
+  """
+  Search for a list of locations.
+  """
+  locationsForSearchScreen(
+    """
+    Filters results according to country. Required
+    """
+    countryId: ID!
+    """
+    The search term the user entered on the client
+    """
+    searchTerm: String!
+    """
+    User's current location, nullable if user has disabled location services
+    """
+    location: GISLocationInput
+    """
+    Status to access specific brand locations
+    """
+    filters: BrandLocationFilters
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+  ): [BrandLocation]!
+  """
+  Search for a list of brand locations with pickup fulfillment.
+  """
+  locationsForPickup(
+    """
+    The Brand ID to return locations for
+    """
+    brandId: ID!
+    """
+    User's current location, nullable if user has disabled location services
+    """
+    location: GISLocationInput
+    """
+    Status to access specific brand locations
+    """
+    filters: BrandLocationFilters
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+  ): [BrandLocation]! @requireAuth
+  """
+  All menus
+  """
+  menus: [Menu!]! @requireAuth
+  """
+  Menus by brand Ids
+  """
+  menusByBrands(brandIds: [ID!]!): [Menu!]!
+    @requireAuth
+    @requirePermissions(permissions: ["menu:view"])
+  """
+  Lookup a customer by id
+  """
+  menu(id: ID!): Menu @requireAuth
+  """
+  Computed Menu, only available items and price rules applied for brandLocation
+  """
+  getBrandLocationMenu(brandLocationId: ID!): CMenu!
+  """
+  Computed Menu, only available items and price rules applied for brandLocation
+  """
+  getCustomerMenu(brandLocationId: ID): CMenu!
+  """
+  Lookup a specific brand/company
+  """
+  brand(id: ID!): Brand
+  """
+  List of all brands
+  """
+  brands(
+    """
+    countryId
+    """
+    countryId: ID
+    """
+    Status to access specific brands
+    """
+    filters: BrandFilters
+    """
+    Catering brands
+    """
+    catering: Boolean
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+  ): [Brand]! @requireAuth
+  """
+  List of all brands for a country id
+  """
+  brandsByCountryId(
+    """
+    countryId
+    """
+    countryId: ID!
+    """
+    Status to access specific brands
+    """
+    filters: BrandFilters
+    """
+    Catering brands
+    """
+    catering: Boolean
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+  ): [Brand]! @requireAuth
+  """
+  List of all brands for a country
+  """
+  brandsByCountryIso(
+    """
+    countryIso
+    """
+    countryIso: String!
+    """
+    Status to access specific brands
+    """
+    filters: BrandFilters
+    """
+    Catering brands
+    """
+    catering: Boolean
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+  ): [Brand]!
+  """
+  List of all brands for discovery  credits for country
+  """
+  brandsForDiscoveryCreditsByCountryId(
+    """
+    countryIso
+    """
+    countryIso: ID!
+    """
+    User's current location
+    """
+    location: GISLocationInput!
+    """
+    Search Radius
+    """
+    radius: Float
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+  ): [DiscoveryBrandsElement!] @requireAuth
+  """
+  List of all brands for discovery  credits for country
+  """
+  discoveryCredit(
+    """
+    countryIso
+    """
+    countryIso: String!
+    """
+    Should be set as false always by the FE team, mobile team shuold always set as true.
+    If the call is coming from mobile/addIfNotFound is set as true. we will add credits automatically if enabled in that country.
+    """
+    addIfNotFound: Boolean!
+  ): DiscoveryCreditPayload!
+  """
+  Detailed wallet
+  """
+  countryWallet(
+    """
+    countryIso
+    """
+    countryIso: String!
+    """
+    User's current location / if given near  by  brands will be in  response
+    """
+    location: GISLocationInput
+    """
+    Search Radius / if given near  by  brands will be in  responses
+    """
+    radius: Float
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+  ): CountryWalletPayload! @requireAuth
+
+  """
+  List of all brands for a country and catering
+  """
+  fetchCateringBrands(
+    """
+    countryIso
+    """
+    countryIso: String!
+    """
+    Status to access specific brands
+    """
+    filters: BrandFilters
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+  ): [Brand]!
+  """
+  Global configuration data
+  """
+  config: Configuration!
+  """
+  Lookup a specific coupon by it's database ID.
+  """
+  coupon(id: ID!): Coupon
+    @requireAuth
+    @requirePermissions(permissions: ["voucher:view"])
+  """
+  Lookup a specific coupon by it's code and the currently logged in customer's ID.
+  """
+  couponByCodeAndCustomer(
+    code: String!
+    countryIso: String!
+    paymentMethod: String
+  ): Coupon @requireAuth
+
+  """
+  Lookup a specific coupon by it's code and the currently logged in customer's ID
+  """
+  couponByCodeAndCustomerWithSourceId(
+    couponInput: CouponValidityInput!
+  ): CouponValidityPayload! @requireAuth
+  """
+  Lookup a specific coupon by it's code and the branch id
+  """
+  validateCoupon(code: String!, brandLocationId: String!): Coupon @requireAuth
+  """
+  List of all coupons
+  """
+  coupons(
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+    """
+    Optional coupon validity filter
+    """
+    isValid: Boolean
+    """
+    Optional Search Term for filtering
+    """
+    searchTerm: String
+    """
+    The Id of the country that the coupons are in
+    """
+    countryId: ID!
+    """
+    Filters
+    """
+    filters: CouponFilters
+  ): [Coupon]! @requireAuth @requirePermissions(permissions: ["voucher:view"])
+  """
+  List of all neighborhoods
+  """
+  neighborhoods(
+    countryId: ID
+    countryIso: String
+    filters: NeighborhoodFilters
+  ): [Neighborhood]! @requireAuth
+  """
+  List of all neighborhoods in city
+  """
+  cityNeighborhoods(cityId: ID!, filters: NeighborhoodFilters): [Neighborhood]!
+    @requireAuth
+  """
+  List of all currencies
+  """
+  currencies(filters: CurrencyFilters): [Currency]! @requireAuth
+  """
+  get currency by id
+  """
+  currency(id: ID!): Currency! @requireAuth
+  """
+  List of all neighborhoods
+  """
+  neighborhood(id: ID!): Neighborhood! @requireAuth
+  """
+  Get loyalty orders
+  """
+  loyaltyOrders(
+    paging: PagingInput
+    filters: LoyaltyOrdersFilters
+  ): [LoyaltyOrder]
+    @requireAuth
+    @requirePermissions(permissions: ["creditorders:access"])
+  """
+  Lookup an loyalty order by id
+  """
+  loyaltyOrder(id: ID!): LoyaltyOrder @requireAuth
+  """
+  List of all customers
+  """
+  customers(
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+    """
+    Optional Current Loyalty TIer
+    """
+    loyaltyTierName: LoyaltyTierName
+    """
+    Optional Search Term for filtering
+    """
+    searchTerm: String
+    """
+    Filters
+    """
+    filters: CustomerFilters
+  ): CustomersPaged
+    @requireAuth
+    @requirePermissions(permissions: ["customer:view"])
+
+  # """
+  # single marketing push notification
+  # """
+  # marketingNotification(
+  #   """
+  #   the id
+  #   """
+  #   id: ID!
+  # ): MarketingNotificationResult! @requireAuth @requireRoles(roles: ["CDA"])
+
+  # """
+  # List of marketing push notification, both past and present
+  # """
+  # marketingNotifications(
+  #   """
+  #   Country id
+  #   """
+  #   countryId: ID
+  #   """
+  #   Paging params
+  #   """
+  #   paging: PagingInput
+  # ): MarketingNotificationsPaged! @requireAuth @requireRoles(roles: ["CDA"])
+
+  """
+  get all brands with active reward programs
+  """
+  getAllBrandsWithActiveRewards(
+    countryCode: String
+    """
+    Status to access specific brands
+    """
+    filters: BrandFilters
+    """
+    Catering brands
+    """
+    catering: Boolean
+  ): [Brand!]
+  """
+  get all brands without reward programs
+  """
+  getAllBrandsWithoutRewards(
+    countryId: ID
+    """
+    Status to access specific brands
+    """
+    filters: BrandFilters
+    """
+    Catering brands
+    """
+    catering: Boolean
+  ): [Brand!] @requireAuth @requirePermissions(permissions: ["brand:view"])
+
+  """
+  List of all countries
+  """
+  countries(filters: CountryFilters): [Country!]! @requireAuth
+  """
+  get country by id
+  """
+  country(id: ID!): Country! @requireAuth
+  """
+  get country by code
+  """
+  countryByCode(code: String!, filters: CountryFilters): Country!
+  """
+  List of all countries
+  """
+  cities(countryId: ID, countryIso: String, filters: CityFilters): [City!]!
+    @requireAuth
+  """
+  List of all countries
+  """
+  countryCities(countryId: ID!, filters: CityFilters): [City!]! @requireAuth
+  """
+  get country by id
+  """
+  city(id: ID!): City! @requireAuth
+  """
+  list of rewards programs
+  """
+  rewards(
+    """
+    country id
+    """
+    countryId: ID
+    """
+    Rewards filters
+    """
+    filters: RewardFilters
+    """
+    pagination parameters
+    """
+    paging: PagingInput
+  ): RewardsPaged!
+    @requireAuth
+    @requirePermissions(permissions: ["rewards:view"])
+
+  """
+  get a reward program by ID
+  """
+  reward(id: ID!): Reward @requireAuth
+  """
+  get a reward tier by ID
+  """
+  rewardTier(id: ID!): RewardTier @requireAuth
+  """
+  get a reward tier perk by ID
+  """
+  rewardTierPerk(id: ID!): RewardTierPerk @requireAuth
+  """
+  get a reward tier allowed perks by tier ID
+  """
+  rewardTierAllowedPerks(tierId: ID!): [RewardTierPerkType] @requireAuth
+  """
+  get customer reward Pogram stats
+  """
+  getCustomerRewardProgramDetails(rewardId: ID!): CustomerRewardProgramDetails
+    @requireAuth
+  """
+  get customer used perks in a reward program
+  """
+  getCustomerRewardProgramUsedPerks(
+    rewardId: ID!
+    customerId: ID!
+  ): [CustomerUsedPerk] @requireAuth @requireRoles(roles: ["CDA"])
+  """
+  Get customer transaction history.
+  """
+  transactionHistory(
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+    """
+    customer id
+    """
+    customerId: ID!
+  ): [Transaction!]! @requireAuth
+  """
+  Return a list of banners from a scecific country
+  """
+  banners(countryId: ID, showInactive: Boolean, countryCode: String): [Banner!]
+  """
+  Return a banner
+  """
+  banner(id: ID!): Banner @requireAuth
+  """
+  Golden COFE Terms and Conditions
+  """
+  goldenCofe(countryCode: String!): GoldenCofe
+  """
+  Check if phone app is forced to do an upgrade
+  """
+  forceUpdate: ForceUpdate! @requireAuth
+  """
+  Get a loyalty tier
+  """
+  loyaltyTier(id: ID!): LoyaltyTier
+    @requireAuth
+    @requirePermissions(permissions: ["loyaltytiers:view"])
+  """
+  Get all loyalty tiers
+  """
+  loyaltyTiers(
+    countryId: ID
+    countryCode: String
+    status: LoyaltyTierStatus
+  ): [LoyaltyTier]!
+    @requireAuth
+    @requirePermissions(permissions: ["loyaltytiers:view"])
+  """
+  Get bonus for loyalty tier
+  """
+  getloyaltyTierBonus(
+    id: ID!
+    amount: CurrencyValue!
+  ): GetLoyaltyTierBonusResponse!
+  """
+  Get all group admins
+  """
+  groupAdmins(
+    email: String
+    groupId: ID
+    paging: PagingInput
+    filters: AdminFilters
+  ): [Admin] @requireAuth @requirePermissions(permissions: ["admin:view"])
+  """
+  list of admins for brand and locations
+  """
+  admins(
+    """
+    Email
+    """
+    email: String
+    """
+    Brand Id
+    """
+    brandId: ID
+    """
+    Brand Location Id
+    """
+    brandLocationId: ID
+    """
+    pagination parameters
+    """
+    paging: PagingInput
+  ): [Admin!]! @requireAuth
+
+  """
+  Admin
+  """
+  admin(
+    """
+    Email
+    """
+    email: String!
+  ): AdminDetailsPayload! @requireAuth
+  getStoreOrderPaymentMethods(
+    getStoreOrderPaymentMethodsInput: StorePaymentMethodsInput!
+  ): [PaymentMethod]! @requireAuth @deprecated
+  getOrderPaymentMethods(
+    getOrderPaymentMethodsInput: OrderPaymentMethodsInput!
+  ): [PaymentMethod]! @requireAuth @deprecated
+  getCreditsPaymentMethods(
+    getCreditsPaymentMethodsInput: CreditsPaymentMethodsInput!
+  ): [PaymentMethod]! @requireAuth @deprecated
+  getGiftCardOrderPaymentMethods(
+    getGiftCardOrderPaymentMethodsInput: GiftCardOrderPaymentMethodsInput!
+  ): [PaymentMethod]! @requireAuth
+
+  getCheckoutComConfig(countryCode: String): CheckoutComConfig! @deprecated
+  getCheckoutComSavedCardTokens: [CustomerCardToken]! @requireAuth
+
+  """
+  List of all groups
+  """
+  groups: [Group!]!
+    @requireAuth
+    @requirePermissions(permissions: ["groups:view"])
+  """
+  get group by id
+  """
+  group(id: ID!): Group!
+    @requireAuth
+    @requirePermissions(permissions: ["groups:view"])
+  """
+  get group by name
+  """
+  groupByName(name: String!): Group @requireAuth
+
+  """
+  List of all roles
+  """
+  roles: [Role!]! @requireAuth
+  """
+  get role by id
+  """
+  role(id: ID!): Role! @requireAuth
+  """
+  get role by name
+  """
+  roleByName(name: String!): Role @requireAuth
+
+  """
+  List of all permissions
+  """
+  permissions: [Permission!]!
+    @requireAuth
+    @requirePermissions(permissions: ["authorization:view"])
+  """
+  get permission by id
+  """
+  permission(id: ID!): Permission! @requireAuth
+  """
+  get role by name
+  """
+  permissionByName(name: String!): Permission @requireAuth
+  customerCardToken(id: ID!): CustomerCardToken @requireAuth
+  """
+  Order pricing. Designed this API to keep central price calculations of order items with all the perks, coupon if any
+  """
+  computeInvoice(input: ComputeInvoiceInput!): Invoice @requireAuth
+  """
+  Order pricing. Designed this API to keep central price calculations of order items with all the perks, coupon if any
+  """
+  getInvoice(input: ComputeInvoiceInput!): Invoice @requireAuth
+  """
+  Store Order set pricing. Designed this API to keep central price calculations of order items
+  """
+  computeStoreOrderSetInvoice(
+    input: ComputeStoreOrderSetInvoiceInput!
+  ): StoreOrderSetInvoice @requireAuth
+
+  fetchStoreCheckoutData(
+    input: ComputeStoreOrderSetInvoiceInput!
+  ): StoreCheckoutData @requireAuth
+
+  """
+  check if a custome exists
+  """
+  customerExists(phoneNumber: String): Boolean!
+  """
+  giftCardCollections for apps
+  """
+  getGiftCardsForApp(countryIso: String!): [GiftCardSection]!
+  """
+  giftCardCollections
+  """
+  giftCardCollections(
+    paging: PagingInput
+    filters: GiftCardCollectionsFilters
+  ): GiftCardCollectionsPaged!
+    @requireAuth
+    @requirePermissions(permissions: ["giftCardCollections:view"])
+
+  """
+  giftCardCollection
+  """
+  giftCardCollection(id: ID!): GiftCardCollection @requireAuth
+
+  """
+  giftCardTemplates
+  """
+  giftCardTemplates(
+    paging: PagingInput
+    filters: GiftCardTemplatesFilters
+  ): GiftCardTemplatesPaged! @requireAuth
+
+  """
+  giftCardTemplate
+  """
+  giftCardTemplate(id: ID!): GiftCardTemplate @requireAuth
+  """
+  giftCardOrders
+  """
+  giftCardOrders(
+    paging: PagingInput
+    filters: GiftCardOrdersFilters
+  ): GiftCardOrdersPaged!
+    @requireAuth
+    @requirePermissions(permissions: ["giftCardsOrders:view"])
+
+  """
+  giftCardOrder
+  """
+  giftCardOrder(id: ID!): GiftCardOrder @requireAuth
+  """
+  callback query
+  """
+  giftCardOrderForCallbacks(id: ID!): GiftCardOrder
+  """
+  giftCards
+  """
+  giftCards(paging: PagingInput, filters: GiftCardsFilters): GiftCardsPaged!
+    @requireAuth
+
+  """
+  giftCards used in admin platform
+  """
+  giftCardsForAdmin(
+    paging: PagingInput
+    filters: GiftCardsFilters
+  ): GiftCardsPaged!
+    @requireAuth
+    @requirePermissions(permissions: ["giftCards:view"])
+
+  """
+  giftCard
+  """
+  giftCard(id: ID!): GiftCard @requireAuth
+
+  """
+  get a Gift Card by a property
+  """
+  giftCardBy(code: String): GiftCard @requireAuth
+  """
+  List of referrals
+  """
+  referrals(
+    """
+    Status to access specific referrals
+    """
+    filters: ReferralFilters
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+  ): ReferralPaged!
+    @requireAuth
+    @requirePermissions(permissions: ["referrals:view"])
+
+  """
+  Get referral sender info based on code send
+  Does not @requireAuth
+  """
+  customerWithReferral(referralCode: String!): ReferralCustomerInfo
+  """
+  List categories
+  """
+  categories(filters: CategoryFilters, paging: PagingInput): CategoriesPaged!
+  """
+  Get a category by ID
+  """
+  category(id: ID!): Category
+  """
+  List products
+  """
+  products(filters: ProductFilters, paging: PagingInput): ProductsPaged!
+  """
+  Get a product by ID
+  """
+  product(id: ID!): Product
+  """
+  Get a product by ID
+  """
+  productNew(id: ID!): ProductNew
+  """
+  List cofe store pickup locations
+  """
+  pickupLocations(filters: PickupLocationFilters): [PickupLocation]!
+  """
+  Get a cofe store pickup location by ID
+  """
+  pickupLocation(id: ID!): PickupLocation
+  """
+  List shipping policies
+  """
+  shippingPolicies(filters: ShippingPolicyFilters): [ShippingPolicy]!
+    @requireAuth
+    @requirePermissions(permissions: ["shippingPolicy:view"])
+  """
+  Get a shipping policy by ID
+  """
+  shippingPolicy(id: ID!): ShippingPolicy
+  """
+  List store headers
+  """
+  storeHeaders(filters: StoreHeaderFilters): [StoreHeader]!
+    @requireAuth
+    @requirePermissions(permissions: ["storeHeaders:view"])
+
+  """
+  Get a store header by ID
+  """
+  storeHeader(id: ID!): StoreHeader @requireAuth
+  """
+  Get store home feed
+  """
+  storeFeed(countryCode: String!): [UISection]!
+  productsCatalog(brandId: ID!): ProductsCatalog
+
+  """
+  List of all signup promos
+  """
+  signupPromos(
+    """
+    country UUID
+    """
+    countryId: ID
+    filters: SignupPromoFilters
+  ): [SignupPromo!]
+    @requireAuth
+    @requirePermissions(permissions: ["signUpPromo:view"])
+
+  """
+  get signup promo by id
+  """
+  signupPromo(id: ID!): SignupPromo
+    @requireAuth
+    @requirePermissions(permissions: ["signUpPromo:view"])
+
+  """
+  get signup promo by code
+  """
+  signupPromoByCode(code: String!): SignupPromo
+    @requireAuth
+    @requirePermissions(permissions: ["signUpPromo:view"])
+
+  """
+  get signup promo by type
+  """
+  signupPromoByType(type: String!): [SignupPromo]
+    @requireAuth
+    @requirePermissions(permissions: ["signUpPromo:view"])
+
+  """
+  storeOrderSets statuses total for admin panel
+  """
+  storeOrderSetStatusTotal(
+    filters: StoreOrderSetsFilters
+  ): StoreOrderSetStatusTotalDetails!
+    @requireAuth
+    @requirePermissions(permissions: ["storeOrder:view"])
+
+  """
+  storeOrderSets
+  """
+  storeOrderSets(
+    paging: PagingInput
+    filters: StoreOrderSetsFilters
+  ): StoreOrderSetsPaged! @requireAuth
+
+  """
+  storeOrderSet
+  """
+  storeOrderSet(id: ID!): StoreOrderSet @requireAuth
+  """
+  callback query
+  """
+  storeOrderSetForCallbacks(id: ID!): StoreOrderSet
+  """
+  get a storeOrders by ID
+  """
+  storeOrder(id: ID!): StoreOrder @requireAuth
+  """
+  storeOrders used for store order queue
+  """
+  storeOrders(
+    paging: PagingInput
+    filters: StoreOrdersFilters
+  ): StoreOrdersPaged!
+    @requireAuth
+    @requirePermissions(permissions: ["order:view"])
+  """
+  storeOrders statuses total for store order queue
+  """
+  storeOrderStatusTotal(
+    filters: StoreOrdersFilters
+  ): StoreOrderStatusTotalDetails!
+    @requireAuth
+    @requirePermissions(permissions: ["order:view"])
+
+  """
+  get customer's current address
+  """
+  customerCurrentLocation(input: Coordinates!): CustomerCurrentLocationCache
+    @requireAuth
+
+  """
+  Given the refresh token, obtains a new access token
+  """
+  getNewAccessToken(refreshToken: String!): AuthToken
+
+  """
+  Customer group
+  """
+  customerGroup(id: ID!): CustomerGroup!
+    @requireAuth
+    @requirePermissions(permissions: ["customerGroups:view"])
+  """
+  List of all customer groups
+  """
+  customerGroups(
+    filters: CustomerGroupFilters
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+  ): CustomerGroupPaged
+    @requireAuth
+    @requirePermissions(permissions: ["customerGroups:view"])
+
+  """
+  List of all blog categories
+  """
+  blogCategories(
+    """
+    Optional ability, default status ALL
+    """
+    status: StatusType
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+  ): [BlogCategory]
+  """
+  get blog category by id
+  """
+  blogCategory(id: ID!): BlogCategory
+
+  """
+  List of all blog posts
+  """
+  blogPosts(paging: PagingInput): [BlogPost]
+  """
+  get blog post by id
+  """
+  blogPost(id: ID!): BlogPost
+  """
+  get favorite brand locations of the customer
+  """
+  getCustomerFavoriteBrandLocation: [CustomerFavoriteBrandLocation] @requireAuth
+  """
+  get notifications list with brandlocationId or all;
+  """
+  getNotificationCustomerForBrandLocationOpened(
+    brandLocationId: ID
+  ): CustomerNotificationForBrandLocationOpenPayload @requireAuth
+
+  """
+  get brand locations with boundary box
+  """
+  getBrandLocationsWithBBox(
+    """
+    boundary box consists of map bottom left and top right coordinates
+    """
+    bbox: BBox!
+    """
+    Filters results to those brand locations that belong to specified brands
+    """
+    brandIds: [ID!]
+    """
+    Status to access specific brand locations
+    """
+    filters: BrandLocationFilters
+  ): [BrandLocation]
+  """
+  cashback history
+  """
+  transactions(
+    filters: TransactionHistoryFilters!
+    paging: PagingInput
+  ): TransactionHistoryPaged! @requireAuth
+
+  """
+  get order rating questions
+  """
+  getOrderRatingQuestionsByFilters(
+    """
+    Filters to access specific order rating questions
+    """
+    filters: OrderRatingQuestionFiltersInput
+  ): [OrderRatingQuestion!]! @requireAuth
+
+  """
+  Get overall order rating question
+  """
+  getOverallOrderRatingQuestion: [OrderRatingQuestion!]! @requireAuth
+
+  """
+  get order rating questions
+  """
+  getOrderRatingQuestionsByFullfilmentType(
+    """
+    Fullfilment type to access specific order rating questions
+    """
+    fulfillmentType: OrderFulfillmentType
+  ): [OrderRatingQuestion!]! @requireAuth
+
+  """
+  get country based new brands list by countryId or countryIso. needs to provide one of them
+  """
+  newBrands(
+    """
+    country UUID
+    """
+    countryId: ID
+    """
+    country iso code like 'KW'
+    """
+    countryIso: String
+    """
+    The longitude component of the geo coordinates for this address, in degrees
+    """
+    longitude: Float
+    """
+    The longitude component of the geo coordinates for this address, in degrees
+    """
+    latitude: Float
+  ): [NewBrand]
+
+  """
+  get country based new brands list by countryId or countryIso. needs to provide one of them
+  """
+  newBrandsLite(
+    """
+    country iso code like 'KW'
+    """
+    countryIso: String
+    """
+    country UUID
+    """
+    countryId: ID
+  ): newBrandsLiteResponse
+
+  """
+  get country based new brands list by countryId or countryIso. needs to provide one of them
+  for admin portal. there is only country filter
+  """
+  allNewBrands(
+    """
+    country UUID
+    """
+    countryId: ID
+    """
+    country iso code like 'KW'
+    """
+    countryIso: String
+  ): [NewBrand]
+    @requireAuth
+    @requirePermissions(permissions: ["newBrands:view"])
+
+  """
+  get orders payment methods percentage by given date interval and branches
+  """
+  getTotalSalesPercentageByPaymentMethod(
+    input: VendorPortalDashboardFiltersInput!
+  ): OrdersSalesPercentageByPaymentMethod! @requireAuth
+  """
+  get orders total sale, average amount of orders, and total refunds with time periods by given date interval and branches
+  """
+  getSummaryOfSalesWithTimePeriod(
+    input: VendorPortalDashboardFiltersInput!
+  ): [SummaryOfSales]! @requireAuth
+  """
+  get total orders count by fulfillment types by given date interval and for the given branches
+  """
+  getTotalOrderCountsByFulfillmentType(
+    input: VendorPortalDashboardFiltersInput!
+  ): [TotalOrdersCounts]! @requireAuth
+  """
+  get orders total sales percentage by fulfillment types (pickup, cars, ...) by given date interval and for the given branches
+  """
+  getTotalSalesPercentageByFulfillmentType(
+    input: VendorPortalDashboardFiltersInput!
+  ): OrdersSalesPercentageByFulfillmentType! @requireAuth
+  """
+  get total orders, delayed, completed, rejected and, reported counts of
+  orders with time periods by given date interval and for the branches
+  """
+  getSummaryOfOrdersWithTimePeriod(
+    input: VendorPortalDashboardFiltersInput!
+  ): [SummaryOfOrders]! @requireAuth
+  """
+  get total customer and, new customer counts in orders with time periods
+  by given date interval and for the branches
+  """
+  getSummaryOfCustomersWithTimePeriod(
+    input: VendorPortalDashboardFiltersInput!
+  ): [SummaryOfOrdersCustomers]! @requireAuth
+  """
+  get top 5 most selling products with total quantity and sales
+  by given date interval and for the given branches
+  """
+  getMostSellingProducts(
+    input: VendorPortalDashboardFiltersInput!
+  ): [MostSellingProduct]! @requireAuth
+  """
+  get total count of order items according to menu item types (DRINK, FOOD, OTHERS)
+  by given date interval and for the given branches
+  """
+  getSummaryOfOrderItemsType(
+    input: VendorPortalDashboardFiltersInput!
+  ): [SummaryOfOrderItem]! @requireAuth
+  """
+  get branches performances according to their completed, delayed, reported/rejected orders,
+  total sales, average order amounts, pickup, car, delivery orders, total customers and,
+  new customers
+  """
+  getBranchesPerformances(
+    input: VendorPortalDashboardFiltersInput!
+  ): [BranchPerformances]! @requireAuth
+
+  """
+  Fetch Daily Orders Reports by pagination
+  """
+  getDailyOrdersReports(
+    reportsInput: DailyOrdersReportsInput!
+  ): DailyOrdersReportsPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["reporting:access"])
+
+  """
+  Fetch Weekly Reports
+  """
+  getWeeklyReports(
+    reportsInput: WeeklyOrdersReportsInput!
+  ): WeeklyOrdersReportsPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["reporting:access"])
+
+  """
+  Fetch Monthly Reports
+  """
+  getMonthlyReports(
+    reportsInput: MonthlyOrdersReportsInput!
+  ): MonthlyOrdersReportsPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["reporting:access"])
+
+  """
+  Fetch Item Price Change Reports
+  """
+  getItemPriceChangeReports(
+    reportsInput: CareTeamReportsInput!
+  ): CareTeamReportsPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["reporting:access"])
+
+  """
+  Fetch Item Status Change Reports
+  """
+  getItemStatusChangeReports(
+    reportsInput: CareTeamReportsInput!
+  ): CareTeamReportsPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["reporting:access"])
+
+  """
+  Fetch Operating Hours Change Reports
+  """
+  getOperatingHoursChangeReports(
+    reportsInput: CareTeamReportsInput!
+  ): CareTeamReportsPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["reporting:access"])
+
+  """
+  Fetch Total Online/Offline Hours Reports
+  """
+  getBranchOfflineHourReports(
+    reportsInput: CareTeamReportsInput!
+  ): CareTeamReportsPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["reporting:access"])
+
+  """
+  subscription model
+  """
+  brandSubscriptionModel(id: ID!): BrandSubscriptionModel @requireAuth
+  # """
+  # List of all subscription models
+  # """
+  # brandSubscriptionModels(
+  #   """
+  #   Optional ability to leverage pagination
+  #   """
+  #   paging: PagingInput!
+  #   """
+  #   Optional coupon validity filter
+  #   """
+  #   activeOnly: Boolean!
+  #   """
+  #   Optional Search Term for filtering
+  #   """
+  #   searchTerm: String
+  #   """
+  #   The Id of the country that the coupons are in
+  #   """
+  #   countryId: ID!
+  #   """
+  #   Model
+  #   """
+  #   revenueModel: BrandSubscriptionRevenueModel
+  #   """
+  #   Month
+  #   """
+  #   month: String
+  #   """
+  #   Year
+  #   """
+  #   year: String
+  # ): BrandSubscriptionModelsPaged! @requireAuth
+
+  """
+  Store Feed Lite version (Do it yourself)
+  """
+  storeFeedLite: [StoreCategoryLite]!
+
+  """
+  OrderSet to be tracked
+  """
+  orderSetToBeTracked: [TrackedOrderSet]! @requireAuth
+
+  """
+  Get received and sent gift card for customer
+  """
+  getGiftCardsForCustomer: GiftCardsForCustomer @requireAuth
+
+  """
+  Get branches in bounding box
+  """
+  getBrandLocationsInBoundingBox(
+    """
+    Current location of user or location of selected user address
+    """
+    userLocation: GISLocationInput!
+    """
+    Top left (north west) location of the vounding box
+    """
+    minLocation: GISLocationInput!
+    """
+    Bottom right (south east) location of the vounding box
+    """
+    maxLocation: GISLocationInput!
+    """
+    Status to access specific brand locations
+    """
+    filters: BrandLocationFilters
+    """
+    country iso code like 'KW'
+    """
+    countryIso: String
+    """
+    countryId
+    """
+    countryId: ID
+  ): [BrandLocation]!
+  """
+  Getting branches around me
+  """
+  getBrandLocationsAroundMe(
+    """
+    User's current location
+    """
+    location: GISLocationInput!
+    """
+    Search Radius
+    """
+    radius: Float
+    """
+    flag to omit radius if necessary
+    """
+    omitRadius: Boolean
+    """
+    Status to access specific brand locations
+    """
+    filters: BrandLocationFilters
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+    """
+    country iso code like 'KW'
+    """
+    countryIso: String
+    """
+    countryId
+    """
+    countryId: ID
+  ): [BrandLocation]!
+  """
+  Getting branches around me
+  """
+  getBrandLocationsAroundMePayload(
+    """
+    countryId
+    """
+    countryId: ID
+    """
+    User's current location
+    """
+    location: GISLocationInput!
+    """
+    Optional ability to leverage pagination
+    """
+    paging: RefreshPagingInput
+    """
+    Status to access specific brand locations
+    """
+    filters: BrandLocationPayloadFilters
+  ): BrandLocationPayload!
+  """
+  get order rating by order rating id
+  """
+  getOrderRating(id: ID!): OrderRating
+    @requireAuth
+    @requireRoles(roles: ["CDA"])
+  """
+  get order rating by order set id
+  """
+  getOrderRatingByOrderSetId(orderSetId: ID!): OrderRating
+    @requireAuth
+    @requireRoles(roles: ["CDA"])
+  """
+  get order ratings by customer id
+  """
+  getOrderRatingsByCustomerId(customerId: ID!): [OrderRating] @requireAuth
+  """
+  get total score, reviews and average score by brand location id
+  """
+  getBrandLocationScore(brandLocationId: ID!): BrandLocationScore
+    @requireAuth
+    @requireRoles(roles: ["CDA"])
+  """
+  get total score, reviews and average score by brand location id for customer
+  """
+  getBrandLocationScoreForCustomer(brandLocationId: ID!): BrandLocationScore
+  """
+  get order ratings data
+  """
+  getOrderRatings(
+    """
+    brand location id
+    """
+    brandLocationId: ID!
+    """
+    Status to access specific orders rating
+    """
+    filters: OrderRatingFilters
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+  ): OrderRatingPaged @requireAuth @requireRoles(roles: ["CDA"])
+  """
+  get order ratings data for customers
+  """
+  getOrderRatingsForCustomer(
+    """
+    brand location id
+    """
+    brandLocationId: ID!
+    """
+    Status to access specific orders rating
+    """
+    filters: OrderRatingFilters
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+  ): OrderRatingPaged
+
+  """
+  Reward Tier and Perks Detail
+  """
+  getRewardsTierDetails(brandId: ID!): CustomerRewardTierDetail @requireAuth
+
+  """
+  Get available fulfillments for brand location
+  """
+  getAvailableFulfillmentListForBranch(
+    brandLocationId: ID!
+  ): BrandLocationAvailableFulfillments
+
+  """
+  Get all fulfillments for brand location
+  """
+  getAllFulfillmentListForBranch(
+    brandLocationId: ID!
+  ): BrandLocationAvailableFulfillments
+
+  """
+  Discovery credits enabled brands query newly implementation
+  """
+  brandsDiscoveryCreditEnabledByCountryId(
+    """
+    User's current location
+    """
+    location: GISLocationInput!
+    """
+    countryId
+    """
+    countryId: ID!
+  ): [DiscoveryBrandsElement!] @requireAuth
+
+  """
+  Detailed wallet page newly implementation
+  """
+  walletPage(
+    """
+    countryId
+    """
+    countryId: ID!
+  ): walletPageReturn @requireAuth
+
+  """
+  List of all brands for discovery credits for country
+  """
+  discoveryCreditInfoForCustomerWallet(
+    """
+    countryId
+    """
+    countryId: ID!
+    customerId: ID!
+  ): [DiscoveryBrandsElement!]
+    @requireAuth
+    @requirePermissions(permissions: ["customer:view"])
+
+  """
+  Reward information of brand
+  """
+  rewardsByBrandId(
+    """
+    brandId
+    """
+    brandId: ID!
+  ): Reward
+  """
+  get customer reward Pogram stats newly implementation
+  """
+  getCustomerRewardProgramDetailsNew(
+    rewardId: ID!
+  ): CustomerRewardProgramDetails @requireAuth
+  """
+  Retrieves cached country and currency data for mobile applications
+  """
+  countryCurrencyLookup: [CountryCurrencyLookupPayload!]!
+  """
+  get wallet details of all countries
+  """
+  walletSettingsLite: [WalletAccountLite] @requireAuth
+  """
+  Get Cached Country Configurations
+  """
+  countryConfigs: [CountryConfigurationLookupPayload!]!
+  """
+  get all address fields
+  """
+  getAddressFields: [AddressFieldsPayload!]
+  """
+  get all paired barista device list
+  """
+  getAllPairedDevice(
+    """
+    countryId
+    """
+    countryId: ID
+  ): [BaristaAppDevice]
+    @requireAuth
+    @requirePermissions(permissions: ["pairedDevices:view"])
+  """
+  giftCardCollections for apps
+  """
+  getGiftCardsForAppNew(countryId: ID!): [GiftCardSection]!
+  """
+  get store products in brand
+  """
+  productsCatalogNew(brandId: ID!): ProductsCatalogNew
+  """
+  get store products in category
+  """
+  categoryNew(id: ID!): CategoryNew
+  """
+  Get store home feed
+  """
+  storeFeedNew(countryId: ID!): [UISection]!
+  """
+  Get OTP Available Countries
+  """
+  otpAvailableCountries: [OtpAvailableCountries!]!
+  """
+  Order again
+  """
+  orderAgain(
+    """
+    orderId
+    """
+    orderSetId: ID!
+    """
+    BrandLocation Id
+    """
+    brandLocationId: ID!
+  ): OrderAgainPayload @requireAuth
+
+  """
+  Get referral deeplink for customer
+  """
+  getReferralDeeplinkUrl: Deeplink! @requireAuth
+  """
+  search menu items
+  """
+  searchMenuItems(filters: MenuItemSearchFilters): MenuItemSearchPayload!
+  """
+  callback query subscription
+  """
+  subscriptionOrderForCallbacks(id: ID!): CSubscriptionOrderCallback
+  """
+  All brands paged
+  """
+  brandsPaged(
+    """
+    countryId
+    """
+    countryId: ID
+    """
+    Status to access specific brands
+    """
+    filters: BrandFilters
+    """
+    Catering brands
+    """
+    catering: Boolean
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput
+  ): BrandsPaged! @requireAuth
+}
+
+type CSubscriptionOrderCallback {
+  subscriptionOrder: CSubscriptionOrder
+  subscription: CSubscription!
+}
+
+type Deeplink {
+  url: String!
+}
+
+type CheckoutComConfig {
+  errors: [String]
+  error: String
+  publicKey: String
+}
+
+"""
+Describes current and future time ranges when a brand location is open.
+"""
+type BrandLocationOpenings {
+  """
+  Time ranges during which the brand location is open for pickup orders.
+  """
+  pickup: [TimeRange]!
+  """
+  Time ranges during which the brand location is open for delivery orders.
+  """
+  delivery: [TimeRange]!
+  """
+  Time ranges during which the brand location is open for express delivery orders.
+  """
+  expressDelivery: [TimeRange]!
+  car: [TimeRange]!
+}
+
+"""
+Describes current and future time ranges when a brand location is open.
+"""
+type BrandLocationOpeningsNew {
+  """
+  Time ranges during which the brand location is open for pickup orders.
+  """
+  pickup: [TimeRange]!
+  """
+  Time ranges during which the brand location is open for delivery orders.
+  """
+  delivery: [TimeRange]!
+  """
+  Time ranges during which the brand location is open for express delivery orders.
+  """
+  expressDelivery: [TimeRange]!
+  car: [TimeRange]!
+}
+
+type CustomerRewardProgramDetails {
+  reward: Reward
+  currentTier: RewardTier
+  nextTier: RewardTier
+  currentPoints: Int
+  pointsToNextTier: Int
+  availablePerks: [CustomerPerk]
+  usedPerks: [CustomerUsedPerk]
+}
+
+type OrderSetStatusTotalDetails {
+  initiated: Int
+  placed: Int
+  paymentFailure: Int
+  paymentCanceled: Int
+  accepted: Int
+  rejected: Int
+  reported: Int
+  preparing: Int
+  prepared: Int
+  waitingForCourier: Int
+  outForDelivery: Int
+  delivered: Int
+  readyForPickup: Int
+  completed: Int
+  grandTotal: Int
+}
+
+type StoreOrderSetStatusTotalDetails {
+  placed: Int
+  partiallyDispatched: Int
+  dispatched: Int
+  partiallyDelivered: Int
+  delivered: Int
+  rejected: Int
+  canceled: Int
+}
+
+type StoreOrderStatusTotalDetails {
+  placed: Int
+  dispatched: Int
+  delivered: Int
+  rejected: Int
+  canceled: Int
+}
+
+type OrderQueueSetStatusTotalDetails {
+  new: Int
+  inProgress: Int
+  completed: Int
+}
+
+type LocalizedString {
+  en: String!
+  ar: String
+  tr: String
+}
+
+type LocalizedStringNullable {
+  en: String
+  ar: String
+  tr: String
+}
+
+type ForceUpdate {
+  iosVersion: String
+  """
+  Flag to force the update for iOS app
+  """
+  iosForceUpdate: Boolean
+  androidVersion: String
+  """
+  Flag to force the update for android app
+  """
+  androidForceUpdate: Boolean
+}
+
+"""
+Allowed reward perks for tier result
+"""
+type RewardTierAllowedPerksResult {
+  """
+  the node for single marketing notification
+  """
+  perks: [RewardTierPerkType]
+}
+"""
+GiftCardSection
+"""
+type GiftCardSection {
+  collectionId: ID
+  name: LocalizedString!
+  # we resolve to most recent 5 or 10 Gift Card templates
+  templates: [GiftCardTemplate!]
+  templatesNew: [GiftCardTemplate!]
+  templatesTotalCount: Int!
+  # we resolve all brands that have gift cards templates
+  brands: [Brand!]
+  type: GiftCardSectionType!
+}
+
+type GiftCardCollectionsPaged {
+  paging: Paging!
+  items: [GiftCardCollection]!
+}
+
+type TransactionHistoryPaged {
+  paging: Paging
+  items: [TransactionObject]!
+}
+
+type GiftCardTemplatesPaged {
+  paging: Paging!
+  items: [GiftCardTemplate]!
+}
+
+type GiftCardOrdersPaged {
+  paging: Paging!
+  items: [GiftCardOrder]!
+}
+
+type StoreOrderSetsPaged {
+  paging: Paging!
+  items: [StoreOrderSet]!
+}
+
+type StoreOrdersPaged {
+  paging: Paging!
+  items: [StoreOrder]!
+}
+
+type OrderSetsPaged {
+  paging: Paging!
+  items: [OrderSet]!
+}
+
+type OrderSetsLitePaged {
+  paging: Paging!
+  items: [OrderSetLite]!
+}
+
+type GiftCardsPaged {
+  paging: Paging!
+  items: [GiftCard]!
+}
+
+type CategoriesPaged {
+  paging: Paging!
+  items: [Category]!
+}
+
+type BrandLocationsPaged {
+  paging: Paging!
+  items: [BrandLocation]!
+}
+
+type ProductsPaged {
+  paging: Paging!
+  items: [Product]!
+}
+
+type ReferralPaged {
+  paging: Paging!
+  items: [ReferralPayload]!
+}
+
+type CustomerGroupPaged {
+  paging: Paging!
+  items: [CustomerGroup!]
+}
+
+type BrandSubscriptionModelsPaged {
+  paging: Paging!
+  items: [BrandSubscriptionModel!]
+}
+
+type UISection {
+  header: LocalizedString
+  layoutType: UILayoutType!
+  items: [UILayoutItem]!
+}
+union UILayoutItem = Brand | Category | Product | StoreHeader
+
+union UITarget = UITargetAction
+
+type UITargetAction {
+  action: UITargetActionType!
+  #  targetType: UITargetType!
+  params: [Params!]!
+}
+
+type Params {
+  id: String!
+  value: [String!]!
+}
+
+type GetLoyaltyTierBonusResponse {
+  bonus: CurrencyValue!
+}
+
+type CreatedBy {
+  id: ID!
+  fullName: String!
+  email: String!
+  isAdmin: Boolean!
+  isCustomer: Boolean!
+}
+
+type TransactionObject {
+  amount: CurrencyValue!
+  currency: Currency!
+  type: TransactionType!
+  brand: Brand
+  orderSet: OrderSet
+  coupon: Coupon
+  referral: Referral
+  # LoyaltyTransactionType - made type string for a reason but possible tyoes are from enum LoyaltyTransactionType
+  action: LoyaltyTransactionType
+}
+
+type DiscoveryCreditPayload {
+  isEnabled: Boolean!
+  """
+  added will be true when discovery credit will be added in wallet other wise it will be false
+  """
+  added: Boolean!
+  campaignVideoUrls: LocalizedString!
+  discoveryCredit: DiscoveryCredit
+  """
+  a flag to display the popup or bar on mobile.
+  logic we will write in resolver to figure out for info bar occourances
+  """
+  showInfoBar: WalletInfoBarOptions!
+}
+
+"""
+Store category lite
+"""
+type StoreCategoryLite {
+  id: ID!
+  name: LocalizedString!
+  photo: String
+}
+
+"""
+New customer reward tier detail
+"""
+type CustomerRewardTierDetail {
+  tierTitle: LocalizedString
+  logoUrl: String
+  rewardId: ID
+  perks: [CustomerRewardTierPerks!]
+}
+
+"""
+Reward tier perks of customer
+"""
+type CustomerRewardTierPerks {
+  perkId: ID
+  perksTitle: LocalizedString
+  perksApplyType: RewardTierPerkApplyType
+  perksType: RewardTierPerkType
+  perksValue: Float
+}
+type LoyaltyTierWallet {
+  id: ID!
+  amount: CurrencyValue
+  customAmount: Boolean
+  bonus: CurrencyValue!
+  minAmount: CurrencyValue
+  maxAmount: CurrencyValue
+  flatAmount: Int
+  sortOrder: Int
+  name: String
+  sku: String
+}
+type walletPageReturn {
+  walletAccount: WalletAccount!
+  loyaltyTiers: [LoyaltyTierWallet]!
+}
+
+type CountryCurrencyLookupPayload {
+  countryId: ID!
+  currencyIsoCode: String!
+  countryName: LocalizedString!
+  countryDialCode: String
+  countryLocationsRadius: Int
+  countryDeliveryFee: CurrencyValue @deprecated
+  countryServiceFee: CurrencyValue!
+  countryServicePhoneNumber: String
+  countryVat: Float!
+  countryVatId: String
+  isReferralActive: Boolean!
+  senderReferralAmount: String
+  receiverReferralAmount: CurrencyValue
+  minimumDeliveryOrderAmount: CurrencyValue
+  flagPhoto: String
+  currencyId: ID!
+  currencyName: String!
+  countryIsoCode: String
+  currencySymbol: LocalizedString!
+  currencySubunitName: LocalizedString!
+  currencyDecimalPlace: Int
+  currencyLowestDenomination: CurrencyValue
+  countryConfigurationChatWithUsPayload: CountryConfigurationChatWithUsPayload!
+}
+
+type DefaultCountryPayload {
+  """
+  Default Country identifier
+  """
+  id: String!
+  """
+  Default longitude if iOS location services are disabled
+  """
+  longitude: Float!
+  """
+  Default latitude if iOS location services are disabled
+  """
+  latitude: Float!
+}
+
+type OrderAgainPayload {
+  missingItemNames: [LocalizedString]
+  availabilityStatus: OrderItemsAvailability
+  orderSet: OrderSet
+}
+
+type OrderRatingPaged {
+  items: [OrderRatedObject]
+  averageRating: Float
+  totalScore: Int!
+  totalReviews: Int!
+}
+
+type OrderRatedObject {
+  rating: Int!
+  customerName: String!
+  comment: String
+  fulfillmentType: String!
+}
+
+type BrandLocationScore {
+  averageRating: Float
+  totalScore: Int!
+  totalReviews: Int!
+}
+
+type BrandLocationPayload {
+  title: LocalizedString!
+  subtitle: LocalizedString!
+  isSearchable: Boolean!
+  analyticsEventName: String!
+  emptyData: EmptyData
+  branches: [BrandLocation!]
+  fulfillmentType: OrderFulfillmentType!
+  paging: RefreshPaging
+}
+
+type BrandsPaged {
+  paging: Paging!
+  items: [Brand]!
+}
+
+
+type ImageContent{
+  url: String!
+}
+
+enum ImageContentPlatform {
+  IOS
+  ANDROID
+}
+
+enum ImageContentLanguage {
+  EN
+  AR
+}
+
+enum ImageContentSize {
+  SMALL
+  MEDIUM
+  LARGE
+  XLARGE
+}
+
+input ImageContentInput {
+  platform: Platform!
+  size: SplashSize!
+  language: Language!
+}

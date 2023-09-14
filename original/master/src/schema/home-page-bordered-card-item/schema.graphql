@@ -1,0 +1,15 @@
+type BorderedCardItem{
+    id: ID
+    image: LocalizedString
+    title: LocalizedString
+    subtitle: LocalizedString
+}
+
+type BorderedCardItemData{
+  sectionMetadata: HomePageSection
+  items: [BorderedCardItem!]
+}
+
+extend type Query {
+  getBorderedCardItems(input: HomePageSectionArgs): BorderedCardItemData
+}

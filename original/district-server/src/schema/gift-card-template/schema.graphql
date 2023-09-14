@@ -1,0 +1,37 @@
+type GiftCardTemplate {
+  # DB identifier
+  id: ID!
+  # Gift Card name
+  name: LocalizedString!
+  # image
+  imageUrl: LocalizedString! @toCDN
+  # collection this gift card belong to
+  collection: GiftCardCollection!
+  # Country
+  country: Country!
+  # Currency this card is tied to
+  currency: Currency!
+  # Brand specific card
+  brand: Brand
+  # Brands specific card
+  brands: [Brand]
+  # Created date
+  created: Datetime!
+  # last update time
+  updated: Datetime!
+  # the dates from when the card template is available (e.g. for National holidays gift card templates)
+  availableFrom: Datetime
+  availableUntil: Datetime
+  timeZoneIdentifier: String!
+  # How many times this card was purchased
+  purchasedCount: Int!
+  # How many times this card was redeemed
+  redeemedCount: Int!
+  # Status of this card tepmlate
+  status: GiftCardTemplateStatus!
+  maxLimit: Int!
+  minLimit: Int!
+  isFeatured: Boolean!
+  percentPaidByCofe: Int!
+  percentPaidByVendor: Int!
+}

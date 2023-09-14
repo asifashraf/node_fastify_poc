@@ -1,0 +1,132 @@
+enum ViewType {
+  FAQ
+  HOW_IT_WORKS
+}
+
+enum CommonContentStatus {
+    ACTIVE
+    INACTIVE
+    DELETED
+}
+
+type CommonContent {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  common content category reference
+  """
+  commonContentCategoryId: ID!
+  """
+  title
+  """
+  title: LocalizedString
+  """
+  If the title is to be shown
+  """
+  isShowTitle: Boolean
+  """
+  Boolean for dropdown
+  """
+  isDropdown: Boolean!
+  """
+  icon
+  """
+  icon: String
+  """
+  If the icon is to be shown
+  """
+  isShowIcon: Boolean
+  """
+  subtitle
+  """
+  subtitle: LocalizedString
+  """
+  If the subtitle is to be shown
+  """
+  isShowSubtitle: Boolean
+  """
+  description
+  """
+  description: LocalizedString
+  """
+  If the description is to be shown
+  """
+  isShowDescription: Boolean
+  """
+  Type of content FAQ, How it works
+  """
+  viewStyleType: ViewType!
+  """
+  order of content on page
+  """
+  order: Int
+  """
+  status of common content ACTIVE/IN_ACTIVE
+  """
+  status: CommonContentStatus
+
+  created: Datetime
+  updated: Datetime
+
+}
+
+input CommonContentInput {
+  commonContentCategoryId: ID!
+  title: LocalizedStringInput
+  isShowTitle: Boolean!
+  isDropdown: Boolean!
+  icon: String
+  isShowIcon: Boolean!
+  subtitle: LocalizedStringInput
+  isShowSubtitle: Boolean!
+  description: LocalizedStringInput
+  isShowDescription: Boolean!
+  viewStyleType: ViewType!
+  order: Int
+  status: CommonContentStatus
+}
+
+type CCResponse {
+  data: CommonContent
+  error: String
+  errors: [String!]
+}
+
+input UpdateCommonContent {
+  id: ID!
+  commonContentCategoryId: ID
+  title: LocalizedStringInput
+  isShowTitle: Boolean
+  isDropdown: Boolean
+  icon: String
+  isShowIcon: Boolean
+  subtitle: LocalizedStringInput
+  isShowSubtitle: Boolean
+  description: LocalizedStringInput
+  isShowDescription: Boolean
+  viewStyleType: ViewType
+  order: Int
+  status: CommonContentStatus
+}
+
+input CommonContentFilters {
+  id: ID
+  commonContentCategoryId: ID
+  slug: String
+}
+
+type Mutation {
+  saveCommonContent(commonContent: CommonContentInput!): CCResponse!
+  @requireAuth
+  @requirePermissions(permissions: ["commonContent:upsert"])
+  updateCommonContent(commonContent: UpdateCommonContent!): CCResponse!
+  @requireAuth
+  @requirePermissions(permissions: ["commonContent:upsert"])
+}
+
+type Query {
+  getCommonContentById(id: ID!): CommonContent!
+  getCommonContentByFilters(filters: CommonContentFilters!): [CommonContent!]
+}

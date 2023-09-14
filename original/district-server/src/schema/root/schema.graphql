@@ -1,0 +1,105 @@
+schema {
+  mutation: Mutation
+  query: Query
+  subscription: Subscription
+}
+
+"""
+Used in any fields that can be paged. If it is optional in a query type and not included then response will include all results.
+"""
+input PagingInput {
+  """
+  How many records to skip (0 based, ie ), defaults to 0
+  """
+  offset: Int
+  """
+  How many records to return
+  """
+  limit: Int!
+}
+
+"""
+Used in paged results
+"""
+type Paging {
+  totalItems: Int!
+  totalPages: Int!
+  currentPage: Int!
+}
+
+"""
+Used in any fields that can be paged. If it is optional in a query type and not included then response will include all results.
+"""
+input RefreshPagingInput {
+  """
+  Which page
+  """
+  page: Int!
+  """
+  How many records to return
+  """
+  perPage: Int!
+}
+
+"""
+Used in simple paged results
+"""
+type RefreshPaging {
+  page: Int!
+  prePage: Int
+  nextPage: Int
+  perPage: Int!
+  total: Int!
+  totalPages: Int!
+}
+
+"""
+Scalar used to describe currency amounts. Serialized as a string to retain decimal precision.
+"""
+scalar CurrencyValue
+
+"""
+An 24-hour time expressed as an hour/minute pair in local time, i.e. "18:00"
+"""
+scalar LocalTime
+
+"""
+An iso 8601 date-time string
+"""
+scalar Datetime
+
+"""
+A day in format "yyyy-mm-dd"
+"""
+scalar Date
+
+"""
+Represents a finite range of time.
+"""
+type TimeRange {
+  """
+  The datetime the range begins.
+  """
+  begin: Datetime
+  """
+  The datetime the range ends.
+  """
+  end: Datetime
+}
+
+"""
+Used in any query that could use filtering by date range
+"""
+input DateRange {
+  startDate: Date!
+  endDate: Date
+}
+"""
+Used to upload file
+"""
+scalar Upload
+
+"""
+Used to URL
+"""
+scalar URL

@@ -1,0 +1,196 @@
+"""
+Country Configuration
+"""
+type CountryConfiguration {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  configuration key
+  """
+  configurationKey: String!
+  """
+  country id
+  """
+  countryId: String!
+  """
+  configuration value
+  """
+  configurationValue: String!
+  """
+  configuration enable flag
+  """
+  enabled: Boolean
+  """
+  field type select, input or checkbox
+  """
+  type: CountryConfigurationInputTypes
+  """
+  subtype for input type like number, text
+  """
+  subtype: CountryConfigurationInputSubtypes
+  """
+  configuration required flag
+  """
+  required: Boolean
+  """
+  if type is select, options list for select
+  """
+  options: [String]
+  """
+  HTML input label
+  """
+  label: String
+  """
+  HTML input description
+  """
+  description: String
+  """
+  HTML input validation rule
+  """
+  validationType: CountryConfigurationInputValidationTypes
+  """
+  if configuration depends on the other configuration value like ['A', 'eq', 'true']
+  """
+  depends: [String]
+  """
+  if configuration depends on the other configuration value like [['gt', '0'], ['lte:ref', 'A']]
+  """
+  validationRules: [[String]]
+  """
+  configuration can not updated
+  """
+  disabled: Boolean
+}
+
+"""
+Grouped Country Configurations for Admin Panel
+"""
+type CountryConfigurationsGroup {
+  """
+  configuration group title
+  """
+  title: String
+  """
+  configuration group description
+  """
+  description: String
+  configurations: [CountryConfiguration]
+}
+
+enum CountryConfigurationInputTypes {
+  INPUT
+  SELECT
+  CHECKBOX
+  DATE
+  DATETIME
+}
+
+enum CountryConfigurationInputSubtypes {
+  NUMBER
+  TEXT
+  TAGS
+}
+
+enum CountryConfigurationInputValidationTypes {
+  BOOLEAN_VALIDATION
+  STRING_VALIDATION
+  NUMBER_VALIDATION
+}
+
+enum CountryConfigurationKeyEnum {
+  MAX_REFERRAL_DISCOUNT_LIMIT
+  REFERRAL_REWARD_ON_FIRST_X_ORDERS
+  REFERRAL_RECEIVER_PROMO_LEVEL
+  REFERRAL_RECEIVER_PROMO_X_ORDERD_PER_BRAND
+  REFERRAL_RECEIVER_DISCOUNT_PERCENTAGE
+  REFERRAL_EXPIRY_PERIOD
+  BLOCK_CASH_ON_DELIVERY
+  AUTOMATIC_DELIVERY_INTEGRATION
+  DELIVERY_PARTNER
+  DISCOVERY_CREDITS_ENABLE
+  DISCOVERY_CREDITS
+  DISCOVERY_CREDITS_CONSUMEABLE_PER_ORDER
+  DISCOVERY_CREDITS_X_ORDERS_PER_BRAND
+  DISCOVERY_CREDITS_MIN_ORDER_AMOUNT
+  DISCOVERY_CREDITS_EXPIRES_IN_DAYS
+  DISCOVERY_CREDITS_EXPIRY_DATE
+  DISCOVERY_CREDITS_EXCEPTION_ENABLE
+  DISCOVERY_CREDITS_EXCEPTION_START_DATE
+  DISCOVERY_CREDITS_EXCEPTION_END_DATE
+  DISCOVERY_CREDITS_EXCEPTION_AMOUNT
+  PICKUP_RADIUS
+  CAR_WINDOW_RADIUS
+  ESTIMATED_TIME_IN_MINS_PICKUP
+  ESTIMATED_TIME_IN_MINS_CAR
+  ESTIMATED_TIME_IN_MINS_DELIVERY
+  ESTIMATED_TIME_IN_MINS_EXPRESS_DELIVERY
+  DELAYED_TIME_IN_MINS_EXPRESS_DELIVERY
+  """
+  TODO: After IOS fixing, enabled it
+  """
+  # MAINTENANCE_ENABLED
+  COFE_STORE_ENABLED
+  I_AM_HERE_ENABLED
+  I_AM_HERE_PICKUP_DEFAULT_OPTION
+  I_AM_HERE_PICKUP_OPTIONS
+  I_AM_HERE_CAR_DEFAULT_OPTION
+  I_AM_HERE_CAR_OPTIONS
+  SUBSCRIPTION_ENABLE
+  SUBSCRIPTION_AUTO_RENEWAL_DEFAULT_VALUE
+  SUBSCRIPTION_AUTO_RENEWAL_ENABLED
+  MINIMUM_AMOUNT_FOR_3DS
+  SERVICE_FEE_ENABLED
+  SERVICE_FEE_MAXLIMIT_PICKUP
+  SERVICE_FEE_PERCENTAGE_PICKUP
+  SERVICE_FEE_MAXLIMIT_DELIVERY
+  SERVICE_FEE_PERCENTAGE_DELIVERY
+  SERVICE_FEE_MAXLIMIT_CAR
+  SERVICE_FEE_PERCENTAGE_CAR
+  SERVICE_FEE_MAXLIMIT_EXPRESS_DELIVERY
+  SERVICE_FEE_PERCENTAGE_EXPRESS_DELIVERY
+  CARD_SAVE_PROVIDER
+  CHAT_WITH_US_CALL_US_OPTION_ENABLED
+  CHAT_WITH_US_LIVE_CHAT_OPTION_ENABLED
+}
+
+"""
+Country Configuration for Creating New Country
+"""
+input CountryConfigurationInputPair {
+  key: CountryConfigurationKeyEnum!
+  value: String!
+  enabled: Boolean
+}
+
+"""
+Country Configuration for Lookup
+"""
+type CountryConfigurationLookupPayloadContent {
+  key: CountryConfigurationKeyEnum!
+  value: String!
+  enabled: Boolean
+}
+
+type CountryConfigurationLookupPayload {
+  countryId: ID!
+  configs: [CountryConfigurationLookupPayloadContent!]!
+}
+
+type CountryConfigurationChatWithUsPayload {
+  isEnabled: Boolean!
+  title: LocalizedString!
+  options: [CountryConfigurationChatWithUsOption!]!
+}
+
+type CountryConfigurationChatWithUsOption {
+  chatWithUsType: CountryConfigurationChatWithUsEnum!
+  label: LocalizedString!
+  icon: String!
+}
+
+enum CountryConfigurationChatWithUsEnum {
+  CALL_US
+  LIVE_CHAT
+}

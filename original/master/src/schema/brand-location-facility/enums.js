@@ -1,0 +1,13 @@
+exports.brandLocationFacilityPayloadError = {
+  INVALID_BRAND_LOCATION: 'INVALID_BRAND_LOCATION',
+  SERVICE_ERROR: 'SERVICE_ERROR',
+};
+exports.brandLocationFacilityType = {
+  SEATING: 'SEATING',
+  OUTDOOR: 'OUTDOOR',
+  WIFI: 'WIFI',
+  PET_FRIENDLY: 'PET_FRIENDLY',
+  TOILETS: 'TOILETS',
+  PARKING: 'PARKING',
+  STUDY: 'STUDY',
+};

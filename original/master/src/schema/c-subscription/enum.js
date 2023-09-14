@@ -1,0 +1,47 @@
+const { badgeTypes } = require('../badge/enum');
+exports.cSubscriptionStatus = {
+  ACTIVE: 'ACTIVE',
+  INACTIVE: 'INACTIVE',
+  DELETED: 'DELETED'
+};
+
+exports.cSubscriptionSaveError = {
+  INVALID_PRICE: 'INVALID_PRICE',
+  INVALID_COMPARE_AT_PRICE: 'INVALID_COMPARE_AT_PRICE',
+  INVALID_TOTAL_CUPS_COUNT: 'INVALID_TOTAL_CUPS_COUNT',
+  INVALID_PER_DAY_CUPS_COUNT: 'INVALID_PER_DAY_CUPS_COUNT',
+  INVALID_PER_ORDER_MAX_CUPS_COUNT: 'INVALID_PER_ORDER_MAX_CUPS_COUNT',
+  INVALID_PERIOD: 'INVALID_PERIOD',
+  INVALID_CURRENCY: 'INVALID_CURRENCY',
+  INVALID_COUNTRY: 'INVALID_COUNTRY',
+  DUPLICATE_NAME: 'DUPLICATE_NAME',
+  INVALID_BRAND: 'INVALID_BRAND',
+  SUBSCRIPTION_BRAND_CAN_NOT_UPDATED: 'SUBSCRIPTION_BRAND_CAN_NOT_UPDATED',
+  MAX_BRAND_SUBSCRIPTION: 'MAX_BRAND_SUBSCRIPTION',
+  INVALID_SUBSCRIPTION_ID: 'INVALID_SUBSCRIPTION_ID',
+  INVALID_SUBSCRIPTION_TYPE: 'INVALID_SUBSCRIPTION_TYPE',
+  INVALID_SORT_ORDER: 'INVALID_SORT_ORDER',
+  MOST_POPULAR_ALREADY_EXIST: 'MOST_POPULAR_ALREADY_EXIST',
+  UNAUTHORIZED_PROCESS: 'UNAUTHORIZED_PROCESS',
+};
+
+const cSubscriptionTypes = {
+  CUP: 'CUP',
+  BUNDLE: 'BUNDLE',
+};
+
+exports.cSubscriptionTypes = { ...cSubscriptionTypes };
+
+// Warning !!! - If new TYPE comes, firstly add it to DB with migration !!!
+exports.subscriptionTypeBadgeMaps = [
+  { type: cSubscriptionTypes.CUP, screen: 'general', badge: badgeTypes.SUBSCRIPTION_TYPE_CUP },
+  { type: cSubscriptionTypes.BUNDLE, screen: 'general', badge: badgeTypes.SUBSCRIPTION_TYPE_BUNDLE },
+  { type: cSubscriptionTypes.CUP, screen: 'menu_item', badge: badgeTypes.SUBSCRIPTION_TYPE_MENU_CUP },
+  { type: cSubscriptionTypes.BUNDLE, screen: 'menu_item', badge: badgeTypes.SUBSCRIPTION_TYPE_MENU_BUNDLE },
+];
+
+exports.priceTypes = {
+  ORIGINAL: 'ORIGINAL',
+  DISCOUNTED: 'DISCOUNTED',
+  SUBSCRIPTION_DISCOUNTED: 'SUBSCRIPTION_DISCOUNTED',
+};

@@ -1,0 +1,120 @@
+type HomePageSection {
+  id: ID!
+  header: LocalizedString
+  itemType: HomePageSectionItemTypeEnum
+  refQueryId: String
+  sortOrder: Int!
+  countryId: ID!
+  isMust: Boolean!
+  isAuthRequired: Boolean!
+  isLocationBased: Boolean!
+  isPaginated: Boolean!
+  hasExpressZoneCheck: Boolean!
+  perPage: Int
+  status: HomePageSectionStatusEnum
+  isShowHeader: Boolean!
+  pageIndex: Int
+  viewAllDeeplink: String
+  viewAllLabel: LocalizedString!
+  backgroundColor: String
+}
+
+enum HomePageSectionStatusEnum {
+  ACTIVE
+  INACTIVE
+  DELETED
+}
+
+input HomePageSectionInput {
+  id: ID
+  countryId: ID!
+  header: LocalizedStringInput
+  itemType: HomePageSectionItemTypeEnum!
+  refQueryId: String!
+  status: HomePageSectionStatusEnum
+  #sortOrder: Int!
+  isMust: Boolean!
+  isAuthRequired: Boolean!
+  isLocationBased: Boolean!
+  isPaginated: Boolean!
+  hasExpressZoneCheck: Boolean
+  perPage: Int
+  viewAllDeeplink: String
+  backgroundColor: String
+}
+
+enum HomePageSectionItemTypeEnum {
+  SEARCH_ITEM
+  REORDER_ITEM
+  ORDER_TRACKING_ITEM
+  CAROUSEL_ITEM
+  ICON_BUTTON_ITEM
+  CARD_LIST_ITEM
+  BRAND_HORIZONTAL_CARD_LIST_ITEM
+  BRAND_LOCATION_HORIZONTAL_CARD_LIST_ITEM
+  SUBSCRIPTION_HORIZONTAL_CARD_LIST_ITEM
+  EXPRESS_DELIVERY_HORIZONTAL_CARD_LIST_ITEM
+}
+
+enum SaveSectionErrorEnum {
+  NOT_EXIST
+  MISSING_ARGUMENT
+  ALREADY_EXIST_ITEM_TYPE_AND_REF_QUERY_ID
+  ALREADY_EXIST_ITEM_TYPE_AND_REF_QUERY_ID_AND_COUNTRY_ID
+  SORT_ORDER_EXIST
+  SECTION_ITEM_TYPE_CAN_NOT_CHANGE
+  ONLY_ALLOWED_ONE_ACTIVE_PAGINATED_SECTION
+  CARD_LIST_ITEM_ONLY_CAN_BE_PAGINATED
+  SECTION_COUNTRY_CAN_NOT_CHANGE
+  SECTION_CAN_NOT_CREATE_WITH_DELETED_STATUS
+  DELETED_SECTION_CAN_NOT_BE_UPDATE
+  INVALID_SECTION_ID
+  MISSING_SECTION_ID
+  PAGINATED_SECTION_MUST_BE_END_OF_LIST
+  PER_PAGE_SHOULD_BE_BIGGER_THAN_ZERO
+  UNAUTHORIZED_ADMIN
+  TRANSACTIONAL_ERROR
+}
+
+input HomePageSectionArgs {
+  refQueryId: String!
+  sectionId: ID!
+  countryId: ID!
+  # optional part
+  location: GISLocationInput!
+  page: Int
+  branchRating:Float
+}
+
+type SaveSectionPayload {
+  errors: [SaveSectionErrorEnum]
+  section: HomePageSection
+}
+
+input HomePageSectionFilters {
+  status: HomePageSectionStatusEnum
+}
+
+type SortHomePageSectionsPayload {
+  error: SaveSectionErrorEnum
+  errors: [SaveSectionErrorEnum]
+  sortedSections: [HomePageSection]
+}
+
+extend type Query {
+  getHomePageSections(countryId: ID!): [HomePageSection!]
+  getHomePageSectionsForAdmin(
+    countryId: ID!
+    filters: HomePageSectionFilters
+  ): [HomePageSection!] @requireAuth
+}
+
+extend type Mutation {
+  saveHomePageSection(sectionInfo: HomePageSectionInput!): SaveSectionPayload
+    @requireAuth
+  sortHomePageSections(
+    homePageSections: [ID!]!
+    status: HomePageSectionStatusEnum
+    countryId: ID!
+  ): SortHomePageSectionsPayload @requireAuth
+}

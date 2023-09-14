@@ -1,0 +1,84 @@
+# A comment
+type OrderRatingQuestion {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Rating Question
+  """
+  question: LocalizedString!
+  """
+  Description of the rating question
+  """
+  description: LocalizedString
+  """
+  Status of the question (ACTIVE/INACTIVE)
+  """
+  status: String
+  """
+  Fullfilment type of the question
+  """
+  pickup: Boolean
+  """
+  Fullfilment type of the question
+  """
+  carWindow: Boolean
+  """
+  Fullfilment type of the question
+  """
+  delivery: Boolean
+  """
+  Fullfilment type of the question
+  """
+  expressDelivery: Boolean
+  """
+  Fullfilment type of the question
+  """
+  overall: Boolean @deprecated
+  """
+  Date and time the comment was created
+  """
+  created: Datetime!
+  """
+  Date and time the comment was updated
+  """
+  updated: Datetime!
+  """
+  Question type of the question
+  """
+  questionType: OrderRatingQuestionType
+}
+
+type OrderRatingQuestionWithAnswers {
+  """
+  database identifier
+  """
+  id: ID!
+  """
+  for mobile, true => overall question, false => details questions
+  """
+  isRequired: Boolean
+  """
+  Rating Question
+  """
+  question: LocalizedString!
+  """
+  Description of the rating question
+  """
+  description: LocalizedString
+  """
+  options for answers
+  """
+  answers: [answerTypes]
+}
+
+type OverallAnswers {
+  answer: Int
+}
+
+type DetailsAnswers {
+  detailsAnswer: OrderRatingAnswerType
+}
+
+union answerTypes = OverallAnswers | DetailsAnswers

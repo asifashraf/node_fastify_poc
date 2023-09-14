@@ -1,0 +1,120 @@
+extend type Query {
+  getStampRewardConfig: StampRewardConfig
+  getCustomerStampReward: StampRewardCustomerPayload @requireAuth
+}
+
+extend type Mutation {
+  refundStampReward(
+    customerId: ID!
+    orderSetId: ID!
+  ): StampRewardCustomerRefundPayload @requireAuth
+  updateCustomerStampReward(
+    customerId: ID!
+    orderSetId: ID! 
+    process: StampRewardUpdateCustomerProcessEnum!
+  ): UpdateCustomerStampRewardPayload @requireAuth
+}
+
+"""
+A stamp reward config program
+"""
+type StampRewardConfig{
+  """
+  Status
+  """
+  status: StampRewardStatus!
+  """
+  Counter max value
+  """
+  counterMaxValue: Int!
+  """
+  Claim is auto apply
+  """
+  autoApply: Boolean!
+  """
+  Chosing item to Apply
+  """
+  priceOperatorToApply: StampRewardPriceOperatorType!
+  """
+  Program price rule min value to Apply
+  """
+  priceRuleMinValueToApply: Int
+  """
+  Program price rule max value to Apply
+  """
+  priceRuleMaxValueToApply: Int
+}
+
+enum StampRewardStatus{
+  ENABLE
+  DISABLE
+}
+
+enum StampRewardPriceOperatorType{
+  HIGHEST
+  LOWEST
+}
+
+type StampRewardCustomerPayload {
+  stampReward: StampRewardCustomer
+  error: StampRewardCustomerError
+  errors: [StampRewardCustomerError]
+}
+
+"""
+A customer stamp reward program status
+"""
+type StampRewardCustomer {
+  """
+  Database identifier
+  """
+  id: ID
+  """
+  Customer
+  """
+  customer: Customer!
+  """
+  Counter max value from config
+  """
+  counterMaxValue: Int!
+  """
+  Counter value between 0 and max value
+  """
+  counterValue: Int!
+  """
+  Customer can claim item
+  """
+  claimStatus: Boolean!
+}
+
+type StampRewardCustomerRefundPayload {
+  stampReward: StampRewardCustomer
+  error: StampRewardCustomerError
+  errors: [StampRewardCustomerError]
+}
+
+enum StampRewardUpdateCustomerProcessEnum {
+  ADD
+  REMOVE
+}
+
+type UpdateCustomerStampRewardPayload {
+  process: StampRewardUpdateCustomerProcessEnum
+  stampReward: StampRewardCustomer
+  error: StampRewardCustomerError
+  errors: [StampRewardCustomerError]
+}
+
+enum StampRewardCustomerError {
+  INVALID_CUSTOMER
+  PROGRAM_DISABLE
+  INVALID_ORDER
+  ORDER_CAN_NOT_FOUND_REDEMPTION_ORDER_LIST
+  STAMP_IS_ALREADY_REMOVED_REDEMPTION_ORDER_LIST
+  CUSTOMER_HAS_NOT_STAMP_FOR_REMOVE_PROCESS
+  ORDER_HAS_NOT_REDEMPTION_ITEMS
+  STAMP_REWARD_ALREADY_REFUND
+  CUSTOMER_ALREADY_HAS_MAX_STAMP_COUNT
+  ORDER_IS_ALREADY_ADDED_TO_REDEMPTION_LIST
+  UNAUTHORIZED_PROCESS
+}

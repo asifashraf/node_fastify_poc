@@ -1,0 +1,33 @@
+"""
+Sign up promo
+"""
+type SignupPromo {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  type of the promo
+  """
+  type: SignupPromos!
+  """
+  unique code of the promo
+  """
+  code: String!
+  """
+  rewardAmount
+  """
+  rewardAmount: CurrencyValue!
+  """
+  status ACTIVE/INACTIVE/DELETE default ACTIVE
+  """
+  status: StatusType!
+  """
+  Reference to currency
+  """
+  currency: Currency!
+  """
+  Reference to country
+  """
+  country: Country!
+}

@@ -1,0 +1,45 @@
+"""
+Schedule for this location, per day
+"""
+type WeeklySchedule {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  The day of the week, ie 1 = sunday, 7 = saturday
+  """
+  day: Int!
+  """
+  The hour/minute components at which the location opens on this day, ex '18:00', in local time at the location (i.e. '18:00' Asia/Kuwait). Null if `openAllDay` is true.
+  """
+  openTime: LocalTime
+  """
+  How many minutes is the location open. Null if `openAllDay` is true.
+  """
+  openDuration: Int
+  """
+  Whether or not the location is open the whole day (from 00:00 through 23:59). If this value is `true` then `openTime` and `openDuration` will be null.
+  """
+  openAllDay: Boolean!
+  """
+  The offset between restaurant opening and delivery starting
+  """
+  deliveryTimeOffset: Int
+  """
+  The hour/minute components at which the location opens on this day, ex '18:00', in local time at the location (i.e. '18:00' Asia/Kuwait). Null if `openAllDay` is true.
+  """
+  deliveryOpenTime: LocalTime
+  """
+  How many minutes is the location open. Null if `openAllDay` is true.
+  """
+  deliveryOpenDuration: Int
+  """
+  The hour/minute components at which the location opens on this day, ex '18:00', in local time at the location (i.e. '18:00' Asia/Kuwait). Null if `openAllDay` is true.
+  """
+  expressDeliveryOpenTime: LocalTime
+  """
+  How many minutes is the location open. Null if `openAllDay` is true.
+  """
+  expressDeliveryOpenDuration: Int
+}

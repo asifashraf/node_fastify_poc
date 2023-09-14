@@ -1,0 +1,99 @@
+type AbandonedCart{
+  id: ID!
+  deviceId: String!
+  customerId: String!
+  basketId: ID!
+  orderSetId: ID
+  countryId: ID!
+  branchId: ID
+  cartItems: [CartItem]
+  status: AbandonedCartStatus!
+  created: Datetime!
+  updated: Datetime!
+  reminderWillSendAt: Datetime
+  lastReminderSentAt: Datetime
+  reminderCount: Int!
+  cartItemDetails: CartItemDetails!
+  branch: BrandLocation
+}
+
+enum AbandonedCartSaveError{
+  INVALID_DEVICE_ID
+  INVALID_BASKET_ID
+  INVALID_COUNTRY_ID
+  INVALID_BRANCH_ID
+  INVALID_CART_ITEMS
+  ALREADY_ACTIVE_CART_EXISTS
+  INVALID_CART_ID
+  ALREADY_EXISTS_BASKET_ID
+}
+
+enum AbandonedCartInfo{
+  ACTIVE_CART_EXISTS
+  NO_ACTIVE_CART_EXISTS
+}
+
+type AbandonedCartPayload {
+  cart: AbandonedCart
+  errors: [AbandonedCartSaveError]
+}
+
+enum AbandonedCartStatus {
+  ACTIVE
+  TIMEOUT
+  CLEARED
+  COMPLETED
+}
+
+type AbandonedCartInfoPayload {
+  info: AbandonedCartInfo
+  cart: AbandonedCart
+}
+extend type Mutation {
+  saveCart(
+    id:ID
+    deviceId: String!
+    basketId: ID!
+    countryId: ID!
+    branchId: ID!
+    cartItems: [InvoiceLineItem]
+  ): AbandonedCartPayload @requireAuth
+  clearCart: AbandonedCartPayload @requireAuth
+}
+
+type CartItemDetails {
+  cartItemsExtended: [CMenuItem]!
+  missingItemNames: [LocalizedString]
+  availabilityStatus: OrderItemsAvailability
+}
+
+extend type Query {
+  getActiveCart: AbandonedCartInfoPayload @requireAuth
+}
+
+type CartItem{
+  """
+  Item reference
+  """
+  itemId: ID!
+  """
+  quantity
+  """
+  quantity: Int!
+  """
+  List of item option references
+  """
+  selectedOptions: [CartItemOption!]
+  """
+  Item-specific notes
+  """
+  note: String
+}
+
+type CartItemOption {
+  """
+  The identifier of the referenced MenuItemOption.
+  """
+  optionId: ID!
+  price: CurrencyValue
+}

@@ -1,0 +1,60 @@
+extend type Mutation {
+  """
+  save a giftCardOrder
+  """
+  giftCardOrderCreate(order: GiftCardOrderInput!): GiftCardOrderCreatePayload!
+  """
+  inactive a giftCardOrder
+  """
+  deactivateGiftCardOrder(id: ID!): InactiveGiftCard!
+    @requireAuth
+    @requirePermissions(permissions: ["disableGiftCard:upsert"])
+}
+
+type GiftCardOrder {
+  # DB identifier
+  id: ID!
+  # a short Code of the order
+  shortCode: String!
+  # Currency amount for the order
+  amount: CurrencyValue!
+  # Currency of this order
+  currency: Currency!
+  # Country
+  country: Country!
+  # Payment Info, Merchant ID, status etc
+  payment: PaymentInfo!
+  # PaymentMethods Selcted to Pay for the Gift Card
+  paymentMethod: PaymentMethod!
+  # Associated Gift Card Template
+  giftCardTemplate: GiftCardTemplate!
+  # Customer Who Purchase this card (the sender)
+  customer: Customer!
+  # Delivery method of the gift card
+  deliveryMethod: GiftCardDeliveryMethod!
+  # Receiver email if delivery method is email
+  receiverEmail: String
+  receiverName: String
+  # Receiver PhoneNumber if delivery method is email
+  receiverPhoneNumber: String
+  # true if the sender doesn't want to reveal info
+  anonymousSender: Boolean!
+  # Created date
+  created: Datetime!
+  # last update time
+  updated: Datetime!
+  message: String
+  giftCard: GiftCard
+}
+
+input GiftCardOrderInput {
+  paymentMethod: PaymentMethodInput!
+  amount: CurrencyValue!
+  giftCardTemplateId: ID!
+  deliveryMethod: GiftCardDeliveryMethod!
+  receiverName: String
+  receiverEmail: String
+  receiverPhoneNumber: String
+  anonymousSender: Boolean!
+  message: String
+}

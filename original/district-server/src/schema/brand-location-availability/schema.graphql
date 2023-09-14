@@ -1,0 +1,196 @@
+extend type Query {
+  """
+  Get Brand Location Schedule Exceptions
+  """
+  getAvailabilityByBrandLocationId(
+    brandLocationId: ID!
+  ): BrandLocationAvailabilityPayload
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:view"])
+}
+
+extend type Mutation {
+  """
+  Add Brand Location Busy Time
+  """
+  addBrandLocationAvailability(
+    brandLocationId: ID!
+    availability: BrandLocationAvailabilityInput!
+  ): BrandLocationAvailabilityPayload
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:upsert"])
+  """
+  Delete Brand Location Busy Time
+  """
+  removeBrandLocationAvailability(
+    brandLocationId: ID!
+    availabilityId: ID!
+  ): BrandLocationAvailabilityPayload
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:upsert"])
+
+  """
+  Add Bulk Brand Location Busy Time
+  """
+  addBulkBrandLocationAvailability(
+    brandId: ID!
+    brandLocationIds: [ID!]!
+    availability: BrandLocationAvailabilityInput!
+  ): BulkBrandLocationAvailabilityPayload
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:upsert"])
+}
+
+input BrandLocationAvailabilityInput {
+  """
+  Brand Location busy reason
+  """
+  busyReason: String!
+  """
+  Brand Location busy duration
+  """
+  busyType: BrandLocationBusyInputType!
+  """
+  The Pickup fulfillment is affected by the exception
+  """
+  pickup: Boolean
+  """
+  The Car fulfillment is affected by the exception
+  """
+  car: Boolean
+  """
+  The Delivery fulfillment is affected by the exception
+  """
+  delivery: Boolean
+  """
+  The Express Delivery fulfillment is affected by the exception
+  """
+  expressDelivery: Boolean
+}
+
+enum BrandLocationBusyInputType {
+  MIN_15
+  MIN_30
+  MIN_60
+  INDEFINITELY
+}
+
+type BrandLocationAvailabilityPayload {
+  """
+  Brand Location Schedule
+  """
+  availabilities: [BrandLocationAvailability]
+  """
+  The first validation error that occured
+  """
+  error: BrandLocationAvailabilityError
+  """
+  All validation errors
+  """
+  errors: [BrandLocationAvailabilityError]
+}
+
+type BulkBrandLocationAvailabilityPayload {
+  isUpdated: Boolean
+  """
+  The first validation error that occured
+  """
+  error: BrandLocationAvailabilityError
+  """
+  All validation errors
+  """
+  errors: [BrandLocationAvailabilityError]
+}
+
+type BrandLocationAvailability {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  The Brand Location identifier
+  """
+  brandLocationId: ID!
+  """
+  Schedule status, If this value is `true` then the exception will be ACTIVE, otherwise it is INACTIVE
+  """
+  status: Boolean!
+  """
+  Brand Location busy reason
+  """
+  busyReason: String!
+  """
+  Brand Location busy duration
+  """
+  busyType: BrandLocationBusyInputType!
+  """
+  The Pickup fulfillment is affected by the exception
+  """
+  pickup: Boolean!
+  """
+  The time the exception start on this date
+  """
+  pickupEndTime: Datetime
+  """
+  The Car fulfillment is affected by the exception
+  """
+  car: Boolean!
+  """
+  The time the exception finish on this date
+  """
+  carEndTime: Datetime
+  """
+  The Delivery fulfillment is affected by the exception
+  """
+  delivery: Boolean!
+  """
+  The time the exception finish on this date
+  """
+  deliveryEndTime: Datetime
+  """
+  The Express Delivery fulfillment is affected by the exception
+  """
+  expressDelivery: Boolean!
+  """
+  The time the exception finish on this date
+  """
+  expressDeliveryEndTime: Datetime
+  """
+  Brand Location Schedule Exception created at
+  """
+  created: Datetime!
+  """
+  Brand Location Schedule Exception updated at
+  """
+  updated: Datetime!
+}
+
+enum BrandLocationAvailabilityError {
+  """
+  The Brand Location must exist
+  """
+  INVALID_BRAND_LOCATION
+  """
+  The exception can not found
+  """
+  CAN_NOT_FOUND_AVAILABILITY
+  """
+  Brand location id is not matched
+  """
+  BRAND_LOCATION_ID_NOT_MATCHED
+  MINIMUM_ONE_FULFILLMENT_TYPE_MUST_BE_CHOSEN
+  PICKUP_FULFILLMENT_MUST_BE_ACTIVE_FOR_AVAILABILITY
+  CAR_FULFILLMENT_MUST_BE_ACTIVE_FOR_AVAILABILITY
+  DELIVERY_FULFILLMENT_MUST_BE_ACTIVE_FOR_AVAILABILITY
+  EXPRESS_DELIVERY_FULFILLMENT_MUST_BE_ACTIVE_FOR_AVAILABILITY
+  ALREADY_REMOVED_AVAILABILITY
+  BRAND_LOCATION_ALREAD_CLOSED_FOR_BUSY_STATUS
+  """
+  Can not save a record/s
+  """
+  TRANSACTIONAL_ERROR
+  """
+  Unauthorized process
+  """
+  UNAUTHORIZED_PROCESS
+}

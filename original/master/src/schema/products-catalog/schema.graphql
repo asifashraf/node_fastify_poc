@@ -1,0 +1,10 @@
+type ProductsCatalog {
+  country: Country!
+  categories: [Category]!
+}
+
+
+type ProductsCatalogNew {
+  categories: [CategoryNew]!
+  brand: Brand
+}

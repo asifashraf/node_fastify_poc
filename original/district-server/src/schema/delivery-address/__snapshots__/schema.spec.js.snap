@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`order fulfillments can resolve their delivery addresses 1`] = `
+Object {
+  "data": Object {
+    "customer": Object {
+      "orderSets": Array [
+        Object {
+          "fulfillment": Object {
+            "deliveryAddress": Object {
+              "extraFields": Array [
+                Object {
+                  "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+                  "isRequired": false,
+                  "name": Object {
+                    "ar": "nickname - ar",
+                    "en": "nickname",
+                  },
+                  "value": "my nickname 1",
+                },
+                Object {
+                  "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+                  "isRequired": false,
+                  "name": Object {
+                    "ar": "details - ar",
+                    "en": "detalils",
+                  },
+                  "value": "my details 1",
+                },
+              ],
+              "friendlyName": "Home",
+              "id": "5269a5ac-02ee-4a7f-b430-00a79ae0f74b",
+              "latitude": 29.3774796,
+              "longitude": 47.9903626,
+              "neighborhoodName": "Salam",
+            },
+          },
+        },
+        Object {
+          "fulfillment": Object {
+            "deliveryAddress": Object {
+              "extraFields": Array [
+                Object {
+                  "id": "cc451fc7-6585-4bdd-bcab-c32b20568924",
+                  "isRequired": false,
+                  "name": Object {
+                    "ar": "nickname - ar",
+                    "en": "nickname",
+                  },
+                  "value": "my nickname 1",
+                },
+                Object {
+                  "id": "141afd5c-b04e-47cc-b67b-b6b57ac3702c",
+                  "isRequired": false,
+                  "name": Object {
+                    "ar": "details - ar",
+                    "en": "detalils",
+                  },
+                  "value": "my details 1",
+                },
+              ],
+              "friendlyName": "Home",
+              "id": "9e56eba0-a1a7-4708-bbdd-7f0ce279ba03",
+              "latitude": 29.3774796,
+              "longitude": 47.9903626,
+              "neighborhoodName": "Salam",
+            },
+          },
+        },
+      ],
+    },
+  },
+}
+`;

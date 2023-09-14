@@ -1,0 +1,14 @@
+service: KnetAlarms
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: ap-south-1
+  profile: cofe
+
+functions:
+  knetAlarmEvent:
+    handler: handler.knetAlarmEvent
+    events:
+      - sns: arn:aws:sns:ap-south-1:972548592279:KnetAlarms

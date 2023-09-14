@@ -1,0 +1,115 @@
+"""
+An item within a menu.
+"""
+type MenuItem {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  The name/label of this item
+  """
+  name: LocalizedString!
+  """
+  The description of this item
+  """
+  itemDescription: LocalizedString
+  """
+  Whether or not this item is available/out of stock
+  """
+  available(brandLocationId: ID!): Boolean!
+  """
+  Get the state of an unavailable item if null is returned then the item is available
+  """
+  unavailableState(brandLocationId: ID!): String
+  """
+  The base nutritional information for this item, any nutritional info of options will be added to this base info
+  """
+  baseNutritional: NutritionalInfo
+  """
+  The list of option groupings for this item (ie size, toppings, choice of milk). Note: the purchase price of a menu item is a composite of the prices of all the MenuItemOptions selected by the customer at the time of purchase. (See OrderItem).
+  """
+  optionSets: [MenuItemOptionSet]!
+  """
+  The menu section this item is within
+  """
+  section: MenuSection!
+  """
+  A url to a photo of this item
+  """
+  photo: String!
+  """
+  Sort Order
+  """
+  sortOrder: Int!
+  """
+  type of the item FOOD, DRINK
+  """
+  type: MenuItemType
+  """
+  Tags
+  """
+  tags: [Tag!]
+  """
+  Availability of the item to subscribe
+  """
+  isSubscribable: Boolean
+  """
+  Menu item status
+  """
+  status: String!
+  """
+  Menu item discovery credit (discovery point) relation
+  """
+  disableDiscoveryCredit: Boolean!
+}
+
+enum BrandLocationUnavailableItemsError {
+  BRAND_LOCATION_NOT_FOUND
+}
+
+type BrandLocationUnavailableItemsPayload {
+  """
+  Returns unavailable menu items, given the brand location id
+  """
+  items: [MenuItem!]
+  error: BrandLocationUnavailableItemsError
+  errors: [BrandLocationUnavailableItemsError!]
+}
+
+enum MenuItemSearchError {
+  NO_RESULT
+  INVALID_ARGS
+  INVALID_FILTERS
+  INVALID_PAGING
+  MIN_LENGTH
+  MAX_LENGTH
+  INVALID_BRAND_LOCATION
+}
+
+type MenuItemSearchResult {
+  item: CMenuItem
+  refIndex: Int
+  matches: [MenuItemSearchResultMatches!]
+  score: Float
+}
+
+type MenuItemSearchResultMatches {
+  indices: [[Int!]]!
+  value: String!
+  key: String!
+}
+
+type MenuItemSearchPayload {
+  results: [MenuItemSearchResult!]
+  paging: RefreshPaging
+  error: MenuItemSearchError
+  errors: [MenuItemSearchError!]
+}
+
+input MenuItemSearchFilters {
+  brandLocationId: ID!
+  preferredLanguage: AvailableLanguage!
+  searchText: String
+  paging: RefreshPagingInput
+}

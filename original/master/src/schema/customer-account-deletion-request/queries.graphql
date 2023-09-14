@@ -1,0 +1,6 @@
+#extend type Query {
+#  """
+#  otp request for account deletion
+#  """
+#  requestOTPForAccountDeletion: OTPRequestPayload! @requireAuth @requireRoles(roles: ["CUSTOMER"])
+#}

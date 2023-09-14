@@ -1,0 +1,525 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`get configuration 1`] = `
+Object {
+  "data": Object {
+    "config": Object {
+      "cofeDistrictHours": Array [
+        Object {
+          "day": 1,
+          "id": "77deb7d6-74fd-4ee3-ab6a-be5ddb0d5205",
+          "openTime": "06:00:00",
+        },
+        Object {
+          "day": 2,
+          "id": "053ce222-e134-40c9-8913-af2299688633",
+          "openTime": "06:00:00",
+        },
+        Object {
+          "day": 3,
+          "id": "a9ddeeb0-6a70-4921-a13f-f98140bdae7b",
+          "openTime": "06:00:00",
+        },
+        Object {
+          "day": 4,
+          "id": "064b9ea4-ca98-43ef-b471-874df6399ea2",
+          "openTime": "06:00:00",
+        },
+        Object {
+          "day": 5,
+          "id": "f11fa6cd-f93d-4fd4-ae11-0a6db8c7e086",
+          "openTime": "06:00:00",
+        },
+        Object {
+          "day": 6,
+          "id": "c393363f-435d-4974-8428-633f80b9f100",
+          "openTime": "06:00:00",
+        },
+        Object {
+          "day": 7,
+          "id": "ecbc2bdd-92bb-4b2f-96cf-97be4c0651d6",
+          "openTime": "06:00:00",
+        },
+      ],
+      "defaultLatitude": 29.378586,
+      "defaultLongitude": 47.990341,
+      "deliveryFee": "0.500",
+      "deliveryWindowMax": 40,
+      "deliveryWindowMin": 30,
+      "loyaltyTiers": Array [
+        Object {
+          "amount": "10.000",
+          "benefits": Array [],
+          "bonus": "0.000",
+          "colorTint": "0DBEAF",
+          "name": "GREEN",
+          "sku": "10KD",
+        },
+        Object {
+          "amount": "20.000",
+          "benefits": Array [],
+          "bonus": "0.000",
+          "colorTint": "D3BF39",
+          "name": "GOLD",
+          "sku": "20KD",
+        },
+        Object {
+          "amount": "30.000",
+          "benefits": Array [],
+          "bonus": "0.000",
+          "colorTint": "000000",
+          "name": "BLACK",
+          "sku": "30KD",
+        },
+      ],
+      "loyaltyTopUpSku": "TOPUP",
+      "maxCartSize": 20,
+      "maxScheduledDeliveries": 20,
+      "neighborhoods": Array [
+        Object {
+          "id": "5765880a-aca0-456b-bc1c-9e23cbd5785d",
+        },
+        Object {
+          "id": "62b99864-eebe-4904-b985-824f8bcdff1f",
+        },
+        Object {
+          "id": "78c93fc3-2864-478c-b459-a7bf4b576f59",
+        },
+        Object {
+          "id": "e5912a85-9fec-42a7-ac44-56751b258d23",
+        },
+        Object {
+          "id": "815fadf8-70f9-4acc-8b79-2615d7ba64df",
+        },
+        Object {
+          "id": "c3a7c835-5354-4d9c-ba4b-cab7e545e309",
+        },
+        Object {
+          "id": "ed413cb4-3794-4586-823d-dabbec1fe8c3",
+        },
+        Object {
+          "id": "c5b580cb-e93b-46d1-9eca-88d098f3691e",
+        },
+        Object {
+          "id": "21319c7b-a6d1-4135-a862-9c67a401a9d4",
+        },
+        Object {
+          "id": "a769ab27-33e3-4492-b19c-639e2287d6fd",
+        },
+        Object {
+          "id": "4e56baf3-aad2-4ed5-abff-e4d1a8c91cde",
+        },
+        Object {
+          "id": "a4164365-e93a-42e7-baae-8cc48e0dec05",
+        },
+        Object {
+          "id": "9dbba58d-9b53-482d-8454-2b23e258a15c",
+        },
+        Object {
+          "id": "ea16b773-e551-4f73-8400-7e99ed2418c8",
+        },
+        Object {
+          "id": "3c75bae0-be8f-4320-91e3-f9fb7f39d765",
+        },
+        Object {
+          "id": "0a840566-e585-47f4-bed1-2f3700424d5d",
+        },
+        Object {
+          "id": "7d760530-3535-4965-b699-49d2997696c6",
+        },
+        Object {
+          "id": "0bf079d3-e559-4d1c-b258-e98fcdabd61b",
+        },
+        Object {
+          "id": "ea24cf32-14cd-4e16-ab43-d70b7dde7278",
+        },
+        Object {
+          "id": "19245f2a-5723-47c6-a920-6f3f65dde2ff",
+        },
+        Object {
+          "id": "21d3e6f9-7574-4111-992e-e7fcb1841ae0",
+        },
+        Object {
+          "id": "f3a6a94b-7580-454a-b2d6-5467b08d557f",
+        },
+        Object {
+          "id": "6d9e0d85-1776-468b-bb5b-2994c39af959",
+        },
+        Object {
+          "id": "db9f8d62-fc50-4114-bb56-f662a521b247",
+        },
+        Object {
+          "id": "f4c42549-6c93-4edc-9fe2-9b75731abd1d",
+        },
+        Object {
+          "id": "22b49e03-3c26-450c-8812-57d9618076c1",
+        },
+        Object {
+          "id": "79a81b9c-f078-4d02-b611-9b5afc75f66d",
+        },
+        Object {
+          "id": "a8aa4044-6e1e-462d-a3d3-136993c453d3",
+        },
+        Object {
+          "id": "19598c45-39f6-446e-ad7e-5db39b9e069c",
+        },
+        Object {
+          "id": "6e5903c6-bcf7-412a-ae82-686b5b758814",
+        },
+        Object {
+          "id": "2518d8aa-a3b2-48cd-87b0-7e35f60b0695",
+        },
+        Object {
+          "id": "882ff1de-57f7-479d-ae1d-56341b7554f5",
+        },
+        Object {
+          "id": "975d2d9d-9191-4dbb-8703-8fe16bbdf9cf",
+        },
+        Object {
+          "id": "2a42b133-4190-43e8-a940-164108b18824",
+        },
+        Object {
+          "id": "c7dc8c0c-6dcc-4cb6-b1b3-82461483b574",
+        },
+        Object {
+          "id": "b75a0313-ecf0-410a-8cc3-e24ad55210b5",
+        },
+        Object {
+          "id": "0e6c6dd3-7d23-44bf-8419-70d6cffa08d1",
+        },
+        Object {
+          "id": "7d498565-8c07-4e67-bbe0-ee46f8d9bb8d",
+        },
+        Object {
+          "id": "3d074723-4c8d-4193-b0a4-2a583b081e22",
+        },
+        Object {
+          "id": "719c1188-c54b-4017-8a5a-3011453e69fd",
+        },
+        Object {
+          "id": "303ff942-0b6d-4f1e-bf62-f0ccfa819293",
+        },
+        Object {
+          "id": "86e59dc7-a5d3-46f4-b70e-a7980c04e9d2",
+        },
+        Object {
+          "id": "2ce7db3f-20d3-4ed8-9ac8-30ab0a9c1ed8",
+        },
+        Object {
+          "id": "5c7de86c-c633-4776-b72f-3ed3dc7af973",
+        },
+        Object {
+          "id": "0371b60d-3cd7-4e85-879d-727d0a4f83a3",
+        },
+        Object {
+          "id": "1345422d-2b1c-405a-8700-a61c4cef0359",
+        },
+        Object {
+          "id": "e57662b8-2448-49ee-b791-6c59c4137a1f",
+        },
+        Object {
+          "id": "ad4480bf-bcf5-4f8e-90fc-404459843a67",
+        },
+        Object {
+          "id": "3e322992-35a7-456b-80fa-586988fd9442",
+        },
+        Object {
+          "id": "c97ecbc8-e06b-4103-8f86-8820b7bb69a6",
+        },
+        Object {
+          "id": "5ec18474-5adf-40e6-9ccd-694845664979",
+        },
+        Object {
+          "id": "3fc6db3e-2891-4408-be1a-f9513fca5ee0",
+        },
+        Object {
+          "id": "e0ad28b7-12a9-4fd8-8da0-cc63565db6cb",
+        },
+        Object {
+          "id": "15fb2f79-76ea-4696-ad3e-02303677dc0c",
+        },
+        Object {
+          "id": "268bec89-8269-4d31-bb4c-dadf733ff84d",
+        },
+        Object {
+          "id": "9e6b57e9-a961-4b50-af5a-28e26c8de739",
+        },
+        Object {
+          "id": "b1039955-9ebb-4b92-b6dd-971ace0f45ed",
+        },
+        Object {
+          "id": "86b0e909-9269-4c97-afb9-6f9c8e0bc3df",
+        },
+        Object {
+          "id": "cfce614a-56d5-4083-9e89-64d17505eefc",
+        },
+        Object {
+          "id": "851604e9-a67a-4ed3-9d30-5d2a0f7aaa31",
+        },
+        Object {
+          "id": "e328bc48-dea0-40df-a942-3d154ea0e2f0",
+        },
+        Object {
+          "id": "3c7b9bc7-859e-4779-9c17-21c89a7d2889",
+        },
+        Object {
+          "id": "f434f4a3-1aba-4708-9e1a-a91764d34ef2",
+        },
+        Object {
+          "id": "c3f4c072-3057-4dfd-bd47-2784acc59581",
+        },
+        Object {
+          "id": "3b8f5021-69eb-439b-b332-ae05bb129106",
+        },
+        Object {
+          "id": "24fd9191-c978-4ca8-8bb4-a15972e52a80",
+        },
+        Object {
+          "id": "be32f723-3384-4dbf-956c-8830d2b52ffd",
+        },
+        Object {
+          "id": "2ea768ea-0754-4d7b-8e33-7f804db92d9e",
+        },
+        Object {
+          "id": "68b0c01e-07ec-428a-ab90-1a2f05c7b671",
+        },
+        Object {
+          "id": "b3c0d444-abb9-4d17-88d9-10c9a9b3ce73",
+        },
+        Object {
+          "id": "4b6108d1-6695-41e7-b779-e1c006b9c5fe",
+        },
+        Object {
+          "id": "6df0b1ba-be6f-4438-b161-85ddd94c19c6",
+        },
+        Object {
+          "id": "7c9682b8-edcb-41e8-b893-f8c5f4056c2d",
+        },
+        Object {
+          "id": "ced78b52-2244-403c-8e13-30830f4a819c",
+        },
+        Object {
+          "id": "8f5fb9e3-86fa-43d4-b069-e881a6a056fa",
+        },
+        Object {
+          "id": "dd787c15-e96c-445a-905e-2932f0544b5f",
+        },
+        Object {
+          "id": "cb56745a-a8b2-4a1a-a499-10bbe37d9dff",
+        },
+        Object {
+          "id": "60ddce4c-9710-4999-827c-6b5b554c61e6",
+        },
+        Object {
+          "id": "d912c1b2-717d-4e19-b8ad-92fb7a19878c",
+        },
+        Object {
+          "id": "77f37047-b4a2-43fc-b4ca-b95597412582",
+        },
+        Object {
+          "id": "04f62788-b140-431e-a646-00db5fe9886d",
+        },
+        Object {
+          "id": "22b5e8e9-adb2-487a-8157-36aa4bbc367d",
+        },
+        Object {
+          "id": "32913a88-5f8d-407c-9b03-a05f4bf641c7",
+        },
+        Object {
+          "id": "a78461b2-42ae-40c0-bf6c-1461366df3f1",
+        },
+        Object {
+          "id": "3412aa3a-2756-4ed5-8339-0919232159bc",
+        },
+        Object {
+          "id": "172ffcc7-61da-4d3d-b05f-1e50119e93d9",
+        },
+        Object {
+          "id": "02b6b906-3c5b-4ee6-a0a8-2b0dba93fe30",
+        },
+        Object {
+          "id": "3677e99b-a8be-477f-9231-ac9efab57fb4",
+        },
+        Object {
+          "id": "57e99499-a6ec-49ed-81ac-676e0cba58de",
+        },
+        Object {
+          "id": "753eb8c5-a748-4117-81fd-42dd33da15d8",
+        },
+        Object {
+          "id": "86bb70b2-7792-4faf-8419-cb5c5a062b89",
+        },
+        Object {
+          "id": "08242df3-0548-4ae3-bc7a-75fab95d9537",
+        },
+        Object {
+          "id": "5c3ffd13-681f-4375-945d-b94c80eddc04",
+        },
+        Object {
+          "id": "1fcfe4ec-2cc2-4db3-a30a-71d33833e762",
+        },
+        Object {
+          "id": "b6fd97c2-5e22-4ab2-a447-7a9db3ec2f6f",
+        },
+        Object {
+          "id": "155fbd2f-485f-4592-afd4-bba28c0a2085",
+        },
+        Object {
+          "id": "ec638ef3-35b2-4816-9a8f-49cf61dea531",
+        },
+        Object {
+          "id": "078eb2b0-8fe9-4999-acd9-4812864678d4",
+        },
+        Object {
+          "id": "a0e1d73b-3c4d-4775-acb8-900759787455",
+        },
+        Object {
+          "id": "4789109e-ca3a-41f3-867d-b344d5f620f5",
+        },
+        Object {
+          "id": "b82ef835-a494-4c7f-b3fd-7e282a75ed19",
+        },
+        Object {
+          "id": "83ee1216-26fe-48e3-a3d1-a0f2a2092407",
+        },
+        Object {
+          "id": "1f94d633-1bc9-4c46-8082-af6d169c6408",
+        },
+        Object {
+          "id": "8208c975-bb8f-4a0f-9427-ac7a31c20253",
+        },
+        Object {
+          "id": "ef6104d2-824c-4097-afca-0f63e27fc3dd",
+        },
+        Object {
+          "id": "0acf385b-dbc7-4a80-b9ce-b93ee238846b",
+        },
+        Object {
+          "id": "9aeef8b1-885d-46d3-956d-5422d92c185e",
+        },
+        Object {
+          "id": "ec497b03-2030-448c-b9d7-418a81dedee5",
+        },
+        Object {
+          "id": "08511575-16c2-40c5-911c-d5c812c86800",
+        },
+        Object {
+          "id": "0e00c2a4-86c8-47be-9cf8-b41a27f8beeb",
+        },
+        Object {
+          "id": "09ea9033-9337-409e-a972-df37d24dfa24",
+        },
+        Object {
+          "id": "07984a4d-b9fc-4bdd-b778-64688324b67d",
+        },
+        Object {
+          "id": "2ee717d7-f5af-4e5b-b0cb-20c4e10d5346",
+        },
+        Object {
+          "id": "bcafb022-b052-47ef-8597-f48bbc9e14e7",
+        },
+        Object {
+          "id": "15bc1642-7337-45ab-8884-248f7908f32f",
+        },
+        Object {
+          "id": "f1ad3549-f3b0-43e0-957c-e15a8a01d2d0",
+        },
+        Object {
+          "id": "02aedb90-0995-4e6c-a9ba-6d80bc40258e",
+        },
+        Object {
+          "id": "8b326316-d3c7-42f9-b696-c894ed8bee79",
+        },
+        Object {
+          "id": "a563043d-8ebb-42a2-9a88-7d2683d2d2bb",
+        },
+        Object {
+          "id": "0d0430d3-eebb-47db-ac7c-d3f31e3761e8",
+        },
+        Object {
+          "id": "472e4f36-9e68-4ad9-9cc5-af34526c29d7",
+        },
+        Object {
+          "id": "7e115bbd-d407-4c4a-938a-b602526465b9",
+        },
+        Object {
+          "id": "f167e6c8-cd2d-4957-89a2-d974be278b43",
+        },
+        Object {
+          "id": "ce47b6b6-a64b-4476-9dd5-83244f85f53d",
+        },
+        Object {
+          "id": "db6a127d-37fd-4dd4-9082-a1e609a60d21",
+        },
+        Object {
+          "id": "ad5099fb-977d-4b28-bdb2-25d80705f196",
+        },
+        Object {
+          "id": "02b60f20-b984-4232-8b43-7c6cc75b9a3a",
+        },
+        Object {
+          "id": "ea598d51-7bdf-4e97-8e2a-1e59daeb605b",
+        },
+        Object {
+          "id": "d14fc685-1f52-4a90-b3ea-a0533e579480",
+        },
+        Object {
+          "id": "75cf3a36-d0f1-476e-9911-5610afba187f",
+        },
+        Object {
+          "id": "a34d387b-d20d-41d3-be19-d740fcd9b685",
+        },
+        Object {
+          "id": "b04c2dd0-a8ca-4194-ad95-a09f3c318521",
+        },
+        Object {
+          "id": "d474b38d-a393-40d1-a369-c7e01657e56f",
+        },
+        Object {
+          "id": "e6eaf263-5bf4-436f-aa8d-c1f3ae62093a",
+        },
+        Object {
+          "id": "c5a2c41a-bc04-48e9-bc5a-12ef9e015416",
+        },
+        Object {
+          "id": "593b5062-0dbe-4e6d-a6da-f1a5e15d9afb",
+        },
+        Object {
+          "id": "ac8ed4ba-6a09-47e0-8c2a-8ed235fa3f22",
+        },
+        Object {
+          "id": "1d72dc6c-fddf-4a2e-a1b5-7c54dbf52b83",
+        },
+      ],
+      "serviceFee": "0.250",
+    },
+  },
+}
+`;
+
+exports[`update configuration 1`] = `
+Object {
+  "data": Object {
+    "configurationSave": Object {
+      "configuration": Object {
+        "availableDeliveryAreas": Array [
+          "Kuwait City",
+          "Dasman",
+          "Sharq",
+          "Jibla",
+          "Mirqab",
+        ],
+        "defaultLatitude": 48.990341,
+        "defaultLongitude": 30.378586,
+        "deliveryFee": "0.600",
+        "deliveryWindowMax": 40,
+        "deliveryWindowMin": 30,
+        "maxCartSize": 21,
+        "serviceFee": "0.350",
+      },
+      "error": null,
+      "errors": null,
+    },
+  },
+}
+`;

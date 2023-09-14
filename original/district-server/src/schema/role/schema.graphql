@@ -1,0 +1,29 @@
+"""
+Role for admins
+"""
+type Role {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  name
+  """
+  name: String!
+  """
+  description
+  """
+  description: String
+  """
+  Role created at
+  """
+  created: Datetime!
+  """
+  Role updated at
+  """
+  updated: Datetime!
+  """
+  Permissions assigned to particular role
+  """
+  permissions: [Permission]
+}

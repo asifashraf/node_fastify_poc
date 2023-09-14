@@ -1,0 +1,857 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`a location set as primary will be returned in home screen 1`] = `
+Object {
+  "data": Object {
+    "locationsForHomeScreen": Array [
+      Object {
+        "address": Object {
+          "latitude": 29.3774796,
+          "longitude": 47.9903626,
+        },
+        "brand": Object {
+          "id": "623c9dfc-f2e8-4800-89d8-9f202f6b7f0e",
+          "name": Object {
+            "ar": "كاريبو كوفي",
+            "en": "Caribou Coffee",
+          },
+        },
+        "distance": 141.36,
+        "id": "903fb8ed-9ebc-4a36-8e92-4305d157c929",
+        "name": Object {
+          "ar": "الراية للتسوق",
+          "en": "Al-Raya Shopping",
+        },
+      },
+      Object {
+        "address": Object {
+          "latitude": 29.3774545,
+          "longitude": 47.9896755,
+        },
+        "brand": Object {
+          "id": "82f509cf-7600-4cf3-9ff4-4725e05591cc",
+          "name": Object {
+            "ar": "كوستا كوفي",
+            "en": "Costa Coffee",
+          },
+        },
+        "distance": 162.43,
+        "id": "c9d9fef2-0856-4467-9bc2-e593704a1582",
+        "name": Object {
+          "ar": "الشهداء",
+          "en": "Al-Shuhada",
+        },
+      },
+      Object {
+        "address": Object {
+          "latitude": 29.3790539,
+          "longitude": 47.9932879,
+        },
+        "brand": Object {
+          "id": "aed15607-823c-4a04-b33c-4449f3e68c60",
+          "name": Object {
+            "ar": "ستاربكس",
+            "en": "Starbucks",
+          },
+        },
+        "distance": 333.45,
+        "id": "c53540cc-bf83-46cf-9f40-e5dd125a6709",
+        "name": Object {
+          "ar": "ستاربكس 3",
+          "en": "Starbucks 3",
+        },
+      },
+    ],
+  },
+}
+`;
+
+exports[`a location set as primary will be returned in home screen 2`] = `
+Object {
+  "data": Object {
+    "locationsForHomeScreen": Array [
+      Object {
+        "address": Object {
+          "latitude": 29.3774796,
+          "longitude": 47.9903626,
+        },
+        "brand": Object {
+          "id": "623c9dfc-f2e8-4800-89d8-9f202f6b7f0e",
+          "name": Object {
+            "ar": "كاريبو كوفي",
+            "en": "Caribou Coffee",
+          },
+        },
+        "distance": 141.36,
+        "id": "903fb8ed-9ebc-4a36-8e92-4305d157c929",
+        "name": Object {
+          "ar": "الراية للتسوق",
+          "en": "Al-Raya Shopping",
+        },
+      },
+      Object {
+        "address": Object {
+          "latitude": 29.3774545,
+          "longitude": 47.9896755,
+        },
+        "brand": Object {
+          "id": "82f509cf-7600-4cf3-9ff4-4725e05591cc",
+          "name": Object {
+            "ar": "كوستا كوفي",
+            "en": "Costa Coffee",
+          },
+        },
+        "distance": 162.43,
+        "id": "c9d9fef2-0856-4467-9bc2-e593704a1582",
+        "name": Object {
+          "ar": "الشهداء",
+          "en": "Al-Shuhada",
+        },
+      },
+      Object {
+        "address": Object {
+          "latitude": 29.3712177,
+          "longitude": 47.9748705,
+        },
+        "brand": Object {
+          "id": "aed15607-823c-4a04-b33c-4449f3e68c60",
+          "name": Object {
+            "ar": "ستاربكس",
+            "en": "Starbucks",
+          },
+        },
+        "distance": 1962.61,
+        "id": "7b006f6b-afcb-4958-b9fb-eaca73d0f655",
+        "name": Object {
+          "ar": "ستاربكس 1",
+          "en": "Starbucks 1",
+        },
+      },
+    ],
+  },
+}
+`;
+
+exports[`brand location can save neighborhood 1`] = `
+Object {
+  "data": Object {
+    "brandLocationSave": Object {
+      "brandLocation": Object {
+        "id": "903fb8ed-9ebc-4a36-8e92-4305d157c929",
+      },
+      "error": null,
+      "errors": null,
+    },
+  },
+}
+`;
+
+exports[`brand locations can resolve their delivery locations 1`] = `
+Object {
+  "data": Object {
+    "brandLocation": Object {
+      "deliveryLocation": Object {
+        "id": "903fb8ed-9ebc-4a36-8e92-4305d157c929",
+      },
+    },
+  },
+}
+`;
+
+exports[`brands can resolve brand locations 1`] = `
+Object {
+  "data": Object {
+    "brands": Array [
+      Object {
+        "locations": Array [
+          Object {
+            "id": "99e1be73-2814-4106-8333-3f2f754549dc",
+          },
+          Object {
+            "id": "7dbb5759-33bc-49c4-b7ba-278433fe5b8a",
+          },
+          Object {
+            "id": "903fb8ed-9ebc-4a36-8e92-4305d157c929",
+          },
+        ],
+      },
+      Object {
+        "locations": Array [
+          Object {
+            "id": "20d56f80-a6de-45ee-84e1-d49f613c7fd4",
+          },
+          Object {
+            "id": "c9d9fef2-0856-4467-9bc2-e593704a1582",
+          },
+          Object {
+            "id": "2a821a14-4d91-4894-bad6-a7d6bdecbebe",
+          },
+        ],
+      },
+      Object {
+        "locations": Array [
+          Object {
+            "id": "c8354376-d536-4847-ae98-aeb660548427",
+          },
+        ],
+      },
+      Object {
+        "locations": Array [
+          Object {
+            "id": "7b006f6b-afcb-4958-b9fb-eaca73d0f655",
+          },
+          Object {
+            "id": "817a13c0-3085-4563-975d-44e9122e610f",
+          },
+          Object {
+            "id": "c53540cc-bf83-46cf-9f40-e5dd125a6709",
+          },
+        ],
+      },
+    ],
+  },
+}
+`;
+
+exports[`can save a brand location 1`] = `
+Object {
+  "data": Object {
+    "brandLocationSave": Object {
+      "brandLocation": Object {
+        "address": Object {
+          "latitude": 29.3774545,
+          "longitude": 47.9896755,
+        },
+        "id": "752f1e26-6fba-43a4-881e-c55f552c5b6e",
+        "name": Object {
+          "ar": "أربعة مواسم",
+          "en": "Four Seasons",
+        },
+      },
+      "error": null,
+      "errors": null,
+    },
+  },
+}
+`;
+
+exports[`costa1 closes early Tuesday the 5th 1`] = `
+Object {
+  "data": Object {
+    "brandLocation": Object {
+      "openings": Object {
+        "delivery": Array [
+          Object {
+            "begin": "2017-12-05T03:00:00Z",
+            "end": "2017-12-05T09:00:00Z",
+          },
+        ],
+        "pickup": Array [
+          Object {
+            "begin": "2017-12-05T03:00:00Z",
+            "end": "2017-12-05T09:00:00Z",
+          },
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`costa1 closes mid-day Thursday the 7th 1`] = `
+Object {
+  "data": Object {
+    "brandLocation": Object {
+      "openings": Object {
+        "delivery": Array [
+          Object {
+            "begin": "2017-12-07T03:00:00Z",
+            "end": "2017-12-07T07:00:00Z",
+          },
+          Object {
+            "begin": "2017-12-07T09:00:00Z",
+            "end": "2017-12-07T11:00:00Z",
+          },
+        ],
+        "pickup": Array [
+          Object {
+            "begin": "2017-12-07T03:00:00Z",
+            "end": "2017-12-07T07:00:00Z",
+          },
+          Object {
+            "begin": "2017-12-07T09:00:00Z",
+            "end": "2017-12-07T11:00:00Z",
+          },
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`costa1 is closed all day Monday the 4th 1`] = `
+Object {
+  "data": Object {
+    "brandLocation": Object {
+      "openings": Object {
+        "delivery": Array [],
+        "pickup": Array [],
+      },
+    },
+  },
+}
+`;
+
+exports[`costa1 opens late Wednesday the 6th 1`] = `
+Object {
+  "data": Object {
+    "brandLocation": Object {
+      "openings": Object {
+        "delivery": Array [
+          Object {
+            "begin": "2017-12-06T05:00:00Z",
+            "end": "2017-12-06T11:00:00Z",
+          },
+        ],
+        "pickup": Array [
+          Object {
+            "begin": "2017-12-06T05:00:00Z",
+            "end": "2017-12-06T11:00:00Z",
+          },
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`costa1 stays open later Friday the 8th 1`] = `
+Object {
+  "data": Object {
+    "brandLocation": Object {
+      "openings": Object {
+        "delivery": Array [
+          Object {
+            "begin": "2017-12-08T03:00:00Z",
+            "end": "2017-12-08T13:00:00Z",
+          },
+        ],
+        "pickup": Array [
+          Object {
+            "begin": "2017-12-08T03:00:00Z",
+            "end": "2017-12-08T13:00:00Z",
+          },
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`get brand locations 1`] = `
+Object {
+  "data": Object {
+    "brandLocations": Array [
+      Object {
+        "id": "99e1be73-2814-4106-8333-3f2f754549dc",
+      },
+      Object {
+        "id": "7dbb5759-33bc-49c4-b7ba-278433fe5b8a",
+      },
+      Object {
+        "id": "903fb8ed-9ebc-4a36-8e92-4305d157c929",
+      },
+      Object {
+        "id": "20d56f80-a6de-45ee-84e1-d49f613c7fd4",
+      },
+      Object {
+        "id": "c9d9fef2-0856-4467-9bc2-e593704a1582",
+      },
+      Object {
+        "id": "2a821a14-4d91-4894-bad6-a7d6bdecbebe",
+      },
+      Object {
+        "id": "c8354376-d536-4847-ae98-aeb660548427",
+      },
+      Object {
+        "id": "7b006f6b-afcb-4958-b9fb-eaca73d0f655",
+      },
+      Object {
+        "id": "817a13c0-3085-4563-975d-44e9122e610f",
+      },
+      Object {
+        "id": "c53540cc-bf83-46cf-9f40-e5dd125a6709",
+      },
+    ],
+  },
+}
+`;
+
+exports[`get brand locations that deliver 1`] = `
+Object {
+  "data": Object {
+    "brandLocationsThatDeliver": Array [
+      Object {
+        "brand": Object {
+          "name": Object {
+            "ar": "كاريبو كوفي",
+            "en": "Caribou Coffee",
+          },
+        },
+        "contactName": "Miss Abner Donnelly",
+        "createdAt": "2018-01-05T11:00:00Z",
+        "email": "Fadel_Adah@Fritsch.tv",
+        "heroPhoto": "https://source.unsplash.com/k0okLYIjoxo/1200x600",
+        "id": "903fb8ed-9ebc-4a36-8e92-4305d157c929",
+        "phone": "173-365-9886",
+      },
+      Object {
+        "brand": Object {
+          "name": Object {
+            "ar": "كوستا كوفي",
+            "en": "Costa Coffee",
+          },
+        },
+        "contactName": "Miss Chaz Marks",
+        "createdAt": "2018-01-05T11:00:00Z",
+        "email": "Graciela.Muller@yahoo.com",
+        "heroPhoto": "https://source.unsplash.com/KixfBEdyp64/1200x600",
+        "id": "c9d9fef2-0856-4467-9bc2-e593704a1582",
+        "phone": "895-141-8611",
+      },
+      Object {
+        "brand": Object {
+          "name": Object {
+            "ar": "كوستا كوفي",
+            "en": "Costa Coffee",
+          },
+        },
+        "contactName": "Mrs. Archibald Deckow",
+        "createdAt": "2018-01-05T11:00:00Z",
+        "email": "Ward_Francisco@Louvenia.biz",
+        "heroPhoto": "https://source.unsplash.com/KixfBEdyp64/1200x600",
+        "id": "2a821a14-4d91-4894-bad6-a7d6bdecbebe",
+        "phone": "238-794-3535",
+      },
+      Object {
+        "brand": Object {
+          "name": Object {
+            "ar": "ستاربكس",
+            "en": "Starbucks",
+          },
+        },
+        "contactName": "Ms. Valentina Herzog",
+        "createdAt": "2018-01-05T11:00:00Z",
+        "email": "Anita_Bergnaum@Lemke.us",
+        "heroPhoto": "https://source.unsplash.com/-S6ZIaONSMA/1200x600",
+        "id": "7b006f6b-afcb-4958-b9fb-eaca73d0f655",
+        "phone": "075-553-7575",
+      },
+      Object {
+        "brand": Object {
+          "name": Object {
+            "ar": "ستاربكس",
+            "en": "Starbucks",
+          },
+        },
+        "contactName": "Miss Johnathan Nitzsche",
+        "createdAt": "2018-01-05T11:00:00Z",
+        "email": "Sporer.Rickie@yahoo.com",
+        "heroPhoto": "https://source.unsplash.com/-S6ZIaONSMA/1200x600",
+        "id": "817a13c0-3085-4563-975d-44e9122e610f",
+        "phone": "829-107-4359",
+      },
+    ],
+  },
+}
+`;
+
+exports[`locationsForHomeScreen can return brand locations 1`] = `
+Object {
+  "data": Object {
+    "locationsForHomeScreen": Array [
+      Object {
+        "brand": Object {
+          "name": Object {
+            "ar": "كاريبو كوفي",
+            "en": "Caribou Coffee",
+          },
+        },
+        "contactName": "Miss Abner Donnelly",
+        "createdAt": "2018-01-05T11:00:00Z",
+        "distance": 141.36,
+        "email": "Fadel_Adah@Fritsch.tv",
+        "heroPhoto": "https://source.unsplash.com/k0okLYIjoxo/1200x600",
+        "id": "903fb8ed-9ebc-4a36-8e92-4305d157c929",
+        "phone": "173-365-9886",
+      },
+      Object {
+        "brand": Object {
+          "name": Object {
+            "ar": "كوستا كوفي",
+            "en": "Costa Coffee",
+          },
+        },
+        "contactName": "Miss Chaz Marks",
+        "createdAt": "2018-01-05T11:00:00Z",
+        "distance": 162.43,
+        "email": "Graciela.Muller@yahoo.com",
+        "heroPhoto": "https://source.unsplash.com/KixfBEdyp64/1200x600",
+        "id": "c9d9fef2-0856-4467-9bc2-e593704a1582",
+        "phone": "895-141-8611",
+      },
+      Object {
+        "brand": Object {
+          "name": Object {
+            "ar": "ستاربكس",
+            "en": "Starbucks",
+          },
+        },
+        "contactName": "Ms. Gabriella Gerlach",
+        "createdAt": "2018-01-05T11:00:00Z",
+        "distance": 333.45,
+        "email": "Vivian.Kohler@Gladys.tv",
+        "heroPhoto": "https://source.unsplash.com/-S6ZIaONSMA/1200x600",
+        "id": "c53540cc-bf83-46cf-9f40-e5dd125a6709",
+        "phone": "776-915-7670",
+      },
+    ],
+  },
+}
+`;
+
+exports[`locationsForHomeScreen can return brand locations with paging 1`] = `
+Object {
+  "data": Object {
+    "locationsForHomeScreen": Array [
+      Object {
+        "brand": Object {
+          "name": Object {
+            "ar": "كوستا كوفي",
+            "en": "Costa Coffee",
+          },
+        },
+        "contactName": "Miss Chaz Marks",
+        "createdAt": "2018-01-05T11:00:00Z",
+        "email": "Graciela.Muller@yahoo.com",
+        "heroPhoto": "https://source.unsplash.com/KixfBEdyp64/1200x600",
+        "id": "c9d9fef2-0856-4467-9bc2-e593704a1582",
+        "phone": "895-141-8611",
+      },
+      Object {
+        "brand": Object {
+          "name": Object {
+            "ar": "ستاربكس",
+            "en": "Starbucks",
+          },
+        },
+        "contactName": "Ms. Gabriella Gerlach",
+        "createdAt": "2018-01-05T11:00:00Z",
+        "email": "Vivian.Kohler@Gladys.tv",
+        "heroPhoto": "https://source.unsplash.com/-S6ZIaONSMA/1200x600",
+        "id": "c53540cc-bf83-46cf-9f40-e5dd125a6709",
+        "phone": "776-915-7670",
+      },
+    ],
+  },
+}
+`;
+
+exports[`locationsForHomeScreen can return delivery locations 1`] = `
+Object {
+  "data": Object {
+    "locationsForHomeScreen": Array [
+      Object {
+        "availableFulfillments": Array [
+          "DELIVERY",
+          "PICKUP",
+        ],
+        "brand": Object {
+          "name": Object {
+            "ar": "كاريبو كوفي",
+            "en": "Caribou Coffee",
+          },
+        },
+        "name": Object {
+          "ar": "الراية للتسوق",
+          "en": "Al-Raya Shopping",
+        },
+      },
+      Object {
+        "availableFulfillments": Array [
+          "DELIVERY",
+          "PICKUP",
+        ],
+        "brand": Object {
+          "name": Object {
+            "ar": "كوستا كوفي",
+            "en": "Costa Coffee",
+          },
+        },
+        "name": Object {
+          "ar": "الشهداء",
+          "en": "Al-Shuhada",
+        },
+      },
+      Object {
+        "availableFulfillments": Array [
+          "DELIVERY",
+          "PICKUP",
+        ],
+        "brand": Object {
+          "name": Object {
+            "ar": "ستاربكس",
+            "en": "Starbucks",
+          },
+        },
+        "name": Object {
+          "ar": "ستاربكس 1",
+          "en": "Starbucks 1",
+        },
+      },
+    ],
+  },
+}
+`;
+
+exports[`locationsForPickup can return brand locations 1`] = `
+Object {
+  "data": Object {
+    "locationsForPickup": Array [
+      Object {
+        "address": Object {
+          "latitude": 29.3754443,
+          "longitude": 47.9882044999999,
+        },
+        "brand": Object {
+          "name": Object {
+            "ar": "كاريبو كوفي",
+            "en": "Caribou Coffee",
+          },
+        },
+        "distance": 1579.48,
+        "name": Object {
+          "ar": "الاستثمار العالمي",
+          "en": "Global Investment",
+        },
+      },
+      Object {
+        "address": Object {
+          "latitude": 29.3774796,
+          "longitude": 47.9903626,
+        },
+        "brand": Object {
+          "name": Object {
+            "ar": "كاريبو كوفي",
+            "en": "Caribou Coffee",
+          },
+        },
+        "distance": 1901.06,
+        "name": Object {
+          "ar": "الراية للتسوق",
+          "en": "Al-Raya Shopping",
+        },
+      },
+    ],
+  },
+}
+`;
+
+exports[`locationsForSearchScreen can return brand locations 1`] = `
+Object {
+  "data": Object {
+    "locationsForSearchScreen": Array [
+      Object {
+        "address": Object {
+          "latitude": 29.3754443,
+          "longitude": 47.9882044999999,
+        },
+        "brand": Object {
+          "name": Object {
+            "ar": "كاريبو كوفي",
+            "en": "Caribou Coffee",
+          },
+        },
+        "distance": 1579.48,
+        "name": Object {
+          "ar": "الاستثمار العالمي",
+          "en": "Global Investment",
+        },
+      },
+      Object {
+        "address": Object {
+          "latitude": 29.3774545,
+          "longitude": 47.9896755,
+        },
+        "brand": Object {
+          "name": Object {
+            "ar": "كوستا كوفي",
+            "en": "Costa Coffee",
+          },
+        },
+        "distance": 1830.55,
+        "name": Object {
+          "ar": "الشهداء",
+          "en": "Al-Shuhada",
+        },
+      },
+      Object {
+        "address": Object {
+          "latitude": 29.3774796,
+          "longitude": 47.9903626,
+        },
+        "brand": Object {
+          "name": Object {
+            "ar": "كاريبو كوفي",
+            "en": "Caribou Coffee",
+          },
+        },
+        "distance": 1901.06,
+        "name": Object {
+          "ar": "الراية للتسوق",
+          "en": "Al-Raya Shopping",
+        },
+      },
+      Object {
+        "address": Object {
+          "latitude": 29.388603,
+          "longitude": 47.980296,
+        },
+        "brand": Object {
+          "name": Object {
+            "ar": "كوستا كوفي",
+            "en": "Costa Coffee",
+          },
+        },
+        "distance": 2301.63,
+        "name": Object {
+          "ar": "السلطان",
+          "en": "The Sultan",
+        },
+      },
+      Object {
+        "address": Object {
+          "latitude": 29.302099,
+          "longitude": 47.934973,
+        },
+        "brand": Object {
+          "name": Object {
+            "ar": "كوستا كوفي",
+            "en": "Costa Coffee",
+          },
+        },
+        "distance": 9880.63,
+        "name": Object {
+          "ar": "الأفنيوز ",
+          "en": "Avenues ",
+        },
+      },
+    ],
+  },
+}
+`;
+
+exports[`orders can resolve brand locations 1`] = `
+Object {
+  "data": Object {
+    "orderSet": Object {
+      "brandLocation": Object {
+        "id": "817a13c0-3085-4563-975d-44e9122e610f",
+      },
+    },
+  },
+}
+`;
+
+exports[`starbucks3 closed all day Monday the 4th 1`] = `
+Object {
+  "data": Object {
+    "brandLocation": Object {
+      "openings": Object {
+        "delivery": Array [],
+        "pickup": Array [
+          Object {
+            "begin": "2017-12-04T20:59:59Z",
+            "end": "2017-12-04T21:00:00Z",
+          },
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`starbucks3 closed from Sunday the 11th through Saturday the 17th 1`] = `
+Object {
+  "data": Object {
+    "brandLocation": Object {
+      "openings": Object {
+        "delivery": Array [],
+        "pickup": Array [],
+      },
+    },
+  },
+}
+`;
+
+exports[`starbucks3 closes at noon Tuesday the 5th 1`] = `
+Object {
+  "data": Object {
+    "brandLocation": Object {
+      "openings": Object {
+        "delivery": Array [],
+        "pickup": Array [
+          Object {
+            "begin": "2017-12-04T21:00:00Z",
+            "end": "2017-12-05T09:00:00Z",
+          },
+          Object {
+            "begin": "2017-12-05T20:59:59Z",
+            "end": "2017-12-05T21:00:00Z",
+          },
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`starbucks3 closes mid-day Thursday the 7th 1`] = `
+Object {
+  "data": Object {
+    "brandLocation": Object {
+      "openings": Object {
+        "delivery": Array [],
+        "pickup": Array [
+          Object {
+            "begin": "2017-12-06T21:00:00Z",
+            "end": "2017-12-07T09:00:00Z",
+          },
+          Object {
+            "begin": "2017-12-07T11:00:00Z",
+            "end": "2017-12-07T21:00:00Z",
+          },
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`starbucks3 opens at noon Wednesday the 6th 1`] = `
+Object {
+  "data": Object {
+    "brandLocation": Object {
+      "openings": Object {
+        "delivery": Array [],
+        "pickup": Array [
+          Object {
+            "begin": "2017-12-06T09:00:00Z",
+            "end": "2017-12-06T21:00:00Z",
+          },
+        ],
+      },
+    },
+  },
+}
+`;

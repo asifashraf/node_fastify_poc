@@ -1,0 +1,5 @@
+extend type Query{
+  paymentLogsByOrderId(orderId : ID!) : PaymentLogsByOrderIdPayload!
+  @requireAuth
+  @requirePermissions(permissions: ["paymentLogs:view"])
+}

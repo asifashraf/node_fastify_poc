@@ -1,0 +1,25 @@
+"""
+RolePermission for admins
+"""
+type RolePermission {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Role
+  """
+  role: Role!
+  """
+  Permission
+  """
+  permission: Permission!
+  """
+  RolePermission created at
+  """
+  created: Datetime!
+  """
+  RolePermission updated at
+  """
+  updated: Datetime!
+}

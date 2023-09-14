@@ -1,0 +1,935 @@
+"""
+The fulfillment type of this order
+"""
+enum FulfillmentType {
+  """
+  Order is being picked up by the customer
+  """
+  PICKUP
+  """
+  Order is being delivered to the customer
+  """
+  DELIVERY
+}
+
+"""
+The different types of customer addresses
+"""
+enum CustomerAddressType {
+  HOUSE @deprecated
+  APARTMENT @deprecated
+  OFFICE_BUILDING @deprecated
+  AIRPORT @deprecated
+  HOME
+  OFFICE
+  CUSTOM
+}
+
+enum PaymentStatusName {
+  """
+  Order has been received from customer, and payment initiated with merchant
+  """
+  PAYMENT_PENDING
+  """
+  Order has been paid for, and now needs to be accepted
+  """
+  PAYMENT_SUCCESS
+  """
+  Something went wrong with this payment
+  """
+  PAYMENT_FAILURE
+  PAYMENT_CANCELED
+  NOT_APPLICABLE
+}
+
+enum OrderPaymentMethod {
+  """
+  Credits
+  """
+  CREDITS
+  """
+  Cash on Delivery
+  """
+  CASH
+  """
+  Pay with KNET
+  """
+  KNET
+  """
+  Pay with a credit card
+  """
+  CARD
+  """
+  Pay with a gift card
+  """
+  GIFT_CARD
+}
+
+enum CreditsPaymentMethod {
+  """
+  Pay with KNET
+  """
+  KNET
+  """
+  Pay with a credit card
+  """
+  CARD
+}
+
+enum OrderSetStatusName {
+  """
+  Initial state for this order
+  """
+  INITIATED
+  """
+  Order is placed after payment is okay, cash orders are placed with this status
+  """
+  PLACED
+  """
+  Order is accepted.
+  """
+  ACCEPTED
+  """
+  Order is rejected for some reason. For reason check the rejection reason.
+  """
+  REJECTED
+  """
+  Order is started and preparing
+  """
+  PREPARING
+  """
+  Order is prepared.
+  """
+  PREPARED
+  """
+  Order is prepared and now waiting for the delivery guy to deliver.
+  """
+  WAITING_FOR_COURIER
+  """
+  Order is on its way and out for delivery
+  """
+  OUT_FOR_DELIVERY
+  """
+  Order is on its way and out for express delivery but 5 min delayed
+  """
+  DELIVERY_DELAYED
+  """
+  Order is delivered and waiting to be completed.
+  """
+  DELIVERED
+  """
+  For PICKUP this status shows order is prepared and ready to be picked up by customer.
+  """
+  READY_FOR_PICKUP
+  """
+  Order is completed and closed as well after all the checks including payment.
+  """
+  COMPLETED
+  """
+  Order is reported for some reason. For reason check the reason.
+  """
+  REPORTED
+  """
+  if order payment is failed in any reason order status will be this
+  """
+  PAYMENT_FAILURE
+  """
+  if order payment is canceled by user order status will be this
+  """
+  PAYMENT_CANCELED
+}
+
+enum StoreOrderSetStatusName {
+  """
+  Initial state for this store order set
+  """
+  INITIATED
+  """
+  Store Order set is placed after payment is okay
+  """
+  PLACED
+  """
+  Some store orders in this set are dispatched, but not all
+  """
+  PARTIALLY_DISPATCHED
+  """
+  All store orders in this set are dispatched
+  """
+  DISPATCHED
+  """
+  Some store orders in this set are delivered, but not all
+  """
+  PARTIALLY_DELIVERED
+  """
+  All Store Order in this set are delivered and store order set closed
+  """
+  DELIVERED
+  """
+  All Store order in this set are canceled
+  """
+  CANCELED
+  """
+  All Store order in this set are rejected for some reason. For reason check the rejection reason.
+  """
+  REJECTED
+}
+
+enum StoreOrderStatusName {
+  """
+  Initial state for this order
+  """
+  INITIATED
+  """
+  Order is placed after payment is okay, cash orders are placed with this status
+  """
+  PLACED
+  """
+  Order is dispatched by branch
+  """
+  DISPATCHED
+  """
+  Order is delivered to desination
+  """
+  DELIVERED
+  """
+  Order is cancelled.
+  """
+  CANCELED
+  """
+  Order is rejected for some reason. For reason check the rejection reason.
+  """
+  REJECTED
+}
+
+"""
+Status to make easy original order statuses and group the current statuses
+"""
+enum OrderQueueSetStatusName {
+  """
+  New orders
+  """
+  NEW
+  """
+  In progress order status. will include all the statuses except PLACED,COMPLETED,REJECTED
+  """
+  IN_PROGRESS
+  """
+  Order is completed and closed as well after all the checks including payment.
+  """
+  COMPLETED
+}
+
+"""
+The reason an order was rejected
+"""
+enum OrderRejectionReason {
+  """
+  Sold out of all items in the order
+  """
+  OUT_OF_STOCK
+  """
+  Unexpected store closure
+  """
+  UNEXPECTED_STORE_CLOSURE
+  """
+  Distance is too far
+  """
+  DISTANCE_IS_TOO_FAR
+  """
+  The issue is not listed above
+  """
+  OTHER
+}
+
+"""
+The reason an order was rejected
+"""
+enum OrderReportReason {
+  """
+  Customer did not showed up to collect the order
+  """
+  CUSTOMER_NOT_SHOWED_UP
+  """
+  There is a technical issue
+  """
+  TECHNICAL_ISSUE
+  """
+  The issue is not listed above
+  """
+  OTHER
+}
+
+"""
+Mobile device push notfication services
+"""
+enum PushNotificationService {
+  """
+  Apple Push Notification Service (iOS)
+  """
+  APNS
+  """
+  Google Cloud Messaging (Android)
+  """
+  GCM
+}
+
+"""
+Routes by which phone numbers can be verified
+"""
+enum PhoneVerificationRoute {
+  """
+  A code is texted.
+  """
+  SMS
+  """
+  A code is read aloud by an automated-call.
+  """
+  VOICE
+}
+
+"""
+The available loyalty tier names
+"""
+enum LoyaltyTierName {
+  """
+  The default tier
+  """
+  GREEN
+  """
+  Mid tier
+  """
+  GOLD
+  """
+  Upper tier
+  """
+  BLACK
+}
+
+enum LoyaltyTierStatus {
+  ACTIVE
+  INACTIVE
+}
+
+"""
+The status of a given notification
+"""
+enum NotificationStatus {
+  """
+  Pending is the initial state
+  """
+  PENDING
+  """
+  Active means this notification is actively being sent out
+  """
+  ACTIVE
+  """
+  Delivered means this notification has been sent out
+  """
+  DELIVERED
+  """
+  Failed means there was a problem with the delivery
+  """
+  FAILED
+}
+
+enum orderSetCommentType {
+  INQUIRY
+  CANCELATION
+  COMPLAIN
+  REQUEST
+}
+
+"""
+reward tier perk types
+"""
+enum RewardTierPerkType {
+  ADD_POINTS
+  DISCOUNT
+  FREE_DELIVERY
+  FREE_DRINK
+  FREE_FOOD
+}
+
+"""
+reward tier perk types
+"""
+enum RewardTierPerkApplyType {
+  """
+  perks of this type are always applied to worders (discounts)
+  """
+  ONGOING
+  """
+  perks of this type are applied onyl when they are chosen (free drinks)
+  """
+  CHOOSE
+  """
+  special apply type (birthday points)
+  """
+  SPECIAL
+}
+
+enum RewardStatus {
+  ACTIVE
+  INACTIVE
+  DELETED
+}
+
+enum ShippingPolicyStatus {
+  ACTIVE
+  INACTIVE
+  DELETED
+}
+
+enum CouponStatus {
+  ACTIVE
+  INACTIVE
+  DELETED
+}
+
+"""
+The src of the points which can be added from purchase, benefits
+"""
+enum CustomerRewardProgramPointSrc {
+  PURCHASE
+  BENEFIT
+}
+
+enum MenuItemType {
+  FOOD
+  DRINK
+  OTHERS
+}
+
+enum StatusType {
+  ACTIVE
+  INACTIVE
+  DELETED
+}
+
+enum CustomerStatus {
+  NEW
+  ACTIVE
+  INACTIVE
+  BLACK_LISTED
+}
+
+enum BrandLocationPriceRuleAction {
+  ADD
+  SUBTRACT
+}
+
+enum BrandLocationPriceRuleType {
+  FIXED
+  PERCENT
+}
+
+enum BrandStatus {
+  ACTIVE
+  INACTIVE
+  DELETED
+  HASNOBRANCH
+}
+
+enum BrandLocationStatus {
+  ACTIVE
+  INACTIVE
+  DELETED
+}
+
+"""
+Transaction actions
+"""
+enum TransactionAction {
+  TIP
+  ORDER
+  COFE_CREDIT
+  GIFT_CARD
+  REFUND
+}
+
+"""
+Transaction types
+"""
+enum TransactionType {
+  CREDITED
+  DEBITED
+}
+
+enum MenuItemUnavailableState {
+  SOLD_OUT
+  NOT_COMMERCIALIZED
+}
+
+enum AvailableLanguage {
+  EN
+  AR
+  TR
+}
+
+"""
+The options for order creation source
+"""
+enum OrderSetSource {
+  ORDER_PLATFORM @deprecated
+  MOBILE
+  SIRI
+  ALEXA
+  AUTO_RENEWAL
+}
+
+"""
+The Size of an Image
+"""
+enum Size {
+  """
+  Small size image
+  """
+  SMALL
+  """
+  Medium size image
+  """
+  MEDIUM
+}
+
+"""
+address field types
+"""
+enum AddressFieldType {
+  OTHER
+  NICKNAME
+  STREET
+  BLOCK
+  AVENUE
+  CITY
+  NEIGHBOURHOOD
+  AREA
+  FLOOR
+  UNIT_NUMBER
+  BUILDING_NAME
+  LANDMARK
+  SULOCALITY
+  COUNTRY
+  POSTAL_CODE
+  EMAIL
+  TELEPHONE
+  NOTE
+}
+
+enum ReverseAddressError {
+  OUT_OF_SERVICE_COUNTRY
+  INVALID_ADDRESS
+  INVALID_GEOCODING
+}
+
+enum CouponType {
+  ADD_POINTS
+  FREE_DELIVERY
+  FREE_DRINK
+  FREE_FOOD
+  FLAT_AMOUNT
+  PERCENTAGE
+  COFE_CREDITS
+}
+
+enum InvoiceComponentType {
+  """
+  Subtotal without discounts but after reduction the cost of items which are free
+  """
+  SUBTOTAL
+  """
+  Any service fee
+  """
+  SERVICE_FEE
+  """
+  VOUCHER (amount)
+  """
+  VOUCHER
+  """
+  REFERRAL (amount)
+  """
+  REFERRAL
+  """
+  REWARD_DISCOUNT (amount)
+  """
+  REWARD_DISCOUNT
+  """
+  The total cost of the order after all the discounts and perks
+  """
+  TOTAL
+  """
+  Same as total which is due on customer to pay minus the credits the customer have if payment method is credits
+  """
+  AMOUNT_DUE
+  """
+  The credits used from gift cards to pay the order
+  """
+  GIFT_CARD
+  """
+  The used credits from customer balance
+  """
+  CREDITS
+  """
+  The amount of cashback
+  """
+  CASHBACK
+  """
+  The amount of used discovery credits
+  """
+  DISCOVERY_CREDITS
+  """
+  The amount paid
+  """
+  AMOUNT_PAID
+  """
+  subscription discount amount
+  """
+  SUBSCRIPTION_DISCOUNT
+  """
+  stamp rewards discount amount
+  """
+  STAMP_REWARD_DISCOUNT
+}
+
+enum GiftCardCollectionStatus {
+  ACTIVE
+  # used for internal collection that customer shouldn't see in the app
+  INTERNAL
+  INACTIVE
+}
+
+enum GiftCardTemplateStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum GiftCardDeliveryMethod {
+  EMAIL
+  SMS
+  SHARE_MESSAGE
+}
+
+enum GiftCardStatus {
+  ACTIVE
+  REDEEMED
+  # User can still see but not able to use that for any order.
+  REVOKE
+  INACTIVE
+}
+
+enum GiftCardTransactionOrderType {
+  ORDER_SET
+  GIFT_CARD_ORDER
+  REFUND
+}
+
+enum GiftCardSectionType {
+  FEATURED
+  BRAND
+  GENERIC
+}
+
+enum GiftCardOrderCreateError {
+  MERCHANT_INITIALIZATION_ERROR
+  MIN_LIMIT_EXCEEDED
+  MAX_LIMIT_EXCEEDED
+  INSUFFICIENT_CREDITS
+  PAYMENT_METHOD_REQUIRED
+}
+
+enum UpdateCofeCreditsTransactionType {
+  CREDIT
+  DEBIT
+}
+
+enum UpdateCofeCreditsError {
+  INVALID_CUSTOMER
+  INVALID_CURRENCY
+  INVALID_AMOUNT
+  REASON_MUST_BE_SET
+}
+
+enum ShippingPolicyProperty {
+  DISTANCE
+  CART_COST
+}
+
+enum ComparisionOperator {
+  GREATER_THAN_OR_EQUAL
+}
+
+enum ReferralStatusTypes {
+  JOINED
+  ORDERED
+}
+enum SignupPromos {
+  SIGNUP
+  INSTORE_ACTIVATION
+}
+
+enum UILayoutType {
+  LIST
+  CAROUSEL
+}
+
+enum UITargetActionType {
+  DEEP_LINK
+}
+
+enum PaymentProvider {
+  INTERNAL
+  MY_FATOORAH
+  CHECKOUT
+  MOBILE_EXPRESS
+  TAP
+}
+
+enum PaymentMethodSourceType {
+  SAVED_CUSTOMER_CARD_TOKEN
+  TOKEN
+}
+
+enum CustomerCardTokenStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum PosType {
+  REVEL
+}
+
+"""
+Promo Type (regular or cashback )
+Regular promo is existing promo which will reduce the total value of order.
+cashback promo will store the value of promo on placing the order and on successful payment we will add the promo value as credits in customer's wallet
+"""
+enum PromoType {
+  REGULAR
+  CASHBACK
+}
+
+enum UpdateCustomerStatusError {
+  INVALID_CUSTOMER_ID
+  SOMETHING_WENT_WRONG
+}
+
+enum OTPRequestError {
+  DISABLED_CUSTOMER
+  DUPLICATE_CUSTOMER_EXIST
+  RATE_LIMIT_EXCEEDED
+  COUNTRY_IS_NOT_AVAILABLE
+  SERVICE_ERROR
+  ACTIVE_ACCOUNT_DELETION
+  INVALID_PHONE_NUMBER
+  INVALID_SECONDARY_OTP_PROVIDER
+}
+
+enum SingleSignOnStatus {
+  SUCCESS_EXISTING_USER
+  SUCCESS_NO_USER_RECORD_FOUND
+  DUPLICATE_ACTIVE_RECORDS_FOUND
+  USER_RECORDS_ARE_DISABLED
+  FAILED_OTP_CHALLENGE
+  SERVICE_ERROR
+}
+
+"""
+Commission Model type
+zero / non zero commission model type
+"""
+enum CommissionModelType {
+  ZERO_COMMISSION_MODEL
+  NON_ZERO_COMMISSION_MODEL
+}
+
+enum BrandLocationActivityEventType {
+  LOGIN
+  LOGOUT
+  RECEIVED_ORDER
+  ACCEPTED_ORDER
+  REJECTED_ORDER
+  REPORTED_ORDER
+  BRANCH_ONLINE
+  BRANCH_OFFLINE
+}
+
+enum FirstOrdersType {
+  COFE
+  BRAND
+}
+
+enum NewBrandsSaveError {
+  MAX_COUNT_EXCEEDED
+  DUPLICATE_ORDER
+}
+
+enum BrandSubscriptionModelError {
+  INVALID_VALUES
+  INVALID_BRAND
+}
+
+enum LoyaltyTransactionType {
+  ORDER_SET
+  ORDER_SET_REFUND
+  LOYALTY_ORDER
+  LOYALTY_REFILL
+  VOUCHER
+  REFERRAL
+  REFERRAL_EXPIRY
+  REFERRAL_REFUND
+  CASHBACK
+  CASHBACK_EXPIRY
+  CASHBACK_REFUND
+  SIGNUP_PROMO
+  ADMIN_PANEL
+  DISCOVERY_CREDITS
+  DISCOVERY_CREDITS_REFUND
+  DISCOVERY_CREDITS_EXPIRY
+  MANUAL
+  MANUAL_CORRECTION
+  MANUAL_CREDITS
+  MANUAL_REFUND
+  MANUAL_SUBTRACT
+  NORMALIZATION
+  NEGATIVE_BALANCE_FIX
+  STORE_ORDER_SET
+  REFUND_STORE_ORDER
+  GIFT_CARD_ORDER
+  OTHER
+}
+
+enum TransactionsHistoryType {
+  CASHBACK
+  REFERRAL
+  LOYALTY_ORDER
+  DISCOVERY_CREDITS
+}
+
+enum WalletInfoBarOptions {
+  NONE
+  PUBLIC_REMINDER
+  ADDED_REMINDER
+  REMAINING_REMINDER
+}
+
+enum CreditTypes {
+  REGULAR_CREDITS
+  DISCOVERY_CREDITS
+  CASHBACK_CREDITS
+  REFERRAL_CREDITS
+}
+
+"""
+Brand Subscription Commission Model type
+"""
+enum BrandSubscriptionRevenueModel {
+  ZERO_COMMISSION_MODEL
+  PERCENTAGE_COMMISSION_MODEL
+  FIXED_PLATFORM_MODEL
+}
+
+enum NewBrandLiteError {
+  MISSING_COUNTRY_IDENTIFIER
+  INVALID_COUNTRY
+}
+
+enum locationsInRadiusLiteError {
+  MISSING_COUNTRY_IDENTIFIER
+  INVALID_COUNTRY
+}
+
+enum RewardTierType {
+  SILVER
+  GOLD
+  DIAMOND
+  PLATINUM
+}
+
+enum OrderItemsAvailability {
+  NO_ITEMS_AVAILABLE
+  PARTIAL_ITEMS_AVAILABLE
+  ALL_ITEMS_AVAILABLE
+}
+
+enum PickupLocationStatus {
+  ACTIVE
+  DELETED
+}
+
+enum CustomerFavoriteBrandLocationError {
+  INVALID_CUSTOMER
+  INVALID_BRAND_LOCATION
+  ALREADY_FAVORITED_BRAND_LOCATION
+  INVALID_FAVORITED_BRAND_LOCAITON
+}
+
+enum CustomerNotificationForBrandLocationOpenError {
+  INVALID_CUSTOMER
+  INVALID_BRAND_LOCATION
+  ALREADY_NOTIFICATION_SET
+  STORE_ALLREADY_OPEN
+  ALREADY_NOTIFICATION_REMOVED
+}
+
+enum OrderRatingAnswerType {
+  POOR
+  AVERAGE
+  GOOD
+  EXCELLENT
+}
+
+enum OrderRatingSaveError {
+  NOT_MATCHED_CUSTOMER
+  INVALID_ORDER_SET_ID
+  ALREADY_RATED_ORDER
+  ORDER_NOT_COMPLETED
+  INVALID_RATING
+  INVALID_OVERALL_QUESTION
+  RATEABLE_TIME_OVER
+}
+
+enum OrderRatingDetailSaveError {
+  NOT_MATCHED_CUSTOMER
+  INVALID_ORDER_RATING_ID
+  INVALID_COMMENT
+  INVALID_QUESTION
+  RATEABLE_TIME_OVER
+}
+
+enum OrderRatingQuestionStatus {
+  ACTIVE
+  INACTIVE
+  DELETED
+}
+
+enum OrderRatingQuestionSaveError {
+  MAX_LENGTH_EXCEEDED
+  INVALID_QUESTION
+  DESCRIPTION_MISSING
+  ONLY_OVERALL_TYPE_ALLOWED
+  TYPE_REQUIRED
+  FULFILLMENT_MISSING
+}
+
+enum OrderRatingStatus {
+  PENDING
+  SKIPPED
+  UNAVAILABLE
+  RATED
+}
+
+enum OrderRatingQuestionType {
+  OVERALL
+  FULFILLMENT_OVERALL
+  DETAIL
+}
+
+enum CMenuItemPriceType {
+  ORIGINAL
+  DISCOUNTED
+  SUBSCRIPTION_DISCOUNTED
+}
+
+enum ProviderPriorityType {
+  PRIMARY
+  SECONDARY
+}

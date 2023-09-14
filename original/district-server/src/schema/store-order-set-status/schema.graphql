@@ -1,0 +1,19 @@
+type StoreOrderSetStatus {
+  id: ID!
+  """
+  The status of the store order set
+  """
+  status: StoreOrderSetStatusName!
+  """
+  The store order set belong to this status
+  """
+  storeOrderSet: StoreOrderSet!
+  """
+  created at
+  """
+  created: Datetime!
+  """
+  updated at
+  """
+  updated: Datetime!
+}

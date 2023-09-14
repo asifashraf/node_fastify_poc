@@ -1,0 +1,19 @@
+type RewardTier {
+  id: ID!
+  reward: Reward!
+  title: LocalizedString!
+  logoUrl: String!
+  requiredPoints: Float!
+  sortOrder: Int
+  color: String
+  created: Datetime!
+  updated: Datetime!
+  allowedPerks: [RewardTierPerkType]
+  perks: [RewardTierPerk!]
+  type: RewardTierType
+}
+
+type RewardTiersPaged {
+  paging: Paging!
+  items: [RewardTier!]!
+}

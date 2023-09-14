@@ -1,0 +1,1112 @@
+"""
+The following mutations allow updating the data on the server
+"""
+type Mutation {
+  """
+  Create or Update the Brand
+  """
+  brandSave(brand: BrandInput!): BrandSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["brand:upsert"])
+
+  """
+  Update the configuration
+  """
+  configurationSave(
+    configuration: ConfigurationInput!
+  ): ConfigurationSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["settings:update"])
+
+  """
+  Global schedule
+  """
+  configurationWeeklyScheduleSave(
+    schedule: [CofeDistrictHoursInput!]
+  ): ConfigurationWeeklyScheduleSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["settings:update"])
+
+  """
+  Create a ticket on Zendesk
+  """
+  createZendeskTicket(orderId: ID!): CreateZendeskTicketResponse! @requireAuth
+
+  """
+  Update a coupon
+  """
+  couponSave(coupon: CouponInput!): CouponPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["voucher:upsert"])
+
+  """
+  Store Brand Location
+  """
+  brandLocationSave(
+    brandId: ID!
+    brandLocation: BrandLocationInput!
+  ): BrandLocationSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:upsert"])
+
+  """
+  Store Brand Location Schedule Exception
+  """
+  brandLocationScheduleExceptionSave(
+    scheduleExceptions: [ScheduleExceptionInput!]!
+  ): BrandLocationScheduleExceptionSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:upsert"])
+
+  """
+  Store Brand Location Schedule
+  """
+  brandLocationWeeklyScheduleSave(
+    brandLocationId: ID!
+    schedule: [WeeklyScheduleInput!]
+  ): BrandLocationWeeklyScheduleSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:upsert"])
+
+  """
+  Store Brand Location(s) Schedule
+  """
+  brandLocationsWeeklyScheduleSave(
+    brandLocationIds: [ID!]
+    schedule: [WeeklyScheduleInput!]
+  ): BrandLocationWeeklyScheduleSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:upsert"])
+
+  setBrandLocationAcceptingOrders(
+    brandLocationId: ID!
+    acceptingOrders: Boolean!
+    reason: String
+  ): SetBrandLocationAcceptingOrdersPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:upsert"])
+
+  """
+  Set an Item on a brand location as Unavailable
+  """
+  brandLocationSetUnavailableMenuItem(
+    menuItemId: ID!
+    brandLocationId: ID!
+    state: MenuItemUnavailableState
+  ): BrandLocationUnavailableMenuItemPayload
+    @requireAuth
+    @requirePermissions(permissions: ["menu:upsert"])
+
+  """
+  Unset an Item on a brand location as Unavailable
+  """
+  brandLocationUnSetUnavailableMenuItem(
+    menuItemId: ID!
+    brandLocationId: ID!
+  ): BrandLocationUnavailableMenuItemPayload
+    @requireAuth
+    @requirePermissions(permissions: ["menu:upsert"])
+
+  # """
+  # Save a Brand Menu
+  # """
+  # brandMenuSave(menu: MenuInput!): BrandMenuSavePayload!
+  #   @requireAuth
+  #   @requirePermissions(permissions: ["menu:upsert"])
+
+  """
+  Save a Brand Menu Section
+  """
+  brandMenuSectionSave(
+    menuSection: MenuSectionInput!
+  ): BrandMenuSectionSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["menu:upsert"])
+
+  """
+  Save a Brand Menu Item
+  """
+  brandMenuItemSave(menuItem: MenuItemInput!): BrandMenuItemSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["menu:upsert"])
+
+  """
+  Delete a Brand Menu Item
+  """
+  brandMenuItemDelete(menuItemId: ID!): brandMenuItemDeletePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["menu:upsert"])
+
+  """
+  Sort Brand Menu Items
+  """
+  brandMenuItemSorting(menuItems: [MenuItemIds!]): brandMenuItemSortingPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["menu:upsert"])
+
+  """
+  Delete a Brand Menu Section
+  """
+  brandMenuSectionDelete(menuSectionId: ID!): brandMenuItemSectionPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["menu:upsert"])
+
+  """
+  Sort Brand Menu Sections
+  """
+  brandMenuSectionSorting(
+    menuSections: [MenuSectionIds!]
+  ): brandMenuSectionSortingPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["menu:upsert"])
+  """
+  Registration for a new user (Lite version)
+  """
+  customerRegisterLite(
+    customer: CustomerRegisterInput!
+  ): CustomerRegisterPayloadLite!
+
+  """
+  Customer Updating info
+  """
+  customerUpdate(customer: CustomerUpdateInput!): CustomerUpdatePayload!
+    @requireAuth
+
+  """
+  Means for CD Platform users to manually set customers' loyalty tier
+  """
+  customerSetLoyaltyTier(
+    """
+    Which customer to update
+    """
+    customerId: ID!
+    """
+    The loyalty tier to assign
+    """
+    loyaltyTierName: LoyaltyTierName!
+  ): CustomerSetLoyaltyTierPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["customer:upsert"])
+
+  """
+  Customer saving an address
+  """
+  customerSaveAddress(address: CustomerAddressInput!): CustomerAddressPayload!
+    @requireAuth
+
+  """
+  Customer deleting an address
+  """
+  customerDeleteAddress(addressId: ID!): CustomerAddressPayload! @requireAuth
+
+  """
+  Customer set address as default
+  """
+  customerSetDefaultAddress(addressId: ID!): CustomerAddressPayload!
+    @requireAuth
+
+  """
+  Customer saving an car
+  """
+  customerSaveCar(car: CustomerCarInput!): CustomerCarPayload! @requireAuth
+  """
+  Customer saving an car (v2)
+  """
+  customerSaveCarLite(car: CustomerCarInput!): CustomerCarPayloadLite
+    @requireAuth
+
+  """
+  Customer deleting an car
+  """
+  customerDeleteCar(carId: ID!): CustomerCarPayload! @requireAuth
+  """
+  Customer deleting an car (v2)
+  """
+  customerDeleteCarLite(carId: ID!): CustomerCarPayloadLite @requireAuth
+
+  """
+  Customer set car as default
+  """
+  customerSetDefaultCar(carId: ID!): CustomerCarPayload! @requireAuth
+
+  saveCustomerDeviceMetadata(
+    deviceMetadata: CustomerDeviceMetadataInput!
+  ): CustomerDeviceMetadataPayload! @requireAuth
+
+  """
+  Registers a device token. More than one device can be registered to a single customer.
+  """
+  customerRegisterPushDeviceToken(
+    """
+    The token/data for a given device.
+    """
+    token: String!
+    """
+    Currently the only supported service is APNS.
+    """
+    service: PushNotificationService!
+    """
+    Deprecated, no longer respected. The APNS environment is automatically selected based on the server's environment. This argument will be removed in a future update.
+    """
+    isSandbox: Boolean
+  ): Boolean! @requireAuth
+
+  """
+  Unregisters a device token. Does not remove other device tokens.
+  """
+  customerUnregisterPushDeviceToken(token: String!): Boolean! @requireAuth
+
+  """
+  Unregisters all device tokens for a customer.
+  """
+  customerUnregisterAllPushDeviceTokens: Boolean! @requireAuth
+
+  """
+  Sends a test push notification to the customer's phone (assumes that the client has already registered one or more device tokens for that customer).
+  """
+  customerSendTestPushNotification(message: String!): Boolean! @requireAuth
+
+  """
+  Request that a one-time verification token be sent to the customer's phone.
+  """
+  customerRequestPhoneVerificationToken(
+    route: PhoneVerificationRoute!
+    """
+    The phone number's country, e.g. 'US'
+    """
+    countryCode: String!
+    """
+    e.g. '5551234567'
+    """
+    phone: String!
+  ): Boolean @requireAuth @firebaseAppCheck
+
+  """
+  Verify a one-time verification token that was previously requested.
+  """
+  customerVerifyPhoneVerificationToken(
+    token: String!
+    """
+    The phone number's country, e.g. 'US',
+    """
+    countryCode: String!
+    """
+    e.g. '5551234567'
+    """
+    phone: String!
+  ): Boolean @requireAuth
+
+  customerRequestOTPViaPhoneNumber(
+    """
+    Customer's phone number e.g. '+555123456743'
+    """
+    phoneNumber: String!
+    """
+    Requested from admin, Default false
+    """
+    isAdmin: Boolean
+    """
+    If customer requested account deletion and still it is in recovery time
+    with this flag they can recover their account
+    """
+    cancelAccountDeletion: Boolean
+    providerPriority: ProviderPriorityType
+  ): OTPRequestPayload! #@rateLimit(window:"1m", max: 3, message: "Please wait a while before requesting a new OTP")
+  customerValidateOTPViaPhoneNumber(
+    """
+    e.g. '+555123456743'
+    """
+    phoneNumber: String!
+    """
+    Six digit otp code e.g. 632141
+    """
+    otpCode: String!
+  ): LoginResponse
+  otpInformationByPhone(phoneNumber: String): OTPInformation!
+  """
+  Sends a form email to catering@cofedistrict.com (or similar) on behalf of the customer with basic info about a catering request. Other than the customerId, none of the values require validation.
+  """
+  customerSendCateringRequest(
+    eventLocation: String!
+    eventDate: String!
+    eventTime: String!
+    contactEmail: String!
+    contactPhone: String!
+    additionalInfo: String
+  ): Boolean! @requireAuth
+
+  #  """
+  #  Customer placing a new order for pickup
+  #  """
+  #  pickupOrderCreate(order: PickupOrderInput!): OrderCreatePayload! @requireAuth
+  #
+  #  """
+  #  Customer placing a new order for delivery
+  #  """
+  #  deliveryOrderCreate(order: DeliveryOrderInput!): OrderCreatePayload!
+  #    @requireAuth
+
+  """
+  Customer placing a new order for delivery (from order platform)
+  """
+  deliveryOrderCreateFromOrderPlatform(
+    order: DeliveryOrderInputFromOrderPlatform!
+  ): OrderCreatePayload! @requireAuth
+
+  """
+  Customer placing a new order for pickup (from order platform)
+  """
+  pickupOrderCreateFromOrderPlatform(
+    order: PickupOrderInputFromOrderPlatform!
+  ): OrderCreatePayload! @requireAuth
+
+  """
+  Set an order as acknowledged
+  """
+  orderSetAcknowledge(
+    orderSet: OrderSetAcknowledgeInput!
+  ): OrderSetUpdatePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["order:update"])
+
+  """
+  Set an store order as acknowledged
+  """
+  storeOrderAcknowledge(
+    storeOrder: StoreOrderAcknowledgeInput!
+  ): StoreOrderUpdatePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["order:update"])
+
+  """
+  Set an order set internal note
+  """
+  orderSetSaveInternalNote(
+    orderSet: OrderSetInternalCommentInput!
+  ): OrderSetUpdatePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["order:update"])
+
+  orderSetPayWithCash(
+    orderSetId: ID!
+    wasPaid: Boolean!
+    note: String
+  ): OrderSet! @requireAuth @requirePermissions(permissions: ["order:update"])
+
+  """
+  Order set refund
+  """
+  orderSetRefund(
+    orderSetId: ID!
+    reason: OrderSetRefundReason!
+  ): OrderSetRefundPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["order:update"])
+
+  """
+  Order items refund
+  """
+  orderItemsRefund(input: OrderItemsRefundInput!): OrderItemsRefundPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["order:update"])
+
+  """
+  Set a status for an order set
+  """
+  orderSetSetStatus(
+    orderSetId: ID!
+    status: OrderSetStatusName!
+    note: String
+  ): OrderSetStatusPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["order:update"])
+
+  """
+  Set a status for a group order set
+  """
+  bulkOrderSetSetStatus(
+    orderSetIds: [ID!]!
+    status: OrderSetStatusName!
+  ): BulkOrderSetStatusPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["order:update"])
+
+  """
+  Reject an order set with rejection information
+  """
+  orderSetCreateRejection(
+    orderSetId: ID!
+    rejectionInfo: RejectionInput!
+  ): OrderSetStatusPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["order:update"])
+
+  """
+  Undo rejection on an order set
+  """
+  orderSetUndoRejection(orderSetId: ID!): OrderSetStatus!
+    @requireAuth
+    @requirePermissions(permissions: ["order:update"])
+
+  """
+  Report an order set with report information
+  """
+  reportOrderSet(
+    orderSetId: ID!
+    reportInfo: ReportInput!
+  ): OrderSetStatusPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["order:update"])
+
+  """
+  Assigns a Courier to a Specific Order
+  """
+  orderAssignCourier(
+    orderSetId: ID!
+    courierName: String!
+  ): OrderAssignCourierPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["order:update"])
+
+  """
+  Sets the `isCustomerPresent` flag to true (idempotent)
+  """
+  setCustomerIsPresent(orderSetId: ID!): SetCustomerPresentPayload! @requireAuth
+
+  # """
+  # Save a marketing push notification
+  # """
+  # marketingNotificationSave(
+  #   """
+  #   The new or updated notification
+  #   """
+  #   notification: MarketingNotificationInput!
+  # ): MarketingNotificationSavePayload!
+  #   @requireAuth
+  #   @requireRoles(roles: ["CDA"])
+
+  # """
+  # Delete a previously scheduled marketing push notification
+  # """
+  # marketingNotificationDelete(
+  #   """
+  #   The ID of the notification to delete
+  #   """
+  #   id: ID!
+  # ): Boolean! @requireAuth @requireRoles(roles: ["CDA"])
+
+  """
+  Add a comment about an order Set
+  """
+  orderSetCommentAdd(
+    """
+    The Order Set Comment
+    """
+    orderSetComment: OrderSetCommentInput!
+  ): OrderSetCommentPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["order:update"])
+
+  """
+  Insert / Update a reward
+  """
+  rewardSave(rewardInput: RewardInput): RewardSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["rewards:upsert"])
+
+  # """
+  # Insert / Update a reward tier
+  # """
+  # rewardTierSave(rewardTierInput: RewardTierInput): RewardTierSavePayload!
+  #   @requireAuth
+  #   @requirePermissions(permissions: ["rewards:upsert"])
+
+  """
+  Inserts / Updates reward tiers
+  """
+  rewardTiersSave(rewardTiersInput: [RewardTierInput]): RewardTiersSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["rewards:upsert"])
+
+  """
+  Insert / Update a reward tier perk
+  """
+  rewardTierPerkSave(
+    rewardTierPerkInput: RewardTierPerkInput
+  ): RewardTierPerkSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["rewards:upsert"])
+
+  """
+  Inserts / Updates reward tier perks
+  """
+  rewardTierPerksSave(
+    rewardTierPerksInput: [RewardTierPerkInput]
+  ): RewardTierPerksSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["rewards:upsert"])
+
+  """
+  Insert / Update neigbourhood
+  """
+  neighborhoodSave(
+    neighborhoodInput: NeighborhoodInput
+  ): NeighborhoodSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["neighborhoods:upsert"])
+
+  # Insert / Update currency
+  currencySave(currencyInput: CurrencyInput): CurrencySavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["currencies:upsert"])
+
+  # Insert / Update country
+  countrySave(countryInput: CountryInput): CountrySavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["countries:upsert"])
+
+  # Insert / Update city
+  citySave(cityInput: CityInput): CitySavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["cities:upsert"])
+
+  brandLocationPriceRuleSave(
+    brandLocationPriceRuleInputs: [BrandLocationPriceRuleInput!]!
+  ): BrandLocationPriceRuleSavePayload
+    @requireAuth
+    @requirePermissions(permissions: ["menu:upsert"])
+
+  """
+  Force invalidation of a brand location menu. Menu is recalulated on the next request
+  """
+  invalidateBrandLocationCMenu(brandLocationId: ID!): Boolean @requireAuth
+  invalidateAllCMenus: Boolean @requireAuth
+
+  """
+  Insert / Update banner
+  """
+  bannerSave(bannerInput: BannerInput): BannerSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["banner:upsert"])
+
+  """
+  Delete banner
+  """
+  bannerDelete(id: ID!): Boolean!
+    @requireAuth
+    @requirePermissions(permissions: ["banner:delete"])
+  """
+  Save Golden cofe terms and conditions
+  """
+  goldenCofeSave(goldenCofeInput: GoldenCofeInput): GoldenCofePayload!
+    @requireAuth
+    @requireRoles(roles: ["CDA"])
+  """
+  update customer address fields
+  """
+  addressFieldsSave(
+    addressFieldInput: AddressFieldInput
+  ): AddressFieldSavePayload! @requireAuth @requirePermissions(permissions: ["addresses:upsert"])
+  """
+  Save a loyalty tier
+  """
+  loyaltyTierSave(loyaltyTierInput: LoyaltyTierInput!): LoyaltyTierSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["loyaltyTier:upsert"])
+  """
+  create brand admin
+  """
+  saveAdminWithBrandAndLocations(
+    brandAdmin: BrandAdminInput!
+  ): BrandAdminPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["brandadmin:upsert"])
+
+  """
+  Insert / Update group
+  """
+  groupSave(groupInput: GroupInput): GroupSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["group:upsert"])
+
+  """
+  Insert / Update role
+  """
+  roleSave(roleInput: RoleInput): RoleSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["role:upsert"])
+
+  """
+  Insert / Update permission
+  """
+  permissionSave(permissionInput: PermissionInput): PermissionSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["permission:upsert"])
+
+  """
+  Add user to groups
+  """
+  addUserToGroups(input: UserGroupsInput): Admin!
+    @requireAuth
+    @requirePermissions(permissions: ["group:upsert"])
+  """
+  create user and add to groups
+  """
+  createGroupAdmin(input: CreateGroupAdminInput): CreateGroupAdminPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["admin:upsert"])
+  """
+  update user and add to groups
+  """
+  updateGroupAdmin(input: UpdateGroupAdminInput): UpdateGroupAdminPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["admin:upsert"])
+  """
+  remove user from group
+  """
+  removeGroupAdmin(input: RemoveGroupAdmin!): RemoveGroupAdminPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["admin:upsert"])
+  """
+  Save a customer card token
+  """
+  customerCardTokenSave(
+    customerCardTokenInput: CustomerCardTokenInput!
+  ): CustomerCardTokenSavePayload! @requireAuth
+
+  """
+  Save a customer card token
+  """
+  customerCardSaveWithRedirection(
+    customerCardTokenInput: CustomerCardTokenInput!
+  ): CustomerCardSavePayload! @requireAuth
+
+  """
+  Set a customer card token as default
+  """
+  customerCardTokenSetDefault(id: ID!, isDefault: Boolean!): CustomerCardToken!
+    @requireAuth
+  """
+  delete a customer card token as default
+  """
+  customerCardTokenDelete(id: ID!): Boolean! @requireAuth
+  """
+  Import cities
+  """
+  importCities(file: Upload!): ImportCitiesPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["city:upsert"])
+  """
+  Import neighborhoods
+  """
+  importNeighborhoods(file: Upload!): ImportNeighborhoodsPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["neighborhood:upsert"])
+  """
+  Import brand subscription
+  """
+  importBrandSubscription(
+    file: Upload
+    url: URL
+  ): ImportBrandSubscriptionPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["brandsubscription:upsert"])
+  """
+  Reset password on firebase and local db
+  """
+  resetAdminPassword(adminId: ID!): ResetAdminPasswordPayload
+    @requireAuth
+    @requirePermissions(permissions: ["admin:upsert"])
+
+  """
+  Redeem a voucher that can't be used in order placement (e.g. a voucher that gives COFE Credits)
+  """
+  redeemVoucher(code: String!): RedeemVoucherPayload!
+  """
+  save a giftCardCollection
+  """
+  giftCardCollectionSave(
+    giftCardCollection: GiftCardCollectionInput!
+  ): GiftCardCollectionSavePayload
+    @requireAuth
+    @requirePermissions(permissions: ["giftCardCollections:upsert"])
+
+  """
+  save a giftCardTemplate
+  """
+  giftCardTemplateSave(
+    giftCardTemplate: GiftCardTemplateInput!
+  ): GiftCardTemplateSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["giftCardTemplates:upsert"])
+
+  """
+  # used to manually redeem a gift card code
+  """
+  redeemGiftCard(code: String!): RedeemGiftCardPayload!
+  """
+  manually add cofe credits (credit) or subtract cofe credits (debit)
+  """
+  updateCofeCredits(input: UpdateCofeCreditsInput!): UpdateCofeCreditsPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["cofecredits:update"])
+
+  """
+  Save product
+  """
+  productSave(input: ProductSaveInput!): ProductSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["product:upsert"])
+  """
+  Sort products
+  """
+  productsSorting(ids: [ID!]!): ProductsSortingPaylod! @requireAuth
+  # """
+  # Save products categories
+  # """
+  # productCategoriesSave(
+  #   productId: ID!
+  #   categoryIds: [ID]!
+  # ): ProductSavePayload! @requireAuth
+  # @requirePermissions(permissions: ["storeCategory:upsert"])
+  """
+  Save products images
+  """
+  productImagesSave(
+    productId: ID!
+    imageInputs: [ProductImageInput]!
+  ): ProductSavePayload! @requireAuth
+  """
+  Delete product image
+  """
+  productImageDelete(id: ID!): Boolean! @requireAuth
+  """
+  Sort product images
+  """
+  productImagesSorting(ids: [ID!]!): ProductImagesSortingPaylod! @requireAuth
+  """
+  Save pickup location
+  """
+  pickupLocationSave(
+    pickupLocationInput: PickupLocationInput!
+  ): PickupLocationSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["pickupLocation:upsert"])
+  """
+  Delete pickup location
+  """
+  pickupLocationDelete(id: ID!): Boolean! @requireAuth
+  # """
+  # Save Inventories
+  # """
+  # inventoriesSave(
+  #   productId: ID!
+  #   inventoryInputs: [InventoryInput]!
+  # ): ProductSavePayload! @requireAuth
+  # @requirePermissions(permissions: ["product:upsert"])
+
+  """
+  Save shipping policy
+  """
+  shippingPolicySave(
+    shippingPolicyInput: ShippingPolicyInput!
+  ): ShippingPolicySavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["shippingPolicy:upsert"])
+  """
+  Delete shipping policy
+  """
+  shippingPolicyDelete(id: ID!): Boolean! @requireAuth
+
+  """
+  Save store header
+  """
+  storeHeaderSave(storeHeaderInput: StoreHeaderInput!): StoreHeaderSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["settings:update"])
+  """
+  Delete store header
+  """
+  storeHeaderDelete(id: ID!): Boolean! @requireAuth
+  """
+  Sort store headers
+  """
+  storeHeadersSorting(ids: [ID!]!): StoreHeadersSortingPaylod! @requireAuth
+
+  # """
+  # Save return policy
+  # """
+  # returnPolicySave(
+  #   productId: ID!
+  #   returnPolicyInput: ReturnPolicyInput!
+  # ): ProductSavePayload! @requireAuth
+  # @requirePermissions(permissions: ["product:upsert"])
+  """
+  Delete return policy
+  """
+  returnPolicyDelete(id: ID!): Boolean! @requireAuth
+
+  # Insert Sign up Promo
+  signupPromoCreate(input: SignupPromoCreateInput): SignupPromoPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["signupPromo:upsert"])
+  # Update Sign up Promo
+  signupPromoUpdate(input: SignupPromoUpdateInput): SignupPromoPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["signupPromo:upsert"])
+
+  """
+  Store order set creation for delivery only
+  """
+  storeOrderSetCreate(input: StoreOrderSetCreateInput!): StoreOrderSetPayload
+    @requireAuth
+  """
+  Set a status for a store order
+  """
+  setStoreOrderStatus(
+    storeOrderId: ID!
+    status: StoreOrderStatusName!
+  ): SetStoreOrderStatusPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["order:update"])
+
+  storeOrderTrackingInfoSave(
+    storeOrderId: ID!
+    input: TrackingInfoInput!
+  ): StoreOrderTrackingInfoSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["order:update"])
+
+  """
+  Store Order Products refund
+  """
+  storeOrderProductsRefund(
+    input: StoreOrderProductsRefundInput!
+  ): StoreOrderProductsRefundPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["storeOrder:refund"])
+
+  storeOrderPayWithCash(storeOrderId: ID!): StoreOrderPayWithCashPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["storeOrder:update"])
+
+  """
+  Store Order Sets refund
+  """
+  storeOrderSetRefund(
+    input: StoreOrderSetRefundInput!
+  ): StoreOrderSetRefundPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["storeOrder:refund"])
+
+  # credit credits in wallets
+  addCreditsForCustomers(
+    input: AddCreditsForCustomersInput
+  ): AddCreditsForCustomersPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["credits:upsert"])
+
+  # import branch contact details
+  importBranchContacts(
+    input: ImportBranchContactsInput
+  ): ImportBranchContactsPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:upsert"])
+
+  # Insert / Update Customer group
+  customerGroupSave(input: CustomerGroupInput): CustomerGroupSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["customerGroup:upsert"])
+
+  """
+  Insert / Update a customer current location
+  """
+  customerCurrentLocationSave(
+    input: CustomerCurrentLocationInput
+  ): CustomerCurrentLocationPayload! @requireAuth
+
+  giftCardsGenerate(
+    sk: String!
+    giftCardTemplateId: ID!
+    noOfCards: Int!
+    amount: Int!
+  ): [String]!
+
+  """
+  Given the refresh token, obtains a new access token
+  """
+  getNewAccessToken(refreshToken: String!): AuthToken
+
+  """
+  Subscribe to branch order notifications
+  """
+  subscribeBranch(
+    branchId: ID!
+    subscriptionToken: String!
+  ): AdminBranchSubscriptionPayload @requireAuth
+
+  """
+  UnSubscribe from branch order notifications
+  """
+  unsubscribeBranch(branchId: ID!): AdminBranchUnsubscriptionPayload
+    @requireAuth
+
+  """
+  create blog category
+  """
+  blogCategoryCreate(blogCategoryInput: BlogCategoryCreateInput!): BlogCategory
+    @requireAuth
+    @requirePermissions(permissions: ["blogCategories:upsert"])
+
+  """
+  update blog category
+  """
+  blogCategoryUpdate(blogCategoryInput: BlogCategoryUpdateInput!): BlogCategory
+    @requireAuth
+    @requirePermissions(permissions: ["blogCategories:upsert"])
+
+  """
+  delete blog category
+  """
+  blogCategoryDelete(id: ID!): Boolean!
+    @requireAuth
+    @requirePermissions(permissions: ["blogCategories:upsert"])
+
+  """
+  create blog post
+  """
+  blogPostCreate(blogPostInput: BlogPostCreateInput!): BlogPost
+    @requireAuth
+    @requirePermissions(permissions: ["blogposts:upsert"])
+
+  """
+  update blog post
+  """
+  blogPostUpdate(blogPostInput: BlogPostUpdateInput!): BlogPost
+    @requireAuth
+    @requirePermissions(permissions: ["blogposts:upsert"])
+
+  """
+  delete blog post
+  """
+  blogPostDelete(id: ID!): Boolean!
+    @requireAuth
+    @requirePermissions(permissions: ["blogposts:upsert"])
+
+  """
+  Save new brands as a list
+  """
+  saveNewBrands(
+    countryId: ID!
+    newBrands: [NewBrandsInput]!
+  ): NewBrandsSavePayload
+    @requireAuth
+    @requirePermissions(permissions: ["newBrands:view", "settings:update"])
+
+  """
+  Save brand subscription model
+  """
+  saveBrandSubscriptionModel(
+    input: BrandSubscriptionModelInput!
+  ): BrandSubscriptionModelPayload @requireAuth
+
+  """
+  Customer Updating info
+  """
+  customerNotificationUpdate(
+    notification: NotificationSettingsInput!
+  ): CustomerUpdatePayload! @requireAuth
+
+  """
+  MPos Pairing process
+  """
+  pairDeviceWithBrandLocation(
+    brandLocationId: ID!
+    deviceCode: String!
+  ): MPosDevicePairingPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["pair:save"])
+
+  """
+  MPos Unpairing process
+  """
+  unpairDeviceWithBrandLocation(
+    brandLocationId: ID!
+    deviceId: String!
+  ): MPosDevicePairingPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["pair:delete"])
+
+  """
+  Report if MyFatoorah ApplePay payments does not affect our records
+  """
+  reportMyFatoorahApplePayPaymentFailure(
+    orderId: ID!
+    paymentId: String!
+  ): MyFatoorahPaymentCallbackOutput! @requireAuth
+
+  """
+  Payment callback mutation for the MyFatoorah
+  """
+  myFatoorahPaymentCallback(
+    paymentId: String
+    invoiceId: String
+    currencyCode: String!
+    countryCode: String!
+    orderId: ID
+    error: String
+  ): MyFatoorahPaymentCallbackOutput! @requireAuth
+
+  """
+  Change status of pickup location
+  """
+  pickupLocationChangeStatus(
+    id: ID!
+    status: PickupLocationStatus
+  ): PickupLocation!
+    @requireAuth
+    @requirePermissions(permissions: ["pickupLocation:upsert"])
+
+  """
+  save favorite brand location
+  """
+  saveCustomerFavoriteBrandLocation(
+    input: CustomerFavoriteBrandLocationInput!
+  ): CustomerFavoriteBrandLocationSavePayload @requireAuth
+  """
+  delete favorite brand location
+  """
+  deleteCustomerFavoriteBrandLocation(
+    input: CustomerFavoriteBrandLocationInput!
+  ): CustomerFavoriteBrandLocationDeletePayload! @requireAuth
+  """
+  Save notification when branch is opened
+  """
+  setNotificationCustomerForBrandLocationOpened(
+    brandLocationId: ID!
+  ): CustomerNotificationForBrandLocationOpenPayload @requireAuth
+  """
+  delete notification
+  """
+  deleteNotificationCustomerForBrandLocationOpened(
+    brandLocationId: ID!
+  ): CustomerNotificationForBrandLocationOpenPayload @requireAuth
+  """
+  Save order rating to DB
+  """
+  saveOrderRating(orderRating: OrderRatingInput!): OrderRatingSavePayload!
+    @requireAuth
+
+  """
+  Update order rating detail page to DB
+  """
+  saveOrderRatingDetail(
+    orderRatingDetail: OrderRatingDetailInput!
+  ): OrderRatingDetailSavePayload! @requireAuth
+  """
+  Create or Update the order rating question
+  """
+  orderRatingQuestionSave(
+    question: OrderRatingQuestionInput!
+  ): OrderRatingQuestionSavePayload! @requireAuth
+}

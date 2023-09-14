@@ -1,0 +1,27 @@
+enum BranchToggleStatus{
+  ON
+  OFF
+}
+
+enum BranchToggleError {
+  BRAND_NOT_FOUND
+  NO_BRANCHES_FOR_BRAND_FOUND
+}
+
+type BranchTogglePayload {
+  updatedBranchCount : Int
+  error : BranchToggleError
+  errors : [BranchToggleError!]
+}
+
+enum BranchStatusCountError {
+  BRAND_NOT_FOUND
+  NO_BRANCHES_FOR_BRAND_FOUND
+}
+
+type BranchStatusCountPayload {
+  offlineBranchCount : Int
+  onlineBranchCount : Int
+  error : BranchStatusCountError
+  errors : [BranchStatusCountError!]
+}

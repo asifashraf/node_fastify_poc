@@ -1,0 +1,53 @@
+"""
+Referral transaction/status
+"""
+type Referral {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  sender_id
+  """
+  senderId: Customer!
+  """
+  receiver_id
+  """
+  receiverId: Customer!
+  """
+  The amount will be rewarded to sender when received activate/complete first order
+  """
+  senderAmount: CurrencyValue!
+  """
+  The amount will be rewarded to receiver when receiver register an account.
+  """
+  receiverAmount: CurrencyValue!
+  """
+  status is the status of referral
+  JOINED => when receiver has registered an account on app and receiver is rewarded.
+  ORDERED => when receiver's first order is completed and sender is rewarded.
+  """
+  status: ReferralStatusTypes!
+  """
+  Its the date and time when receiver has registered an account on app and receiver is rewarded.
+  """
+  joinedAt: Datetime
+  """
+  Its the date and time when receiver's first order is completed and sender is rewarded.
+  """
+  receivedAt: Datetime
+  """
+  referral created at
+  """
+  created: Datetime!
+  """
+  referral updated at
+  """
+  updated: Datetime!
+}
+
+type ReferralCustomerInfo {
+  id: ID!
+  firstName: String!
+  lastName: String!
+}

@@ -1,0 +1,176 @@
+"""
+Product
+"""
+type Product {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Product name
+  """
+  name: LocalizedString!
+  """
+  Product description
+  """
+  description: LocalizedString
+  """
+  Product status
+  """
+  status: StatusType
+  """
+  Price
+  """
+  price: CurrencyValue
+  """
+  To put a product on sale, make compare at price the original price and enter the lower amount into price
+  """
+  compareAtPrice: CurrencyValue
+  """
+  Item cost without profit margin.
+  """
+  costPerItem: CurrencyValue
+  """
+  Warranty in months
+  """
+  warranty: Int
+  """
+  Product is express delivered
+  """
+  express: Boolean
+  """
+  Product currency
+  """
+  currency: Currency!
+  """
+  Product categories
+  """
+  categories: [Category]!
+  """
+  Product images
+  """
+  images: [ProductImage]!
+  inventories: [Inventory]!
+  stock: Int
+  brand: Brand!
+  returnPolicy: ReturnPolicy
+  sku: String
+  barcode: String
+  cashOnDelivery: Boolean
+  hsCode: String
+  originCountry: String
+  bestFor: BestFor
+  roastLevel: RoastLevel
+  roastDate: Datetime
+  roastRegion: String
+  process: String
+  regionOrFarm: String
+  tasteNotes: String
+  altitude: String
+  varietal: String
+}
+
+"""
+Product
+"""
+type ProductNew {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Product name
+  """
+  name: LocalizedString!
+  """
+  Product description
+  """
+  description: LocalizedString
+  """
+  Product status
+  """
+  status: StatusType
+  """
+  Price
+  """
+  price: CurrencyValue
+  """
+  To put a product on sale, make compare at price the original price and enter the lower amount into price
+  """
+  compareAtPrice: CurrencyValue
+  """
+  Item cost without profit margin.
+  """
+  costPerItem: CurrencyValue
+  """
+  Warranty in months
+  """
+  warranty: Int
+  """
+  Product is express delivered
+  """
+  express: Boolean
+  """
+  Product currency
+  """
+  currency: Currency!
+  """
+  Product categories
+  """
+  categories: [CategoryNew]!
+  """
+  Product images
+  """
+  images: [ProductImageNew]!
+  inventories: [Inventory]!
+  stock: Int
+  brand: Brand!
+  returnPolicy: ReturnPolicyNew
+  sku: String
+  barcode: String
+  cashOnDelivery: Boolean
+  hsCode: String
+  originCountry: String
+  bestFor: BestFor
+  roastLevel: RoastLevel
+  roastDate: Datetime
+  roastRegion: String
+  process: String
+  regionOrFarm: String
+  tasteNotes: String
+  altitude: String
+  varietal: String
+}
+
+type ProductImageNew {
+  id: ID!
+  url: String! @toCDN
+}
+
+type ReturnPolicyNew {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Return policy name. used in admin to name a policy
+  """
+  name: String
+  returnable: Boolean!
+  description: LocalizedString!
+  returnTimeFrame: Int
+}
+
+enum BestFor {
+  FILTER_COFFEE
+  ESPRESSO
+  MILKBASES
+  TURKISH_ARABIC
+}
+enum RoastLevel {
+  LIGHT
+  MEDIUM_LIGHT
+  MEDIUM
+  MEDIUM_DARK
+  DARK
+}

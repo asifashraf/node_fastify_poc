@@ -1,0 +1,151 @@
+extend type Query {
+  """
+  List categories
+  """
+  categories(filters: CategoryFilters, paging: PagingInput): CategoriesPaged!
+  """
+  Get a category by ID
+  """
+  category(id: ID!): Category
+  """
+  get store products in category
+  """
+  categoryNew(id: ID!): CategoryNew
+}
+
+extend type Mutation {
+  """
+  Save category
+  """
+  categorySave(input: CategorySaveInput!): CategorySavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["storeCategory:upsert"])
+
+  """
+  Sort categories
+  """
+  categoriesSorting(ids: [ID!]!): CategoriesSortingPaylod!
+    @requireAuth
+    @requirePermissions(permissions: ["storeCategory:upsert"])
+}
+
+input CategorySaveInput {
+  id: ID
+  name: LocalizedStringInput!
+  photo: String!
+  status: StatusType!
+  countryIds: [ID]
+}
+
+type CategorySavePayload {
+  """
+  Category which was saved/updated
+  """
+  category: Category
+  """
+  The first validation error that occured
+  """
+  error: CategorySaveError
+  """
+  All validation errors
+  """
+  errors: [CategorySaveError!]
+}
+
+type CategoriesSortingPaylod {
+  """
+  Categories was sorted
+  """
+  sorted: Boolean
+  """
+  The first validation error that occured
+  """
+  error: CategorySaveError
+  """
+  All validation errors
+  """
+  errors: [CategorySaveError!]
+}
+
+enum CategorySaveError {
+  INVALID_ID
+  INVALID_COUNTRY_ID
+  INVALID_CATEGORY
+  CATEGORY_IDS_LENGTH_MUST_BE_GREATER_THAN_ZERO
+}
+
+type CategoriesPaged {
+  paging: Paging!
+  items: [Category]!
+}
+
+input CategoryFilters {
+  status: StatusType
+  searchText: String
+  countryId: ID
+}
+
+"""
+Category
+"""
+type Category {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Category name
+  """
+  name: LocalizedString!
+  """
+  Category status
+  """
+  status: StatusType
+  """
+  Category photo
+  """
+  photo: String @toCDN
+  """
+  All products in this category in the country provided as argument
+  """
+  productsInCountry(countryCode: String!): [Product]!
+  productsInCountryByCountryId(countryId: ID!): [Product]!
+  products: [Product]!
+  countries: [EnabledCountry]
+}
+
+"""
+Category
+"""
+type CategoryNew {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Category name
+  """
+  name: LocalizedString!
+  """
+  Category status
+  """
+  status: StatusType
+  """
+  Category photo
+  """
+  photo: String @toCDN
+  """
+  All products in this category in the country provided as argument
+  """
+  productsInCountry(countryId: ID!): [ProductNew]!
+  products: [ProductNew]!
+  countries: [EnabledCountry]
+}
+
+"""
+Country
+"""
+type EnabledCountry {
+  countryId: ID!
+  name: LocalizedString!
+}

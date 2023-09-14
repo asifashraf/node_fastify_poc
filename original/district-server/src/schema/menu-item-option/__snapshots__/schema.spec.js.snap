@@ -1,0 +1,434 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`menu item option sets can resolve their menu item options 1`] = `
+Object {
+  "data": Object {
+    "brand": Object {
+      "menu": Object {
+        "sections": Array [
+          Object {
+            "items": Array [
+              Object {
+                "optionSets": Array [
+                  Object {
+                    "options": Array [
+                      Object {
+                        "id": "586decab-c8a1-42b0-9a08-61a6f568b954",
+                        "price": "2.500",
+                        "value": Object {
+                          "ar": "14oz",
+                          "en": "14oz",
+                        },
+                      },
+                      Object {
+                        "id": "50f9f2cb-cbe1-490c-8169-4db26eed9953",
+                        "price": "3.000",
+                        "value": Object {
+                          "ar": "16oz",
+                          "en": "16oz",
+                        },
+                      },
+                    ],
+                  },
+                  Object {
+                    "options": Array [
+                      Object {
+                        "id": "ec3b3029-e906-4414-ab47-d29f1e5a056a",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "صلصة الشوكولا",
+                          "en": "Chocolate Sauce",
+                        },
+                      },
+                      Object {
+                        "id": "1ae5845b-3fbf-4795-8973-a5fbd41f0a4d",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "صلصة الكراميل",
+                          "en": "Caramel Sauce",
+                        },
+                      },
+                    ],
+                  },
+                  Object {
+                    "options": Array [
+                      Object {
+                        "id": "72d0382d-ae46-467a-809a-902b832a9db7",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "هذا لا يوجد",
+                          "en": "None",
+                        },
+                      },
+                      Object {
+                        "id": "79af8e78-311d-47ff-a6a0-7eab0ca93103",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "منتظم",
+                          "en": "Regular",
+                        },
+                      },
+                      Object {
+                        "id": "ffdbdb76-6742-41af-9314-17d464c246d0",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب الصويا",
+                          "en": "Soy Milk",
+                        },
+                      },
+                      Object {
+                        "id": "0afea8d0-7fbd-4350-9fed-cedd8636a34b",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب اللوز",
+                          "en": "Almond Milk",
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
+              Object {
+                "optionSets": Array [
+                  Object {
+                    "options": Array [
+                      Object {
+                        "id": "86b849f6-ccfa-4c8f-b9d9-5fe058276222",
+                        "price": "2.500",
+                        "value": Object {
+                          "ar": "14oz",
+                          "en": "14oz",
+                        },
+                      },
+                      Object {
+                        "id": "280a0103-e099-41c5-8f2d-78fd5f0e56da",
+                        "price": "3.000",
+                        "value": Object {
+                          "ar": "16oz",
+                          "en": "16oz",
+                        },
+                      },
+                    ],
+                  },
+                  Object {
+                    "options": Array [
+                      Object {
+                        "id": "1ffb8b6d-5e55-43e2-b9a8-9f90cb4d4e13",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "صلصة الشوكولا",
+                          "en": "Chocolate Sauce",
+                        },
+                      },
+                      Object {
+                        "id": "937f56ca-a220-48f2-b81e-8310f9492bda",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "صلصة الكراميل",
+                          "en": "Caramel Sauce",
+                        },
+                      },
+                    ],
+                  },
+                  Object {
+                    "options": Array [
+                      Object {
+                        "id": "696aaf52-b87d-4332-b396-16b478ed6efd",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "هذا لا يوجد",
+                          "en": "None",
+                        },
+                      },
+                      Object {
+                        "id": "ddf8fe1c-0d7a-4614-bd94-f57d196fc531",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "منتظم",
+                          "en": "Regular",
+                        },
+                      },
+                      Object {
+                        "id": "ddc1bb88-1afb-4a30-ac88-5b33ca34f020",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب الصويا",
+                          "en": "Soy Milk",
+                        },
+                      },
+                      Object {
+                        "id": "1df644c1-7ded-4b42-9580-964992dcc754",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب اللوز",
+                          "en": "Almond Milk",
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
+              Object {
+                "optionSets": Array [
+                  Object {
+                    "options": Array [
+                      Object {
+                        "id": "a4145498-1c77-44fc-b7d7-0f84e5f1489a",
+                        "price": "2.500",
+                        "value": Object {
+                          "ar": "14oz",
+                          "en": "14oz",
+                        },
+                      },
+                      Object {
+                        "id": "cb8f36a8-f002-47ad-8627-9c745e69178e",
+                        "price": "3.000",
+                        "value": Object {
+                          "ar": "16oz",
+                          "en": "16oz",
+                        },
+                      },
+                    ],
+                  },
+                  Object {
+                    "options": Array [
+                      Object {
+                        "id": "75156b0a-fbfa-4c81-bf62-3afa53b2f621",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "صلصة الشوكولا",
+                          "en": "Chocolate Sauce",
+                        },
+                      },
+                      Object {
+                        "id": "123b8b3d-355a-40fb-8148-7afe6ee1de79",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "صلصة الكراميل",
+                          "en": "Caramel Sauce",
+                        },
+                      },
+                    ],
+                  },
+                  Object {
+                    "options": Array [
+                      Object {
+                        "id": "a60f1e83-35da-4c27-8084-7f7830bcf2a0",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "هذا لا يوجد",
+                          "en": "None",
+                        },
+                      },
+                      Object {
+                        "id": "8ac8e496-2042-42a5-a324-2c47d9b5c7ff",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "منتظم",
+                          "en": "Regular",
+                        },
+                      },
+                      Object {
+                        "id": "a2f3d0c0-35a8-4dd6-bf15-0c47a5036b6e",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب الصويا",
+                          "en": "Soy Milk",
+                        },
+                      },
+                      Object {
+                        "id": "98f2af1f-463f-410f-a0d8-39a0c9da4ec7",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب اللوز",
+                          "en": "Almond Milk",
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "items": Array [
+              Object {
+                "optionSets": Array [
+                  Object {
+                    "options": Array [
+                      Object {
+                        "id": "94d96afd-2ad9-4ff2-a8be-9d63249b1046",
+                        "price": "1.000",
+                        "value": Object {
+                          "ar": "ديلي ساندويتش",
+                          "en": "Deli Sandwich",
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
+              Object {
+                "optionSets": Array [
+                  Object {
+                    "options": Array [
+                      Object {
+                        "id": "f969c9e1-5c78-442b-8c72-f7a2d08a6dfd",
+                        "price": "0.250",
+                        "value": Object {
+                          "ar": "كوكي كبير",
+                          "en": "Large Cookie",
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
+              Object {
+                "optionSets": Array [
+                  Object {
+                    "options": Array [
+                      Object {
+                        "id": "96d646bf-474a-447f-ae49-7b991c2ab933",
+                        "price": "0.250",
+                        "value": Object {
+                          "ar": "شوربة محلية الصنع",
+                          "en": "Homemade Soup",
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "items": Array [
+              Object {
+                "optionSets": Array [
+                  Object {
+                    "options": Array [
+                      Object {
+                        "id": "93b14083-fa9f-4ffb-b536-4a0f4cafe117",
+                        "price": "3.000",
+                        "value": Object {
+                          "ar": "14oz",
+                          "en": "14oz",
+                        },
+                      },
+                      Object {
+                        "id": "0a6e6072-44ee-44dc-9b54-925e66f1d6f5",
+                        "price": "3.500",
+                        "value": Object {
+                          "ar": "16oz",
+                          "en": "16oz",
+                        },
+                      },
+                    ],
+                  },
+                  Object {
+                    "options": Array [
+                      Object {
+                        "id": "ad1f9f0e-b543-4885-9e9e-17417a4d45b0",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "هذا لا يوجد",
+                          "en": "None",
+                        },
+                      },
+                      Object {
+                        "id": "75720f34-d784-465a-b85b-4081b3ac45c6",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "منتظم",
+                          "en": "Regular",
+                        },
+                      },
+                      Object {
+                        "id": "83125393-dab9-449a-9154-23948ac2f06a",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب الصويا",
+                          "en": "Soy Milk",
+                        },
+                      },
+                      Object {
+                        "id": "87540cad-be4b-41e8-8d06-e68f4f445198",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب اللوز",
+                          "en": "Almond Milk",
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
+              Object {
+                "optionSets": Array [
+                  Object {
+                    "options": Array [
+                      Object {
+                        "id": "b8dac706-b3bb-499b-bfa4-c75b3d97447a",
+                        "price": "3.000",
+                        "value": Object {
+                          "ar": "14oz",
+                          "en": "14oz",
+                        },
+                      },
+                      Object {
+                        "id": "69d9eed3-ef21-4a7a-97de-414a2232ac45",
+                        "price": "3.500",
+                        "value": Object {
+                          "ar": "16oz",
+                          "en": "16oz",
+                        },
+                      },
+                    ],
+                  },
+                  Object {
+                    "options": Array [
+                      Object {
+                        "id": "0af547b6-432a-494f-bb15-8e2a2b7a8929",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "هذا لا يوجد",
+                          "en": "None",
+                        },
+                      },
+                      Object {
+                        "id": "97f902e5-1532-4752-b7ef-9ac5afbc0d21",
+                        "price": "0.000",
+                        "value": Object {
+                          "ar": "منتظم",
+                          "en": "Regular",
+                        },
+                      },
+                      Object {
+                        "id": "d0bab4e6-a2e8-45ea-aae8-0f1d6e2811c2",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب الصويا",
+                          "en": "Soy Milk",
+                        },
+                      },
+                      Object {
+                        "id": "0590660e-0c69-48b6-b86a-ecef888de1f9",
+                        "price": "0.500",
+                        "value": Object {
+                          "ar": "حليب اللوز",
+                          "en": "Almond Milk",
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    },
+  },
+}
+`;

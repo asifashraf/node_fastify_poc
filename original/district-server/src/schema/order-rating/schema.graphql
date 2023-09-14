@@ -1,0 +1,223 @@
+"""
+Order Rating
+"""
+type OrderRating {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Order Set ID
+  """
+  orderSetId: ID!
+  """
+  Brand Location ID
+  """
+  brandLocationId: ID!
+  """
+  Customer ID
+  """
+  customerId: ID!
+  """
+  Customer first name
+  """
+  customerName: String!
+  """
+  Order Rating customer rating
+  """
+  rating: Int!
+  """
+  Order Rating fulfillment type
+  """
+  fulfillmentType: OrderFulfillmentType
+  """
+  Order Rating customer comment
+  """
+  comment: String
+  """
+  Order Rating Details
+  """
+  details: [QuestionDetail]
+  """
+  Order Rating creating time
+  """
+  createdAt: Datetime!
+  """
+  Order Rating updating time
+  """
+  updatedAt: Datetime
+}
+
+"""
+Order Rating Question and Answer
+"""
+type QuestionDetail {
+  """
+  Question Id
+  """
+  id: ID!
+  """
+  Question
+  """
+  question: LocalizedString!
+  """
+  Question Description
+  """
+  description: LocalizedString
+  """
+  Question Answer
+  """
+  answer: String!
+}
+
+type OrderRatingWithQuestions {
+  rateable: Boolean
+  orderSetId: ID
+  fulfillmentType: OrderFulfillmentType
+  branchName: LocalizedString
+  brandName: LocalizedString
+  orderRating: OrderRating
+  overallQuestion: OrderRatingQuestionWithAnswers
+  detailsQuestions: [OrderRatingQuestionWithAnswers]
+}
+
+extend type Query {
+  getLastNotRatedOrderWithQuestionByCustomer: OrderRatingWithQuestions
+    @requireAuth
+  getQuestionsByOrderSetId(orderSetId: ID!): OrderRatingWithQuestions
+    @requireAuth
+  getOrderRatingReportsByCountryId(
+    countryId: ID!
+    filters: OrderRatingReportFilter
+    paging: OrderRatingReportPagingInput
+  ): OrderRatingReportPayload @requireAuth
+}
+
+extend type Mutation {
+  saveOrderRatingWithDetail(
+    ratingWithDetail: OrderRatingWithDetailInput!
+  ): OrderRatingWithDetailPayload @requireAuth
+}
+
+input OrderRatingWithDetailInput {
+  """
+  order set id
+  """
+  orderSetId: ID!
+  """
+  rating score
+  """
+  rating: Int!
+  """
+  Order rating comment
+  """
+  comment: String
+  """
+  The detail rating questions with answers
+  """
+  details: [OrderRatingDetailQuestion]
+}
+
+type OrderRatingWithDetailPayload {
+  orderRating: OrderRating
+  errors: [OrderRatingWithDetailSaveError]
+}
+
+enum OrderRatingWithDetailSaveError {
+  ORDER_NOT_COMPLETED
+  NOT_MATCHED_CUSTOMER
+  INVALID_ORDER_SET_ID
+  ALREADY_RATED_ORDER
+  INVALID_RATING
+  INVALID_OVERALL_QUESTION
+  RATEABLE_TIME_OVER
+  INVALID_COMMENT
+  INVALID_DETAIL_QUESTION
+}
+
+input OrderRatingReportFilter {
+  brandId: ID
+  brandLocationId: ID
+  fulfillmentType: OrderFulfillmentType
+  ratings: [Int]
+}
+
+input OrderRatingReportPagingInput {
+  limit: Int
+  page: Int
+}
+
+type OrderRatingReportPaging {
+  totalRecords: Int!
+  totalPage: Int!
+  page: Int!
+  limit: Int!
+}
+
+type OrderRatingReport {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Order Set ID
+  """
+  orderSetId: ID!
+  """
+  Order Set Short Code
+  """
+  shortCode: String!
+  """
+  Brand Location ID
+  """
+  brandLocationId: ID!
+  """
+  Brand Location Name
+  """
+  brandLocationName: LocalizedString!
+  """
+  Brand ID
+  """
+  brandId: ID!
+  """
+  Brand Name
+  """
+  brandName: LocalizedString!
+  """
+  Customer ID
+  """
+  customerId: ID!
+  """
+  Customer first name
+  """
+  customerName: String!
+  """
+  Order Rating customer rating
+  """
+  rating: Int!
+  """
+  Order Rating fulfillment type
+  """
+  fulfillmentType: OrderFulfillmentType
+  """
+  Order Rating customer comment
+  """
+  comment: String
+  """
+  Order Rating Details
+  """
+  details: [QuestionDetail]
+  """
+  Order Rating creating time
+  """
+  createdAt: Datetime!
+  """
+  Order Rating updating time
+  """
+  updatedAt: Datetime
+}
+
+type OrderRatingReportPayload {
+  ratings: [OrderRatingReport]
+  pagination: OrderRatingReportPaging
+}

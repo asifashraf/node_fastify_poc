@@ -1,0 +1,16 @@
+"""
+Return policy for store
+"""
+type ReturnPolicy {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Return policy name. used in admin to name a policy
+  """
+  name: String
+  returnable: Boolean!
+  description: LocalizedString!
+  returnTimeFrame: Int
+}

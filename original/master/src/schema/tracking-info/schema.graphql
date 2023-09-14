@@ -1,0 +1,21 @@
+"""
+Tracking info
+"""
+type TrackingInfo {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Carrier name
+  """
+  carrierName: String!
+  """
+  Carrier tracking id
+  """
+  carrierTrackingId: String
+  """
+  Carrier tracking url
+  """
+  carrierTrackingUrl: String
+}

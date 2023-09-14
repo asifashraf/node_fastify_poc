@@ -1,0 +1,9 @@
+input OTPCodeViewRequestInput {
+  phoneNumber : String!
+}
+input OTPRateLimitResetRequestInput {
+  phoneNumber : String!
+}
+input CustomerRequestEmailVerificationInput {
+  userEmail : String!
+}

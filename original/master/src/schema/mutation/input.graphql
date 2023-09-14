@@ -1,0 +1,2382 @@
+"""
+Data for creating/updating a brand.
+"""
+input BrandInput {
+  id: ID
+  """
+  Name of the brand
+  """
+  name: LocalizedStringInput
+  """
+  Brand-wide order queue login, if this is set then a user is created for this email in auth0 for
+  an order queue view into all locations for this brand.
+  The user is only created once, so if there are changes needed to that user
+  they need to be done manually in auth0.
+  """
+  brandWideOrderQueueLoginEmail: [brandWideOrderQueueLoginEmailFileds]
+  """
+  When set, a brand's primary Location will be the location displayed on the home screen
+  """
+  primaryLocationId: ID
+  """
+  profile photo / logo for brand
+  """
+  profilePhoto: String
+  """
+  a hero / background image for the brand
+  """
+  heroPhoto: String
+  """
+  a carousel image for the brand
+  """
+  carouselImage: String
+  """
+  a favicon for the brand
+  """
+  favicon: String
+  """
+  profile video
+  """
+  profileVideo: String
+  """
+  Country id that brand belong to
+  """
+  countryId: ID!
+  """
+  Brand  status (active, disabled, deleted)
+  """
+  status: BrandStatus!
+  """
+  To tell if this brand provide catering or not. (default false)
+  """
+  catering: Boolean
+  """
+  POS system to integrate With
+  """
+  posType: PosType
+  """
+  is the brand a pos brand
+  """
+  isPos: Boolean
+  """
+  id of brand in POS system
+  """
+  posId: String
+  """
+  url of brand in POS system
+  """
+  posUrl: String
+  """
+  key of brand in POS system
+  """
+  posKey: String
+  """
+  secret of brand in POS system
+  """
+  posSecret: String
+  """
+  Define if the brand is at zero or non zero commission model
+  """
+  commissionModelType: CommissionModelType
+  """
+  If non zero commission model please define the percentage at brand is
+  """
+  commission: Float
+  """
+  The minimum delivery order amount for the brand
+  """
+  minimumDeliveryOrderAmount: CurrencyValue
+  """
+  Fee added to delivery orders specific for this brand
+  """
+  deliveryFee: Float!
+  """
+  Fee added to express delivery orders specific for this brand
+  """
+  expressDeliveryFee: Float!
+  """
+  The minimum express delivery order amount for the brand
+  """
+  minimumExpressDeliveryOrderAmount: CurrencyValue
+  """
+  Brand Description
+  """
+  brandDescription: LocalizedStringInput
+  """
+  COFElytics is enable for this brand
+  """
+  cofelytics: Boolean!
+  """
+  Maintenance is enable for this brand
+  """
+  maintenance: Boolean
+  """
+  Allow this brand to connect with Foodics
+  """
+  enableFoodics: Boolean
+  """
+  Allow to save cover image of brand
+  """
+  coverImage: String
+  """
+  Enable barista app auto accept order feature for this brand
+  """
+  autoOrderAccept: Boolean
+  """
+  Enable barista app only show subtotal feature for this brand
+  """
+  onlyShowSubtotalForMpos: Boolean
+}
+input brandWideOrderQueueLoginEmailFileds {
+  email: String!
+  deleted: Boolean
+}
+"""
+Type used for new customer registration
+"""
+input CustomerRegisterInput {
+  firstName: String
+  lastName: String
+  fullName: String!
+  phoneNumber: String
+  isPhoneVerified: Boolean
+  phoneCountry: String
+  email: String!
+  password: String
+  countryCode: String
+  firebaseId: String
+  referralCode: String
+  preferredLanguage: AvailableLanguage
+  promo: Promo
+  otpCode: String
+  isPrivacyPolicyAccepted: Boolean
+  isTermsAndConditionsAccepted: Boolean
+  birthday: Date!
+}
+input Promo {
+  type: SignupPromos!
+  code: String!
+}
+
+"""
+Type used for updating customer information
+Customers cannot update email yet due to it being used as username
+"""
+input CustomerUpdateInput {
+  firstName: String
+  lastName: String
+  fullName: String
+  photo: String
+  phoneNumber: String
+  phoneCountry: String
+  isPhoneVerified: Boolean
+  isEmailVerified: Boolean
+  email: String
+  notificationSettings: NotificationSettingsInput
+  birthday: Date
+  password: String
+  preferredLanguage: AvailableLanguage
+  countryCode: String
+  useCreditFirst: Boolean
+  otpCode: String
+  isPrivacyPolicyAccepted: Boolean
+  isTermsAndConditionsAccepted: Boolean
+}
+
+"""
+New Exception
+"""
+input ScheduleExceptionInput {
+  id: ID
+  brandLocationId: ID!
+  isClosed: Boolean!
+  isDeliveryClosed: Boolean!
+  isExpressDeliveryClosed: Boolean!
+  startTime: Datetime!
+  endTime: Datetime!
+  deleted: Boolean
+}
+
+"""
+Data for updating the configuration
+"""
+input ConfigurationInput {
+  serviceFee: CurrencyValue
+  deliveryFee: CurrencyValue
+  defaultLongitude: Float
+  defaultLatitude: Float
+  maxCartSize: Int
+  deliveryWindowMin: Int
+  deliveryWindowMax: Int
+  phone: String
+  email: String
+  iosVersion: String
+  iosForceUpdate: Boolean
+  androidVersion: String
+  androidForceUpdate: Boolean
+  premiumServicesRadius: Int
+  ordersRequiredForRating: Int
+}
+
+input InternalCommentInput {
+  """
+  The name (email) of the user
+  """
+  userName: String
+  """
+  The avatar - image url of the user
+  """
+  avatar: String
+  """
+  The comment of the user
+  """
+  comment: String
+}
+
+"""
+Data for updating comments
+"""
+input OrderSetInternalCommentInput {
+  id: ID!
+  comments: [InternalCommentInput!]
+}
+
+"""
+Data for Acknowledging an Order Set
+"""
+input OrderSetAcknowledgeInput {
+  id: ID!
+}
+
+"""
+Data for Acknowledging a Store Order
+"""
+input StoreOrderAcknowledgeInput {
+  id: ID!
+}
+
+"""
+Data for creating/updating a weeklySchedule
+"""
+input WeeklyScheduleInput {
+  id: ID
+  brandLocationId: ID
+  day: Int!
+  """
+  Required only if openAllDay is null or false
+  """
+  openTime: LocalTime
+  """
+  Required only if openAllDay is null or false
+  """
+  openDuration: Int
+  """
+  If true, assumes the location is open 24 hours that day
+  """
+  openAllDay: Boolean
+  """
+  The offset between restaurant opening and delivery starting
+  """
+  deliveryTimeOffset: Int
+  """
+  Required only if openAllDay is null or false
+  """
+  deliveryOpenTime: LocalTime
+  """
+  Required only if openAllDay is null or false
+  """
+  deliveryOpenDuration: Int
+  """
+  Required only if openAllDay is null or false
+  """
+  expressDeliveryOpenTime: LocalTime
+  """
+  Required only if openAllDay is null or false
+  """
+  expressDeliveryOpenDuration: Int
+}
+
+"""
+Data for creating/updating the global weeklySchedule
+"""
+input CofeDistrictHoursInput {
+  id: ID
+  day: Int!
+  openTime: LocalTime
+  openDuration: Int
+  openAllDay: Boolean
+}
+
+"""
+Data for Creating a new Menu
+"""
+input MenuInput {
+  """
+  Brand this Menu belongs to
+  """
+  brandId: ID!
+  countryId: ID!
+}
+
+input MenuSectionInput {
+  """
+  Database Identifier
+  """
+  id: ID
+  """
+  Section Name
+  """
+  name: LocalizedStringInput!
+  """
+  Menu Id this Sections belongs to
+  """
+  menuId: ID!
+  """
+  Flag this entity for deletion
+  """
+  deleted: Boolean
+  """
+  Status
+  """
+  status: MenuSectionStatus!
+  """
+  Menu section layout type
+  """
+  layoutType: MenuSectionLayoutType!
+}
+
+enum MenuSectionStatus {
+  ACTIVE
+  INACTIVE
+}
+
+input MenuItemIds {
+  """
+  Database identifier
+  """
+  id: ID
+}
+input MenuSectionIds {
+  """
+  Database identifier
+  """
+  id: ID
+}
+
+input MenuItemInput {
+  """
+  Database identifier
+  """
+  id: ID
+  """
+  The name/label of this item
+  """
+  name: LocalizedStringInput!
+  """
+  The description of this item
+  """
+  itemDescription: LocalizedStringInput
+  """
+  The base nutritional information for this item, any nutritional info of options will be added to this base info
+  """
+  baseNutritional: NutritionalInfoInput
+  """
+  The list of option groupings for this item (ie size, toppings, choice of milk)
+  """
+  optionSets: [MenuItemOptionSetInput!]!
+  """
+  The menu section this item is within
+  """
+  sectionId: ID!
+  """
+  A url to a photo of this item
+  """
+  photo: String!
+  """
+  Flag this entity for deletion
+  """
+  deleted: Boolean
+  """
+  type of the item
+  """
+  type: MenuItemType
+  """
+  Related tags
+  """
+  tagIds: [ID!]
+  """
+  Status
+  """
+  status: MenuItemStatus!
+  """
+  Menu item discovery credit (discovery point) relation
+  """
+  disableDiscoveryCredit: Boolean
+}
+
+enum MenuItemStatus {
+  ACTIVE
+  INACTIVE
+}
+
+input BrandLocationInput {
+  """
+  Database identifier
+  """
+  id: ID
+  """
+  Mailing address of location
+  """
+  address: BrandLocationAddressInput!
+  """
+  Contact phone
+  """
+  phone: String
+  """
+  Contact email
+  """
+  email: String
+  """
+  The managers for this location
+  """
+  brandLocationAdmins: [BrandLocationAdminFields!]
+  """
+  The main photo for this location
+  """
+  heroPhoto: String!
+  """
+  The `deliveryLocation` field will reference another brand location from which deliveries are made. Defaults to `null`.
+  """
+  deliveryLocationId: ID
+  """
+  Whether this location is currently accepting orders.
+  """
+  acceptingOrders: Boolean!
+  """
+  If this location will deliver to a parked car (for a pickup order)
+  """
+  allowDeliverToCar: Boolean
+  """
+  Delivery Radius for delivery order
+  """
+  deliveryRadius: Float!
+  """
+  for allowing vendors to bring coffee as express delivery
+  """
+  allowExpressDelivery: Boolean
+  """
+  Express Delivery Radius for express delivery order
+  """
+  expressDeliveryRadius: Float
+  """
+  Which fulfillment types are available
+  """
+  availableFulfillment: AvailableFulfillmentInput!
+  """
+  The neighborhoods associated with this brand location
+  """
+  neighborhoods: [BrandLocationNeighborhoodInput]
+  """
+  The Flick Store ID
+  """
+  flickStoreId: Int
+  """
+  Signifies whether a BrandLocation will accept cash
+  """
+  acceptsCash: Boolean
+  currencyId: ID!
+  name: LocalizedStringInput!
+  """
+  Brand location status (active, disabled, deleted)
+  """
+  status: BrandLocationStatus!
+  hasCounterService: Boolean
+  """
+  if there is automatic delivery integration in country which
+  is brand located. branch can change status for self.
+  """
+  isAutomaticDeliveryIntegrationActive: Boolean
+  """
+  list of phone numbers along with names and exts and one should be primary
+  """
+  contact: [ContactInformationInput!]
+  """
+  I AM HERE Feature
+  """
+  iAmHere: Boolean
+  """
+  Related tags
+  """
+  tagIds: [ID!]
+  """
+  Enable barista app auto accept order feature for this branch
+  """
+  autoOrderAccept: Boolean
+}
+
+input ContactInformationInput {
+  name: String
+  phone: String!
+  ext: String
+  isPrimary: Boolean!
+}
+
+input BrandLocationAdminFields {
+  """
+  Contact email, also used in creating a new user for the account
+  """
+  email: String!
+  """
+  Contact name
+  """
+  contactName: String!
+  """
+  to delete the row
+  """
+  deleted: Boolean
+}
+
+input AvailableFulfillmentInput {
+  """
+  Delivery to the customer
+  """
+  delivery: Boolean!
+  """
+  Pickup from the customer
+  """
+  pickup: Boolean!
+}
+
+input BrandLocationAddressInput {
+  #  """
+  #  The first line shown for a location's address, ie "Sadu House"
+  #  """
+  #  shortAddress: LocalizedStringInput!
+  """
+  The second line, ie "Arabian Gulf Street"
+  """
+  street: String!
+  """
+  The third line, ie "Kuwait City"
+  """
+  city: String!
+  """
+  The longitude component of the geo coordinates for this address, in degrees
+  """
+  longitude: Float!
+  """
+  The longitude component of the geo coordinates for this address, in degrees
+  """
+  latitude: Float!
+  # neighborhood id where this address belongs to
+  neighborhoodId: ID!
+  cityId: ID!
+}
+
+input BrandLocationNeighborhoodInput {
+  """
+  ID of the brand location
+  """
+  brandLocationId: ID!
+  """
+  ID of the neighborhood
+  """
+  neighborhoodId: ID!
+}
+
+input ExtraFieldInput {
+  id: ID!
+  value: String
+}
+
+"""
+A customer's saved delivery address
+"""
+input CustomerAddressInput {
+  """
+  Database identifier
+  """
+  id: ID
+  """
+  The id of the customer the car belongs to
+  """
+  customerId: ID
+  """
+  Customer's name for this address
+  """
+  friendlyName: String!
+  """
+  The name or number of the building
+  """
+  buildingName: String
+  """
+  Customer provided note for this address
+  """
+  note: String
+  """
+  Whether this is the customer's default address
+  """
+  isDefault: Boolean!
+  """
+  The longitude component of the geo coordinates for this address, in degrees
+  """
+  longitude: Float!
+  """
+  The longitude component of the geo coordinates for this address, in degrees
+  """
+  latitude: Float!
+  """
+  This is analogous with a "neigbourhood" in Google Maps lingo.  Will be populated from Google Maps as "Block x"
+  """
+  block: String
+  """
+  This is street name
+  """
+  street: String
+  """
+  An optional avenue field
+  """
+  avenue: String
+  """
+  The number for this street, in string format (ie "234" part of "234 somewhere st")
+  TODO: remove me (not needed)
+  """
+  streetNumber: String
+  """
+  Which type of address is this
+  """
+  type: CustomerAddressType
+  """
+  Floor for an apartment/office
+  """
+  floor: String
+  """
+  Unit number. Required for type apartment/office
+  """
+  unitNumber: String
+  """
+  Customer address city
+  """
+  city: String
+  """
+  Customer address coutry code, defaults to KW
+  """
+  countryCode: String
+  """
+  Reference to neighborhood for this address
+  """
+  neighborhoodId: ID
+  """
+  Extra fields
+  """
+  extraFields: [ExtraFieldInput!]
+}
+
+"""
+A customer's saved car
+"""
+input CustomerCarInput {
+  id: ID
+  """
+  The id of the customer the car belongs to
+  """
+  customerId: ID!
+  """
+  Customer's name for this car
+  """
+  name: String!
+  """
+  The color of this car
+  """
+  color: String
+  """
+  The make of the car
+  """
+  brand: String
+  """
+  License plate number
+  """
+  plateNumber: String
+  """
+  Customer provided note for this car
+  """
+  note: String
+  """
+  Whether this is the customer's default car
+  """
+  isDefault: Boolean
+}
+
+"""
+A customer's devices' metadata
+"""
+input CustomerDeviceMetadataInput {
+  """
+  Customer Id of Person who the device belongs to
+  """
+  customerId: ID!
+  """
+  Unique Device Id (UUID based)
+  """
+  deviceId: String!
+  """
+  Type Indentifier of the Device
+  """
+  deviceIdentifierType: DeviceIdentifierType!
+  """
+  Whether this is the customer's default device
+  """
+  isDefault: Boolean
+}
+
+"""
+A user's notification settings for their profile
+"""
+input NotificationSettingsInput {
+  """
+  Flag for sending sms notification for delivery order
+  """
+  smsDeliveryUpdates: Boolean!
+  """
+  Flag for sending sms notification for pickup order
+  """
+  smsPickupUpdates: Boolean!
+  """
+  Flag for sending push notification for delivery order
+  """
+  pushDeliveryUpdates: Boolean!
+  """
+  Flag for sending push notification for pickup order
+  """
+  pushPickupUpdates: Boolean!
+  """
+  Flag for sending notification about new offers
+  """
+  newOffers: Boolean!
+  """
+  Flag for sending sms notifications
+  """
+  allowSms: Boolean
+  """
+  Flag for sending email notifications
+  """
+  allowEmail: Boolean
+}
+
+input PerkInput {
+  type: RewardTierPerkType!
+  quantity: Float!
+}
+
+input DeliveryOrderInputFromOrderPlatform {
+  """
+  The items included with this order
+  """
+  items: [OrderItemInput!]!
+  """
+  The coupon ID to apply
+  """
+  couponId: ID
+  """
+  How much the coupon is being applied for
+  """
+  couponAmount: CurrencyValue
+  """
+  The brand location being picked up from
+  """
+  brandLocationId: ID!
+  """
+  Delivery address reference. Now nullable, in which case tower must be provided
+  """
+  addressId: ID
+  """
+  Customer reference. Nullable because we will use it we customer token is not provided.
+  Currently will be used when order will be created for any customer from order platform
+  """
+  customerId: ID!
+  """
+  Tower object to specify which tower id, floor, unitNumber to deliver to
+  """
+  tower: DeliveryTowerInput
+  """
+  Any order-level notes
+  """
+  note: String
+  """
+  The subtotal of all items within the order
+  """
+  subtotal: CurrencyValue
+  """
+  The fee paid for this order, fetched from Query.config
+  """
+  fee: CurrencyValue
+  """
+  The total price of the order
+  """
+  total: CurrencyValue
+  """
+  This could be scheduled up to n days in the future
+  """
+  datetimes: [Datetime!]!
+  """
+  Whether or not this purchase is meant to be taken from a customer's
+  loyalty credit balance
+  """
+  useCredits: Boolean
+  """
+  Whether this purchase will be paid for on delivery or pickup
+  """
+  cashOnDelivery: Boolean
+  """
+  use available benefits from reward program tier
+  """
+  usePerks: [PerkInput!]
+}
+
+input PickupOrderInputFromOrderPlatform {
+  """
+  The items included with this order
+  """
+  items: [OrderItemInput!]!
+  """
+  The coupon ID to apply
+  """
+  couponId: ID
+  """
+  How much the coupon is being applied for
+  """
+  couponAmount: CurrencyValue
+  """
+  Customer reference. Nullable because we will use it we customer token is not provided.
+  Currently will be used when order will be created for any customer from order platform
+  """
+  customerId: ID!
+  """
+  The brand location being picked up from
+  """
+  brandLocationId: ID!
+  """
+  Any order-level notes
+  """
+  note: String
+  """
+  Can be up to an hour in the future
+  """
+  datetime: Datetime!
+  """
+  Deliver to Vehicle
+  """
+  deliverToVehicle: Boolean!
+  """
+  Vehicle Color
+  """
+  vehicleColor: String
+  """
+  Vehicle Description
+  """
+  vehicleDescription: String
+  """
+  ASAP Picup
+  """
+  asap: Boolean!
+  """
+  Whether or not this purchase is meant to be taken from a customer's
+  loyalty credit balance
+  """
+  useCredits: Boolean
+  """
+  Pay in cash on pickup
+  """
+  cashOnDelivery: Boolean
+  """
+  use available benefits from reward program tier
+  """
+  usePerks: [PerkInput!]
+}
+
+#input DeliveryOrderInput {
+#  """
+#  The items included with this order
+#  """
+#  items: [OrderItemInput!]!
+#  """
+#  The coupon ID to apply
+#  """
+#  couponId: ID
+#  """
+#  How much the coupon is being applied for
+#  """
+#  couponAmount: CurrencyValue
+#  """
+#  The brand location being picked up from
+#  """
+#  brandLocationId: ID!
+#  """
+#  Delivery address reference. Now nullable, in which case tower must be provided
+#  """
+#  addressId: ID
+#  """
+#  Tower object to specify which tower id, floor, unitNumber to deliver to
+#  """
+#  tower: DeliveryTowerInput
+#  """
+#  Any order-level notes
+#  """
+#  note: String
+#  """
+#  The subtotal of all items within the order
+#  """
+#  subtotal: CurrencyValue!
+#  """
+#  The fee paid for this order, fetched from Query.config
+#  """
+#  fee: CurrencyValue!
+#  """
+#  The total price of the order
+#  """
+#  total: CurrencyValue!
+#  """
+#  This could be scheduled up to n days in the future
+#  """
+#  datetimes: [Datetime!]!
+#  """
+#  Payment receipt url for successful payments
+#  """
+#  receiptUrl: String!
+#  """
+#  Payment error url for unsuccessful payments
+#  """
+#  errorUrl: String!
+#  """
+#  Whether or not this purchase is meant to be taken from a customer's
+#  loyalty credit balance
+#  """
+#  useCredits: Boolean
+#  """
+#  Whether this purchase will be paid for on delivery or pickup
+#  """
+#  cashOnDelivery: Boolean
+#  """
+#  New payment method
+#  """
+#  paymentMethod: PaymentMethodInput!
+#  """
+#  use available benefits from reward program tier
+#  """
+#  usePerks: [PerkInput!]
+#}
+
+"""
+Information around where in a system-recognized tower to deliver to
+"""
+input DeliveryTowerInput {
+  """
+  The ID of the tower to deliver to
+  """
+  id: ID!
+  """
+  The building floor number
+  """
+  floor: String!
+  """
+  The building unit number, or 'office name'
+  """
+  unitNumber: String!
+}
+
+#input PickupOrderInput {
+#  """
+#  The items included with this order
+#  """
+#  items: [OrderItemInput!]!
+#  """
+#  The coupon ID to apply
+#  """
+#  couponId: ID
+#  """
+#  How much the coupon is being applied for
+#  """
+#  couponAmount: CurrencyValue
+#  """
+#  The brand location being picked up from
+#  """
+#  brandLocationId: ID!
+#  """
+#  Any order-level notes
+#  """
+#  note: String
+#  """
+#  The subtotal of all items within the order
+#  """
+#  subtotal: CurrencyValue!
+#  """
+#  The fee paid for this order, fetched from Query.config
+#  """
+#  fee: CurrencyValue!
+#  """
+#  The total price of the order
+#  """
+#  total: CurrencyValue!
+#  """
+#  Can be up to an hour in the future
+#  """
+#  datetime: Datetime!
+#  """
+#  Payment receipt url for successful payments
+#  """
+#  receiptUrl: String!
+#  """
+#  Payment error url for unsuccessful payments
+#  """
+#  errorUrl: String!
+#  """
+#  Deliver to Vehicle
+#  """
+#  deliverToVehicle: Boolean!
+#  """
+#  Vehicle Color
+#  """
+#  vehicleColor: String
+#  """
+#  Vehicle Description
+#  """
+#  vehicleDescription: String
+#  """
+#  ASAP Picup
+#  """
+#  asap: Boolean!
+#  """
+#  Whether or not this purchase is meant to be taken from a customer's
+#  loyalty credit balance
+#  """
+#  useCredits: Boolean
+#  """
+#  Pay in cash on pickup
+#  """
+#  cashOnDelivery: Boolean
+#  """
+#  New payment method
+#  """
+#  paymentMethod: PaymentMethodInput!
+#  """
+#  use available benefits from reward program tier
+#  """
+#  usePerks: [PerkInput!]
+#}
+
+"""
+Nutritional info for a menu item
+"""
+input NutritionalInfoInput {
+  """
+  Database identifier
+  """
+  id: ID
+  """
+  Amount of calories in this product
+  """
+  calories: Int!
+  """
+  Amount of fat in this product, in grams
+  """
+  fat: Int!
+  """
+  Amount of carbohydrates in this product, in grams
+  """
+  carbohydrates: Int!
+  """
+  Amount of protein in this product, in grams
+  """
+  protein: Int!
+  """
+  Amount of sugar in this product, in grams
+  """
+  sugar: Int!
+  """
+  List of allergens in this product
+  """
+  allergens: [ID!]
+  """
+  Flag this entity for deletion
+  """
+  deleted: Boolean
+}
+
+"""
+Data for updating the configuration
+"""
+input CouponInput {
+  """
+  ID, omit or set to null to create a new item, set the id to update
+  """
+  id: ID
+  """
+  The code used for this coupon
+  """
+  code: String!
+  """
+  The max currency that should be subtracted, mostly relevant for a percentage coupon.
+  0 - no limit
+  """
+  maxLimit: CurrencyValue
+  """
+  Currency min Limit for when the coupon is applicable,
+  e.g. if the subtotal >= 3.000 KD than the coupon can be applied to the order.
+  0 - no limit
+  """
+  minApplicableLimit: CurrencyValue
+  """
+  The most times a coupon can be used globally
+  """
+  redemptionLimit: Int
+  """
+  The most times a coupon can be used at a customer level
+  """
+  customerRedemptionLimit: Int
+  """
+  Commission / Percentage share on Voucher
+  """
+  commission: Int
+  """
+  If this flag is true the coupon can be applied only to {customerRedemptionLimit} first orders
+  Can be used only with customerRedemptionLimit
+  """
+  onlyFirstOrders: Boolean
+  """
+  The start date and end date define when a coupon can be used
+  """
+  startDate: Datetime!
+  """
+  The start date and end date define when a coupon can be used
+  """
+  endDate: Datetime!
+  """
+  A List of Brands that have this coupon assigned
+  """
+  brands: [ID!]
+  """
+  A List of Brand Locations that have this coupon assigned
+  """
+  brandLocations: [ID!]
+  """
+  A photo related to this coupon
+  """
+  heroPhoto: String
+  """
+  A description related to the coupon's photo
+  """
+  description: String
+  """
+  Optional comma separated list of domains this voucher will be valid for
+  """
+  validEmailDomains: String
+  """
+  The Id of the country that the coupons are in
+  """
+  countryId: ID!
+  """
+  Status to keep track of coupons
+  """
+  status: CouponStatus!
+  """
+  Details of coupon.
+  """
+  couponDetails: [CouponDetailInput!]!
+  """
+  Allowed payment mathods.
+  """
+  allowedPaymentMethods: [String]
+  """
+  Allowed banks for SAVED_CARD payment type.
+  """
+  allowedBanks: [String]
+  """
+  Allowed bank cards for SAVED_CARD payment type.
+  """
+  allowedBankCards: [String]
+  """
+  Promo Type (regular or cashback )
+  Regular promo is existing promo which will reduce the total value of order.
+  cashback promo will store the value of promo on placing the order and on successful payment we will add the promo value as credits in customer's wallet
+  """
+  type: PromoType
+  """
+  Expire Cashback promo in days (required if promo type is cashback)
+  """
+  cashbackExpireInDays: Int
+  # customerIds: [String]
+  customerGroupId: ID
+  """
+  Percent paid by Cofe
+  """
+  percentPaidByCofe: Int
+  """
+  Percent paid by Vendor
+  """
+  percentPaidByVendor: Int
+  """
+  Could be COFE or BRAND: onlyFirstOrders would be checked at COFE or BRAND level.
+  """
+  onlyFirstOrdersFor: FirstOrdersType
+  """
+  Required when onlyFirstOrdersFor is set BRAND because we need redemption limit for vendors
+  """
+  firstOrdersRedemptionLimit: Int
+  """
+  Discount Status on Order
+  """
+  orderDiscountStatus: OrderDiscountStatusForCouponInput
+}
+
+"""
+Input used in in CouponInput.couponDetails
+"""
+input CouponDetailInput {
+  id: ID
+  type: CouponType!
+  amount: Float!
+  percentPaidByCofe: Int
+  percentPaidByVendor: Int
+}
+
+"""
+Data for a marketing push notification
+"""
+input MarketingNotificationInput {
+  """
+  Db Identifier, null if it is a new item
+  """
+  id: ID
+  """
+  The specific time this notification should be sent out
+  """
+  embargoDate: Datetime
+  """
+  The title of the notification
+  """
+  title: String!
+  """
+  The content of the notification
+  """
+  message: String!
+  """
+  Send this message to all platforms
+  """
+  targetAll: Boolean!
+  """
+  Send this message to all platforms
+  """
+  targetAndroid: Boolean!
+  """
+  Send this message to all platforms
+  """
+  targetIos: Boolean!
+  """
+  Country id
+  """
+  countryId: ID!
+}
+
+"""
+Information about a rejection status
+"""
+input OrderSetCommentInput {
+  """
+  Order Set ID
+  """
+  orderSetID: ID!
+  """
+  Type (Complain / Request / Inquiry / Cancelation)
+  """
+  type: orderSetCommentType!
+  """
+  The comment
+  """
+  comment: String!
+}
+
+"""
+Reward input
+"""
+input RewardInput {
+  id: ID
+  brandId: ID!
+  conversionRate: Float!
+  title: LocalizedStringInput!
+  status: RewardStatus!
+  # tierAndPerksBrandId: ID!
+  childBrands: [ID]
+  conversionName: LocalizedStringInput!
+}
+
+"""
+Reward tier input
+"""
+input RewardTierInput {
+  id: ID
+  rewardId: ID!
+  title: LocalizedStringInput!
+  logoUrl: String!
+  requiredPoints: Float!
+  color: String
+  deleted: Boolean
+  type: RewardTierType
+}
+
+"""
+Reward tier perk input
+"""
+input RewardTierPerkInput {
+  id: ID
+  rewardTierId: ID!
+  title: LocalizedStringInput!
+  value: Float!
+  type: RewardTierPerkType!
+  # applyType: RewardTierPerkApplyType!
+  deleted: Boolean
+  discountLimit: Float
+}
+
+"""
+Neighborhood input
+"""
+input NeighborhoodInput {
+  """
+  id of the neigbourhood
+  """
+  id: ID
+  """
+  name of the neighborhood
+  """
+  name: LocalizedStringInput!
+  """
+  The id of the city the Neighborhood belongs to
+  """
+  cityId: ID!
+  """
+  Neighborhood status
+  """
+  status: StatusType!
+}
+
+"""
+Currency input
+"""
+input CurrencyInput {
+  """
+  id of the currency
+  """
+  id: ID
+  """
+  name of the currency
+  """
+  name: String!
+  """
+  name of the currency
+  """
+  symbol: LocalizedStringInput!
+  """
+  decimal place
+  """
+  decimalPlace: Int!
+  lowestDenomination: CurrencyValue
+  subunitName: LocalizedStringInput
+  """
+  Currency status
+  """
+  status: StatusType!
+  isoCode: String!
+}
+
+"""
+A country input
+"""
+input CountryInput {
+  id: ID
+  """
+  The id of the customer the car belongs to
+  """
+  currencyId: ID!
+  """
+  country name
+  """
+  name: LocalizedStringInput!
+  """
+  country status
+  """
+  status: StatusType!
+  """
+  iso code
+  """
+  isoCode: String!
+  """
+  country dial code
+  """
+  dialCode: String!
+  """
+  country flag for country
+  """
+  flagPhoto: String
+  """
+  value used in locationsInRadius as radius - in meters default is 7000 meters
+  """
+  locationsRadius: Int
+  """
+  Fee added to pickup orders specific for this country
+  """
+  serviceFee: CurrencyValue!
+  """
+  VAT aplied in a country percentage value e.g 5 => 5%, defaults to 0
+  """
+  vat: Float!
+  """
+  Service phone number
+  """
+  servicePhoneNumber: String!
+  """
+  Identifier for the country location's time zone, e.g. 'Asia/Kuwait'.
+  """
+  timeZoneIdentifier: String!
+  """
+  Offset for the country location's time zone, e.g. 3 or -3.
+  """
+  timeZoneOffset: Int!
+  """
+  COFE VAT ID
+  """
+  vatId: String
+  """
+  Sender referral amount
+  """
+  senderReferralAmount: CurrencyValue
+  """
+  Receiver referral amount
+  """
+  receiverReferralAmount: CurrencyValue
+  """
+  isReferralActive
+  """
+  isReferralActive: Boolean
+  """
+  minimum delivery order amount
+  """
+  minimumDeliveryOrderAmount: CurrencyValue
+  """
+  Country Configurations
+  """
+  countryConfigurations: [CountryConfigurationInputPair!]
+  """
+  estimated delivery time for store order as a business day
+  """
+  storeOrderDeliveryTime: Int
+}
+
+"""
+A country input
+"""
+input CityInput {
+  id: ID
+  """
+  The id of the country the city belongs to
+  """
+  countryId: ID!
+  """
+  city name
+  """
+  name: LocalizedStringInput!
+  """
+  city status
+  """
+  status: StatusType!
+}
+
+"""
+LocalizedString input
+"""
+input LocalizedStringInput {
+  en: String!
+  ar: String
+  tr: String
+}
+
+input BrandLocationPriceRuleInput {
+  id: ID
+  brandLocationId: ID!
+  label: String!
+  action: BrandLocationPriceRuleAction!
+  type: BrandLocationPriceRuleType!
+  value: String!
+  """
+  Flag this entity for deletion
+  """
+  deleted: Boolean
+}
+input StoreOrderSetRefundInput {
+  storeOrderSetId: ID!
+}
+
+input StoreOrderProductsRefundInput {
+  storeOrderSetId: ID!
+  storeOrderItems: [StoreOrderProductsInput!]
+  storeOrderIds: [ID!]
+}
+
+input StoreOrderProductsInput {
+  id: ID!
+  quantity: Int!
+}
+
+input OrderItemsRefundInput {
+  orderSetId: ID!
+  orderItems: [OrderItemsInput!]
+}
+
+input OrderItemsInput {
+  id: ID!
+  quantity: Int!
+}
+
+input BannerInput {
+  id: ID
+  countryId: ID
+  type: String
+  size: Size
+  order: Int
+  imageUrl: LocalizedStringInput
+  active: Boolean
+}
+
+input GoldenCofeInput {
+  countryCode: String!
+  brandIds: [ID!]
+  terms: [LocalizedStringInput!]
+  dateRange: GoldenCofeInputDateRange!
+  imageUrl: LocalizedStringInput!
+}
+
+input GoldenCofeInputDateRange {
+  startDate: Date!
+  endDate: Date!
+}
+
+input FieldInput {
+  id: ID
+  title: LocalizedStringInput
+  type: AddressFieldType
+  isRequired: Boolean
+  order: Int
+  deleted: Boolean
+}
+
+input AddressFieldInput {
+  countryCode: String!
+  fields: [FieldInput!]
+}
+
+input LoyaltyTierInput {
+  id: ID
+  name: String!
+  sku: String!
+  amount: CurrencyValue
+  minAmount: CurrencyValue
+  maxAmount: CurrencyValue
+  customAmount: Boolean
+  colorTint: String
+  bonus: CurrencyValue
+  countryId: ID!
+  currencyId: ID!
+  loyaltyBonuses: [LoyaltyBonusInput]
+  status: LoyaltyTierStatus!
+}
+
+input BrandAdminInput {
+  id: ID
+  name: String
+  email: String!
+  brands: [AdminBrandsInput!]
+}
+
+input AdminBrandsInput {
+  id: ID
+  brandId: ID!
+  brandLocationId: ID
+  deleted: Boolean
+}
+
+input OrderPaymentMethodsInput {
+  brandLocationId: ID!
+  total: CurrencyValue!
+  currencyCode: String!
+  countryCode: String!
+}
+
+input StorePaymentMethodsInput {
+  total: CurrencyValue!
+  currencyCode: String!
+  countryCode: String!
+}
+
+input CreditsPaymentMethodsInput {
+  total: CurrencyValue!
+  currencyCode: String!
+  countryCode: String!
+}
+
+input GiftCardOrderPaymentMethodsInput {
+  total: CurrencyValue!
+  currencyCode: String!
+  countryCode: String!
+}
+
+"""
+A group input
+"""
+input GroupInput {
+  id: ID
+  """
+  name
+  """
+  name: String!
+  """
+  description
+  """
+  description: String
+  """
+  Nested groups
+  """
+  nestedGroups: [nestedGroupsFields]
+  """
+  Roles
+  """
+  roles: [groupRoleFields]
+}
+
+input nestedGroupsFields {
+  groupId: ID!
+  deleted: Boolean
+}
+
+input groupRoleFields {
+  roleId: ID!
+  deleted: Boolean
+}
+
+"""
+A role input
+"""
+input RoleInput {
+  id: ID
+  """
+  name
+  """
+  name: String!
+  """
+  description
+  """
+  description: String
+  """
+  rolePermissionFields
+  """
+  permissions: [rolePermissionFields]
+}
+
+input rolePermissionFields {
+  permissionId: ID!
+  deleted: Boolean
+}
+
+"""
+A PermissionInput
+"""
+input PermissionInput {
+  id: ID
+  """
+  name
+  """
+  name: String!
+  """
+  description
+  """
+  description: String
+}
+
+"""
+UserGroupsInput
+"""
+input UserGroupsInput {
+  adminId: ID!
+  """
+  description
+  """
+  groups: [userGroupsFields!]!
+}
+
+"""
+CreateGroupAdminInput
+"""
+input CreateGroupAdminInput {
+  id: ID
+  name: String!
+  email: String!
+  """
+  admin  status (active, inactive, deleted)
+  """
+  status: StatusType!
+  """
+  description
+  """
+  groups: [userGroupsFields!]!
+}
+"""
+UpdateGroupAdminInput
+"""
+input UpdateGroupAdminInput {
+  id: ID!
+  name: String
+  email: String!
+  """
+  admin  status (active, inactive, deleted)
+  """
+  status: StatusType
+  """
+  description
+  """
+  groups: [userGroupsFields!]
+}
+
+"""
+RemoveGroupAdmin
+"""
+input RemoveGroupAdmin {
+  groupId: ID!
+  adminId: ID!
+}
+
+input userGroupsFields {
+  groupId: ID!
+  deleted: Boolean!
+}
+
+input CustomerCardTokenInput {
+  """
+  Token that identifies customer card via payment provider
+  """
+  token: String!
+  """
+  Enable 3ds Verification if supported by payment provider
+  """
+  enable3ds: Boolean
+  countryIsoCode: String
+}
+
+#input PaymentMethodInput {
+#  id: String!
+#  name: LocalizedStringInput!
+#  serviceCharge: CurrencyValue!
+#  totalAmount: CurrencyValue!
+#  currencyId: ID!
+#  directPayment: Boolean!
+#  imageUrl: String
+#  customerCardTokenId: ID
+#  giftCardId: ID
+#}
+
+#input PaymentMethodInput {
+#  id: String!
+#  name: LocalizedStringInput!
+#  currencyId: ID!
+#  """
+#  deprecated
+#  """
+#  serviceCharge: CurrencyValue
+#  """
+#  deprecated
+#  """
+#  totalAmount: CurrencyValue
+#  """
+#  deprecated
+#  """
+#  directPayment: Boolean
+#  imageUrl: String
+#  giftCardId: ID
+#  source: PaymentMethodSourceInput
+#}
+
+#input PaymentMethodSourceInput {
+#  type: PaymentMethodSourceType!
+#  id: String!
+#}
+
+input GiftCardCollectionInput {
+  id: ID
+  name: LocalizedStringInput!
+  countryId: ID!
+  status: GiftCardCollectionStatus!
+}
+input GiftCardTemplateInput {
+  id: ID
+  name: LocalizedStringInput!
+  imageUrl: LocalizedStringInput!
+  giftCardCollectionId: ID!
+  countryId: ID!
+  currencyId: ID!
+  brandId: ID
+  availableFrom: Datetime
+  availableUntil: Datetime
+  timeZoneIdentifier: String!
+  isFeatured: Boolean!
+  maxLimit: Int!
+  minLimit: Int!
+  status: GiftCardTemplateStatus
+  percentPaidByCofe: Int!
+  percentPaidByVendor: Int!
+}
+
+input UpdateCofeCreditsInput {
+  customerId: ID!
+  amount: CurrencyValue!
+  currencyId: ID!
+  operationType: UpdateCofeCreditsTransactionType!
+  brandId: ID
+  reason: String
+  comments: String
+}
+
+input CategorySaveInput {
+  id: ID
+  name: LocalizedStringInput!
+  photo: String!
+  status: StatusType!
+}
+
+input ProductSaveInput {
+  id: ID
+  brandId: ID!
+  name: LocalizedStringInput!
+  description: LocalizedStringInput!
+  status: StatusType!
+  price: CurrencyValue
+  compareAtPrice: CurrencyValue
+  costPerItem: CurrencyValue
+  warranty: Int!
+  express: Boolean
+  sku: String
+  barcode: String
+  categoryIds: [ID]!
+  images: [ProductImageInput]!
+  inventories: [InventoryInput]!
+  returnPolicy: ReturnPolicyInput
+  cashOnDelivery: Boolean
+  hsCode: String
+  originCountry: String
+  bestFor: BestFor
+  roastLevel: RoastLevel
+  roastDate: Datetime
+  roastRegion: String
+  process: String
+  regionOrFarm: String
+  tasteNotes: String
+  altitude: String
+  varietal: String
+}
+
+input ProductImageInput {
+  id: ID
+  url: String!
+}
+
+input PickupLocationInput {
+  id: ID
+  brandId: ID!
+  name: String!
+  longitude: Float!
+  latitude: Float!
+  neighborhoodId: ID!
+  cityId: ID!
+  street: String
+  managerName: String
+  managerEmail: String
+  managerPhone: String
+  status: PickupLocationStatus
+}
+
+input InventoryInput {
+  id: ID
+  pickupLocationId: ID!
+  quantity: Int!
+}
+
+input ShippingPolicyInput {
+  id: ID
+  countryId: ID!
+  name: String
+  property: ShippingPolicyProperty!
+  comparisionOperator: ComparisionOperator!
+  value: String!
+  cost: CurrencyValue!
+  deliveryEstimate: Int!
+  status: ShippingPolicyStatus
+}
+
+input StoreHeaderInput {
+  id: ID
+  countryId: ID!
+  image: LocalizedStringInput!
+  availableFrom: Datetime
+  availableUntil: Datetime
+  action: String
+  name: String
+  status: StatusType!
+}
+
+input ReturnPolicyInput {
+  id: ID
+  name: String
+  returnable: Boolean!
+  description: LocalizedStringInput
+  returnTimeFrame: Int
+}
+
+"""
+A sign up promo input
+"""
+input SignupPromoCreateInput {
+  id: ID
+  """
+  The currency belong to the promo
+  """
+  currencyCode: String!
+  """
+  The country belong to the promo
+  """
+  countryCode: String!
+  """
+  Reward amount for the customer
+  """
+  rewardAmount: CurrencyValue!
+  """
+  promo status
+  """
+  status: StatusType!
+  """
+  Type of the promo
+  """
+  type: SignupPromos!
+}
+
+"""
+A sign up promo input
+"""
+input SignupPromoUpdateInput {
+  id: ID!
+  """
+  promo status
+  """
+  status: StatusType!
+}
+
+input TrackingInfoInput {
+  id: ID
+  """
+  Carrier name
+  """
+  carrierName: String!
+  """
+  Carrier tracking id
+  """
+  carrierTrackingId: String
+  """
+  Carrier tracking url
+  """
+  carrierTrackingUrl: String
+}
+
+"""
+CustomerCurrentLocation input
+"""
+input CustomerCurrentLocationInput {
+  """
+  The address as string we will receive from map services
+  """
+  line1: String!
+  """
+  The longitude component of the geo coordinates for this address, in degrees
+  """
+  longitude: Float!
+  """
+  The longitude component of the geo coordinates for this address, in degrees
+  """
+  latitude: Float!
+}
+
+"""
+Input used to create customr group
+"""
+input CustomerGroupInput {
+  id: ID
+  name: String!
+  customers: [CustomerGroupItem!]
+  fileUrl: String
+}
+
+"""
+# credit credits in wallets.
+"""
+input AddCreditsForCustomersInput {
+  amount: Float!
+  currencyId: ID!
+  fileUrl: String!
+  operationType: UpdateCofeCreditsTransactionType!
+  justSync: Boolean!
+}
+
+"""
+# import contacts in branches
+"""
+input ImportBranchContactsInput {
+  fileUrl: String!
+}
+
+input CustomerGroupItem {
+  customerId: String
+  email: String
+  phoneNumber: String
+}
+
+"""
+CustomerCurrentLocation input
+"""
+input BrandLocationActivityEventInput {
+  branchId: ID!
+  eventType: BrandLocationActivityEventType!
+  eventData: String
+}
+
+"""
+blogCategory create input
+"""
+input BlogCategoryCreateInput {
+  """
+  name of category
+  """
+  name: String!
+  """
+  permanent link of category
+  """
+  permalink: String!
+  """
+  Blog category status
+  """
+  status: StatusType
+}
+
+"""
+blogCategory update input
+"""
+input BlogCategoryUpdateInput {
+  id: ID!
+  """
+  name of category
+  """
+  name: String
+  """
+  permanent link of category
+  """
+  permalink: String
+  """
+  Blog category status
+  """
+  status: StatusType
+}
+
+"""
+blogPost create input
+"""
+input BlogPostCreateInput {
+  """
+  Blog post title
+  """
+  title: String!
+  """
+  Blog post description
+  """
+  description: String!
+  """
+  Blog post author
+  """
+  author: String!
+  """
+  Foreign key blog category id
+  """
+  categoryId: ID!
+  """
+  Blog post meta title
+  """
+  metaTitle: String!
+  """
+  Blog post meta descripton
+  """
+  metaDescription: String!
+  """
+  Blog post meta tags
+  """
+  metaTags: String!
+  """
+  Blog post status
+  """
+  status: StatusType!
+  """
+  Blog post image
+  """
+  image: String
+  """
+  Blog post thumbnail image for list view
+  """
+  thumbnailImage: String
+  """
+  Blog post permalink
+  """
+  permalink: String!
+}
+
+"""
+blogPost update input
+"""
+input BlogPostUpdateInput {
+  id: ID!
+  """
+  Blog post title
+  """
+  title: String
+  """
+  Blog post description
+  """
+  description: String
+  """
+  Blog post author
+  """
+  author: String
+  """
+  Foreign key blog category id
+  """
+  categoryId: ID
+  """
+  Blog post meta title
+  """
+  metaTitle: String
+  """
+  Blog post meta descripton
+  """
+  metaDescription: String
+  """
+  Blog post meta tags
+  """
+  metaTags: String
+  """
+  Blog post status
+  """
+  status: StatusType
+  """
+  Blog post image
+  """
+  image: String
+  """
+  Blog post thumbnail image for list view
+  """
+  thumbnailImage: String
+  """
+  Blog post permalink
+  """
+  permalink: String
+}
+"""
+Bank input for Voucher Locking
+"""
+input BankInput {
+  id: ID
+  """
+  Name of the bank
+  """
+  name: String!
+  """
+  If Bank has a unique
+  """
+  hasUniqueIdentifier: Boolean!
+  """
+  BIN identifier of the bank 4-6 digits
+  """
+  identifier: String
+  """
+  Country id that brand belong to
+  """
+  countryId: ID!
+  """
+  Status of Bank
+  """
+  status: BankStatus!
+}
+
+"""
+Payment gateway charges
+"""
+input PaymentGatewayChargeInput {
+  id: ID
+  """
+  Payment method knex/mastercard/etc
+  """
+  paymentMethod: ALLOWED_PAYMENT_METHODS!
+  """
+  Payment gateway checkout/myfatoorah
+  """
+  paymentGateway: ALLOWED_PAYMENT_GATEWAYS!
+  """
+  Country id that brand belong to
+  """
+  countryId: ID!
+  chargeType: ChargeType!
+  charge: Float!
+}
+
+"""
+Bank Card input for Voucher Locking
+"""
+input BankCardInput {
+  id: ID
+  """
+  Name of the card
+  """
+  name: String!
+  """
+  BIN identifier of the card 4-6 digits
+  """
+  identifier: String!
+  """
+  Bank id the card that issued it
+  """
+  bankId: ID!
+  """
+  Status of Bank Card
+  """
+  status: BankCardStatus!
+}
+
+input NewBrandsInput {
+  brandId: ID!
+  order: Int!
+}
+
+input BrandSubscriptionModelInput {
+  id: ID
+  brandId: ID!
+  autoRenewal: Boolean!
+  revenueModel: BrandSubscriptionRevenueModel!
+  flatRate: Float
+  pickupCommission: Float
+  deliveryCommission: Float
+  cofeStoreCommission: Float
+  """
+  The time the location opens on this date
+  """
+  signDate: Datetime!
+  """
+  The time the location closes on this date
+  """
+  expiryDate: Datetime!
+}
+
+input CustomerFavoriteBrandLocationInput {
+  brandLocationId: ID!
+}
+
+"""
+orderRating create input
+"""
+input OrderRatingInput {
+  """
+  Order set ID
+  """
+  orderSetId: ID!
+  """
+  Order rating
+  """
+  rating: Int!
+}
+
+"""
+orderRatingDetail update input
+"""
+input OrderRatingDetailInput {
+  """
+  Order Rating ID
+  """
+  orderRatingId: ID!
+  """
+  Order rating comment
+  """
+  comment: String
+  """
+  The detail rating questions with answers
+  """
+  details: [OrderRatingDetailQuestion]
+}
+
+"""
+Order setail page questions
+"""
+input OrderRatingDetailQuestion {
+  """
+  Question reference
+  """
+  questionId: ID!
+  """
+  Answer reference
+  """
+  answer: OrderRatingAnswerType!
+}
+
+"""
+Data for creating/updating a order rating question.
+"""
+input OrderRatingQuestionInput {
+  id: ID
+  """
+  Question
+  """
+  question: LocalizedStringInput!
+  """
+  Question Description
+  """
+  description: LocalizedStringInput
+  """
+  Question  status (active, inactive, deleted)
+  """
+  status: OrderRatingQuestionStatus
+  """
+  Fullfilment type
+  """
+  pickup: Boolean
+  """
+  Fullfilment type
+  """
+  carWindow: Boolean
+  """
+  Fullfilment type
+  """
+  delivery: Boolean
+  """
+  Fullfilment type
+  """
+  expressDelivery: Boolean
+  """
+  Question type
+  """
+  questionType: OrderRatingQuestionType!
+}
+
+"""
+Discount Status for Coupon on Order
+"""
+input OrderDiscountStatusForCouponInput {
+  withReward: Boolean!
+  withDiscoveryCredit: Boolean!
+}

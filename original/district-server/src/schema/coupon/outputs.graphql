@@ -1,0 +1,5 @@
+type CouponValidityPayload {
+  coupon: Coupon
+  error: CouponValidationError
+  errors: [CouponValidationError!]
+}

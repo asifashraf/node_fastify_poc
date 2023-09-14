@@ -1,0 +1,91 @@
+enum DateIntervalTypes {
+  DAY
+  WEEK
+  MONTH
+}
+
+input VendorPortalDashboardFiltersInput {
+  branchIds: [ID!]!
+  dateInterval: DateIntervalTypes!
+}
+
+type OrdersSalesPercentageByPaymentMethod {
+  cash: Float
+  applePay: Float
+  googlePay: Float
+  knet: Float
+  amex: Float
+  visaMaster: Float
+  stcPay: Float
+  mada: Float
+  credits: Float
+  giftCards: Float
+  rewards: Float
+}
+
+type SummaryOfSales {
+  startDate: Datetime
+  endDate: Datetime
+  totalSale: Float
+  averageOrderSale: Float
+  refunds: Float
+}
+
+type TotalOrdersCounts {
+  fulfillmentType: OrderFulfillmentType
+  orderCount: Int
+}
+
+type OrdersSalesPercentageByFulfillmentType {
+  pickup: Float
+  car: Float
+  delivery: Float
+  # hospital: Float
+  # class: Float
+  # office: Float
+  # airport: Float
+  expressDelivery: Float
+}
+
+type SummaryOfOrders {
+  startDate: Datetime
+  endDate: Datetime
+  delayed: Int
+  rejected: Int
+  completed: Int
+  reported: Int
+  totalOrders: Int
+}
+
+type SummaryOfOrdersCustomers {
+  startDate: Datetime
+  endDate: Datetime
+  totalCustomer: Int
+  newCustomer: Int
+}
+
+type MostSellingProduct {
+  menuItemId: ID
+  menuItemSectionId: ID
+  productName: String
+  quantity: Int
+  sales: Float
+}
+
+type SummaryOfOrderItem {
+  menuItemType: String
+  totalOrder: Int
+}
+
+type BranchPerformances {
+  completedOrders: String
+  delayedOrders: String
+  rejectedReportedOrders: String
+  totalSale: String
+  averageOrderAmount: String
+  totalPickupOrder: String
+  totalCarOrder: String
+  totalDeliveryOrder: String
+  totalCustomer: String
+  newCustomer: String
+}

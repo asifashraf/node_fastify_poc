@@ -1,0 +1,33 @@
+"""
+A customer's saved car
+"""
+type CustomerCar {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Customer's name for this car
+  """
+  name: String!
+  """
+  Customer provided color for this car
+  """
+  color: String
+  """
+  Customer provided brand for this car
+  """
+  brand: String
+  """
+  Customer provided plate number for this car
+  """
+  plateNumber: String
+  """
+  Customer provided note for this car
+  """
+  note: String
+  """
+  Whether this is the customer's default car
+  """
+  isDefault: Boolean!
+}

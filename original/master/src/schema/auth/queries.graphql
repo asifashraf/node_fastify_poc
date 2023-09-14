@@ -1,0 +1,16 @@
+extend type Query {
+  """
+  Get The OTP Code of a registered user
+  """
+  viewCustomerOTPCode(
+    customerInfo: OTPCodeViewRequestInput!
+  ): OTPCodeViewRequestPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["sso:view"])
+  """
+  List all active OTPs of first time users for care team
+  """
+  getFirstTimeUserOTPs: FirstTimeUsersOTPRecordsPayload!
+    @requireAuth
+    @requirePermissions(permissions: ["sso:view"])
+}

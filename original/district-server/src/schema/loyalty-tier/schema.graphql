@@ -1,0 +1,66 @@
+"""
+The configuration of available loyalty tiers
+"""
+type LoyaltyTier {
+  id: ID!
+  """
+  The number of credits being purchased
+  """
+  amount: CurrencyValue
+  """
+  Flag to show that amount is fixed or customizable by the customer
+  """
+  customAmount: Boolean!
+  """
+  The name of this tier
+  """
+  name: String!
+  """
+  Color tint for logo and purchase button, in hex
+  """
+  colorTint: String
+  """
+  How much extra KD the customer receives when purchasing this tier package
+  """
+  bonus: CurrencyValue!
+  """
+  The list of bullet points to display under each tier package
+  """
+  benefits: [String]!
+  """
+  The identifier to use when purchasing a package
+  """
+  sku: String!
+  """
+  Country where this tier option is available
+  """
+  country: Country
+  """
+  Currency of this tier option
+  """
+  currency: Currency
+  """
+  Percentage bonus
+  """
+  percentage: Int
+  """
+  Flat bonus
+  """
+  flatAmount: Int
+  """
+  Min Amount
+  """
+  minAmount: CurrencyValue
+  """
+  Max amount
+  """
+  maxAmount: CurrencyValue
+  """
+  Loyalty bonuses
+  """
+  loyaltyBonuses: [LoyaltyBonus]
+  """
+  Loyalty tier status
+  """
+  status: LoyaltyTierStatus!
+}

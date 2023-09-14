@@ -1,0 +1,97 @@
+extend type Query {
+  getPaymentMethods(
+    countryCode: String!,
+    brandLocationId: ID,
+    fulfillment: OrderFulfillmentType,
+    includeCash: Boolean
+  ): [PaymentMethod]
+  getPaymentProviderConfig(
+    countryCode: String!,
+    provider: PaymentProvider!
+  ): PaymentProviderConfig
+}
+
+type PaymentMethod {
+  paymentScheme: PaymentScheme!
+  provider: PaymentProvider
+  name: LocalizedString!
+  imageUrl: String
+  subText: String
+  sourceId: String
+  isCVVRequired: Boolean
+  isUsableForAutoRenewal: Boolean
+}
+
+type PaymentInfo {
+  imageUrl: String
+  infoText: String
+}
+
+input PaymentMethodInput {
+  paymentScheme: PaymentScheme!
+  name: LocalizedStringInput!
+  imageUrl: String
+  subText: String
+  sourceId: String
+  cvv: String
+  provider: PaymentProvider
+}
+
+enum PaymentScheme {
+  LEGACY
+  KNET
+  CASH
+  STC_PAY
+  MADA
+  AMEX
+  TOKEN
+  CARD
+  ADD_CARD
+  SAVED_CARD
+  APPLE_PAY
+  GOOGLE_PAY
+}
+
+enum PaymentMethodType {
+  LEGACY
+  KNET
+  CASH
+  STC_PAY
+  MADA
+  AMEX
+  TOKEN
+  CARD
+  ADD_CARD
+  SAVED_CARD
+  APPLE_PAY
+  GOOGLE_PAY
+  VISA
+  MASTER_CARD
+  AMERICAN_EXPRESS
+  VOUCHER
+  REWARD_DISCOUNT
+  GIFT_CARD
+  CREDITS
+  CASHBACK
+  DISCOVERY_CREDITS
+}
+
+type PartialPaymentInformation {
+  paymentMethodType: PaymentMethodType!
+  name: LocalizedString!
+  imageUrl: String
+  subInfo: String
+  amount: CurrencyValue
+}
+
+type GeneralPaymentInformation{
+  name: LocalizedString!
+  subInfo: String
+  paymentMethods: [PartialPaymentInformation]
+}
+
+type PaymentProviderConfig {
+  errors: [String]
+  error: String
+  publicKey: String
+}

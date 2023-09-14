@@ -1,0 +1,497 @@
+<mjml>
+  <mj-head>
+    <mj-font name="Oswald" href="https://fonts.googleapis.com/css?family=Oswald" />
+    <mj-style>
+      @font-face {
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 400;
+        src: url(https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/fonts/Nunito-Regular.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+      }
+
+      @font-face {
+        font-family: 'Lato-Bold';
+        font-style: normal;
+        font-weight: 600;
+        src: local('Lato Bold'), local('Lato-Bold'), url(https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/fonts/Nunito-Bold.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+      }
+    </mj-style>
+    <mj-font name="Nunito" href="https://fonts.googleapis.com/css?family=Nunito:200,400,700" />
+    <mj-attributes>
+      <mj-all font-family="Nunito, sans-serif" font-size="12px" />
+    </mj-attributes>
+    <mj-style inline="inline">
+      .cofe-link-nostyle {
+        color: inherit;
+        text-decoration: none
+      }
+
+      .cofe-link-style {
+        color: #0BBFB0;
+        text-decoration: none;
+        font-weight: 'bold';
+      }
+
+      .cofe-brand-name {
+        color: #0BBFB0;
+        font-weight: 'bold';
+        font-family: "Lato", sans-serif;
+      }
+
+      .item-name div {
+        color: #0BBFB0 !important;
+        font-weight: 700 !important;
+        font-size: 16px !important;
+        line-height: 22px !important;
+      }
+
+      .h1-bold div {
+        color: #ff0000;
+        font-size: 20px !important;
+        font-weight: 700;
+        line-height: 32px !important;
+        font-family: "Lato", sans-serif;
+      }
+
+      .h1 div {
+        color: #ff0000;
+        font-size: 18px !important;
+        font-weight: 200;
+        line-height: 26px !important;
+      }
+
+      .h2-bold div {
+        color: #ff0000;
+        font-size: 18px !important;
+        font-weight: bold;
+        line-height: 26px !important;
+      }
+    </mj-style>
+    <mj-style>
+      .p-bold div {
+        font-weight: bold;
+        text-align: right !important;
+      }
+
+      .p div {
+        font-size: 12px !important;
+        line-height: 18px !important;
+        text-align: right !important;
+      }
+
+      .p-light div {
+        font-size: 12px !important;
+        font-weight: 200;
+        line-height: 18px !important;
+      }
+
+      .disclaimer div {
+        font-size: 12px !important;
+        font-weight: 200;
+        line-height: 18px !important;
+      }
+    </mj-style>
+    <mj-attributes>
+      <mj-text padding="5px 25px" line-height="24px" />
+      <mj-group width="100%" />
+      <mj-all color="#594A42" align="left" direction="ltr" />
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#ffffff">
+    <mj-raw>
+      <!-- Header -->
+    </mj-raw>
+    <mj-section background-color="#ffffff" padding="10px">
+      <mj-column>
+        <mj-image padding="20px 0px" width="120px" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/email/cofe-logo-header.png"></mj-image>
+        <mj-text padding='0' css-class="h1-bold" font-family="Oswald, Arial">Merhaba ${customerName}!</mj-text>
+         <mj-raw>
+          <% if(isCash && isCashPaid) { %>
+         </mj-raw>
+          <mj-text padding='0' css-class="h1"><b class="cofe-brand-name">${brand.name.tr} - ${brandLocation.name.tr}</b> siparişini tamamladı.</mj-text>
+         <mj-raw>
+          <% } else { %>
+          </mj-raw>
+          <mj-text padding='0' css-class="h1"><b class="cofe-brand-name">${brand.name.tr} - ${brandLocation.name.tr}</b> siparişini hazılıyor.</mj-text>
+           <mj-raw>
+            <% } %>
+          </mj-raw>
+
+      </mj-column>
+    </mj-section>
+    <mj-wrapper padding="10px">
+      <mj-raw>
+        <!-- Artwork -->
+      </mj-raw>
+      <mj-section padding="2px 0">
+        <mj-column>
+          <mj-image padding="10px 0px" align="center" width="580px" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/email/COFE_Brewing_Animation.gif"></mj-image>
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        <!-- Order -->
+      </mj-raw>
+      <mj-section padding="20px 0 2px">
+        <mj-column>
+          <mj-text font-size="18px" line-height="18px" font-weight='bold'>
+            Sipariş Numarası
+          </mj-text>
+          <mj-text color="#08BFB0" font-size="24px" line-height="20px" font-weight='bold'>
+            ${shortCode}
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        <!-- Customer Onboard -->
+      </mj-raw>
+      <mj-section padding="10px 0 0">
+        <mj-group>
+          <mj-column width="50%">
+            <mj-text>
+              Mağaza
+            </mj-text>
+          </mj-column width="50%">
+          <mj-column>
+            <mj-text css-class="p-bold">
+              ${brand.name.en} - ${brandLocation.name.en}
+            </mj-text>
+          </mj-column>
+        </mj-group>
+        <mj-raw>
+          <% if(paymentMethod || findInvoiceComponent(invoiceComponents, 'CREDITS') || findInvoiceComponent(invoiceComponents, 'GIFT_CARD')) { %>
+        </mj-raw>
+
+          <mj-group>
+            <mj-column width="50%">
+              <mj-text>
+                Ödeme Yöntemi
+              </mj-text>
+            </mj-column>
+
+
+            <mj-column width="50%">
+                <mj-raw>
+                <% if(paymentMethod && amountPaidByPaymentMethod(invoiceComponents, currency) > 0) { %>
+              </mj-raw>
+                <mj-text css-class="p-bold">
+                  ${paymentMethod.name.en} (${amountPaidByPaymentMethod(invoiceComponents, currency)} ${currency.symbol.en})
+                </mj-text>
+              <mj-raw>
+                <% } %>
+              </mj-raw>
+
+              <mj-raw>
+                <% if(findInvoiceComponent(invoiceComponents, 'CREDITS')) { %>
+              </mj-raw>
+                <mj-text css-class="p-bold">
+                  COFE Kredisi (${getTotalValue(invoiceComponents, 'CREDITS', currency.symbol.en)})
+                </mj-text>
+              <mj-raw>
+                <% } %>
+              </mj-raw>
+
+              <mj-raw>
+                  <% if(findInvoiceComponent(invoiceComponents, 'GIFT_CARD')) { %>
+              </mj-raw>
+                <mj-text css-class="p-bold">
+                  Hediye Kartı (${getTotalValue(invoiceComponents, 'GIFT_CARD', currency.symbol.en)})
+                </mj-text>
+              <mj-raw>
+                <% } %>
+              </mj-raw>
+            </mj-column>
+
+          </mj-group>
+        <mj-raw>
+          <% } %>
+        </mj-raw>
+        <mj-group>
+          <mj-column width="50%">
+            <mj-text>
+              Cep Telefonu
+            </mj-text>
+          </mj-column width="50%">
+          <mj-column>
+            <mj-text css-class="p-bold">
+              ${formatKuwaitiPhoneNumber(phoneNumber)}
+            </mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+      <mj-raw>
+        <!-- Fulfillment Information -->
+      </mj-raw>
+      <mj-raw>
+        <% if (!isDelivery && isDeliverToCar) { %>
+      </mj-raw>
+      <mj-section padding="0 0 25px">
+        <mj-group>
+          <mj-column>
+            <mj-text>
+              Sipariş Teslimat Yöntemi
+            </mj-text>
+          </mj-column>
+          <mj-column>
+            <mj-text css-class="p-bold">
+              Araça Teslim
+            </mj-text>
+          </mj-column>
+        </mj-group>
+        <mj-group>
+          <mj-column>
+            <mj-text>
+              Araç Detayları
+            </mj-text>
+          </mj-column>
+          <mj-column>
+            <mj-text css-class="p-bold">
+              ${vehicleDescription}
+            </mj-text>
+          </mj-column>
+        </mj-group>
+        <mj-group>
+          <mj-column>
+            <mj-text>
+              Araç Rengi
+            </mj-text>
+          </mj-column>
+          <mj-column>
+            <mj-text css-class="p-bold">
+              ${vehicleColor}
+            </mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+      <mj-raw>
+        <% } %>
+      </mj-raw>
+      <mj-raw>
+        <% if (!isDelivery && !isDeliverToCar) { %>
+      </mj-raw>
+      <mj-section padding="0 0 25px">
+        <mj-group>
+          <mj-column>
+            <mj-text>
+              Sipariş Teslimat Yöntemi
+            </mj-text>
+          </mj-column>
+          <mj-column>
+            <mj-text css-class="p-bold">
+              Mağaza Tezgahından
+            </mj-text>
+          </mj-column>
+        </mj-group>
+        <mj-group>
+          <mj-column>
+            <mj-text>
+              Sipariş Teslimat Süresi
+            </mj-text>
+          </mj-column>
+          <mj-column>
+            <mj-text css-class="p-bold">
+              ${fulfilmentTime}
+            </mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+      <mj-raw>
+        <% } %>
+      </mj-raw>
+      <mj-raw>
+        <% if (isDelivery) { %>
+      </mj-raw>
+      <mj-section padding="0 0 25px">
+        <mj-group>
+          <mj-column>
+            <mj-text>
+              Sipariş Teslimat Yöntemi
+            </mj-text>
+          </mj-column>
+          <mj-column>
+            <mj-text css-class="p-bold">
+              Kurye ile teslimat
+            </mj-text>
+          </mj-column>
+        </mj-group>
+        <mj-group>
+          <mj-column>
+            <mj-text>
+              Teslimat Adresi
+            </mj-text>
+          </mj-column>
+          <mj-column>
+            <mj-text css-class="p-bold">
+              ${customerAddress}
+            </mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+      <mj-raw>
+        <% } %>
+      </mj-raw>
+      </mj-section>
+      <mj-raw>
+        <!-- Order Details -->
+      </mj-raw>
+      <mj-section padding="20px 5px" border-radius="12px 12px 0px 0px" background-color="#F3F0EB">
+        <mj-column>
+          <mj-text css-class="h2-bold">
+            Sipariş Özeti
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#F3F0EB" padding="0">
+        <mj-column width="100%">
+          <mj-divider border-width="1px" border-style="solid" border-color="#E7E1D6" padding="0px 15px"></mj-divider>
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        <% _.forEach(items, function(item) { %>
+      </mj-raw>
+      <mj-section background-color="#F3F0EB" padding="10px 0 0">
+        <mj-column>
+          <mj-text css-class="item-name">${item.name.en} x ${item.quantity}</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        <% _.forEach(item.selectedOptions, function(option) { %>
+      </mj-raw>
+      <mj-section background-color="#F3F0EB" padding="0 0 10px">
+        <mj-group>
+          <mj-column width="50%">
+            <mj-text>${option.value.en}</mj-text>
+          </mj-column>
+          <mj-column width="50%">
+            <mj-text css-class="p">${formatCurrency(option.price, currency.decimalPlace, currency.symbol.en)}</mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+      <mj-raw>
+        <% }) %>
+      </mj-raw>
+      <mj-raw>
+        <% }) %>
+      </mj-raw>
+      <mj-section background-color="#F3F0EB" padding="0">
+        <mj-column width="100%">
+          <mj-divider border-width="1px" border-style="solid" border-color="#E7E1D6" padding="0px 15px"></mj-divider>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#F3F0EB" padding="10px 0 0">
+        <mj-group>
+          <mj-column width="50%">
+            <mj-text>
+              Ara Toplam
+            </mj-text>
+          </mj-column>
+          <mj-column width="50%">
+            <mj-text css-class="p">
+              ${getTotalValue(invoiceComponents, 'SUBTOTAL', currency.symbol.en)}
+            </mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+      <mj-raw>
+        <% _.forEach(invoiceComponents, function(item) { %>
+      </mj-raw>
+      <mj-raw>
+        <% if (item.type !== "SUBTOTAL" && item.type !== "TOTAL" && item.type!=="AMOUNT_DUE") { %>
+      </mj-raw>
+      <mj-section background-color="#F3F0EB" padding="0 0 10px">
+        <mj-group>
+          <mj-column width="50%">
+            <mj-text>
+              ${paymentTypesTitle(item.type).en}
+              <mj-raw>
+                <% if (item.type === "VOUCHER" && item.type !== "TOTAL") { %>
+              </mj-raw>
+              <b>(${couponCode})</b>
+              <mj-raw>
+                <% } %>
+              </mj-raw>
+            </mj-text>
+          </mj-column>
+          <mj-column width="50%">
+            <mj-text css-class="p">${formatCurrency(item.value, currency.decimalPlace, currency.symbol.en)} </mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+      <mj-raw>
+        <% } %>
+      </mj-raw>
+      <mj-raw>
+        <% }) %>
+      </mj-raw>
+
+      <mj-section padding="0" background-color="#F3F0EB">
+        <mj-column width="100%">
+          <mj-divider border-width="1px" border-style="solid" border-color="#E7E1D6" padding="0px 15px"></mj-divider>
+        </mj-column>
+      </mj-section>
+      <mj-section border-radius="0 0 12px 12px" background-color="#F3F0EB">
+        <mj-group>
+          <mj-column width="50%">
+            <mj-text>Toplan</mj-text>
+          </mj-column>
+          <mj-column width="50%">
+            <mj-text css-class="p-bold">${getTotalValue(invoiceComponents, 'TOTAL', currency.symbol.en)}</mj-text>
+          </mj-column>
+        </mj-group>
+        <mj-group>
+          <mj-column width="50%">
+            <mj-text>Alacak Miktarı</mj-text>
+          </mj-column>
+          <mj-column width="50%">
+            <mj-text css-class="p-bold">${getTotalValue(invoiceComponents, 'AMOUNT_DUE', currency.symbol.en)}</mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+
+      <mj-raw>
+        <% if (brand.country.hasVat) { %>
+      </mj-raw>
+      <mj-section padding="10px 0" background-color="#fff"></mj-section>
+      <mj-section border-radius="12px" background-color="#F3F0EB">
+        <mj-group>
+          <mj-column width="50%">
+            <mj-text>KDV No: ${brand.country.vatId}</mj-text>
+          </mj-column>
+          <mj-column width="50%">
+            <mj-text>KDV(%): ${brand.country.vat}</mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+      <mj-raw>
+        <% } %>
+      </mj-raw>
+      <mj-raw>
+        <!-- KNET Information -->
+      </mj-raw>
+      <mj-section padding="20px 0" background-color="#fff">
+        <mj-raw>
+          <% if (total > 0 && paymentMethod) { %>
+        </mj-raw>
+        <mj-raw>
+          <% if(paymentMethod.id !== 'CASH' || paymentMethod.id !== 'CREDITS') { %>
+        </mj-raw>
+        <mj-column padding="26px" border-radius="10px" background-color="#F3F0EB">
+          <mj-text css-class="p-light" padding="0 0 10px">Reference ID: <b>${knetResponse.ref}</b></mj-text>
+          <mj-text css-class="p-light" padding="0 0 10px">Payment ID: <b>${knetResponse.paymentid}</b></mj-text>
+          <mj-text css-class="p-light" padding="0">Merchant Track ID: <b>${knetResponse.trackid}</b></mj-text>
+        </mj-column>
+        <mj-raw>
+          <% } %>
+        </mj-raw>
+        <mj-raw>
+          <% } %>
+        </mj-raw>
+      </mj-section>
+      <mj-raw>
+        <!-- Link to Footer -->
+      </mj-raw>
+      <mj-include path="./footer.mjml" />
+    </mj-wrapper>
+  </mj-body>
+</mjml>

@@ -1,0 +1,112 @@
+type Driver{
+     """
+  Database identifier
+  """
+  id: ID!
+  """
+  Driver's first name
+  """
+  firstName: String!
+  """
+  Driver's last name
+  """
+  lastName: String!
+  """
+  Driver's phone number
+  """
+  phoneNumber: String!
+  """
+  Driver phone number's country code, e.g. 'KW'
+  """
+  phoneCountry: String!
+  """
+  related branches of driver
+  """
+  branches: [BrandLocation]
+
+  preferredLanguage:String
+}
+
+input DriverInput{
+    id:ID
+    firstName: String!
+    lastName: String!
+    phoneNumber: String!
+    preferredLanguage:String!
+}
+
+input DriverBranchInput{
+    driverId: ID!
+    branchIds: [ID!]!
+}
+
+enum DriverSaveError{
+    INVALID_PHONE_NUMBER
+    INVALID_FIRST_NAME
+    INVALID_LAST_NAME
+    INVALID_INPUT
+    INVALID_PHONE_COUNTRY
+    DRIVER_ALREADY_EXIST
+}
+
+enum DriverBranchSaveError{
+    INVALID_DRIVER
+    INVALID_BRANCH
+    INVALID_INPUT
+    BRANCH_ALREADY_EXIST
+}
+
+enum DriverDeleteError {
+  UNEXPECTED_ERROR
+  INVALID_DRIVER
+}
+
+type DriverSavePayload{
+    errors: [DriverSaveError]
+    driver: Driver
+}
+
+type DriverBranchSavePayload{
+    errors: [DriverBranchSaveError]
+    driver: Driver
+}
+
+type DriverBranchDeletePayload{
+    errors: [DriverBranchSaveError]
+    deleted: Boolean
+}
+
+type DriverDeletePayload{
+  errors: [DriverDeleteError]
+  deleted: Boolean
+}
+
+extend type Mutation {
+    saveDriver(driver: DriverInput!): DriverSavePayload @requireAuth @requirePermissions(permissions: ["driver:upsert"])
+    saveDriverBranch(input: DriverBranchInput!): DriverBranchSavePayload @requireAuth @requirePermissions(permissions: ["driver:upsert"])
+    deleteBranchFromDriver(input: DriverBranchInput!): DriverBranchDeletePayload @requireAuth @requirePermissions(permissions: ["driver:upsert"])
+    deleteDriver(driverId: ID!): DriverDeletePayload @requireAuth @requirePermissions(permissions: ["driver:delete"])
+}
+input DriverFilters {
+  id: ID
+  searchText: String
+  phoneCountry:String
+  preferredLanguage:String
+
+}
+
+extend type Query {
+  getDriver(
+    driverId: ID!
+  ): Driver @requireAuth @requirePermissions(permissions: ["driver:view"])
+
+  getDrivers(
+     """
+    filters
+    """
+    filters: DriverFilters
+    """
+    Optional ability to leverage pagination
+    """
+    paging: PagingInput): [Driver] @requireAuth @requirePermissions(permissions: ["driver:view"])
+}

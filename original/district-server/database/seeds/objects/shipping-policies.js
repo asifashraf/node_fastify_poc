@@ -1,0 +1,57 @@
+/* eslint-disable camelcase */
+const {
+  shippingPolicyProperty,
+  comparisionOperator,
+} = require('../../../src/schema/root/enums');
+module.exports = countries => [
+  {
+    id: '9526f1f8-019a-4a60-8fcb-e753fbf341ff',
+    country_id: countries.kuwait.id,
+    name: 'dist 1',
+    property: shippingPolicyProperty.DISTANCE,
+    comparision_operator: comparisionOperator.GREATER_THAN_OR_EQUAL,
+    value: '0',
+    cost: '1.000',
+    delivery_estimate: 24,
+  },
+  {
+    id: '651c0050-c0db-46fe-9aac-82d4ce602691',
+    country_id: countries.kuwait.id,
+    name: 'dist 2',
+    property: shippingPolicyProperty.DISTANCE,
+    comparision_operator: comparisionOperator.GREATER_THAN_OR_EQUAL,
+    value: '2.000',
+    cost: '2.000',
+    delivery_estimate: 48,
+  },
+  {
+    id: '6876a1c4-65fa-41f0-b914-ce3798b569e4',
+    country_id: countries.kuwait.id,
+    name: 'dist 3',
+    property: shippingPolicyProperty.DISTANCE,
+    comparision_operator: comparisionOperator.GREATER_THAN_OR_EQUAL,
+    value: '3.000',
+    cost: '3.000',
+    delivery_estimate: 72,
+  },
+  {
+    id: '3201d526-4e58-49fc-87c9-cbc9a80d4336',
+    country_id: countries.kuwait.id,
+    name: 'free delivery',
+    property: shippingPolicyProperty.CART_COST,
+    comparision_operator: comparisionOperator.GREATER_THAN_OR_EQUAL,
+    value: '10.000',
+    cost: '0',
+    delivery_estimate: null,
+  },
+  {
+    id: 'e3785129-95cf-4700-8bc5-27a5c85be70a',
+    country_id: countries.saudi_arabia.id,
+    name: 'dist 1 SA',
+    property: shippingPolicyProperty.DISTANCE,
+    comparision_operator: comparisionOperator.GREATER_THAN_OR_EQUAL,
+    value: '0',
+    cost: '10.000',
+    delivery_estimate: 24,
+  },
+];

@@ -1,0 +1,272 @@
+extend type Query {
+  getPaymentMethods(
+    countryCode: String!
+    brandLocationId: ID
+    fulfillment: OrderFulfillmentType
+    includeCash: Boolean
+  ): [PaymentMethod]
+
+  getPaymentProviderConfig(
+    countryCode: String!
+    provider: PaymentProvider!
+  ): PaymentProviderConfig
+  
+  """
+  For admin portals
+  """
+  getPaymentProvidersForAdmin(
+    status: PaymentProviderStatus
+    countryId: ID!
+  ): [PaymentProviderAdmin]
+    @requireAuth
+    @requirePermissions(permissions: ["paymentMethod:view"])
+
+  getPaymentMethodsForAdmin(
+    status: PaymentProviderStatus
+    countryId: ID!
+  ): [PaymentMethodsAdmin]
+    @requireAuth
+    @requirePermissions(permissions: ["paymentMethod:view"])
+
+  getAvailablePaymentMethodOptionsForAdmin(
+    countryId: ID!
+  ): [AvailablePaymentOptions]
+    @requireAuth
+    @requirePermissions(permissions: ["paymentMethod:view"])
+}
+
+extend type Mutation {
+  #TODO add permission only admin portal
+  updatePaymentProviderStatus(
+    input: PaymentProviderAdminInput!
+  ): PaymentProviderSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["paymentMethod:upsert"])
+
+  savePaymentMethodsByProvider(
+    input: PaymentMethodsAdminInput!
+  ): PaymentMethodsSavePayload!
+    @requireAuth
+    @requirePermissions(permissions: ["paymentMethod:upsert"])
+}
+
+type PaymentMethod {
+  paymentScheme: PaymentScheme!
+  provider: PaymentProvider
+  name: LocalizedString!
+  imageUrl: String @toCDN
+  subText: String
+  sourceId: String
+  isCVVRequired: Boolean
+  isUsableForAutoRenewal: Boolean
+  isDefault: Boolean
+}
+
+type PaymentInfo {
+  imageUrl: String @toCDN
+  infoText: String
+}
+
+input PaymentMethodInput {
+  paymentScheme: PaymentScheme!
+  name: LocalizedStringInput!
+  imageUrl: String
+  subText: String
+  sourceId: String
+  cvv: String
+  provider: PaymentProvider
+}
+
+enum PaymentScheme {
+  LEGACY
+  KNET
+  CASH
+  STC_PAY
+  MADA
+  AMEX
+  TOKEN
+  CARD
+  ADD_CARD
+  SAVED_CARD
+  APPLE_PAY
+  GOOGLE_PAY
+}
+
+enum PaymentProviderEnum {
+  MY_FATOORAH
+  CHECKOUT
+  MOBILE_EXPRESS
+}
+
+enum PaymentProviderStatus {
+  ACTIVE
+  INACTIVE
+}
+
+input PaymentProviderAdminInput {
+  id: ID!
+  status: PaymentProviderStatus!
+}
+
+type PaymentProviderAdmin {
+  id: ID!
+  providerName: PaymentProviderEnum!
+  status: PaymentProviderStatus!
+  countryId: ID!
+  created: Datetime
+  updated: Datetime
+}
+
+type PaymentProviderSavePayload {
+  """
+  Category which was saved/updated
+  """
+  paymentProvider: PaymentProviderAdmin
+  """
+  The first validation error that occured
+  """
+  error: PaymentMethodSaveError
+  """
+  All validation errors
+  """
+  errors: [PaymentMethodSaveError!]
+}
+
+input PaymentMethodsAdminInput {
+  id: ID
+  paymentProviderId: ID!
+  countryId: ID!
+  status: PaymentProviderStatus!
+  isApplePayEnable: Boolean
+  isGooglePayEnable: Boolean
+  isKnetEnable: Boolean
+  isVisaMasterEnable: Boolean
+  isAmexEnable: Boolean
+  isMadaEnable: Boolean
+  isStcEnable: Boolean
+  isCardSavedEnable: Boolean
+}
+
+type PaymentMethodsAdmin {
+  id: ID!
+  paymentProviderId: ID!
+  providerName: PaymentProviderEnum!
+  providerStatus: PaymentProviderStatus!
+  status: PaymentProviderStatus!
+  countryId: ID!
+  isApplePayEnable: Boolean
+  isGooglePayEnable: Boolean
+  isKnetEnable: Boolean
+  isVisaMasterEnable: Boolean
+  isAmexEnable: Boolean
+  isMadaEnable: Boolean
+  isStcEnable: Boolean
+  isCardSavedEnable: Boolean
+}
+
+type PaymentMethodsSavePayload {
+  """
+  Category which was saved/updated
+  """
+  paymentMethods: PaymentMethodsAdmin
+  """
+  The first validation error that occured
+  """
+  error: PaymentMethodSaveError
+  """
+  All validation errors
+  """
+  errors: [PaymentMethodSaveError!]
+}
+
+enum AvailablePaymentOption {
+  APPLE_PAY
+  GOOGLE_PAY
+  KNET
+  VISA_MASTER
+  AMEX
+  MADA
+  STC
+  CARD_SAVED
+}
+
+type AvailablePaymentOptions {
+  providerId: ID
+  provider: PaymentProviderEnum
+  availableOptions: [AvailablePaymentOption]
+}
+
+enum PaymentMethodSaveError {
+  INVALID_PAYMENT_PROVIDER_ID
+  UNDEFINED_PAYMENT_RROVIDER
+  INVALID_PAYMENT_PROVIDER
+  COUNTRY_NOT_MATCHED_PAYMENT_PROVIDER
+  APPLE_PAY_ALREADY_ENABLE_ANOTHER_PROVIDER
+  GOOGLE_PAY_ALREADY_ENABLE_ANOTHER_PROVIDER
+  KNET_ALREADY_ENABLE_ANOTHER_PROVIDER
+  VISA_MASTER_ALREADY_ENABLE_ANOTHER_PROVIDER
+  MADA_ALREADY_ENABLE_ANOTHER_PROVIDER
+  STC_ALREADY_ENABLE_ANOTHER_PROVIDER
+  CARD_SAVED_ALREADY_ENABLE_ANOTHER_PROVIDER
+  KNET_CAN_NOT_ENABLE_FOR_CHECKOUT_PROVIDER
+  STC_CAN_NOT_ENABLE_FOR_CHECKOUT_PROVIDER
+  MADA_CAN_NOT_ENABLE_FOR_CHECKOUT_PROVIDER
+  CARD_SAVED_CAN_NOT_ENABLE_FOR_MY_FATOORAH_PROVIDER
+  KNET_CAN_NOT_ENABLE_FOR_MOBILE_EXPRESS_PROVIDER
+  STC_CAN_NOT_ENABLE_FOR_MOBILE_EXPRESS_PROVIDER
+  MADA_CAN_NOT_ENABLE_FOR_MOBILE_EXPRESS_PROVIDER
+  CARD_SAVED_NOT_ENABLE_FOR_COUNTRY
+  INVALID_PAYMENT_METHOD
+  UNDEFINED_PAYMENT_METHOD
+  PROVIDER_NAME_ALREADY_USED
+  INVALID_COUNTRY_ID
+  INVALID_PAYMENT_METHOD_ID
+  PAYMENT_METHOD_ALREADY_EXIST_FOR_THIS_PROVIDER
+  INVALID_PAYMENT_METHOD_NOT_MATCHED_COUNTRY
+  TRANSACTIONAL_ERROR
+  UNAUTHORIZED_PROCESS
+}
+
+enum PaymentMethodType {
+  LEGACY
+  KNET
+  CASH
+  STC_PAY
+  MADA
+  AMEX
+  TOKEN
+  CARD
+  ADD_CARD
+  SAVED_CARD
+  APPLE_PAY
+  GOOGLE_PAY
+  VISA
+  MASTER_CARD
+  AMERICAN_EXPRESS
+  VOUCHER
+  REWARD_DISCOUNT
+  GIFT_CARD
+  CREDITS
+  CASHBACK
+  DISCOVERY_CREDITS
+}
+
+type PartialPaymentInformation {
+  paymentMethodType: PaymentMethodType!
+  name: LocalizedString!
+  imageUrl: String @toCDN
+  subInfo: String
+  amount: CurrencyValue
+}
+
+type GeneralPaymentInformation {
+  name: LocalizedString!
+  subInfo: String
+  paymentMethods: [PartialPaymentInformation]
+}
+
+type PaymentProviderConfig {
+  errors: [String]
+  error: String
+  publicKey: String
+}

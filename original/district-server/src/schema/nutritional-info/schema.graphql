@@ -1,0 +1,33 @@
+"""
+Any nutritional information associated with a menu item or menu item option
+"""
+type NutritionalInfo {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Amount of calories in this product
+  """
+  calories: Int!
+  """
+  Amount of fat in this product, in grams
+  """
+  fat: Int!
+  """
+  Amount of carbohydrates in this product, in grams
+  """
+  carbohydrates: Int!
+  """
+  Amount of protein in this product, in grams
+  """
+  protein: Int!
+  """
+  Amount of sugar in this product, in grams
+  """
+  sugar: Int!
+  """
+  List of allergens in this product
+  """
+  allergens: [Allergen!]!
+}

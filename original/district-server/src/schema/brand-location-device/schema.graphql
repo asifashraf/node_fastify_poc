@@ -1,0 +1,47 @@
+"""
+Barista APP Device
+"""
+type BaristaAppDevice {
+  """
+  Database identifier
+  """
+  id: ID
+  """
+  Device Id
+  """
+  deviceId: String
+  """
+  Paired brandLocation identifier
+  """
+  brandLocationId: ID
+  """
+  Paired brandLocation name
+  """
+  brandLocationName: LocalizedString
+  """
+  Paired brand identifier
+  """
+  brandId: ID
+  """
+  Paired brandLocation name
+  """
+  brandName: LocalizedString
+  """
+  Device Status
+  """
+  status: BaristaDeviceStatus
+  """
+  Device Code
+  """
+  code: String
+  """
+  When this barista device was successfully created
+  """
+  created: Datetime!
+}
+
+enum BaristaDeviceStatus {
+  INIT
+  PAIRED
+  DELETED
+}

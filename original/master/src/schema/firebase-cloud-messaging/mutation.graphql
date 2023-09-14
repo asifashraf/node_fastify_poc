@@ -1,0 +1,6 @@
+extend type Mutation {
+  saveFCMToken(
+    token: String!
+    deviceId: String
+  ): FCMTokenResponse @requireAuth
+}

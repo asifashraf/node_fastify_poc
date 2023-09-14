@@ -1,0 +1,91 @@
+type SplashCategoryContent{
+    id: ID!
+    platform: Platform!
+    size: SplashSize!
+    language: Language!
+    url: String!
+    categoryId: ID!
+}
+
+enum Platform {
+    IOS
+    ANDROID
+}
+
+enum Language {
+    EN
+    AR
+}
+
+enum SplashSize {
+    SMALL
+    MEDIUM
+    LARGE
+    XLARGE
+}
+
+enum SplashError {
+    NOT_FOUND
+}
+
+type Splash {
+    url: String
+    error: SplashError
+}
+
+input SplashCategoryContentInput {
+    id: ID
+    platform: Platform!
+    size: SplashSize!
+    language: Language!
+    url: String!
+    categoryId: ID!
+}
+
+enum SaveSplashCategoryContentError{
+    MISSING_URL
+    UNAUTHORIZED_PROCESS
+    INVALID_CATEGORY_ID
+    ALREADY_EXIST
+    INVALID_ID
+}
+
+enum SplashCategoryContentType{
+    ANDROID_SMALL_EN
+    ANDROID_SMALL_AR
+    ANDROID_MEDIUM_EN
+    ANDROID_MEDIUM_AR
+    ANDROID_LARGE_EN
+    ANDROID_LARGE_AR
+    ANDROID_XLARGE_EN
+    ANDROID_XLARGE_AR
+    IOS_MEDIUM_EN
+    IOS_MEDIUM_AR
+    IOS_LARGE_EN
+    IOS_LARGE_AR
+    GENERAL
+}
+
+type SaveSplashCategoryContentErrorPayload{
+    error: SaveSplashCategoryContentError
+    type: SplashCategoryContentType
+}
+
+type SaveSplashCategoryContentPayload {
+    errors: [SaveSplashCategoryContentErrorPayload]
+    contents: [SplashCategoryContent]
+}
+
+extend type Mutation {
+  saveSplashCategoryContent(
+    input: [SplashCategoryContentInput!]!
+  ): SaveSplashCategoryContentPayload @requireAuth
+} 
+
+extend type Query {
+  checkSplash(
+    platform: Platform!
+    language: Language!
+    size: SplashSize!
+  ): Splash
+}

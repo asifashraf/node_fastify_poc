@@ -1,0 +1,74 @@
+extend type Query {
+  getBranchArrivingTimeList(
+      branchId: ID!
+      countryId:ID! 
+      fulfillmentType: OrderFulfillmentType!
+  ): TimeListPayload @requireAuth
+
+}
+
+extend type Mutation {
+  saveArrival(
+      orderSetId: ID!
+  ): ArrivingTimePayload @requireAuth
+
+  savePopupStatus: PopupStatusSavePayload @requireAuth
+
+}
+
+type PopupStatusSavePayload {
+    errors: [PopupStatusSaveError]
+    saved: Boolean  
+}
+
+enum PopupStatusSaveError {
+    INVALID_CUSTOMER
+    POPUP_ALREADY_SEEN
+}
+
+type ArrivingTimePayload {
+    arrivingTime: ArrivingTime
+    errors:[SaveArrivedError]
+}
+
+type ArrivingTime {
+    id:ID!
+    orderSetId: ID
+    branchId: ID
+    countryId: ID
+    fulfillmentType: OrderFulfillmentType
+    orderSetCreationTime: Datetime
+    """
+    Options Meaning
+    Null or Undefined => if the customer didn't choose any option in checkout, then click 'I have arrived'
+    0 => I am here
+    Others => Integer values in minutes
+    """
+    selectedOption:Int
+    arrivalTime:Datetime
+    arrived:Boolean
+}
+
+enum SaveArrivedError{
+    ALREADY_ARRIVED
+    NOT_SUPPORTED
+    INVALID_CUSTOMER
+}
+
+
+type TimeListPayload {
+    arrivingTime: BranchArrivingTimeList
+    errors:[BranchArrivingTimeListError]
+}
+
+enum BranchArrivingTimeListError {
+    INVALID_INPUT
+    NOT_SUPPORTED
+    NO_VALUES
+    INVALID_FULFILLMENT
+    INVALID_COUNTRY_FOR_BRANCH
+}
+
+type BranchArrivingTimeList {
+    options: [Int]!
+}

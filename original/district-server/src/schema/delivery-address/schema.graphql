@@ -1,0 +1,89 @@
+"""
+A copy of an Address associated with an OrderFulfillment for archival purposes (so that the address data is recorded without being subject to future mutation of the reference Address).
+"""
+type DeliveryAddress {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Customer's name for this address
+  """
+  friendlyName: String
+  """
+  The name of the building to deliver to (ie 'Al Hamra Tower')
+  """
+  buildingName: String
+  """
+  Customer provided note for this address
+  """
+  note: String
+  """
+  The longitude component of the geo coordinates for this address, in degrees
+  """
+  longitude: Float
+  """
+  The longitude component of the geo coordinates for this address, in degrees
+  """
+  latitude: Float
+  """
+  This is analogous with a "neigbourhood" in Google Maps lingo.  Will be populated from Google Maps as "Block x"
+  """
+  block: String
+  """
+  This is street name
+  """
+  street: String
+  """
+  An optional avenue field
+  """
+  avenue: String
+  """
+  The number for this street, in string format (ie "234" part of "234 somewhere st")
+  """
+  streetNumber: String
+  """
+  Which type of address is this
+  """
+  type: CustomerAddressType
+  """
+  Floor for an apartment/office
+  """
+  floor: String
+  """
+  Unit number. Required for type apartment/office
+  """
+  unitNumber: String
+  """
+  Airport name. Required for type airport
+  """
+  airportName: String
+  """
+  Terminal Number. Required for airport terminal number
+  """
+  terminalNumber: String
+  """
+  gateNumber. Required for airport gate number
+  """
+  gateNumber: String
+  """
+  City
+  """
+  city: String
+  """
+  Country code
+  """
+  countryCode: String
+  """
+  The Name of the neighborhood
+  """
+  neighborhoodName: String
+  """
+  Reference to neighborhood for this address
+  """
+  neighborhood: Neighborhood
+  """
+  Dynamic fields
+  """
+  extraFields: [ExtraField!]
+}

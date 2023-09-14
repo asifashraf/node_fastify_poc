@@ -1,0 +1,21 @@
+"""
+Brand location neighborhood
+"""
+type Neighborhood {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Neighborhood name
+  """
+  name: LocalizedString!
+  """
+  city
+  """
+  city: City
+  """
+  Neighborhood status
+  """
+  status: StatusType!
+}

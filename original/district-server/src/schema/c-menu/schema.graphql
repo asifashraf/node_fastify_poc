@@ -1,0 +1,65 @@
+# Type for Calculated Menu for a brand location
+type CMenu {
+  id: ID!
+  country: LocalizedString!
+  sections: [CMenuSection]!
+}
+
+type CMenuSection {
+  id: ID!
+  name: LocalizedString!
+  items: [CMenuItem]!
+  sortOrder: Int!
+}
+
+type CMenuItem {
+  id: ID!
+  name: LocalizedString!
+  itemDescription: LocalizedString
+  optionSets: [CMenuItemOptionSet]!
+  photo: String! @toCDN
+  sortOrder: Int!
+  type: MenuItemType
+  soldOut: Boolean!
+  tags: [Tag!]
+  subscribable: Boolean
+  subscribableBadgeUrl: LocalizedString
+  subscriptionId: ID
+  isRedeemed: Boolean
+  redeemedLabel: LocalizedString
+  displayablePrice: CurrencyValue! @deprecated
+  priceInfo: CMenuItemPrice!
+  disableDiscoveryCredit: Boolean!
+}
+
+type CMenuItemPrice {
+  price: CurrencyValue!
+  compareAtPrice: CurrencyValue
+  displayablePrice: CurrencyValue!
+  priceType: CMenuItemPriceType
+}
+
+type CMenuItemOptionSet {
+  id: ID!
+  label: LocalizedString!
+  single: Boolean!
+  min: Int
+  max: Int
+  free: Int
+  unique: Boolean
+  options: [CMenuItemOption]!
+  sortOrder: Int!
+}
+
+type CMenuItemOption {
+  id: ID!
+  value: LocalizedString!
+  # this price has all price rules applied
+  price: CurrencyValue!
+  compareAtPrice: CurrencyValue
+  sortOrder: Int!
+  currency: Currency!
+  subscribable: Boolean
+  subscribableBadgeUrl: LocalizedString
+  existInActiveCart: Boolean
+}

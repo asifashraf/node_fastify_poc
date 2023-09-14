@@ -1,0 +1,270 @@
+extend type Query {
+  """
+  Get Brand Location Schedule Exceptions
+  """
+  getBranchScheduleExceptionsByBrandLocationId(
+    brandLocationId: ID!
+  ): BrandLocationScheduleExceptionPayload
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:view"])
+}
+
+extend type Mutation {
+  """
+  Save Brand Location Schedule Exception
+  """
+  addBrandLocationScheduleException(
+    brandLocationId: ID!
+    exception: BrandLocationNewScheduleExceptionInput!
+  ): BrandLocationScheduleExceptionPayload
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:upsert"])
+
+  # """
+  # Update Brand Location Schedule Exception
+  # """
+  # updateBrandLocationScheduleException(
+  #   brandLocationId: ID!
+  #   exception: BrandLocationUpdateScheduleExceptionInput!
+  # ): BrandLocationScheduleExceptionPayload @requireAuth
+
+  """
+  Remove Brand Location Schedule Exception
+  """
+  removeBrandLocationScheduleException(
+    brandLocationId: ID!
+    exceptionId: ID!
+  ): BrandLocationScheduleRemoveExceptionPayload
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:upsert"])
+
+  """
+  Add Bulk Brand Location Schedule Exception
+  """
+  addBulkBrandLocationScheduleException(
+    brandId: ID!
+    brandLocationIds: [ID!]!
+    exception: BrandLocationNewScheduleExceptionInput!
+  ): BulkBrandLocationScheduleExceptionPayload
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:upsert"])
+}
+
+"""
+Schedule Exception Input
+"""
+input BrandLocationNewScheduleExceptionInput {
+  """
+  Exception name
+  """
+  name: String
+  """
+  Store will remain offline on days set to closed in operating hours
+  """
+  isClosed: Boolean!
+  """
+  The time the exception start on this date
+  """
+  startTime: Datetime!
+  """
+  The time the exception finish on this date
+  """
+  endTime: Datetime!
+  """
+  The Pickup fulfillment is affected by the exception
+  """
+  pickup: Boolean
+  """
+  The Car fulfillment is affected by the exception
+  """
+  car: Boolean
+  """
+  The Delivery fulfillment is affected by the exception
+  """
+  delivery: Boolean
+  """
+  The Express Delivery fulfillment is affected by the exception
+  """
+  expressDelivery: Boolean
+}
+
+type BrandLocationScheduleExceptionPayload {
+  """
+  Brand Location Schedule
+  """
+  exceptions: [BrandLocationScheduleException]
+  """
+  The first validation error that occured
+  """
+  error: BrandLocationScheduleExceptionError
+  """
+  All validation errors
+  """
+  errors: [BrandLocationScheduleExceptionError]
+}
+
+type BrandLocationScheduleRemoveExceptionPayload {
+  """
+  Brand Location Schedule
+  """
+  isRemoved: Boolean
+  """
+  The first validation error that occured
+  """
+  error: BrandLocationScheduleExceptionError
+  """
+  All validation errors
+  """
+  errors: [BrandLocationScheduleExceptionError]
+}
+
+"""
+Schedule Exception Input
+"""
+input BrandLocationUpdateScheduleExceptionInput {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Exception name
+  """
+  name: String
+  """
+  Store will remain offline on days set to closed in operating hours
+  """
+  isClosed: Boolean!
+  """
+  The time the exception start on this date
+  """
+  startTime: Datetime!
+  """
+  The time the exception finish on this date
+  """
+  endTime: Datetime!
+  """
+  The Pickup fulfillment is affected by the exception
+  """
+  pickup: Boolean
+  """
+  The Car fulfillment is affected by the exception
+  """
+  car: Boolean
+  """
+  The Delivery fulfillment is affected by the exception
+  """
+  delivery: Boolean
+  """
+  The Express Delivery fulfillment is affected by the exception
+  """
+  expressDelivery: Boolean
+}
+
+type BulkBrandLocationScheduleExceptionPayload {
+  isUpdated: Boolean
+  """
+  The first validation error that occured
+  """
+  error: BrandLocationScheduleExceptionError
+  """
+  All validation errors
+  """
+  errors: [BrandLocationScheduleExceptionError]
+}
+
+"""
+Schedule Exception for this brand location
+"""
+type BrandLocationScheduleException {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Exception name
+  """
+  name: String
+  """
+  The Brand Location identifier
+  """
+  brandLocationId: ID!
+  """
+  Schedule status, If this value is `true` then the exception will be ACTIVE, otherwise it is INACTIVE
+  """
+  status: Boolean!
+  """
+  Store will remain offline on days set to closed in operating hours
+  """
+  isClosed: Boolean!
+  """
+  The time the exception start on this date
+  """
+  startTime: String!
+  """
+  The time the exception finish on this date
+  """
+  endTime: String!
+  """
+  The Pickup fulfillment is affected by the exception
+  """
+  pickup: Boolean!
+  """
+  The Car fulfillment is affected by the exception
+  """
+  car: Boolean!
+  """
+  The Delivery fulfillment is affected by the exception
+  """
+  delivery: Boolean!
+  """
+  The Express Delivery fulfillment is affected by the exception
+  """
+  expressDelivery: Boolean!
+  """
+  Brand Location Schedule Exception created at
+  """
+  created: Datetime!
+  """
+  Brand Location Schedule Exception updated at
+  """
+  updated: Datetime!
+}
+
+enum BrandLocationScheduleExceptionError {
+  """
+  The Brand must exist
+  """
+  INVALID_BRAND
+  """
+  The Brand Location must exist
+  """
+  INVALID_BRAND_LOCATION
+  """
+  The exception can not found
+  """
+  CAN_NOT_FOUND_EXCEPTION
+  """
+  Brand location id is not matched
+  """
+  BRAND_LOCATION_ID_NOT_MATCHED
+  """
+  One fulfillment type must be chosen
+  """
+  MINIMUM_ONE_FULFILLMENT_TYPE_MUST_BE_CHOSEN
+  PICKUP_FULFILLMENT_MUST_BE_ACTIVE_FOR_EXCEPTION
+  CAR_FULFILLMENT_MUST_BE_ACTIVE_FOR_EXCEPTION
+  DELIVERY_FULFILLMENT_MUST_BE_ACTIVE_FOR_EXCEPTION
+  EXPRESS_DELIVERY_FULFILLMENT_MUST_BE_ACTIVE_FOR_EXCEPTION
+  INVALID_START_END_RANGE
+  END_TIME_MUST_BE_GREATER_CURRENT_TIME
+  ALREADY_REMOVED_EXCEPTION
+  EXISTING_EXCEPTION_OVERLAP
+  """
+  Can not save a record/s
+  """
+  TRANSACTIONAL_ERROR
+  """
+  Unauthorized process
+  """
+  UNAUTHORIZED_PROCESS
+}

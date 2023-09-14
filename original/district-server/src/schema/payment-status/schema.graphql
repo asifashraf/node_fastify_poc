@@ -1,0 +1,31 @@
+"""
+Payment status for an order Set
+"""
+type PaymentStatus {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  The order set this payment is for
+  """
+  orderSet: OrderSet!
+  """
+  When this status was added
+  """
+  datetime: Datetime!
+  """
+  Which status was added
+  """
+  name: PaymentStatusName!
+  cofePaymentError: CofePaymentError
+}
+
+
+type CofePaymentError {
+  mainErrorType: CofeMainErrorType
+  subErrorType: CofeSubErrorType
+  message: LocalizedString
+  providerCode: String
+  providerDescription: String
+}

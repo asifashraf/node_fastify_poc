@@ -1,0 +1,1971 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`brand locations can resolve neighborhoods 1`] = `
+Object {
+  "data": Object {
+    "brandLocation": Object {
+      "neighborhoods": Array [],
+    },
+  },
+}
+`;
+
+exports[`can resolve all neighborhoods 1`] = `
+Object {
+  "data": Object {
+    "neighborhoods": Array [
+      Object {
+        "id": "5765880a-aca0-456b-bc1c-9e23cbd5785d",
+        "name": Object {
+          "ar": "السلام",
+          "en": "Salam",
+        },
+      },
+      Object {
+        "id": "62b99864-eebe-4904-b985-824f8bcdff1f",
+        "name": Object {
+          "ar": "العديلية",
+          "en": "Adailiya",
+        },
+      },
+      Object {
+        "id": "78c93fc3-2864-478c-b459-a7bf4b576f59",
+        "name": Object {
+          "ar": "الدعية",
+          "en": "Daiya",
+        },
+      },
+      Object {
+        "id": "e5912a85-9fec-42a7-ac44-56751b258d23",
+        "name": Object {
+          "ar": "جابر الاحمد",
+          "en": "Jaber Al Ahmad",
+        },
+      },
+      Object {
+        "id": "815fadf8-70f9-4acc-8b79-2615d7ba64df",
+        "name": Object {
+          "ar": "منطقة التجارة الحرة الكويتية",
+          "en": "Kuwait Free Trade Zone",
+        },
+      },
+      Object {
+        "id": "c3a7c835-5354-4d9c-ba4b-cab7e545e309",
+        "name": Object {
+          "ar": "النهضة",
+          "en": "Nahda",
+        },
+      },
+      Object {
+        "id": "ed413cb4-3794-4586-823d-dabbec1fe8c3",
+        "name": Object {
+          "ar": "القيروان",
+          "en": "Qairawan",
+        },
+      },
+      Object {
+        "id": "c5b580cb-e93b-46d1-9eca-88d098f3691e",
+        "name": Object {
+          "ar": "الصالحية",
+          "en": "Salhiya",
+        },
+      },
+      Object {
+        "id": "21319c7b-a6d1-4135-a862-9c67a401a9d4",
+        "name": Object {
+          "ar": "شويخ الادارية",
+          "en": "Shuwaikh Administrative",
+        },
+      },
+      Object {
+        "id": "a769ab27-33e3-4492-b19c-639e2287d6fd",
+        "name": Object {
+          "ar": "صبحان الصناعية",
+          "en": "Sabhan Industrial",
+        },
+      },
+      Object {
+        "id": "4e56baf3-aad2-4ed5-abff-e4d1a8c91cde",
+        "name": Object {
+          "ar": "الرحاب",
+          "en": "Rehab",
+        },
+      },
+      Object {
+        "id": "a4164365-e93a-42e7-baae-8cc48e0dec05",
+        "name": Object {
+          "ar": "العقيلة",
+          "en": "Egaila",
+        },
+      },
+      Object {
+        "id": "9dbba58d-9b53-482d-8454-2b23e258a15c",
+        "name": Object {
+          "ar": "العيون",
+          "en": "Oyoun",
+        },
+      },
+      Object {
+        "id": "ea16b773-e551-4f73-8400-7e99ed2418c8",
+        "name": Object {
+          "ar": "شمال غرب الصليبخات",
+          "en": "North West Sulaibikhat",
+        },
+      },
+      Object {
+        "id": "3c75bae0-be8f-4320-91e3-f9fb7f39d765",
+        "name": Object {
+          "ar": "الأندلس",
+          "en": "Andalous",
+        },
+      },
+      Object {
+        "id": "0a840566-e585-47f4-bed1-2f3700424d5d",
+        "name": Object {
+          "ar": "جنوب الدوحة",
+          "en": "South Doha",
+        },
+      },
+      Object {
+        "id": "7d760530-3535-4965-b699-49d2997696c6",
+        "name": Object {
+          "ar": "البدع",
+          "en": "Al-Bidea",
+        },
+      },
+      Object {
+        "id": "0bf079d3-e559-4d1c-b258-e98fcdabd61b",
+        "name": Object {
+          "ar": "بيان",
+          "en": "Bayan",
+        },
+      },
+      Object {
+        "id": "ea24cf32-14cd-4e16-ab43-d70b7dde7278",
+        "name": Object {
+          "ar": "مينا عبدالله",
+          "en": "Mina Abdullah",
+        },
+      },
+      Object {
+        "id": "19245f2a-5723-47c6-a920-6f3f65dde2ff",
+        "name": Object {
+          "ar": "منطقة الوزارات",
+          "en": "Ministries Zone",
+        },
+      },
+      Object {
+        "id": "21d3e6f9-7574-4111-992e-e7fcb1841ae0",
+        "name": Object {
+          "ar": "الصباحية",
+          "en": "Sabahiya",
+        },
+      },
+      Object {
+        "id": "f3a6a94b-7580-454a-b2d6-5467b08d557f",
+        "name": Object {
+          "ar": "النزهة",
+          "en": "Nuzha",
+        },
+      },
+      Object {
+        "id": "6d9e0d85-1776-468b-bb5b-2994c39af959",
+        "name": Object {
+          "ar": "المباركية",
+          "en": "Mubarakiya Camps",
+        },
+      },
+      Object {
+        "id": "db9f8d62-fc50-4114-bb56-f662a521b247",
+        "name": Object {
+          "ar": "مشرف الغربي",
+          "en": "Mubarak Al-Abdullah - West Mishref",
+        },
+      },
+      Object {
+        "id": "f4c42549-6c93-4edc-9fe2-9b75731abd1d",
+        "name": Object {
+          "ar": "سلوى",
+          "en": "Salwa",
+        },
+      },
+      Object {
+        "id": "22b49e03-3c26-450c-8812-57d9618076c1",
+        "name": Object {
+          "ar": "الشريط الساحلي B",
+          "en": "Coast Strip B",
+        },
+      },
+      Object {
+        "id": "79a81b9c-f078-4d02-b611-9b5afc75f66d",
+        "name": Object {
+          "ar": "شرق",
+          "en": "Sharq",
+        },
+      },
+      Object {
+        "id": "a8aa4044-6e1e-462d-a3d3-136993c453d3",
+        "name": Object {
+          "ar": "ضاهر",
+          "en": "Dhaher",
+        },
+      },
+      Object {
+        "id": "19598c45-39f6-446e-ad7e-5db39b9e069c",
+        "name": Object {
+          "ar": "فهد الاحمد",
+          "en": "Fahad Al Ahmad",
+        },
+      },
+      Object {
+        "id": "6e5903c6-bcf7-412a-ae82-686b5b758814",
+        "name": Object {
+          "ar": "الفنطاس",
+          "en": "Fintas",
+        },
+      },
+      Object {
+        "id": "2518d8aa-a3b2-48cd-87b0-7e35f60b0695",
+        "name": Object {
+          "ar": "هدية",
+          "en": "Hadiya",
+        },
+      },
+      Object {
+        "id": "882ff1de-57f7-479d-ae1d-56341b7554f5",
+        "name": Object {
+          "ar": "المهبولة",
+          "en": "Mahboula",
+        },
+      },
+      Object {
+        "id": "975d2d9d-9191-4dbb-8703-8fe16bbdf9cf",
+        "name": Object {
+          "ar": "المنقف",
+          "en": "Mangaf",
+        },
+      },
+      Object {
+        "id": "2a42b133-4190-43e8-a940-164108b18824",
+        "name": Object {
+          "ar": "الرميثية",
+          "en": "Rumaithiya",
+        },
+      },
+      Object {
+        "id": "c7dc8c0c-6dcc-4cb6-b1b3-82461483b574",
+        "name": Object {
+          "ar": "شليهات دبيية",
+          "en": "Shalayhat Al Dubaiya",
+        },
+      },
+      Object {
+        "id": "b75a0313-ecf0-410a-8cc3-e24ad55210b5",
+        "name": Object {
+          "ar": "ميناء الشعيبة",
+          "en": "Port of Shuaiba",
+        },
+      },
+      Object {
+        "id": "0e6c6dd3-7d23-44bf-8419-70d6cffa08d1",
+        "name": Object {
+          "ar": "الزور",
+          "en": "Zour",
+        },
+      },
+      Object {
+        "id": "7d498565-8c07-4e67-bbe0-ee46f8d9bb8d",
+        "name": Object {
+          "ar": "الريغي",
+          "en": "Reggae",
+        },
+      },
+      Object {
+        "id": "3d074723-4c8d-4193-b0a4-2a583b081e22",
+        "name": Object {
+          "ar": "الراي",
+          "en": "Rai",
+        },
+      },
+      Object {
+        "id": "719c1188-c54b-4017-8a5a-3011453e69fd",
+        "name": Object {
+          "ar": "القبلة",
+          "en": "Qibla",
+        },
+      },
+      Object {
+        "id": "303ff942-0b6d-4f1e-bf62-f0ccfa819293",
+        "name": Object {
+          "ar": "العمرية",
+          "en": "Omariya",
+        },
+      },
+      Object {
+        "id": "86e59dc7-a5d3-46f4-b70e-a7980c04e9d2",
+        "name": Object {
+          "ar": "الجهراء",
+          "en": "Al Jahra",
+        },
+      },
+      Object {
+        "id": "2ce7db3f-20d3-4ed8-9ac8-30ab0a9c1ed8",
+        "name": Object {
+          "ar": "الصليبية",
+          "en": "Sulaibiya",
+        },
+      },
+      Object {
+        "id": "5c7de86c-c633-4776-b72f-3ed3dc7af973",
+        "name": Object {
+          "ar": "الصليبية الصناعية 2",
+          "en": "Sulaibiya Industrial 2",
+        },
+      },
+      Object {
+        "id": "0371b60d-3cd7-4e85-879d-727d0a4f83a3",
+        "name": Object {
+          "ar": "الصليبية السكنية",
+          "en": "Sulaibiya Residential",
+        },
+      },
+      Object {
+        "id": "1345422d-2b1c-405a-8700-a61c4cef0359",
+        "name": Object {
+          "ar": "نعيم",
+          "en": "Naeem",
+        },
+      },
+      Object {
+        "id": "e57662b8-2448-49ee-b791-6c59c4137a1f",
+        "name": Object {
+          "ar": "مبارك الكبير",
+          "en": "Mubarak Al-Kabeer",
+        },
+      },
+      Object {
+        "id": "ad4480bf-bcf5-4f8e-90fc-404459843a67",
+        "name": Object {
+          "ar": "حدائق السور",
+          "en": "Al Soor Gardens",
+        },
+      },
+      Object {
+        "id": "3e322992-35a7-456b-80fa-586988fd9442",
+        "name": Object {
+          "ar": "مشرف الغربي",
+          "en": "West Mishref",
+        },
+      },
+      Object {
+        "id": "c97ecbc8-e06b-4103-8f86-8820b7bb69a6",
+        "name": Object {
+          "ar": "مطار الشيخ سعد العبدالله",
+          "en": "Sheikh Saad Al Abdallah Airport",
+        },
+      },
+      Object {
+        "id": "5ec18474-5adf-40e6-9ccd-694845664979",
+        "name": Object {
+          "ar": "الشعب",
+          "en": "Shaab",
+        },
+      },
+      Object {
+        "id": "3fc6db3e-2891-4408-be1a-f9513fca5ee0",
+        "name": Object {
+          "ar": "قصر",
+          "en": "Qasr",
+        },
+      },
+      Object {
+        "id": "e0ad28b7-12a9-4fd8-8da0-cc63565db6cb",
+        "name": Object {
+          "ar": "لسالمية",
+          "en": "Salmiya",
+        },
+      },
+      Object {
+        "id": "15fb2f79-76ea-4696-ad3e-02303677dc0c",
+        "name": Object {
+          "ar": "سعد العبدالله",
+          "en": "Saad Al Abdullah",
+        },
+      },
+      Object {
+        "id": "268bec89-8269-4d31-bb4c-dadf733ff84d",
+        "name": Object {
+          "ar": "تيماء",
+          "en": "Taima",
+        },
+      },
+      Object {
+        "id": "9e6b57e9-a961-4b50-af5a-28e26c8de739",
+        "name": Object {
+          "ar": "الواحة",
+          "en": "Waha",
+        },
+      },
+      Object {
+        "id": "b1039955-9ebb-4b92-b6dd-971ace0f45ed",
+        "name": Object {
+          "ar": "الشدادية",
+          "en": "Al-Shadadiya",
+        },
+      },
+      Object {
+        "id": "86b0e909-9269-4c97-afb9-6f9c8e0bc3df",
+        "name": Object {
+          "ar": "الدوحة",
+          "en": "Doha",
+        },
+      },
+      Object {
+        "id": "cfce614a-56d5-4083-9e89-64d17505eefc",
+        "name": Object {
+          "ar": "خيطان",
+          "en": "Khaitan",
+        },
+      },
+      Object {
+        "id": "851604e9-a67a-4ed3-9d30-5d2a0f7aaa31",
+        "name": Object {
+          "ar": "الخيران",
+          "en": "Al Khiran",
+        },
+      },
+      Object {
+        "id": "e328bc48-dea0-40df-a942-3d154ea0e2f0",
+        "name": Object {
+          "ar": "القصور",
+          "en": "Al Qusor",
+        },
+      },
+      Object {
+        "id": "3c7b9bc7-859e-4779-9c17-21c89a7d2889",
+        "name": Object {
+          "ar": "الصديق",
+          "en": "Al-Siddeeq",
+        },
+      },
+      Object {
+        "id": "f434f4a3-1aba-4708-9e1a-a91764d34ef2",
+        "name": Object {
+          "ar": "أنجفة",
+          "en": "Anjafa",
+        },
+      },
+      Object {
+        "id": "c3f4c072-3057-4dfd-bd47-2784acc59581",
+        "name": Object {
+          "ar": "الفروانية",
+          "en": "Farwaniya",
+        },
+      },
+      Object {
+        "id": "3b8f5021-69eb-439b-b332-ae05bb129106",
+        "name": Object {
+          "ar": "الفردوس",
+          "en": "Ferdous",
+        },
+      },
+      Object {
+        "id": "24fd9191-c978-4ca8-8bb4-a15972e52a80",
+        "name": Object {
+          "ar": "حطين",
+          "en": "Hateen",
+        },
+      },
+      Object {
+        "id": "be32f723-3384-4dbf-956c-8830d2b52ffd",
+        "name": Object {
+          "ar": "حولي",
+          "en": "Hawally",
+        },
+      },
+      Object {
+        "id": "2ea768ea-0754-4d7b-8e33-7f804db92d9e",
+        "name": Object {
+          "ar": "جليب الشيوخ",
+          "en": "Jeleeb Al-Shuyoukh",
+        },
+      },
+      Object {
+        "id": "68b0c01e-07ec-428a-ab90-1a2f05c7b671",
+        "name": Object {
+          "ar": "كبد",
+          "en": "Kabed",
+        },
+      },
+      Object {
+        "id": "b3c0d444-abb9-4d17-88d9-10c9a9b3ce73",
+        "name": Object {
+          "ar": "ميدان حولي",
+          "en": "Maidan Hawally",
+        },
+      },
+      Object {
+        "id": "4b6108d1-6695-41e7-b779-e1c006b9c5fe",
+        "name": Object {
+          "ar": "ميناء الأحمدي",
+          "en": "Mina Al Ahmadi",
+        },
+      },
+      Object {
+        "id": "6df0b1ba-be6f-4438-b161-85ddd94c19c6",
+        "name": Object {
+          "ar": "مشرف",
+          "en": "Mishref",
+        },
+      },
+      Object {
+        "id": "7c9682b8-edcb-41e8-b893-f8c5f4056c2d",
+        "name": Object {
+          "ar": "ضاحية مبارك العبدالله",
+          "en": "Mubarak Al-Abdullah",
+        },
+      },
+      Object {
+        "id": "ced78b52-2244-403c-8e13-30830f4a819c",
+        "name": Object {
+          "ar": "صباح الناصر",
+          "en": "Sabah Al Nasser",
+        },
+      },
+      Object {
+        "id": "8f5fb9e3-86fa-43d4-b069-e881a6a056fa",
+        "name": Object {
+          "ar": "الزهراء",
+          "en": "Zahra",
+        },
+      },
+      Object {
+        "id": "dd787c15-e96c-445a-905e-2932f0544b5f",
+        "name": Object {
+          "ar": "الشهداء",
+          "en": "Shuhada",
+        },
+      },
+      Object {
+        "id": "cb56745a-a8b2-4a1a-a499-10bbe37d9dff",
+        "name": Object {
+          "ar": "عباسيه",
+          "en": "Abbasiya",
+        },
+      },
+      Object {
+        "id": "60ddce4c-9710-4999-827c-6b5b554c61e6",
+        "name": Object {
+          "ar": "العدن",
+          "en": "Adan",
+        },
+      },
+      Object {
+        "id": "d912c1b2-717d-4e19-b8ad-92fb7a19878c",
+        "name": Object {
+          "ar": "الأحمدي",
+          "en": "Ahmadi",
+        },
+      },
+      Object {
+        "id": "77f37047-b4a2-43fc-b4ca-b95597412582",
+        "name": Object {
+          "ar": "أبو حليفة",
+          "en": "Abu Halifa",
+        },
+      },
+      Object {
+        "id": "04f62788-b140-431e-a646-00db5fe9886d",
+        "name": Object {
+          "ar": "عبدالله السالم",
+          "en": "Abdullah Al-Salem",
+        },
+      },
+      Object {
+        "id": "22b5e8e9-adb2-487a-8157-36aa4bbc367d",
+        "name": Object {
+          "ar": "بنيد القار",
+          "en": "Bneid Al Qar",
+        },
+      },
+      Object {
+        "id": "32913a88-5f8d-407c-9b03-a05f4bf641c7",
+        "name": Object {
+          "ar": "الدسمة",
+          "en": "Dasma",
+        },
+      },
+      Object {
+        "id": "a78461b2-42ae-40c0-bf6c-1461366df3f1",
+        "name": Object {
+          "ar": "دسمان",
+          "en": "Dasman",
+        },
+      },
+      Object {
+        "id": "3412aa3a-2756-4ed5-8339-0919232159bc",
+        "name": Object {
+          "ar": "غراندا",
+          "en": "Granada",
+        },
+      },
+      Object {
+        "id": "172ffcc7-61da-4d3d-b05f-1e50119e93d9",
+        "name": Object {
+          "ar": "جبلة",
+          "en": "Jibla",
+        },
+      },
+      Object {
+        "id": "02b6b906-3c5b-4ee6-a0a8-2b0dba93fe30",
+        "name": Object {
+          "ar": "كيفان",
+          "en": "Kaifan",
+        },
+      },
+      Object {
+        "id": "3677e99b-a8be-477f-9231-ac9efab57fb4",
+        "name": Object {
+          "ar": "مدينة الكويت",
+          "en": "Kuwait City",
+        },
+      },
+      Object {
+        "id": "57e99499-a6ec-49ed-81ac-676e0cba58de",
+        "name": Object {
+          "ar": "المنصورية",
+          "en": "Mansouriya",
+        },
+      },
+      Object {
+        "id": "753eb8c5-a748-4117-81fd-42dd33da15d8",
+        "name": Object {
+          "ar": "المرقاب",
+          "en": "Mirqab",
+        },
+      },
+      Object {
+        "id": "86bb70b2-7792-4faf-8419-cb5c5a062b89",
+        "name": Object {
+          "ar": "القادسية",
+          "en": "Qadsiya",
+        },
+      },
+      Object {
+        "id": "08242df3-0548-4ae3-bc7a-75fab95d9537",
+        "name": Object {
+          "ar": "قرطبة",
+          "en": "Qortuba",
+        },
+      },
+      Object {
+        "id": "5c3ffd13-681f-4375-945d-b94c80eddc04",
+        "name": Object {
+          "ar": "الروضة",
+          "en": "Rawda",
+        },
+      },
+      Object {
+        "id": "1fcfe4ec-2cc2-4db3-a30a-71d33833e762",
+        "name": Object {
+          "ar": "الشامية",
+          "en": "Shamiya",
+        },
+      },
+      Object {
+        "id": "b6fd97c2-5e22-4ab2-a447-7a9db3ec2f6f",
+        "name": Object {
+          "ar": "الشويخ",
+          "en": "Shuwaikh",
+        },
+      },
+      Object {
+        "id": "155fbd2f-485f-4592-afd4-bba28c0a2085",
+        "name": Object {
+          "ar": "شويخ التعليمية",
+          "en": "Shuwaikh Educational",
+        },
+      },
+      Object {
+        "id": "ec638ef3-35b2-4816-9a8f-49cf61dea531",
+        "name": Object {
+          "ar": "شويخ الصناعية 2",
+          "en": "Shuwaikh Industrial 2",
+        },
+      },
+      Object {
+        "id": "078eb2b0-8fe9-4999-acd9-4812864678d4",
+        "name": Object {
+          "ar": "شويخ الطبية",
+          "en": "Shuwaikh Medical",
+        },
+      },
+      Object {
+        "id": "a0e1d73b-3c4d-4775-acb8-900759787455",
+        "name": Object {
+          "ar": "الصليبخات",
+          "en": "Sulaibikhat",
+        },
+      },
+      Object {
+        "id": "4789109e-ca3a-41f3-867d-b344d5f620f5",
+        "name": Object {
+          "ar": "السرة",
+          "en": "Surra",
+        },
+      },
+      Object {
+        "id": "b82ef835-a494-4c7f-b3fd-7e282a75ed19",
+        "name": Object {
+          "ar": "اليرموك",
+          "en": "Yarmouk",
+        },
+      },
+      Object {
+        "id": "83ee1216-26fe-48e3-a3d1-a0f2a2092407",
+        "name": Object {
+          "ar": "ابو فطيرة",
+          "en": "Abu Fatira",
+        },
+      },
+      Object {
+        "id": "1f94d633-1bc9-4c46-8082-af6d169c6408",
+        "name": Object {
+          "ar": "المسايل",
+          "en": "Al Masayel",
+        },
+      },
+      Object {
+        "id": "8208c975-bb8f-4a0f-9427-ac7a31c20253",
+        "name": Object {
+          "ar": "القرين",
+          "en": "Fnaitees",
+        },
+      },
+      Object {
+        "id": "ef6104d2-824c-4097-afca-0f63e27fc3dd",
+        "name": Object {
+          "ar": "مبارك الكبير",
+          "en": "Mubarak Al Kabeer",
+        },
+      },
+      Object {
+        "id": "0acf385b-dbc7-4a80-b9ce-b93ee238846b",
+        "name": Object {
+          "ar": "صباح السالم",
+          "en": "Sabah Al-Salem",
+        },
+      },
+      Object {
+        "id": "9aeef8b1-885d-46d3-956d-5422d92c185e",
+        "name": Object {
+          "ar": "وسطى",
+          "en": "Wista",
+        },
+      },
+      Object {
+        "id": "ec497b03-2030-448c-b9d7-418a81dedee5",
+        "name": Object {
+          "ar": "علي صباح السالم",
+          "en": "Ali Sabah Al Salem",
+        },
+      },
+      Object {
+        "id": "08511575-16c2-40c5-911c-d5c812c86800",
+        "name": Object {
+          "ar": "النويصيب",
+          "en": "Al-Nuwaiseeb",
+        },
+      },
+      Object {
+        "id": "0e00c2a4-86c8-47be-9cf8-b41a27f8beeb",
+        "name": Object {
+          "ar": "الرقة",
+          "en": "Al-Riqqa",
+        },
+      },
+      Object {
+        "id": "09ea9033-9337-409e-a972-df37d24dfa24",
+        "name": Object {
+          "ar": "بنيدر",
+          "en": "Bnaider",
+        },
+      },
+      Object {
+        "id": "07984a4d-b9fc-4bdd-b778-64688324b67d",
+        "name": Object {
+          "ar": "ربيعة",
+          "en": "Rabia",
+        },
+      },
+      Object {
+        "id": "2ee717d7-f5af-4e5b-b0cb-20c4e10d5346",
+        "name": Object {
+          "ar": "عبدالله المبارك الصباح",
+          "en": "Abdullah Al Mubarak Al Sabah",
+        },
+      },
+      Object {
+        "id": "bcafb022-b052-47ef-8597-f48bbc9e14e7",
+        "name": Object {
+          "ar": "الصحراء",
+          "en": "Sahara",
+        },
+      },
+      Object {
+        "id": "15bc1642-7337-45ab-8884-248f7908f32f",
+        "name": Object {
+          "ar": "الفيحاء",
+          "en": "Faiha",
+        },
+      },
+      Object {
+        "id": "f1ad3549-f3b0-43e0-957c-e15a8a01d2d0",
+        "name": Object {
+          "ar": "الخالدية",
+          "en": "Khaldiya",
+        },
+      },
+      Object {
+        "id": "02aedb90-0995-4e6c-a9ba-6d80bc40258e",
+        "name": Object {
+          "ar": "شويخ الصناعية 1",
+          "en": "Shuwaikh Industrial 1",
+        },
+      },
+      Object {
+        "id": "8b326316-d3c7-42f9-b696-c894ed8bee79",
+        "name": Object {
+          "ar": "شويخ الصناعية 3",
+          "en": "Shuwaikh Industrial 3",
+        },
+      },
+      Object {
+        "id": "a563043d-8ebb-42a2-9a88-7d2683d2d2bb",
+        "name": Object {
+          "ar": "شويخ السكنية",
+          "en": "Shuwaikh Residential",
+        },
+      },
+      Object {
+        "id": "0d0430d3-eebb-47db-ac7c-d3f31e3761e8",
+        "name": Object {
+          "ar": "ابو الحصانية",
+          "en": "Abu Al Hasaniya",
+        },
+      },
+      Object {
+        "id": "472e4f36-9e68-4ad9-9cc5-af34526c29d7",
+        "name": Object {
+          "ar": "المسيلة",
+          "en": "Messila",
+        },
+      },
+      Object {
+        "id": "7e115bbd-d407-4c4a-938a-b602526465b9",
+        "name": Object {
+          "ar": "القرين",
+          "en": "Qurain",
+        },
+      },
+      Object {
+        "id": "f167e6c8-cd2d-4957-89a2-d974be278b43",
+        "name": Object {
+          "ar": "الجليعة",
+          "en": "Al Julaia'a",
+        },
+      },
+      Object {
+        "id": "ce47b6b6-a64b-4476-9dd5-83244f85f53d",
+        "name": Object {
+          "ar": "الوفرة",
+          "en": "Al Wafrah",
+        },
+      },
+      Object {
+        "id": "db6a127d-37fd-4dd4-9082-a1e609a60d21",
+        "name": Object {
+          "ar": "الفحيحيل",
+          "en": "Fahaheel",
+        },
+      },
+      Object {
+        "id": "ad5099fb-977d-4b28-bdb2-25d80705f196",
+        "name": Object {
+          "ar": "جابر العلي",
+          "en": "Jaber Al Ali",
+        },
+      },
+      Object {
+        "id": "02b60f20-b984-4232-8b43-7c6cc75b9a3a",
+        "name": Object {
+          "ar": "صباح الأحمد السكنية",
+          "en": "Sabah Al Ahmad Residential",
+        },
+      },
+      Object {
+        "id": "ea598d51-7bdf-4e97-8e2a-1e59daeb605b",
+        "name": Object {
+          "ar": "شليهات ميناء عبدالله",
+          "en": "Shalayhat Mina Abdullah",
+        },
+      },
+      Object {
+        "id": "d14fc685-1f52-4a90-b3ea-a0533e579480",
+        "name": Object {
+          "ar": "غرب أبو فطيرة الحرفية",
+          "en": "West of Abu Fatira Al-Herafia",
+        },
+      },
+      Object {
+        "id": "75cf3a36-d0f1-476e-9911-5610afba187f",
+        "name": Object {
+          "ar": "الصليبية الصناعية 1",
+          "en": "Sulaibiya Industrial 1",
+        },
+      },
+      Object {
+        "id": "a34d387b-d20d-41d3-be19-d740fcd9b685",
+        "name": Object {
+          "ar": "أمغرة المنطقة الصناعية",
+          "en": "Amgarah Industrial Area",
+        },
+      },
+      Object {
+        "id": "b04c2dd0-a8ca-4194-ad95-a09f3c318521",
+        "name": Object {
+          "ar": "النسيم",
+          "en": "Nasseem",
+        },
+      },
+      Object {
+        "id": "d474b38d-a393-40d1-a369-c7e01657e56f",
+        "name": Object {
+          "ar": "الضجيج",
+          "en": "Al-Dajeej",
+        },
+      },
+      Object {
+        "id": "e6eaf263-5bf4-436f-aa8d-c1f3ae62093a",
+        "name": Object {
+          "ar": "العارضية",
+          "en": "Al-Ardiya",
+        },
+      },
+      Object {
+        "id": "c5a2c41a-bc04-48e9-bc5a-12ef9e015416",
+        "name": Object {
+          "ar": "جنوب خيطان",
+          "en": "South Khaitan",
+        },
+      },
+      Object {
+        "id": "593b5062-0dbe-4e6d-a6da-f1a5e15d9afb",
+        "name": Object {
+          "ar": "إشبيلية",
+          "en": "Ishbiliya",
+        },
+      },
+      Object {
+        "id": "ac8ed4ba-6a09-47e0-8c2a-8ed235fa3f22",
+        "name": Object {
+          "ar": "الجابرية",
+          "en": "Jabriya",
+        },
+      },
+      Object {
+        "id": "1d72dc6c-fddf-4a2e-a1b5-7c54dbf52b83",
+        "name": Object {
+          "ar": "مطار الكويت الدولي",
+          "en": "Kuwait International Airport",
+        },
+      },
+    ],
+  },
+}
+`;
+
+exports[`configuration can resolve neighborhoods 1`] = `
+Object {
+  "data": Object {
+    "config": Object {
+      "neighborhoods": Array [
+        Object {
+          "id": "5765880a-aca0-456b-bc1c-9e23cbd5785d",
+          "name": Object {
+            "ar": "السلام",
+            "en": "Salam",
+          },
+        },
+        Object {
+          "id": "62b99864-eebe-4904-b985-824f8bcdff1f",
+          "name": Object {
+            "ar": "العديلية",
+            "en": "Adailiya",
+          },
+        },
+        Object {
+          "id": "78c93fc3-2864-478c-b459-a7bf4b576f59",
+          "name": Object {
+            "ar": "الدعية",
+            "en": "Daiya",
+          },
+        },
+        Object {
+          "id": "e5912a85-9fec-42a7-ac44-56751b258d23",
+          "name": Object {
+            "ar": "جابر الاحمد",
+            "en": "Jaber Al Ahmad",
+          },
+        },
+        Object {
+          "id": "815fadf8-70f9-4acc-8b79-2615d7ba64df",
+          "name": Object {
+            "ar": "منطقة التجارة الحرة الكويتية",
+            "en": "Kuwait Free Trade Zone",
+          },
+        },
+        Object {
+          "id": "c3a7c835-5354-4d9c-ba4b-cab7e545e309",
+          "name": Object {
+            "ar": "النهضة",
+            "en": "Nahda",
+          },
+        },
+        Object {
+          "id": "ed413cb4-3794-4586-823d-dabbec1fe8c3",
+          "name": Object {
+            "ar": "القيروان",
+            "en": "Qairawan",
+          },
+        },
+        Object {
+          "id": "c5b580cb-e93b-46d1-9eca-88d098f3691e",
+          "name": Object {
+            "ar": "الصالحية",
+            "en": "Salhiya",
+          },
+        },
+        Object {
+          "id": "21319c7b-a6d1-4135-a862-9c67a401a9d4",
+          "name": Object {
+            "ar": "شويخ الادارية",
+            "en": "Shuwaikh Administrative",
+          },
+        },
+        Object {
+          "id": "a769ab27-33e3-4492-b19c-639e2287d6fd",
+          "name": Object {
+            "ar": "صبحان الصناعية",
+            "en": "Sabhan Industrial",
+          },
+        },
+        Object {
+          "id": "4e56baf3-aad2-4ed5-abff-e4d1a8c91cde",
+          "name": Object {
+            "ar": "الرحاب",
+            "en": "Rehab",
+          },
+        },
+        Object {
+          "id": "a4164365-e93a-42e7-baae-8cc48e0dec05",
+          "name": Object {
+            "ar": "العقيلة",
+            "en": "Egaila",
+          },
+        },
+        Object {
+          "id": "9dbba58d-9b53-482d-8454-2b23e258a15c",
+          "name": Object {
+            "ar": "العيون",
+            "en": "Oyoun",
+          },
+        },
+        Object {
+          "id": "ea16b773-e551-4f73-8400-7e99ed2418c8",
+          "name": Object {
+            "ar": "شمال غرب الصليبخات",
+            "en": "North West Sulaibikhat",
+          },
+        },
+        Object {
+          "id": "3c75bae0-be8f-4320-91e3-f9fb7f39d765",
+          "name": Object {
+            "ar": "الأندلس",
+            "en": "Andalous",
+          },
+        },
+        Object {
+          "id": "0a840566-e585-47f4-bed1-2f3700424d5d",
+          "name": Object {
+            "ar": "جنوب الدوحة",
+            "en": "South Doha",
+          },
+        },
+        Object {
+          "id": "7d760530-3535-4965-b699-49d2997696c6",
+          "name": Object {
+            "ar": "البدع",
+            "en": "Al-Bidea",
+          },
+        },
+        Object {
+          "id": "0bf079d3-e559-4d1c-b258-e98fcdabd61b",
+          "name": Object {
+            "ar": "بيان",
+            "en": "Bayan",
+          },
+        },
+        Object {
+          "id": "ea24cf32-14cd-4e16-ab43-d70b7dde7278",
+          "name": Object {
+            "ar": "مينا عبدالله",
+            "en": "Mina Abdullah",
+          },
+        },
+        Object {
+          "id": "19245f2a-5723-47c6-a920-6f3f65dde2ff",
+          "name": Object {
+            "ar": "منطقة الوزارات",
+            "en": "Ministries Zone",
+          },
+        },
+        Object {
+          "id": "21d3e6f9-7574-4111-992e-e7fcb1841ae0",
+          "name": Object {
+            "ar": "الصباحية",
+            "en": "Sabahiya",
+          },
+        },
+        Object {
+          "id": "f3a6a94b-7580-454a-b2d6-5467b08d557f",
+          "name": Object {
+            "ar": "النزهة",
+            "en": "Nuzha",
+          },
+        },
+        Object {
+          "id": "6d9e0d85-1776-468b-bb5b-2994c39af959",
+          "name": Object {
+            "ar": "المباركية",
+            "en": "Mubarakiya Camps",
+          },
+        },
+        Object {
+          "id": "db9f8d62-fc50-4114-bb56-f662a521b247",
+          "name": Object {
+            "ar": "مشرف الغربي",
+            "en": "Mubarak Al-Abdullah - West Mishref",
+          },
+        },
+        Object {
+          "id": "f4c42549-6c93-4edc-9fe2-9b75731abd1d",
+          "name": Object {
+            "ar": "سلوى",
+            "en": "Salwa",
+          },
+        },
+        Object {
+          "id": "22b49e03-3c26-450c-8812-57d9618076c1",
+          "name": Object {
+            "ar": "الشريط الساحلي B",
+            "en": "Coast Strip B",
+          },
+        },
+        Object {
+          "id": "79a81b9c-f078-4d02-b611-9b5afc75f66d",
+          "name": Object {
+            "ar": "شرق",
+            "en": "Sharq",
+          },
+        },
+        Object {
+          "id": "a8aa4044-6e1e-462d-a3d3-136993c453d3",
+          "name": Object {
+            "ar": "ضاهر",
+            "en": "Dhaher",
+          },
+        },
+        Object {
+          "id": "19598c45-39f6-446e-ad7e-5db39b9e069c",
+          "name": Object {
+            "ar": "فهد الاحمد",
+            "en": "Fahad Al Ahmad",
+          },
+        },
+        Object {
+          "id": "6e5903c6-bcf7-412a-ae82-686b5b758814",
+          "name": Object {
+            "ar": "الفنطاس",
+            "en": "Fintas",
+          },
+        },
+        Object {
+          "id": "2518d8aa-a3b2-48cd-87b0-7e35f60b0695",
+          "name": Object {
+            "ar": "هدية",
+            "en": "Hadiya",
+          },
+        },
+        Object {
+          "id": "882ff1de-57f7-479d-ae1d-56341b7554f5",
+          "name": Object {
+            "ar": "المهبولة",
+            "en": "Mahboula",
+          },
+        },
+        Object {
+          "id": "975d2d9d-9191-4dbb-8703-8fe16bbdf9cf",
+          "name": Object {
+            "ar": "المنقف",
+            "en": "Mangaf",
+          },
+        },
+        Object {
+          "id": "2a42b133-4190-43e8-a940-164108b18824",
+          "name": Object {
+            "ar": "الرميثية",
+            "en": "Rumaithiya",
+          },
+        },
+        Object {
+          "id": "c7dc8c0c-6dcc-4cb6-b1b3-82461483b574",
+          "name": Object {
+            "ar": "شليهات دبيية",
+            "en": "Shalayhat Al Dubaiya",
+          },
+        },
+        Object {
+          "id": "b75a0313-ecf0-410a-8cc3-e24ad55210b5",
+          "name": Object {
+            "ar": "ميناء الشعيبة",
+            "en": "Port of Shuaiba",
+          },
+        },
+        Object {
+          "id": "0e6c6dd3-7d23-44bf-8419-70d6cffa08d1",
+          "name": Object {
+            "ar": "الزور",
+            "en": "Zour",
+          },
+        },
+        Object {
+          "id": "7d498565-8c07-4e67-bbe0-ee46f8d9bb8d",
+          "name": Object {
+            "ar": "الريغي",
+            "en": "Reggae",
+          },
+        },
+        Object {
+          "id": "3d074723-4c8d-4193-b0a4-2a583b081e22",
+          "name": Object {
+            "ar": "الراي",
+            "en": "Rai",
+          },
+        },
+        Object {
+          "id": "719c1188-c54b-4017-8a5a-3011453e69fd",
+          "name": Object {
+            "ar": "القبلة",
+            "en": "Qibla",
+          },
+        },
+        Object {
+          "id": "303ff942-0b6d-4f1e-bf62-f0ccfa819293",
+          "name": Object {
+            "ar": "العمرية",
+            "en": "Omariya",
+          },
+        },
+        Object {
+          "id": "86e59dc7-a5d3-46f4-b70e-a7980c04e9d2",
+          "name": Object {
+            "ar": "الجهراء",
+            "en": "Al Jahra",
+          },
+        },
+        Object {
+          "id": "2ce7db3f-20d3-4ed8-9ac8-30ab0a9c1ed8",
+          "name": Object {
+            "ar": "الصليبية",
+            "en": "Sulaibiya",
+          },
+        },
+        Object {
+          "id": "5c7de86c-c633-4776-b72f-3ed3dc7af973",
+          "name": Object {
+            "ar": "الصليبية الصناعية 2",
+            "en": "Sulaibiya Industrial 2",
+          },
+        },
+        Object {
+          "id": "0371b60d-3cd7-4e85-879d-727d0a4f83a3",
+          "name": Object {
+            "ar": "الصليبية السكنية",
+            "en": "Sulaibiya Residential",
+          },
+        },
+        Object {
+          "id": "1345422d-2b1c-405a-8700-a61c4cef0359",
+          "name": Object {
+            "ar": "نعيم",
+            "en": "Naeem",
+          },
+        },
+        Object {
+          "id": "e57662b8-2448-49ee-b791-6c59c4137a1f",
+          "name": Object {
+            "ar": "مبارك الكبير",
+            "en": "Mubarak Al-Kabeer",
+          },
+        },
+        Object {
+          "id": "ad4480bf-bcf5-4f8e-90fc-404459843a67",
+          "name": Object {
+            "ar": "حدائق السور",
+            "en": "Al Soor Gardens",
+          },
+        },
+        Object {
+          "id": "3e322992-35a7-456b-80fa-586988fd9442",
+          "name": Object {
+            "ar": "مشرف الغربي",
+            "en": "West Mishref",
+          },
+        },
+        Object {
+          "id": "c97ecbc8-e06b-4103-8f86-8820b7bb69a6",
+          "name": Object {
+            "ar": "مطار الشيخ سعد العبدالله",
+            "en": "Sheikh Saad Al Abdallah Airport",
+          },
+        },
+        Object {
+          "id": "5ec18474-5adf-40e6-9ccd-694845664979",
+          "name": Object {
+            "ar": "الشعب",
+            "en": "Shaab",
+          },
+        },
+        Object {
+          "id": "3fc6db3e-2891-4408-be1a-f9513fca5ee0",
+          "name": Object {
+            "ar": "قصر",
+            "en": "Qasr",
+          },
+        },
+        Object {
+          "id": "e0ad28b7-12a9-4fd8-8da0-cc63565db6cb",
+          "name": Object {
+            "ar": "لسالمية",
+            "en": "Salmiya",
+          },
+        },
+        Object {
+          "id": "15fb2f79-76ea-4696-ad3e-02303677dc0c",
+          "name": Object {
+            "ar": "سعد العبدالله",
+            "en": "Saad Al Abdullah",
+          },
+        },
+        Object {
+          "id": "268bec89-8269-4d31-bb4c-dadf733ff84d",
+          "name": Object {
+            "ar": "تيماء",
+            "en": "Taima",
+          },
+        },
+        Object {
+          "id": "9e6b57e9-a961-4b50-af5a-28e26c8de739",
+          "name": Object {
+            "ar": "الواحة",
+            "en": "Waha",
+          },
+        },
+        Object {
+          "id": "b1039955-9ebb-4b92-b6dd-971ace0f45ed",
+          "name": Object {
+            "ar": "الشدادية",
+            "en": "Al-Shadadiya",
+          },
+        },
+        Object {
+          "id": "86b0e909-9269-4c97-afb9-6f9c8e0bc3df",
+          "name": Object {
+            "ar": "الدوحة",
+            "en": "Doha",
+          },
+        },
+        Object {
+          "id": "cfce614a-56d5-4083-9e89-64d17505eefc",
+          "name": Object {
+            "ar": "خيطان",
+            "en": "Khaitan",
+          },
+        },
+        Object {
+          "id": "851604e9-a67a-4ed3-9d30-5d2a0f7aaa31",
+          "name": Object {
+            "ar": "الخيران",
+            "en": "Al Khiran",
+          },
+        },
+        Object {
+          "id": "e328bc48-dea0-40df-a942-3d154ea0e2f0",
+          "name": Object {
+            "ar": "القصور",
+            "en": "Al Qusor",
+          },
+        },
+        Object {
+          "id": "3c7b9bc7-859e-4779-9c17-21c89a7d2889",
+          "name": Object {
+            "ar": "الصديق",
+            "en": "Al-Siddeeq",
+          },
+        },
+        Object {
+          "id": "f434f4a3-1aba-4708-9e1a-a91764d34ef2",
+          "name": Object {
+            "ar": "أنجفة",
+            "en": "Anjafa",
+          },
+        },
+        Object {
+          "id": "c3f4c072-3057-4dfd-bd47-2784acc59581",
+          "name": Object {
+            "ar": "الفروانية",
+            "en": "Farwaniya",
+          },
+        },
+        Object {
+          "id": "3b8f5021-69eb-439b-b332-ae05bb129106",
+          "name": Object {
+            "ar": "الفردوس",
+            "en": "Ferdous",
+          },
+        },
+        Object {
+          "id": "24fd9191-c978-4ca8-8bb4-a15972e52a80",
+          "name": Object {
+            "ar": "حطين",
+            "en": "Hateen",
+          },
+        },
+        Object {
+          "id": "be32f723-3384-4dbf-956c-8830d2b52ffd",
+          "name": Object {
+            "ar": "حولي",
+            "en": "Hawally",
+          },
+        },
+        Object {
+          "id": "2ea768ea-0754-4d7b-8e33-7f804db92d9e",
+          "name": Object {
+            "ar": "جليب الشيوخ",
+            "en": "Jeleeb Al-Shuyoukh",
+          },
+        },
+        Object {
+          "id": "68b0c01e-07ec-428a-ab90-1a2f05c7b671",
+          "name": Object {
+            "ar": "كبد",
+            "en": "Kabed",
+          },
+        },
+        Object {
+          "id": "b3c0d444-abb9-4d17-88d9-10c9a9b3ce73",
+          "name": Object {
+            "ar": "ميدان حولي",
+            "en": "Maidan Hawally",
+          },
+        },
+        Object {
+          "id": "4b6108d1-6695-41e7-b779-e1c006b9c5fe",
+          "name": Object {
+            "ar": "ميناء الأحمدي",
+            "en": "Mina Al Ahmadi",
+          },
+        },
+        Object {
+          "id": "6df0b1ba-be6f-4438-b161-85ddd94c19c6",
+          "name": Object {
+            "ar": "مشرف",
+            "en": "Mishref",
+          },
+        },
+        Object {
+          "id": "7c9682b8-edcb-41e8-b893-f8c5f4056c2d",
+          "name": Object {
+            "ar": "ضاحية مبارك العبدالله",
+            "en": "Mubarak Al-Abdullah",
+          },
+        },
+        Object {
+          "id": "ced78b52-2244-403c-8e13-30830f4a819c",
+          "name": Object {
+            "ar": "صباح الناصر",
+            "en": "Sabah Al Nasser",
+          },
+        },
+        Object {
+          "id": "8f5fb9e3-86fa-43d4-b069-e881a6a056fa",
+          "name": Object {
+            "ar": "الزهراء",
+            "en": "Zahra",
+          },
+        },
+        Object {
+          "id": "dd787c15-e96c-445a-905e-2932f0544b5f",
+          "name": Object {
+            "ar": "الشهداء",
+            "en": "Shuhada",
+          },
+        },
+        Object {
+          "id": "cb56745a-a8b2-4a1a-a499-10bbe37d9dff",
+          "name": Object {
+            "ar": "عباسيه",
+            "en": "Abbasiya",
+          },
+        },
+        Object {
+          "id": "60ddce4c-9710-4999-827c-6b5b554c61e6",
+          "name": Object {
+            "ar": "العدن",
+            "en": "Adan",
+          },
+        },
+        Object {
+          "id": "d912c1b2-717d-4e19-b8ad-92fb7a19878c",
+          "name": Object {
+            "ar": "الأحمدي",
+            "en": "Ahmadi",
+          },
+        },
+        Object {
+          "id": "77f37047-b4a2-43fc-b4ca-b95597412582",
+          "name": Object {
+            "ar": "أبو حليفة",
+            "en": "Abu Halifa",
+          },
+        },
+        Object {
+          "id": "04f62788-b140-431e-a646-00db5fe9886d",
+          "name": Object {
+            "ar": "عبدالله السالم",
+            "en": "Abdullah Al-Salem",
+          },
+        },
+        Object {
+          "id": "22b5e8e9-adb2-487a-8157-36aa4bbc367d",
+          "name": Object {
+            "ar": "بنيد القار",
+            "en": "Bneid Al Qar",
+          },
+        },
+        Object {
+          "id": "32913a88-5f8d-407c-9b03-a05f4bf641c7",
+          "name": Object {
+            "ar": "الدسمة",
+            "en": "Dasma",
+          },
+        },
+        Object {
+          "id": "a78461b2-42ae-40c0-bf6c-1461366df3f1",
+          "name": Object {
+            "ar": "دسمان",
+            "en": "Dasman",
+          },
+        },
+        Object {
+          "id": "3412aa3a-2756-4ed5-8339-0919232159bc",
+          "name": Object {
+            "ar": "غراندا",
+            "en": "Granada",
+          },
+        },
+        Object {
+          "id": "172ffcc7-61da-4d3d-b05f-1e50119e93d9",
+          "name": Object {
+            "ar": "جبلة",
+            "en": "Jibla",
+          },
+        },
+        Object {
+          "id": "02b6b906-3c5b-4ee6-a0a8-2b0dba93fe30",
+          "name": Object {
+            "ar": "كيفان",
+            "en": "Kaifan",
+          },
+        },
+        Object {
+          "id": "3677e99b-a8be-477f-9231-ac9efab57fb4",
+          "name": Object {
+            "ar": "مدينة الكويت",
+            "en": "Kuwait City",
+          },
+        },
+        Object {
+          "id": "57e99499-a6ec-49ed-81ac-676e0cba58de",
+          "name": Object {
+            "ar": "المنصورية",
+            "en": "Mansouriya",
+          },
+        },
+        Object {
+          "id": "753eb8c5-a748-4117-81fd-42dd33da15d8",
+          "name": Object {
+            "ar": "المرقاب",
+            "en": "Mirqab",
+          },
+        },
+        Object {
+          "id": "86bb70b2-7792-4faf-8419-cb5c5a062b89",
+          "name": Object {
+            "ar": "القادسية",
+            "en": "Qadsiya",
+          },
+        },
+        Object {
+          "id": "08242df3-0548-4ae3-bc7a-75fab95d9537",
+          "name": Object {
+            "ar": "قرطبة",
+            "en": "Qortuba",
+          },
+        },
+        Object {
+          "id": "5c3ffd13-681f-4375-945d-b94c80eddc04",
+          "name": Object {
+            "ar": "الروضة",
+            "en": "Rawda",
+          },
+        },
+        Object {
+          "id": "1fcfe4ec-2cc2-4db3-a30a-71d33833e762",
+          "name": Object {
+            "ar": "الشامية",
+            "en": "Shamiya",
+          },
+        },
+        Object {
+          "id": "b6fd97c2-5e22-4ab2-a447-7a9db3ec2f6f",
+          "name": Object {
+            "ar": "الشويخ",
+            "en": "Shuwaikh",
+          },
+        },
+        Object {
+          "id": "155fbd2f-485f-4592-afd4-bba28c0a2085",
+          "name": Object {
+            "ar": "شويخ التعليمية",
+            "en": "Shuwaikh Educational",
+          },
+        },
+        Object {
+          "id": "ec638ef3-35b2-4816-9a8f-49cf61dea531",
+          "name": Object {
+            "ar": "شويخ الصناعية 2",
+            "en": "Shuwaikh Industrial 2",
+          },
+        },
+        Object {
+          "id": "078eb2b0-8fe9-4999-acd9-4812864678d4",
+          "name": Object {
+            "ar": "شويخ الطبية",
+            "en": "Shuwaikh Medical",
+          },
+        },
+        Object {
+          "id": "a0e1d73b-3c4d-4775-acb8-900759787455",
+          "name": Object {
+            "ar": "الصليبخات",
+            "en": "Sulaibikhat",
+          },
+        },
+        Object {
+          "id": "4789109e-ca3a-41f3-867d-b344d5f620f5",
+          "name": Object {
+            "ar": "السرة",
+            "en": "Surra",
+          },
+        },
+        Object {
+          "id": "b82ef835-a494-4c7f-b3fd-7e282a75ed19",
+          "name": Object {
+            "ar": "اليرموك",
+            "en": "Yarmouk",
+          },
+        },
+        Object {
+          "id": "83ee1216-26fe-48e3-a3d1-a0f2a2092407",
+          "name": Object {
+            "ar": "ابو فطيرة",
+            "en": "Abu Fatira",
+          },
+        },
+        Object {
+          "id": "1f94d633-1bc9-4c46-8082-af6d169c6408",
+          "name": Object {
+            "ar": "المسايل",
+            "en": "Al Masayel",
+          },
+        },
+        Object {
+          "id": "8208c975-bb8f-4a0f-9427-ac7a31c20253",
+          "name": Object {
+            "ar": "القرين",
+            "en": "Fnaitees",
+          },
+        },
+        Object {
+          "id": "ef6104d2-824c-4097-afca-0f63e27fc3dd",
+          "name": Object {
+            "ar": "مبارك الكبير",
+            "en": "Mubarak Al Kabeer",
+          },
+        },
+        Object {
+          "id": "0acf385b-dbc7-4a80-b9ce-b93ee238846b",
+          "name": Object {
+            "ar": "صباح السالم",
+            "en": "Sabah Al-Salem",
+          },
+        },
+        Object {
+          "id": "9aeef8b1-885d-46d3-956d-5422d92c185e",
+          "name": Object {
+            "ar": "وسطى",
+            "en": "Wista",
+          },
+        },
+        Object {
+          "id": "ec497b03-2030-448c-b9d7-418a81dedee5",
+          "name": Object {
+            "ar": "علي صباح السالم",
+            "en": "Ali Sabah Al Salem",
+          },
+        },
+        Object {
+          "id": "08511575-16c2-40c5-911c-d5c812c86800",
+          "name": Object {
+            "ar": "النويصيب",
+            "en": "Al-Nuwaiseeb",
+          },
+        },
+        Object {
+          "id": "0e00c2a4-86c8-47be-9cf8-b41a27f8beeb",
+          "name": Object {
+            "ar": "الرقة",
+            "en": "Al-Riqqa",
+          },
+        },
+        Object {
+          "id": "09ea9033-9337-409e-a972-df37d24dfa24",
+          "name": Object {
+            "ar": "بنيدر",
+            "en": "Bnaider",
+          },
+        },
+        Object {
+          "id": "07984a4d-b9fc-4bdd-b778-64688324b67d",
+          "name": Object {
+            "ar": "ربيعة",
+            "en": "Rabia",
+          },
+        },
+        Object {
+          "id": "2ee717d7-f5af-4e5b-b0cb-20c4e10d5346",
+          "name": Object {
+            "ar": "عبدالله المبارك الصباح",
+            "en": "Abdullah Al Mubarak Al Sabah",
+          },
+        },
+        Object {
+          "id": "bcafb022-b052-47ef-8597-f48bbc9e14e7",
+          "name": Object {
+            "ar": "الصحراء",
+            "en": "Sahara",
+          },
+        },
+        Object {
+          "id": "15bc1642-7337-45ab-8884-248f7908f32f",
+          "name": Object {
+            "ar": "الفيحاء",
+            "en": "Faiha",
+          },
+        },
+        Object {
+          "id": "f1ad3549-f3b0-43e0-957c-e15a8a01d2d0",
+          "name": Object {
+            "ar": "الخالدية",
+            "en": "Khaldiya",
+          },
+        },
+        Object {
+          "id": "02aedb90-0995-4e6c-a9ba-6d80bc40258e",
+          "name": Object {
+            "ar": "شويخ الصناعية 1",
+            "en": "Shuwaikh Industrial 1",
+          },
+        },
+        Object {
+          "id": "8b326316-d3c7-42f9-b696-c894ed8bee79",
+          "name": Object {
+            "ar": "شويخ الصناعية 3",
+            "en": "Shuwaikh Industrial 3",
+          },
+        },
+        Object {
+          "id": "a563043d-8ebb-42a2-9a88-7d2683d2d2bb",
+          "name": Object {
+            "ar": "شويخ السكنية",
+            "en": "Shuwaikh Residential",
+          },
+        },
+        Object {
+          "id": "0d0430d3-eebb-47db-ac7c-d3f31e3761e8",
+          "name": Object {
+            "ar": "ابو الحصانية",
+            "en": "Abu Al Hasaniya",
+          },
+        },
+        Object {
+          "id": "472e4f36-9e68-4ad9-9cc5-af34526c29d7",
+          "name": Object {
+            "ar": "المسيلة",
+            "en": "Messila",
+          },
+        },
+        Object {
+          "id": "7e115bbd-d407-4c4a-938a-b602526465b9",
+          "name": Object {
+            "ar": "القرين",
+            "en": "Qurain",
+          },
+        },
+        Object {
+          "id": "f167e6c8-cd2d-4957-89a2-d974be278b43",
+          "name": Object {
+            "ar": "الجليعة",
+            "en": "Al Julaia'a",
+          },
+        },
+        Object {
+          "id": "ce47b6b6-a64b-4476-9dd5-83244f85f53d",
+          "name": Object {
+            "ar": "الوفرة",
+            "en": "Al Wafrah",
+          },
+        },
+        Object {
+          "id": "db6a127d-37fd-4dd4-9082-a1e609a60d21",
+          "name": Object {
+            "ar": "الفحيحيل",
+            "en": "Fahaheel",
+          },
+        },
+        Object {
+          "id": "ad5099fb-977d-4b28-bdb2-25d80705f196",
+          "name": Object {
+            "ar": "جابر العلي",
+            "en": "Jaber Al Ali",
+          },
+        },
+        Object {
+          "id": "02b60f20-b984-4232-8b43-7c6cc75b9a3a",
+          "name": Object {
+            "ar": "صباح الأحمد السكنية",
+            "en": "Sabah Al Ahmad Residential",
+          },
+        },
+        Object {
+          "id": "ea598d51-7bdf-4e97-8e2a-1e59daeb605b",
+          "name": Object {
+            "ar": "شليهات ميناء عبدالله",
+            "en": "Shalayhat Mina Abdullah",
+          },
+        },
+        Object {
+          "id": "d14fc685-1f52-4a90-b3ea-a0533e579480",
+          "name": Object {
+            "ar": "غرب أبو فطيرة الحرفية",
+            "en": "West of Abu Fatira Al-Herafia",
+          },
+        },
+        Object {
+          "id": "75cf3a36-d0f1-476e-9911-5610afba187f",
+          "name": Object {
+            "ar": "الصليبية الصناعية 1",
+            "en": "Sulaibiya Industrial 1",
+          },
+        },
+        Object {
+          "id": "a34d387b-d20d-41d3-be19-d740fcd9b685",
+          "name": Object {
+            "ar": "أمغرة المنطقة الصناعية",
+            "en": "Amgarah Industrial Area",
+          },
+        },
+        Object {
+          "id": "b04c2dd0-a8ca-4194-ad95-a09f3c318521",
+          "name": Object {
+            "ar": "النسيم",
+            "en": "Nasseem",
+          },
+        },
+        Object {
+          "id": "d474b38d-a393-40d1-a369-c7e01657e56f",
+          "name": Object {
+            "ar": "الضجيج",
+            "en": "Al-Dajeej",
+          },
+        },
+        Object {
+          "id": "e6eaf263-5bf4-436f-aa8d-c1f3ae62093a",
+          "name": Object {
+            "ar": "العارضية",
+            "en": "Al-Ardiya",
+          },
+        },
+        Object {
+          "id": "c5a2c41a-bc04-48e9-bc5a-12ef9e015416",
+          "name": Object {
+            "ar": "جنوب خيطان",
+            "en": "South Khaitan",
+          },
+        },
+        Object {
+          "id": "593b5062-0dbe-4e6d-a6da-f1a5e15d9afb",
+          "name": Object {
+            "ar": "إشبيلية",
+            "en": "Ishbiliya",
+          },
+        },
+        Object {
+          "id": "ac8ed4ba-6a09-47e0-8c2a-8ed235fa3f22",
+          "name": Object {
+            "ar": "الجابرية",
+            "en": "Jabriya",
+          },
+        },
+        Object {
+          "id": "1d72dc6c-fddf-4a2e-a1b5-7c54dbf52b83",
+          "name": Object {
+            "ar": "مطار الكويت الدولي",
+            "en": "Kuwait International Airport",
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`locationsForHomeScreen can filter by neighborhoodId 1`] = `
+Object {
+  "data": Object {
+    "locationsForHomeScreen": Array [],
+  },
+}
+`;

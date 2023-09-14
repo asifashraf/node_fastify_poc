@@ -1,0 +1,83 @@
+"""
+A saved customer card token
+"""
+type CustomerCardToken {
+  id: ID!
+  """
+  token type: e.g. card
+  """
+  type: String
+# do not expose customer and source token yet
+#  """
+#  for checkout will be something like src_*****
+#  """
+#  sourceToken: String!
+#  """
+#  for checkout will be something like cus_*****
+#  """
+#  customerToken: String
+  """
+  app customer who holds the card
+  """
+  customer: Customer!
+  """
+  card expiry month
+  """
+  expiryMonth: Int!
+  """
+  card expiry year
+  """
+  expiryYear: Int!
+  """
+  name on the card
+  """
+  name: String
+  """
+  Visa, Mastercard
+  """
+  scheme: String!
+  """
+  card no. last 4 digits
+  """
+  last4: String!
+  """
+  the card issuer BIN usually card no. first 6 digits
+  """
+  bin: String
+  """
+  debit / credit ...
+  """
+  cardType: String
+  """
+  consumer / commercial
+  """
+  cardCategory: String
+  """
+  bank who issued the card
+  """
+  issuer: String
+  """
+  issuer country ISO-2 code
+  """
+  issuerCountry: String
+  """
+  the issuer/card scheme product identifier
+  """
+  productId: String
+  """
+  the issuer/card scheme product type
+  """
+  productType: String
+  """
+  what payment provider issued this card token
+  """
+  paymentProvider: PaymentProvider!
+  """
+  mark the card token as default to use
+  """
+  isDefault: Boolean!
+  """
+  card token status. e.g.
+  """
+  status: CustomerCardTokenStatus!
+}

@@ -1,0 +1,4 @@
+type FCMToken {
+  token: String!
+  deviceId: String
+}

@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cofe App - Rider Tracking</title>
+    <link rel="shortcut icon" href="https://d2j7swph6ett8y.cloudfront.net/assets/icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap');
+
+        html[lang="en"] body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html[lang="ar"] body {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            font-size: 15px !important;
+        }
+
+        h2,
+        th {
+            font-weight: 600 !important;
+        }
+
+        #riderTrackingQueue {
+            position: relative;
+        }
+
+        #selectLang {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            font-size: 16px;
+            text-decoration: none;
+            color: #08bfb0;
+            transform: translate(0, -50%);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .actions {
+            padding-top: 1rem;
+            padding-bottom: 3rem;
+        }
+
+        #statusHistory tr td {
+            text-transform: capitalize;
+        }
+
+        #statusHistory tr td:last-child {
+            text-transform: none;
+            width: 190px;
+        }
+
+        .btn {
+            position: relative;
+            height: 48px;
+        }
+
+        .btn strong {
+            font-weight: 400;
+        }
+
+        .btn.show-spinner {
+            pointer-events: none;
+        }
+
+        .btn .spinner-wrap,
+        .btn.show-spinner strong {
+            display: none;
+        }
+
+        .btn.show-spinner .spinner-wrap {
+            display: block;
+        }
+
+        .btn .spinner-wrap {
+            position: absolute;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+
+        .no-direction {
+            /* display: inline-block; */
+            direction: ltr;
+        }
+
+        /* ============
+    Arabic handling
+    ===============*/
+        html[lang="en"] .lang-en,
+        html[lang="ar"] .lang-ar {
+            display: none;
+        }
+
+        /* html[lang="en"] .lang-en {
+
+    } */
+        html[lang="en"] .lang-ar {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        @media (max-width:767px) {
+            .map-location a {
+                width: 160px;
+            }
+
+            #riderTrackingQueue {
+                font-size: 18px;
+                text-align: left !important;
+            }
+
+            #selectLang {
+                font-size: 15px;
+            }
+
+            .actions {
+                padding-top: 0rem;
+                padding-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="customContainer" class="container">
+        <h2 id="riderTrackingQueue" class="text-center mt-4 mb-4">
+            <p class="placeholder-wave mt-0 mb-2">
+                <span class="placeholder col-12"></span>
+            </p>
+        </h2>
+
+        <div class="table-responsive table-bordered mb-3">
+            <table id="branchInfo" class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <p class="placeholder-wave mt-0 mb-2">
+                                <span class="placeholder col-12"></span>
+                            </p>
+                            <p class="placeholder-wave mt-0 mb-2">
+                                <span class="placeholder col-12"></span>
+                            </p>
+                            <p class="placeholder-wave mt-0 mb-2">
+                                <span class="placeholder col-12"></span>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-responsive table-bordered mb-3">
+            <table id="customerInfo" class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <p class="placeholder-wave mt-0 mb-2">
+                                <span class="placeholder col-12"></span>
+                            </p>
+                            <p class="placeholder-wave mt-0 mb-2">
+                                <span class="placeholder col-12"></span>
+                            </p>
+                            <p class="placeholder-wave mt-0 mb-2">
+                                <span class="placeholder col-12"></span>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div id="statusActions" class="col-10 offset-1 col-md-4 offset-md-4">
+                <p class="placeholder-wave mt-3 mb-5">
+                    <span class="placeholder col-12"></span>
+                </p>
+            </div>
+            <div class="col-12 offset-0 col-md-8 offset-md-2">
+                <div id="alert" class="alert d-none" role="alert"></div>
+            </div>
+        </div>
+        <div class="table-responsive table-bordered mb-3">
+            <table class="table" id="statusHistory">
+                <thead class="table-light">
+                    <tr>
+                        <th colspan="2">
+                            <p class="placeholder-wave mt-0 mb-2">
+                                <span class="placeholder col-12"></span>
+                            </p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p class="placeholder-wave mt-0 mb-2">
+                                <span class="placeholder col-12"></span>
+                            </p>
+                            <p class="placeholder-wave mt-0 mb-2">
+                                <span class="placeholder col-12"></span>
+                            </p>
+                            <p class="placeholder-wave mt-0 mb-2">
+                                <span class="placeholder col-12"></span>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // global use
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        let translation = {};
+        // langauge change
+        const htmlTag = document.getElementsByTagName('html')[0];
+        let defaultLang = '';
+        if (localStorage.getItem("RiderTrackingLang") === null) {
+            defaultLang = urlParams.get('l');
+            if (defaultLang === '' || defaultLang === null) {
+                defaultLang = 'en';
+            }
+            setHTMLLangDirAttr(htmlTag, defaultLang);
+        } else {
+            defaultLang = localStorage.getItem("RiderTrackingLang");
+            setHTMLLangDirAttr(htmlTag, defaultLang);
+            replaceStyleSheet(defaultLang);
+        }
+        localStorage.setItem("RiderTrackingLang", defaultLang);
+        translation = getTranslation(defaultLang);
+
+        // on change lang
+        function onLangChange(elem) {
+            const selectedLang = elem.getAttribute('data-lang');
+            setHTMLLangDirAttr(htmlTag, selectedLang);
+            localStorage.setItem("RiderTrackingLang", selectedLang);
+            window.location.reload();
+        }
+        function setHTMLLangDirAttr(elem, lang) {
+            elem.setAttribute("lang", lang);
+            (lang === "en") ? elem.setAttribute("dir", 'ltr') : elem.setAttribute("dir", 'rtl');
+        }
+        function getTranslation(lang) {
+            if (lang === 'en') {
+                return {
+                    ORDER_TRACKING_QUEUE: "Rider Tracking - Queue #",
+                    ORDER_STATUS_HISTORY: "Order Status History",
+                    LINK_IS_NOT_WORKING: "This link doesn’t seem to be working.",
+                    BRANCH_INFORMATION: "Branch Information",
+                    BRAND_NAME: "Brand Name",
+                    BRANCH_NAME: "Branch Name",
+                    ORDER_ID: "Order ID #",
+                    BRANCH_ADDRESS: "Branch Address",
+                    GOOGLE_ADDRESS: "Google Address",
+                    CUSTOMER_INFORMATION: "Customer Information",
+                    CUSTOMER_NAME: "Customer Name",
+                    PHONE_NUMBER: "Phone Number",
+                    ADDRESS: "Address",
+                    ORDER_PICKED_UP: "Order Picked Up",
+                    ORDER_DELIVERY_DELAYED: "Order Delayed",
+                    ORDER_DELIVERED: "Order Delivered",
+                    STATUS_UPDATED_SUCCESSFULLY: "Status updated successfully.",
+                    ORDER_PLACED: "Order placed",
+                    ORDER_ACCEPTED: "Order accepted",
+                    ORDER_PREPARING: "Order preparing",
+                    ORDER_WAITING_FOR_COURIER: "Order waiting for courier",
+                    ORDER_OUT_FOR_DELIVERY: "Order out for delivery",
+                    ORDER_INITIATED: "Order initiated",
+                    ORDER_COMPLETED: "Order completed"
+                }
+            } else {
+                return {
+                    ORDER_TRACKING_QUEUE: "تتبع الراكب - رقم الدور #",
+                    ORDER_STATUS_HISTORY: "سجل حالة الطلب",
+                    LINK_IS_NOT_WORKING: "يبدو أن هذا الرابط لا يعمل",
+                    BRANCH_INFORMATION: "معلومات الفرع",
+                    BRAND_NAME: "اسم المتجر",
+                    BRANCH_NAME: "اسم موقع المتجر",
+                    ORDER_ID: "مُعرَّف الطلب #",
+                    BRANCH_ADDRESS: "عنوان الفرع",
+                    GOOGLE_ADDRESS: "العنوان على جوجل",
+                    CUSTOMER_INFORMATION: "معلومات العميل",
+                    CUSTOMER_NAME: "اسم العميل",
+                    PHONE_NUMBER: "رقم الجوال",
+                    ADDRESS: "العنوان",
+                    ORDER_PICKED_UP: "تم استلام الطلب",
+                    ORDER_DELIVERY_DELAYED: "الطلب متأخر",
+                    ORDER_DELIVERED: "تم توصيل الطلب",
+                    STATUS_UPDATED_SUCCESSFULLY: "تم تحديث الحالة بنجاح.",
+                    ORDER_PLACED: "تم تأكيد الطلب",
+                    ORDER_ACCEPTED: "تم قبول الطلب",
+                    ORDER_PREPARING: "يتم الآن تحضير الطلب",
+                    ORDER_WAITING_FOR_COURIER: "بانتظار السائق لاستلام الطلب",
+                    ORDER_OUT_FOR_DELIVERY: "طلبك قيد التوصيل",
+                    ORDER_INITIATED: "جاري الطلب",
+                    ORDER_COMPLETED: "تم إكتمال الطلب"
+                }
+            }
+        }
+        function replaceStyleSheet(lang) {
+            const styleEN = '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">';
+            const styleAR = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.rtl.min.css" integrity="sha384-T5m5WERuXcjgzF8DAb7tRkByEZQGcpraRTinjpywg37AO96WoYN9+hrhDVoM6CaT" crossorigin="anonymous">';
+            document.getElementsByTagName('link')[1].remove();
+            if (lang === 'en') {
+                document.head.innerHTML += styleEN;
+            } else {
+                document.head.innerHTML += styleAR;
+            }
+        }
+        // end of language change
+        // get localized name
+        function getLocalizedName(lang, nameObj) {
+            if (lang === 'en') {
+                return nameObj.en || nameObj || ''
+            }
+            return nameObj.ar || nameObj || ''
+        }
+        // For API Calls
+        const token = urlParams.get('token')
+        const API_URL = '{{ API_URL }}';
+
+        const myHeaders = new Headers({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        });
+
+        fetch(API_URL + '/express-delivery/info', {
+            method: 'GET',
+            headers: myHeaders,
+        })
+            .then((response) => {
+                if (response.status === 200) {
+                    return response.json();
+                } else {
+                    // throw new Error('Something went wrong on api server to get the data!');
+                    return response.json();
+                }
+            })
+            .then((data) => {
+                if (data.error === 'Unauthorized') {
+                    document.getElementById('customContainer').innerHTML = `<h2 class="text-center mt-4 mb-4">${translation.LINK_IS_NOT_WORKING}</h2>`;
+                    return '';
+                }
+                // quey number
+                const riderTrackingQueue = `${translation.ORDER_TRACKING_QUEUE} <span> ${data?.order?.queue} <a id="selectLang" href="javascript:;" class="float-end"><span class="lang-en" data-lang="en" onclick="onLangChange(this)">English</span><span class="lang-ar" data-lang="ar" onclick="onLangChange(this)">العربية</span></a></span>`;
+                // branch information
+                const branchInfo = `<thead class="table-light">
+          <tr>
+            <th colspan="2">
+              <div class="d-flex justify-content-between">
+                <span>${translation.BRANCH_INFORMATION}</span>
+                <span>${translation.ORDER_ID}${data?.order?.shortCode}</span>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          ${(getLocalizedName(defaultLang, data?.branchInfo?.brand?.name) !== '') ?
+                        `<tr>
+              <td style="width:200px">${translation.BRAND_NAME}</td>
+              <td>${getLocalizedName(defaultLang, data?.branchInfo?.brand?.name)}</td>
+            </tr>`
+                        : ""}
+          <tr>
+            <td style="width:200px">${translation.BRANCH_NAME}</td>
+            <td>${getLocalizedName(defaultLang, data?.branchInfo?.name)}</td>
+          </tr>
+          <tr>
+            <td valign="middle">${translation.BRANCH_ADDRESS}</td>
+            <td>
+              <div class="d-flex justify-content-between flex-column flex-md-row align-items-md-center text-left map-location">
+                <span class="mb-2 mb-md-0 no-direction d-inline-block">${data?.branchInfo?.address}</span>
+                <a class="icon-link" href="${data?.branchInfo?.googleLink}" target="_blank">
+                  <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.7779 26.0508C15.82 26.087 15.8737 26.1069 15.9292 26.1069C15.9848 26.1069 16.0385 26.087 16.0806 26.0508L15.8431 25.975L15.4973 25.6756C15.4973 25.6756 15.4973 25.6755 15.4972 25.6755C10.7036 21.4813 8.36796 17.76 8.36796 14.5542C8.36796 12.5489 9.16459 10.6256 10.5826 9.20761C12.0006 7.78959 13.9239 6.99296 15.9292 6.99296C16.9222 6.99296 17.9054 7.18854 18.8228 7.56853C19.7402 7.94852 20.5737 8.50548 21.2759 9.20761C21.978 9.90974 22.535 10.7433 22.915 11.6607C23.2949 12.578 23.4905 13.5613 23.4905 14.5542C23.4905 17.8363 21.0417 21.6577 16.0155 25.975L16.0154 25.975C15.9914 25.9956 15.9609 26.0069 15.9292 26.0069C15.8977 26.0069 15.8672 25.9957 15.8432 25.9751L15.8433 25.9752L15.7779 26.0508ZM15.7779 26.0508L15.4315 25.7509L15.7779 26.0508ZM14.8023 27.1813L14.8025 27.1815C15.1153 27.4511 15.5144 27.5996 15.9274 27.6C16.3404 27.6004 16.7398 27.4526 17.053 27.1835C22.3647 22.6218 25.0835 18.4265 25.0835 14.5542C25.0835 9.49829 20.9852 5.4 15.9292 5.4C10.8733 5.4 6.775 9.49829 6.775 14.5542C6.775 18.3402 9.37379 22.4332 14.4509 26.8764L14.4512 26.8767L14.8023 27.1813ZM18.4624 12.0211C17.7906 11.3493 16.8794 10.9718 15.9292 10.9718C14.9791 10.9718 14.0679 11.3493 13.3961 12.0211C12.7243 12.6929 12.3468 13.6041 12.3468 14.5542C12.3468 15.5044 12.7243 16.4156 13.3961 17.0874C14.0679 17.7592 14.9791 18.1366 15.9292 18.1366C16.8794 18.1366 17.7906 17.7592 18.4624 17.0874C19.1342 16.4156 19.5116 15.5044 19.5116 14.5542C19.5116 13.6041 19.1342 12.6929 18.4624 12.0211ZM14.5225 13.1475C14.8956 12.7744 15.4016 12.5648 15.9292 12.5648C16.4569 12.5648 16.9629 12.7744 17.336 13.1475C17.7091 13.5206 17.9187 14.0266 17.9187 14.5542C17.9187 15.0819 17.7091 15.5879 17.336 15.961C16.9629 16.3341 16.4569 16.5437 15.9292 16.5437C15.4016 16.5437 14.8956 16.3341 14.5225 15.961C14.1494 15.5879 13.9398 15.0819 13.9398 14.5542C13.9398 14.0266 14.1494 13.5206 14.5225 13.1475Z" fill="#08BFB0" stroke="#08BFB0" stroke-width="0.2"/>
+                  </svg>
+                  ${translation.GOOGLE_ADDRESS}
+                </a>
+              </div>
+
+            </td>
+          </tr>
+        </tbody>`;
+
+                // customer information
+                const customerInfo = `<thead class="table-light">
+          <tr>
+            <th colspan="2">${translation.CUSTOMER_INFORMATION}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td  style="width:200px">${translation.CUSTOMER_NAME}</td>
+            <td>${data?.customer?.name}</td>
+          </tr>
+          <tr>
+            <td>${translation.PHONE_NUMBER}</td>
+            <td><a class="no-direction d-inline-block" href="tel:${data?.customer?.phoneNumber}">${data?.customer?.phoneNumber}</a></td>
+          </tr>
+          <tr>
+            <td valign="middle">${translation.ADDRESS}</td>
+            <td>
+              <div class="d-flex justify-content-between flex-column flex-md-row align-items-md-center text-left map-location">
+                <span class="mb-2 mb-md-0 no-direction d-inline-block">${data?.customer?.address}</span>
+                <a class="icon-link" href="${data?.customer?.googleLink}" target="_blank">
+                  <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.7779 26.0508C15.82 26.087 15.8737 26.1069 15.9292 26.1069C15.9848 26.1069 16.0385 26.087 16.0806 26.0508L15.8431 25.975L15.4973 25.6756C15.4973 25.6756 15.4973 25.6755 15.4972 25.6755C10.7036 21.4813 8.36796 17.76 8.36796 14.5542C8.36796 12.5489 9.16459 10.6256 10.5826 9.20761C12.0006 7.78959 13.9239 6.99296 15.9292 6.99296C16.9222 6.99296 17.9054 7.18854 18.8228 7.56853C19.7402 7.94852 20.5737 8.50548 21.2759 9.20761C21.978 9.90974 22.535 10.7433 22.915 11.6607C23.2949 12.578 23.4905 13.5613 23.4905 14.5542C23.4905 17.8363 21.0417 21.6577 16.0155 25.975L16.0154 25.975C15.9914 25.9956 15.9609 26.0069 15.9292 26.0069C15.8977 26.0069 15.8672 25.9957 15.8432 25.9751L15.8433 25.9752L15.7779 26.0508ZM15.7779 26.0508L15.4315 25.7509L15.7779 26.0508ZM14.8023 27.1813L14.8025 27.1815C15.1153 27.4511 15.5144 27.5996 15.9274 27.6C16.3404 27.6004 16.7398 27.4526 17.053 27.1835C22.3647 22.6218 25.0835 18.4265 25.0835 14.5542C25.0835 9.49829 20.9852 5.4 15.9292 5.4C10.8733 5.4 6.775 9.49829 6.775 14.5542C6.775 18.3402 9.37379 22.4332 14.4509 26.8764L14.4512 26.8767L14.8023 27.1813ZM18.4624 12.0211C17.7906 11.3493 16.8794 10.9718 15.9292 10.9718C14.9791 10.9718 14.0679 11.3493 13.3961 12.0211C12.7243 12.6929 12.3468 13.6041 12.3468 14.5542C12.3468 15.5044 12.7243 16.4156 13.3961 17.0874C14.0679 17.7592 14.9791 18.1366 15.9292 18.1366C16.8794 18.1366 17.7906 17.7592 18.4624 17.0874C19.1342 16.4156 19.5116 15.5044 19.5116 14.5542C19.5116 13.6041 19.1342 12.6929 18.4624 12.0211ZM14.5225 13.1475C14.8956 12.7744 15.4016 12.5648 15.9292 12.5648C16.4569 12.5648 16.9629 12.7744 17.336 13.1475C17.7091 13.5206 17.9187 14.0266 17.9187 14.5542C17.9187 15.0819 17.7091 15.5879 17.336 15.961C16.9629 16.3341 16.4569 16.5437 15.9292 16.5437C15.4016 16.5437 14.8956 16.3341 14.5225 15.961C14.1494 15.5879 13.9398 15.0819 13.9398 14.5542C13.9398 14.0266 14.1494 13.5206 14.5225 13.1475Z" fill="#08BFB0" stroke="#08BFB0" stroke-width="0.2"/>
+                  </svg>
+                  ${translation.GOOGLE_ADDRESS}
+                </a>
+              </div>
+
+            </td>
+          </tr>
+        </tbody>`;
+
+                // action buttons
+                const status = data?.order?.statusHistory[0]?.status;
+                const statusActions = `<div class="actions ${(status !== "PREPARING" && status !== "OUT_FOR_DELIVERY" && status !== 'DELIVERY_DELAYED') ? 'p-0' : ''}">
+        <a href="javascript:;" data-action="OUT_FOR_DELIVERY" class="btn btn-success btn-lg text-uppercase ${(status === "PREPARING") ? 'd-block' : 'd-none'}" onclick="orderStatusChange(this)">
+          <strong>${translation.ORDER_PICKED_UP}</strong>
+          <div class="spinner-wrap">
+            <div class="spinner-grow spinner-grow-sm" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </a>
+        <a href="javascript:;" data-action="DELIVERY_DELAYED" class="btn btn-warning btn-lg text-uppercase mb-4 ${(status === "OUT_FOR_DELIVERY") ? 'd-block' : 'd-none'}"" onclick="orderStatusChange(this)">
+          <strong>${translation.ORDER_DELIVERY_DELAYED}</strong>
+          <div class="spinner-wrap">
+            <div class="spinner-grow spinner-grow-sm" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </a>
+        <a href="javascript:;" data-action="DELIVERED" class="btn btn-success btn-lg text-uppercase ${((status === "DELIVERY_DELAYED") || (status === "OUT_FOR_DELIVERY")) ? 'd-block' : 'd-none'}" onclick="orderStatusChange(this)">
+          <strong>${translation.ORDER_DELIVERED}</strong>
+          <div class="spinner-wrap">
+            <div class="spinner-grow spinner-grow-sm" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </a></div>`;
+
+                // Order History
+                function formatCustomDate(createdAt, locale, timeZone) {
+                    const date = new Date(createdAt);
+                    const formattedDate = date.toLocaleString(locale, { timeZone: timeZone, day: "2-digit", month: "2-digit", year: "numeric" });
+                    const formattedTime = date.toLocaleString(locale, { timeZone: timeZone, hour: "2-digit", minute: "2-digit" });
+
+                    const result = `${formattedDate.split('.').join('/')} - ${formattedTime}`;
+                    return result;
+                }
+                const locale = "en-NZ"; // New Zealand English formate
+                const timeZone = data?.branchInfo?.brand?.country?.timeZoneIdentifier;
+
+                let statusHistory = '';
+                statusHistory += `<thead class="table-light">
+            <tr>
+              <th colspan="2">${translation.ORDER_STATUS_HISTORY}</th>
+            </tr>
+          </thead>
+          <tbody>`;
+                data?.order?.statusHistory?.map((order) => {
+                    statusHistory += `
+
+            <tr>
+              <td class="
+              ${(order?.status === "DELIVERY_DELAYED") ? 'table-danger' : ''}
+              ${(order?.status === "DELIVERED") ? 'table-success' : ''}
+              ">${translation['ORDER_' + order?.status]}</td>
+              <td class="
+              ${(order?.status === "DELIVERY_DELAYED") ? 'table-danger' : ''}
+              ${(order?.status === "DELIVERED") ? 'table-success' : ''}
+              text-end no-direction">${formatCustomDate(order?.createdAt, locale, timeZone)}</td>
+            </tr>`;
+                });
+                statusHistory += `</tbody>`;
+
+                document.getElementById('branchInfo').innerHTML = branchInfo;
+                document.getElementById('customerInfo').innerHTML = customerInfo;
+                document.getElementById('statusHistory').innerHTML = statusHistory;
+                document.getElementById('statusActions').innerHTML = statusActions;
+                document.getElementById('riderTrackingQueue').innerHTML = riderTrackingQueue;
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        // post call
+        function orderStatusChange(elem) {
+            status = elem.getAttribute('data-action');
+            elem.classList.add('show-spinner');
+            const alert = document.getElementById('alert');
+
+            fetch(API_URL + '/express-delivery/update-order-status', {
+                method: 'POST',
+                headers: myHeaders,
+                body: JSON.stringify({ status })
+            })
+                .then(response => {
+                    return response.json();
+                })
+                .then(json => {
+                    if (json.success) {
+                        alert.innerHTML = translation.STATUS_UPDATED_SUCCESSFULLY;
+                        alert.classList.add('alert-success');
+                    } else {
+                        alert.innerHTML = json.message;
+                        alert.classList.add('alert-danger');
+                    }
+                    alert.classList.remove('d-none');
+
+                    setTimeout(() => {
+                        location.reload();
+                    }, 3000);
+
+                });
+        }
+
+    </script>
+</body>
+
+</html>

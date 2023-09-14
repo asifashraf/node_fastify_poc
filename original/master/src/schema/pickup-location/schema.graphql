@@ -1,0 +1,33 @@
+"""
+Pickup locations for stores
+"""
+type PickupLocation {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Used in admin panel to name pickup locations
+  """
+  name: String!
+  """
+  The longitude component of the geo coordinates for this pickup location, in degrees
+  """
+  longitude: Float!
+  """
+  The longitude component of the geo coordinates for this pickup location, in degrees
+  """
+  latitude: Float!
+  """
+  Which brand has this pickup location
+  """
+  brand: Brand!
+  neighborhood: Neighborhood!
+  city: City!
+  street: String
+  managerName: String
+  managerEmail: String
+  managerPhone: String
+  distance: Float
+  status: PickupLocationStatus
+}

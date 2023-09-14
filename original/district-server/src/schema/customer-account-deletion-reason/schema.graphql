@@ -1,0 +1,22 @@
+type CustomerAccountDeletionReasonOption {
+  id: ID!
+  reason(language: AvailableLanguage): String!
+  reasonTranslations: LocalizedString!
+  order: Int!
+}
+
+type CustomerAccountDeletionReasonOptionPayload {
+  customerAccountDeletionReasonOptions: [CustomerAccountDeletionReasonOption]
+  error: CustomerAccountDeletionReasonOptionSaveError
+  errors: [CustomerAccountDeletionReasonOptionSaveError]
+}
+
+type CustomerAccountDeletionTexts {
+  pageTitle: String!
+  description: String!
+  buttonPrimary: String!
+  buttonSecondary: String!
+  confirmationTitle: String!
+  confirmationDescription: String!
+  confirmationButton: String!
+}

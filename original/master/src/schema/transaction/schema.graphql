@@ -1,0 +1,36 @@
+"""
+Transaction
+"""
+type Transaction {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  reference to the customer
+  """
+  customer: Customer!
+  """
+  Action of the transaction e.g. tip, order, refund etc etc
+  """
+  action: TransactionAction!
+  """
+  type of the transaction (credit/debit)
+  """
+  type: TransactionType!
+  """
+  Amount
+  """
+  amount: CurrencyValue!
+  """
+  Currency
+  """
+  currency: Currency
+  """
+  Order type
+  """
+  orderType: String
+
+  created: Datetime!
+  updated: Datetime!
+}

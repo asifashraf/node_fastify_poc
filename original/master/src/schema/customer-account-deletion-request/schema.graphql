@@ -1,0 +1,5 @@
+type CustomerAccountDeletionRequestPayload {
+  result: Boolean!
+  error: CustomerAccountDeletionRequestError
+  errors: [CustomerAccountDeletionRequestError]
+}

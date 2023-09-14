@@ -1,0 +1,538 @@
+extend type Query {
+  """
+  Get The Target Customer Group
+  """
+  calculateTargetExistingCustomerGroup(
+    targetInfo: CofelyticsTargetCustomerGroupInput!
+  ): CofelyticsTargetCustomerGroupInputPayload
+    @requireAuth
+    @requirePermissions(permissions: ["cofelytics:save"])
+
+  """
+  Get The Target Customer Group
+  """
+  calculateTargetNewCustomerGroup(
+    brandId: ID!
+  ): CofelyticsTargetCustomerGroupInputPayload
+    @requireAuth
+    @requirePermissions(permissions: ["cofelytics:save"])
+
+  """
+  Get The Target Customer Group
+  """
+  getOffersByBrandId(brandId: ID!): [Offer]
+    @requireAuth
+    @requirePermissions(permissions: ["cofelytics:view"])
+
+  """
+  Get The Target Customer Group
+  """
+  getOfferById(offerId: ID!, brandId: ID!): Offer
+    @requireAuth
+    @requirePermissions(permissions: ["cofelytics:view"])
+
+  """
+  Get request list
+  """
+  getRequestList(
+    countryId: ID
+    status: CofelyticsRequestStatus
+  ): CofelyticsRequestListPayload! @requireAuth
+
+  """
+  Get Request Status By Brand Id
+  """
+  getCofelyticsRequestStatus(brandId: ID!): CofelyticsRequestStatusPayload
+    @requireAuth
+}
+
+extend type Mutation {
+  """
+  Save Offer
+  """
+  saveTargetExistingCustomerGroup(
+    targetInfo: CofelyticsTargetCustomerGroupInput!
+    offerInfo: OfferInfo!
+  ): SaveCofelyticsTargetCustomerGroupPayload
+    @requireAuth
+    @requirePermissions(permissions: ["cofelytics:save"])
+
+  """
+  Save Offer
+  """
+  saveTargetNewCustomerGroup(
+    brandId: ID!
+    offerInfo: OfferInfo!
+  ): SaveCofelyticsTargetCustomerGroupPayload
+    @requireAuth
+    @requirePermissions(permissions: ["cofelytics:save"])
+
+  """
+  Save Request
+  """
+  saveCofelyticsRequest(brandId: ID!): CofelyticsRequestPayload @requireAuth
+  """
+  Update Request Status
+  """
+  updateRequestStatus(
+    id: ID!
+    status: CofelyticsRequestStatus!
+  ): CofelyticsRequestStatusUpdatePayload @requireAuth
+}
+
+"""
+CofelyticsTargetCustomerGroupInput
+"""
+input CofelyticsTargetCustomerGroupInput {
+  """
+  Target Brand ID
+  """
+  brandId: ID!
+  """
+  All Branch
+  """
+  targetAllBranch: Boolean!
+  """
+  Target Branch List
+  """
+  targetBranchIds: [LabelValuePairInput!]!
+  """
+  Target Customers Type with date range
+  """
+  targetCustomerDateRange: CustomerDateRange!
+  """
+  Target Customers Type with order number range
+  """
+  targetCustomerOrderRange: CustomerOrderRange!
+  """
+  Target Customer Type with Reward Tier
+  """
+  targetCustomerRewardTierEnable: Boolean!
+  """
+  Target All Reward Tier
+  """
+  targetAllReward: Boolean
+  """
+  Target Customer Type with Reward Tier
+  """
+  targetCustomerRewardId: ID
+  """
+  Target Customer Type with Reward Tier
+  """
+  targetCustomerRewardTiers: [LabelValuePairInput!]
+}
+
+type CofelyticsTargetCustomerGroupInputPayload {
+  """
+  Number of Target Customer
+  """
+  customerCount: Int
+  """
+  Average amount
+  """
+  averageAmount: CurrencyValue
+  """
+  The first validation error that occured
+  """
+  error: TargetCustomerGroupError
+  """
+  All validation errors
+  """
+  errors: [TargetCustomerGroupError!]
+}
+
+input OfferInfo {
+  """
+  Offer Type
+  """
+  offer: OfferType!
+  """
+  Offer Start Date
+  """
+  startDate: Datetime!
+  """
+  Offer Duration as weeks
+  """
+  duration: Int!
+  """
+  Offer Platforms
+  """
+  platforms: [OfferPlatform!]!
+  """
+  Optional, SMS text can be sent in stringified JSON format
+  """
+  smsInfo: SMSInfo
+  """
+  Optional, Email text can be sent in stringified JSON format
+  """
+  emailInfo: EmailInfo
+  """
+  Optional, Push Notification text can be sent in stringified JSON format
+  """
+  pushNotificationInfo: PushInfo
+  """
+  Optional, Images URLs list
+  """
+  images: [String]
+}
+
+type SaveCofelyticsTargetCustomerGroupPayload {
+  """
+  Successfully saved
+  """
+  status: Boolean!
+  """
+  Record Id
+  """
+  id: ID
+  """
+  The first validation error that occured
+  """
+  error: TargetCustomerGroupError
+  """
+  All validation errors
+  """
+  errors: [TargetCustomerGroupError!]
+}
+
+enum OfferType {
+  PERCANTAGE_OFF
+  FREE_COFFEE
+  FREE_FOOD_ITEM
+  FREE_DELIVERY
+  BUNDLE
+  OTHER_OFFER
+}
+
+input SMSInfo {
+  ar: String!
+  en: String!
+}
+
+input EmailInfo {
+  arTitle: String!
+  arText: String!
+  enTitle: String!
+  enText: String!
+}
+
+input PushInfo {
+  arTitle: String!
+  arText: String!
+  enTitle: String!
+  enText: String!
+}
+
+enum CustomerDateRange {
+  ALL_CUSTOMERS
+  LAST_3_MONTHS
+  LAST_6_MONTHS
+  LAST_9_MONTHS
+  LAST_YEAR
+}
+
+enum CustomerOrderRange {
+  MORE_THAN_2
+  MORE_THAN_5
+  MORE_THAN_10
+  MORE_THAN_15
+  MORE_THAN_20
+}
+
+enum TargetCustomerGroupError {
+  """
+  The Brand must exist
+  """
+  INVALID_BRAND
+  """
+  The Brand must exist
+  """
+  DISABLE_COFELYTICS
+  """
+  Not found branch/branches
+  """
+  INVALID_BRANCHES
+  """
+  Invalid reward tier
+  """
+  INVALID_REWARD_TIER
+  """
+  Offer Startdate must be greater now
+  """
+  INVALID_STARTDATE
+  """
+  Offer duration weeks
+  """
+  INVALID_DURATION
+  """
+  Missing Platform Data
+  """
+  MISSING_PLATFORM_DATA
+  """
+  Missing SMS Text Info
+  """
+  MISSING_SMS_OFFER_TEXT
+  """
+  Missing Email Text Info
+  """
+  MISSING_EMAIL_OFFER_TEXT
+  """
+  Missing Push Notification Text Info
+  """
+  MISSING_PUSH_OFFER_TEXT
+  """
+  Invalid Images URLs
+  """
+  INVALID_IMAGES_URL
+  """
+  Invalid Target Group
+  """
+  INVALID_TARGET_GROUP
+  """
+  Can not save a record/s
+  """
+  TRANSACTIONAL_ERROR
+  """
+  Unauthorized process
+  """
+  UNAUTHORIZED_PROCESS
+  """
+  Requested already created for that brand
+  """
+  REQUEST_ALREADY_CREATED
+  """
+  Cofelytics already enable for that brand
+  """
+  COFELYTICS_ALREADY_ENABLE
+  INVALID_REQUEST
+  REQUEST_SAME_STATUS
+}
+
+enum OfferPlatform {
+  ALL
+  SMS
+  EMAIL
+  PUSH
+}
+
+type Offer {
+  """
+  Offer
+  """
+  id: ID!
+  """
+  Offer owner
+  """
+  brandId: ID!
+  """
+  Offer currency
+  """
+  currencyId: ID!
+  """
+  Offer Targer Type
+  """
+  targetType: String!
+  """
+  Number of Target Customer
+  """
+  customerCount: Int
+  """
+  Average amount
+  """
+  averageAmount: CurrencyValue
+  """
+  Target All Branch
+  """
+  allBranch: Boolean!
+  """
+  Target Branch List
+  """
+  branchsCsvUrl: String!
+  """
+  Offer Type
+  """
+  offer: OfferType!
+  """
+  Offer Start Date
+  """
+  startDate: Datetime!
+  """
+  Offer Duration as weeks
+  """
+  offerDuration: Int!
+  """
+  Offer Platform SMS
+  """
+  sms: Boolean!
+  """
+  Offer SMS Info
+  """
+  smsInfo: LocalizedString
+  """
+  Offer Platform Email
+  """
+  email: Boolean!
+  """
+  Offer Email Title
+  """
+  emailTitle: LocalizedString
+  """
+  Offer Email Text
+  """
+  emailText: LocalizedString
+  """
+  Offer Platform SMS
+  """
+  push: Boolean!
+  """
+  Offer Push Title
+  """
+  pushTitle: LocalizedString
+  """
+  Offer Push Text
+  """
+  pushText: LocalizedString
+  """
+  Optional, Images URLs list
+  """
+  images: [String]
+  """
+  Offer Requested Time
+  """
+  createdAt: Datetime!
+  """
+  Offer Branches
+  """
+  branchList: [LabelValuePair]
+  """
+  Target All Reward
+  """
+  targetAllReward: Boolean
+  """
+  Offer Tiers
+  """
+  tiersList: [LabelValuePair]
+  """
+  Offer Branches
+  """
+  customerOrderRange: CustomerOrderRange
+  """
+  Offer Tiers
+  """
+  customerDateRange: CustomerDateRange
+}
+
+input LabelValuePairInput {
+  label: String!
+  value: ID!
+}
+
+type LabelValuePair {
+  label: String!
+  value: ID!
+}
+
+enum CofelyticsRequestStatus {
+  REQUESTED
+  RESPONDED
+}
+
+type CofelyticsRequestPayload {
+  """
+  Successfully saved
+  """
+  status: Boolean!
+  """
+  Record Id
+  """
+  id: ID
+  """
+  The first validation error that occured
+  """
+  error: TargetCustomerGroupError
+  """
+  All validation errors
+  """
+  errors: [TargetCustomerGroupError!]
+}
+
+type CofelyticsRequest {
+  """
+  Request ID
+  """
+  id: ID!
+  """
+  Brand ID
+  """
+  brandId: ID!
+  """
+  Brand Name
+  """
+  brandName: LocalizedString
+  """
+  Country ID
+  """
+  countryId: ID!
+  """
+  Country Name
+  """
+  countryName: LocalizedString
+  """
+  Status
+  """
+  status: CofelyticsRequestStatus!
+  """
+  email
+  """
+  email: String!
+  """
+  Request creating date
+  """
+  created: Datetime!
+}
+
+type CofelyticsRequestListPayload {
+  """
+  Request List
+  """
+  requests: [CofelyticsRequest!]
+  """
+  The first validation error that occured
+  """
+  error: TargetCustomerGroupError
+  """
+  All validation errors
+  """
+  errors: [TargetCustomerGroupError!]
+}
+
+type CofelyticsRequestStatusUpdatePayload {
+  """
+  Succesfully updated
+  """
+  status: Boolean!
+  """
+  Request
+  """
+  request: CofelyticsRequest
+  """
+  The first validation error that occured
+  """
+  error: TargetCustomerGroupError
+  """
+  All validation errors
+  """
+  errors: [TargetCustomerGroupError!]
+}
+
+type CofelyticsRequestStatusPayload {
+  status: Boolean
+  """
+  The first validation error that occured
+  """
+  error: TargetCustomerGroupError
+  """
+  All validation errors
+  """
+  errors: [TargetCustomerGroupError!]
+}

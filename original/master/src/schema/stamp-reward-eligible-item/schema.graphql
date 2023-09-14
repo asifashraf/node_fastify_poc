@@ -1,0 +1,43 @@
+extend type Mutation {
+  saveEligibleItem(
+    input: [EligibleItemInput]!
+  ): SaveEligibleItemPayload @requireAuth
+}
+
+extend type Query {
+  getEligibleItems: [StampRewardEligibleItem] @requireAuth
+  getEligibleItemsForAdmin: [StampRewardEligibleItem] @requireAuth
+}
+
+"""
+A stamp reward eligible item
+"""
+type StampRewardEligibleItem{
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Eligible Item
+  """
+  item: MenuItem!
+}
+
+input EligibleItemInput{
+  itemId: ID!
+  isDeleted: Boolean!
+}
+
+type SaveEligibleItemPayload {
+  items: [StampRewardEligibleItem]
+  error: StampRewardEligibleItemError
+  errors: [StampRewardEligibleItemError]
+}
+
+enum StampRewardEligibleItemError {
+  INVALID_MENU_ITEM
+  INVALID_ELIGIBLE_ITEM
+  INVALID_INPUT
+  UNAUTHORIZED_ADMIN
+  TRANSACTIONAL_ERROR
+}

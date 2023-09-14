@@ -1,0 +1,94 @@
+type IconButtonItem {
+  id: ID
+  image: String
+  title: LocalizedString
+  deeplink: String
+  spanSize: Int
+  tags: [Tag]
+  sortOrder: Int
+  created: Datetime
+  updated: Datetime
+  status: HomePageIconButtonStatusEnum
+  sectionId: ID!
+  isSticky: Boolean!
+  iconSettingId: ID
+}
+
+enum HomePageIconButtonStatusEnum {
+  ACTIVE
+  INACTIVE
+  DELETED
+}
+
+type IconButtonItemData {
+  sectionMetadata: HomePageSection
+  items: [IconButtonItem!]
+}
+extend type Query {
+  getIconButtonItems(input: HomePageSectionArgs): IconButtonItemData
+  getIconItemsForAdmin(
+    countryId: ID!
+    sectionId: ID
+    status: HomePageIconButtonStatusEnum
+  ): [IconButtonItem!]
+}
+enum HomePageIconButtonStatusEnum {
+  ACTIVE
+  INACTIVE
+  DELETED
+}
+type IconButtonItemData {
+  sectionMetadata: HomePageSection
+  items: [IconButtonItem!]
+}
+
+input IconButtonItemInput {
+  id: ID
+  image: String!
+  title: LocalizedStringInput!
+  deeplink: String!
+  sectionId: ID!
+  spanSize: Int!
+  status: HomePageIconButtonStatusEnum
+}
+
+input IconButtonItemSettingInput {
+  countryId: ID!
+  sortOrder: Int!
+  isSticky: Boolean!
+  id: ID
+}
+
+enum SaveIconButtonItemErrorEnum {
+  NOT_EXIST
+  MISSING_ARGUMENT
+  SORT_ORDER_EXIST
+  ALREADY_EXIST_IMAGE_TYPE_AND_DEEP_LINK
+  INVALID_SECTION_ID
+  ICON_BUTTON_ITEM
+  INVALID_SPAN_SIZE
+}
+
+enum SaveIconButtonItemTypeEnum {
+  ICON_BUTTON_ITEM
+  ICON_BUTTON_ITEM_SETTING
+  SECTION_ID
+}
+
+type SaveIconButtonItemError {
+  error: SaveIconButtonItemErrorEnum
+  type: SaveIconButtonItemTypeEnum
+  countryId: ID
+}
+
+type SaveIconButtonItemPayload {
+  errors: [SaveIconButtonItemError]
+  items: [IconButtonItem]
+}
+
+extend type Mutation {
+  saveIconButtonItem(
+    iconButtonItemInfo: IconButtonItemInput
+    iconButtonItemSettingInfo: [IconButtonItemSettingInput]
+  ): SaveIconButtonItemPayload @requireAuth
+}

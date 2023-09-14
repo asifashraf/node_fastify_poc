@@ -1,0 +1,170 @@
+type StoreOrderSet {
+  """
+  Database ID
+  """
+  id: ID!
+  """
+  Customer who placed the order
+  """
+  customer: Customer!
+  """
+  Currency of the order
+  """
+  currency: Currency!
+  """
+  Country of the order
+  """
+  country: Country!
+  """
+  A user-facing code that can be used to look up an order.
+  It is not guaranteed to be unique among all order,
+  however collisions are very unlikely. Example code: `A6FDC9`
+  """
+  shortCode: String!
+  """
+  The subtotal of all items within the order
+  """
+  subtotal: CurrencyValue!
+  """
+  The total price of the order
+  """
+  total: CurrencyValue!
+
+  """
+  The fee that were charged to this order
+  """
+  fee: CurrencyValue!
+  """
+  Payment method
+  """
+  paymentMethod: PaymentMethod
+  """
+  In case of partial payment there should be amount due
+  """
+  amountDue: CurrencyValue!
+  """
+  Payment provider
+  """
+  paymentProvider: String
+  """
+  The payment id received from the third party payment gateway. KNET refers to this as their PaymentID
+  It would only be null if payment initialization failed.
+  """
+  merchantId: String
+  """
+  The receipt url from the payment method
+  """
+  receiptUrl: String
+  """
+  The error url from the payment method
+  """
+  errorUrl: String
+  """
+  If the order set is successfully paid
+  """
+  paid: Boolean!
+  """
+  refunded
+  """
+  refunded: Boolean
+
+  """
+  The information used for
+  """
+  payment: PaymentInfo
+  """
+  The source from where the order was created.
+  """
+  src: OrderSetSource
+  """
+  Platform from where the order was placed (e.g. iOS, Android)
+  This info is sent through X-App-OS header
+  """
+  srcPlatform: String
+  """
+  Platform version from where the order was placed
+  This info is sent through X-App-Version header
+  """
+  srcPlatformVersion: String
+  """
+  VAT aplied for this order
+  """
+  vat: Float!
+  """
+  VAT value added to the total price
+  """
+  totalVat: CurrencyValue!
+
+  """
+  The current/latest order Status
+  """
+  currentStatus: StoreOrderSetStatusName!
+  """
+  Status History
+  """
+  statusHistory: [StoreOrderSetStatus!]!
+  """
+  List of store orders in this order set
+  """
+  storeOrders: [StoreOrder!]!
+  """
+  created at
+  """
+  created: Datetime!
+  """
+  updated at
+  """
+  updated: Datetime!
+  """
+  Compute invoice
+  """
+  computeInvoice: StoreOrderSetInvoice
+  fulfillment: StoreOrderSetFulfillment
+  """
+  pre_paid: if credits or gift card was used to make an order
+  """
+  prePaid: PrePaid
+  """
+  invoice url
+  """
+  invoiceUrl: String
+  """
+  payment method label
+  """
+  paymentMethodLabel: LocalizedString
+}
+
+type StoreOrderSetInvoice {
+  components: [InvoiceComponent]
+  currency: Currency
+  error: StoreOrderSetCreateError
+  errors: [StoreOrderSetCreateError]
+}
+
+type StoreCheckoutData {
+  invoice: StoreOrderSetInvoice!
+  deliveryEstimateDateTime: Datetime
+}
+
+"""
+StoreOrderSetCreateInput
+"""
+input StoreOrderSetCreateInput {
+  """
+  Optional customerId for the front-end (web), for mobile we will be retreiving from context (token)
+  """
+  customerId: ID
+  """
+  The list of items to be calculated
+  """
+  items: [StoreOrderSetInvoiceLineItem]!
+  customerAddressId: ID!
+  """
+  New payment method
+  """
+  paymentMethod: PaymentMethodInput
+  """
+  to check if customers wants to use their credits
+  """
+  useCredits: Boolean
+}

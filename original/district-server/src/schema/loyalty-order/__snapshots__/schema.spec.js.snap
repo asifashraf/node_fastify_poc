@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can retrieve a loyalty order by id 1`] = `
+Object {
+  "data": Object {
+    "loyaltyOrder": Object {
+      "id": "13c616a7-11ec-4654-93c6-d0badde96c6d",
+      "payment": Object {
+        "currentStatus": Object {
+          "name": "PAYMENT_SUCCESS",
+        },
+      },
+    },
+  },
+}
+`;

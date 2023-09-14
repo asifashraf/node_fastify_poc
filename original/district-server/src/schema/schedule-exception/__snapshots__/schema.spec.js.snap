@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`brand locations can resolve scheduleException 1`] = `
+Object {
+  "data": Object {
+    "brandLocation": Object {
+      "scheduleExceptions": Array [
+        Object {
+          "endTime": "2017-12-04T11:00:00Z",
+          "id": "06c63b24-4a10-4a1c-8ffa-83d88803b147",
+          "isClosed": true,
+          "isDeliveryClosed": true,
+          "startTime": "2017-12-04T03:00:00Z",
+        },
+        Object {
+          "endTime": "2017-12-05T11:00:00Z",
+          "id": "82d8762b-95af-48c9-ab92-bf45ce49bc1c",
+          "isClosed": true,
+          "isDeliveryClosed": true,
+          "startTime": "2017-12-05T09:00:00Z",
+        },
+        Object {
+          "endTime": "2017-12-06T05:00:00Z",
+          "id": "ab818e56-3585-405d-8b30-51601f29e2b5",
+          "isClosed": true,
+          "isDeliveryClosed": true,
+          "startTime": "2017-12-06T03:00:00Z",
+        },
+        Object {
+          "endTime": "2017-12-07T09:00:00Z",
+          "id": "2dd75f52-1b0e-4cea-b2ac-e28e7409dc20",
+          "isClosed": true,
+          "isDeliveryClosed": true,
+          "startTime": "2017-12-07T07:00:00Z",
+        },
+        Object {
+          "endTime": "2017-12-08T13:00:00Z",
+          "id": "a2f8e7d6-8d51-4297-9cb7-1212ff946e42",
+          "isClosed": false,
+          "isDeliveryClosed": false,
+          "startTime": "2017-12-08T11:00:00Z",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`scheduleExceptions can be added 1`] = `
+Object {
+  "data": Object {
+    "brandLocationScheduleExceptionSave": Object {
+      "error": null,
+      "errors": null,
+      "scheduleExceptions": Array [
+        Object {
+          "endTime": "2022-11-16T11:20:14Z",
+          "id": "0bbf9978-7442-4af6-941c-c981d69f4712",
+          "isClosed": false,
+          "isDeliveryClosed": false,
+          "startTime": "2021-11-16T00:20:45Z",
+        },
+        Object {
+          "endTime": "2022-11-17T11:20:14Z",
+          "id": "c02b49ce-e934-4c84-992d-8383f6f5f13b",
+          "isClosed": false,
+          "isDeliveryClosed": false,
+          "startTime": "2021-11-17T00:20:45Z",
+        },
+      ],
+    },
+  },
+}
+`;

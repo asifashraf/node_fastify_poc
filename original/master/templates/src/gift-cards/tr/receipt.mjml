@@ -1,0 +1,182 @@
+<mjml>
+  <mj-head>
+    <mj-font name="Oswald" href="https://fonts.googleapis.com/css?family=Oswald" />
+    <mj-style>
+      @font-face {
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 400;
+        src: url(https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/fonts/Nunito-Regular.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+      }
+
+      @font-face {
+        font-family: 'Lato-Bold';
+        font-style: normal;
+        font-weight: 600;
+        src: local('Lato Bold'), local('Lato-Bold'), url(https://cofe-app-uploads.s3-eu-west-1.amazonaws.com/fonts/Nunito-Bold.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+      }
+    </mj-style>
+    <mj-font name="Nunito" href="https://fonts.googleapis.com/css?family=Nunito:200,400,700" />
+    <mj-attributes>
+      <mj-all font-family="Nunito, sans-serif" font-size="12px" />
+    </mj-attributes>
+    <mj-style inline="inline">
+      .cofe-link-nostyle {
+        color: inherit;
+        text-decoration: none
+      }
+
+      .cofe-link-style {
+        color: #0BBFB0;
+        text-decoration: none;
+        font-weight: 'bold';
+      }
+
+      .cofe-button-style {
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 10px;
+        color: white;
+        height: 56px;
+        background: #08BFB0;
+        display: inline-block;
+        line-height: 56px;
+        padding: 0 30px;
+      }
+
+      .cofe-brand-name {
+        color: #0BBFB0;
+        font-weight: 'bold';
+        font-family: "Lato", sans-serif;
+      }
+
+      .bold-text {
+        font-weight: 'bold';
+        font-family: "Lato", sans-serif;
+      }
+
+      .h1 div {
+        color: #ff0000;
+        font-size: 16px !important;
+        font-weight: 200;
+        line-height: 26px !important;
+      }
+
+      .h2 div {
+        color: #979797 !important;
+        font-size: 14px !important;
+        line-height: 22px !important;
+      }
+
+      .order-summary {
+        padding: 20px !important;
+        border-radius: 12px !important;
+        background-color: #F3F0EB !important;
+        box-sizing: border-box;
+      }
+    </mj-style>
+    <mj-style>
+      .p-bold div {
+      font-weight: bold;
+      text-align: right !important;
+      }
+
+      .p div {
+      font-size: 12px !important;
+      line-height: 18px !important;
+      text-align: right !important;
+      }
+
+      .p-light div {
+      font-size: 12px !important;
+      font-weight: 200;
+      line-height: 18px !important;
+      }
+
+      .disclaimer div {
+      font-size: 12px !important;
+      font-weight: 200;
+      line-height: 18px !important;
+      }
+
+      .text-align-center div {
+      text-align: center !important;
+      }
+
+      .gift-card-code-text {
+      background: rgba(8, 191, 176, 0.1) !important;
+      padding: 15px 20px !important;
+      border-radius: 8px !important;
+      }
+
+      .bold {
+      font-weight: bold !important;
+      }
+
+      .text-align-right {
+      text-align: right !important;
+      }
+
+      .justified-values > div > * {
+      width: 50%;
+      display: inline-block;
+      }
+    </mj-style>
+    <mj-attributes>
+      <mj-text padding="5px 25px" line-height="24px" />
+      <mj-group width="100%" />
+      <mj-all color="#594A42" align="left" direction="ltr" />
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#ffffff">
+    <mj-raw>
+      <!-- Header -->
+    </mj-raw>
+    <mj-section background-color="#ffffff" padding="10px">
+      <mj-column>
+        <mj-image padding="20px 0px" width="120px" src="https://cloudinary-cofeapp.s3.eu-west-1.amazonaws.com/email/cofe-logo-header.png"></mj-image>
+        <mj-text padding='15px 0' color="#08BFB0" font-size="24px" font-weight="bold"> ${vendor} COFE Hediye Kartı</mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-wrapper padding="20px 0">
+      <mj-section background-color="#ffffff" padding="30px 0">
+        <mj-column width="50%">
+          <mj-text padding='0' font-size="18px" font-weight="bold">Sipariş Numarası</mj-text>
+          <mj-text padding='15px 0' color="#08BFB0" font-size="24px" font-weight="bold">${shortCode}</mj-text>
+          <mj-raw>
+            <% if(mobile) { %>
+          </mj-raw>
+            <mj-text padding='0' css-class="h1">Mobil: <b class="bold-text">${mobile}</b></mj-text>
+          <mj-raw>
+            <% } %>
+          </mj-raw>
+          <mj-raw>
+            <% if(vendor) { %>
+          </mj-raw>
+            <mj-text padding='0' css-class="h1">COFE Mağazası: <b class="bold-text">${vendor}</b></mj-text>
+          <mj-raw>
+            <% } %>
+          </mj-raw>
+          <mj-text padding='0' css-class="h1">Servis Tipi: <b class="bold-text">${serviceType}</b></mj-text>
+          <mj-text padding='0' css-class="h1">Saat: <b class="bold-text">${time}</b></mj-text>
+        </mj-column>
+
+        <mj-group width="45%" css-class="order-summary">
+          <mj-column>
+            <mj-text padding="0" color="#594A42" font-size="18px" font-weight="bold">
+              Sipariş Özeti
+            </mj-text>
+            <mj-text color="#08BFB0" font-size="14px" font-weight="bold" padding="15px 0 0" css-class="h1"><b class="bold-text">Gift Card</mj-text>
+            <mj-divider padding="15px 0" border-width="1px" border-style="solid" border-color="#E7E1D6" />
+            <mj-text font-size="14px" font-weight="bold" padding="0" css-class="justified-values"><span>TOPLAM</span><b class="text-align-right" width="50%">${giftCardAmount} ${currencyCode}</b></mj-text>
+          </mj-column>
+
+        </mj-group>
+      </mj-section>
+
+      <mj-include path="./footer.mjml" />
+    </mj-wrapper>
+  </mj-body>
+</mjml>

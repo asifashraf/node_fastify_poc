@@ -1,0 +1,16 @@
+"""
+A customer used perk
+"""
+type CustomerUsedPerk {
+  type: RewardTierPerkType!
+  total: Float!
+  """
+  Will be calculated from the subotal and percentage in total total / orderSet.subtoal * 100
+  """
+  amount: CurrencyValue
+  items: [OrderItem!]
+  orderSet: OrderSet
+  created: Datetime!
+  updated: Datetime!
+  brandLocation: BrandLocation
+}

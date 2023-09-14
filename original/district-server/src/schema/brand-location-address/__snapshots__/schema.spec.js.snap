@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`brand locations can resolve address 1`] = `
+Object {
+  "data": Object {
+    "brandLocation": Object {
+      "address": Object {
+        "city": Object {
+          "id": "ef0d6b57-0b6f-4722-a36b-c8a2e0bbb41e",
+          "name": Object {
+            "ar": "العاصمة",
+            "en": "Al Asimah",
+          },
+        },
+        "latitude": 29.3774796,
+        "longitude": 47.9903626,
+        "street": "Al-Raya Shopping Center Al-Shuhada Street",
+      },
+    },
+  },
+}
+`;

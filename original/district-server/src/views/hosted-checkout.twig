@@ -1,0 +1,57 @@
+<html>
+<head>
+  <title>CC payment gateway - COFE</title>
+  <script src="{{ gatewayUrl }}/checkout/version/51/checkout.js"
+          data-error="errorCallback"
+          data-cancel="cancelCallback">
+  </script>
+
+  <script type="text/javascript">
+    function errorCallback(error) {
+      console.log(JSON.stringify(error));
+    }
+    function cancelCallback() {
+      console.log('Payment cancelled');
+    }
+
+    Checkout.configure({
+      merchant: '{{ merchant.id }}',
+      order: {
+        amount: {{ order.total }},
+        currency: '{{ order.currency }}',
+        description: '{{ order.description }}',
+        id: '{{ order.id }}'
+      },
+      session: {
+        id: "{{ sessionId }}",
+        version: "{{ sessionVersion }}",
+      },
+      interaction: {
+        merchant: {
+          name: '{{ merchant.name }}',
+          logo: 'https://cofeapp.com/wp-content/uploads/2018/10/logo.svg',
+          address: {
+            line1: '{{ merchant.address }}',
+            line2: ''
+          }
+        },
+        displayControl: {
+          billingAddress: 'HIDE',
+        }
+      }
+    });
+    //Checkout.showPaymentPage()
+  </script>
+</head>
+<body>
+{#...#}
+{#<input type="button" value="Pay with Lightbox" onclick="Checkout.showLightbox();" />#}
+{#<input type="button" value="Pay with Payment Page" onclick="Checkout.showPaymentPage();" />#}
+{#...#}
+<script>
+  (function() {
+    Checkout.showPaymentPage();
+  })();
+</script>
+</body>
+</html>

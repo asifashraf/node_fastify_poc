@@ -1,0 +1,309 @@
+extend type Query {
+  """
+  Get Branch Weekly Schedule Info
+  """
+  getBranchSchedulesByBrandLocationId(
+    brandLocationId: ID!
+  ): BrandLocationWeeklySchedulePayload
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:view"])
+}
+
+extend type Mutation {
+  """
+  Save Brand Location Weekly Schedule
+  """
+  saveBrandLocationWeeklySchedule(
+    brandLocationId: ID!
+    schedules: [BrandLocationWeeklyScheduleInput!]!
+    selectedFulfillments: [SelectedFulfillments!]!
+  ): BrandLocationWeeklySchedulePayload
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:upsert"])
+
+  """
+  Bulk Save Brand Location Weekly Schedule
+  """
+  bulkSaveBrandLocationWeeklySchedule(
+    brandId: ID!
+    brandLocationIds: [ID!]!
+    schedules: [BrandLocationWeeklyScheduleInput!]!
+  ): BulkBrandLocationWeeklySchedulePayload
+    @requireAuth
+    @requirePermissions(permissions: ["brandlocation:upsert"])
+}
+
+"""
+Weekly Schedule Input
+"""
+input BrandLocationWeeklyScheduleInput {
+  """
+  The day of the week, ie 0 = sunday, 6 = saturday
+  """
+  day: WeekDays!
+  """
+  Whether or not the location is open the whole day (from 00:00 through 23:59). If this value is `true` then `pickupScheduleInfo` will be null.
+  """
+  pickupOpenAllDay: Boolean!
+  """
+  If `pickupOpenAllDay` is true or it will be is false
+  """
+  pickupClosed: Boolean!
+  """
+  Pickup schedule info. Null if `pickupOpenAllDay` is true or pickupClosed is true
+  """
+  pickupScheduleInfo: [ScheduleInfoInput]
+  """
+  Whether or not the location is open the whole day (from 00:00 through 23:59). If this value is `true` then `carScheduleInfo` will be null.
+  """
+  carOpenAllDay: Boolean!
+  """
+  If `carOpenAllDay` is true or it will be is false
+  """
+  carClosed: Boolean!
+  """
+  Car schedule info. Null if `carOpenAllDay` is true or carClosed is true
+  """
+  carScheduleInfo: [ScheduleInfoInput]
+  """
+  Whether or not the location is open the whole day (from 00:00 through 23:59). If this value is `true` then `deliveryScheduleInfo` will be null.
+  """
+  deliveryOpenAllDay: Boolean!
+  """
+  If `deliveryOpenAllDay` is true or it will be is false
+  """
+  deliveryClosed: Boolean!
+  """
+  Pickup schedule info. Null if `deliveryOpenAllDay` is true or deliveryClosed is true.
+  """
+  deliveryScheduleInfo: [ScheduleInfoInput]
+  """
+  Whether or not the location is open the whole day (from 00:00 through 23:59). If this value is `true` then `expressDeliveryScheduleInfo` will be null.
+  """
+  expressDeliveryOpenAllDay: Boolean!
+  """
+  If `expressDeliveryOpenAllDay` is true or it will be is false
+  """
+  expressDeliveryClosed: Boolean!
+  """
+  Pickup schedule info. Null if `expressDeliveryOpenAllDay` is true or expressDeliveryClosed is true.
+  """
+  expressDeliveryScheduleInfo: [ScheduleInfoInput]
+}
+
+input ScheduleInfoInput {
+  """
+  The hour/minute components at which the location opens on this day, ex '18:00', in local time at the location (i.e. '18:00' Asia/Kuwait).
+  """
+  openTime: LocalTime!
+  """
+  How many minutes is the location open.
+  """
+  openDuration: Int!
+}
+
+type BrandLocationWeeklySchedulePayload {
+  scheduleStatus: ScheduleStatus
+  """
+  Brand Location Schedule
+  """
+  weeklySchedule: [BrandLocationWeeklySchedule]
+  """
+  The first validation error that occured
+  """
+  error: BrandLocationWeeklyScheduleError
+  """
+  All validation errors
+  """
+  errors: [BrandLocationWeeklyScheduleError]
+}
+
+type BulkBrandLocationWeeklySchedulePayload {
+  isUpdated: Boolean
+  """
+  The first validation error that occured
+  """
+  error: BrandLocationWeeklyScheduleError
+  """
+  All validation errors
+  """
+  errors: [BrandLocationWeeklyScheduleError]
+}
+
+type ScheduleStatus {
+  pickupClosedEveryDay: Boolean
+  carClosedEveryDay: Boolean
+  deliveryClosedEveryDay: Boolean
+  expressDeliveryClosedEveryDay: Boolean
+  sameOperatingHoursEveryDay: Boolean
+}
+
+"""
+Schedule for this brand location, per day
+"""
+type BrandLocationWeeklySchedule {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  The day of the week, ie 0 = sunday, 6 = saturday
+  """
+  day: WeekDays!
+  """
+  Whether or not the location is open the whole day (from 00:00 through 23:59). If this value is `true` then `pickupScheduleInfo` will be null.
+  """
+  pickupOpenAllDay: Boolean!
+  """
+  If `pickupOpenAllDay` is true or it will be is false
+  """
+  pickupClosed: Boolean!
+  """
+  Pickup schedule info. Null if `pickupOpenAllDay` is true or pickupClosed is true
+  """
+  pickupScheduleInfo: [ScheduleInfo]
+  """
+  Whether or not the location is open the whole day (from 00:00 through 23:59). If this value is `true` then `carScheduleInfo` will be null.
+  """
+  carOpenAllDay: Boolean!
+  """
+  If `carOpenAllDay` is true or it will be is false
+  """
+  carClosed: Boolean!
+  """
+  Car schedule info. Null if `carOpenAllDay` is true or carClosed is true
+  """
+  carScheduleInfo: [ScheduleInfo]
+  """
+  Whether or not the location is open the whole day (from 00:00 through 23:59). If this value is `true` then `deliveryScheduleInfo` will be null.
+  """
+  deliveryOpenAllDay: Boolean!
+  """
+  If `deliveryOpenAllDay` is true or it will be is false
+  """
+  deliveryClosed: Boolean!
+  """
+  Pickup schedule info. Null if `deliveryOpenAllDay` is true or deliveryClosed is true.
+  """
+  deliveryScheduleInfo: [ScheduleInfo]
+  """
+  Whether or not the location is open the whole day (from 00:00 through 23:59). If this value is `true` then `expressDeliveryScheduleInfo` will be null.
+  """
+  expressDeliveryOpenAllDay: Boolean!
+  """
+  If `expressDeliveryOpenAllDay` is true or it will be is false
+  """
+  expressDeliveryClosed: Boolean!
+  """
+  Pickup schedule info. Null if `expressDeliveryOpenAllDay` is true or expressDeliveryClosed is true.
+  """
+  expressDeliveryScheduleInfo: [ScheduleInfo]
+  """
+  Brand Location Schedule created at
+  """
+  created: Datetime!
+  """
+  Brand Location Schedule updated at
+  """
+  updated: Datetime!
+}
+
+type ScheduleInfo {
+  """
+  The hour/minute components at which the location opens on this day, ex '18:00', in local time at the location (i.e. '18:00' Asia/Kuwait).
+  """
+  openTime: LocalTime
+  """
+  How many minutes is the location open.
+  """
+  openDuration: Int
+}
+
+enum WeekDays {
+  SUNDAY
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+  SATURDAY
+}
+
+enum SelectedFulfillments {
+  PICKUP
+  CAR
+  DELIVERY
+  EXPRESS_DELIVERY
+}
+
+enum BrandLocationWeeklyScheduleError {
+  """
+  The Brand must exist
+  """
+  INVALID_BRAND
+  """
+  The Brand Location must exist
+  """
+  INVALID_BRAND_LOCATION
+  """
+  The schedules info must exist
+  """
+  SCHEDULES_INFO_MISSING
+  SELECTED_FULFILLMENT_MISSING
+  """
+  Day number must be between 0 and 6
+  """
+  INVALID_DAY_NUMBER
+  """
+  Day number must be unique in schedules
+  """
+  DAY_NUMBER_MUST_BE_UNIQUE
+  """
+  Both fields can not be true in same time
+  """
+  OPEN_ALL_DAY_AND_CLOSED_FIELDS_CAN_NOT_BE_SAME
+  """
+  The schedule info must be exist by fulfillment type
+  """
+  MISSING_SCHEDULE_INFO_FOR_PICKUP
+  MISSING_SCHEDULE_INFO_FOR_CAR
+  MISSING_SCHEDULE_INFO_FOR_DELIVERY
+  MISSING_SCHEDULE_INFO_FOR_EXPRESS_DELIVERY
+  """
+  Open duration time must be less 1440 minutes by fulfillment type
+  """
+  INVALID_OPEN_DURATION_TIME_FOR_PICKUP
+  INVALID_OPEN_DURATION_TIME_FOR_CAR
+  INVALID_OPEN_DURATION_TIME_FOR_DELIVERY
+  INVALID_OPEN_DURATION_TIME_FOR_EXPRESS_DELIVERY
+  """
+  The open time string must be in this format: 'HH:mm' by fulfillment type
+  """
+  INVALID_OPEN_TIME_FOR_PICKUP
+  INVALID_OPEN_TIME_FOR_CAR
+  INVALID_OPEN_TIME_FOR_DELIVERY
+  INVALID_OPEN_TIME_FOR_EXPRESS_DELIVERY
+  """
+  The open time is missing by fulfillment type
+  """
+  MISSING_OPEN_TIME
+  MISSING_OPEN_TIME_FOR_PICKUP
+  MISSING_OPEN_TIME_FOR_CAR
+  MISSING_OPEN_TIME_FOR_DELIVERY
+  MISSING_OPEN_TIME_FOR_EXPRESS_DELIVERY
+  """
+  There should be no intersection between open times by fulfillment type
+  """
+  INTERSECTION_TIME_IN_SCHEDULE_FOR_PICKUP
+  INTERSECTION_TIME_IN_SCHEDULE_FOR_CAR
+  INTERSECTION_TIME_IN_SCHEDULE_FOR_DELIVERY
+  INTERSECTION_TIME_IN_SCHEDULE_FOR_EXPRESS_DELIVERY
+  """
+  Can not save a record/s
+  """
+  TRANSACTIONAL_ERROR
+  """
+  Unauthorized process
+  """
+  UNAUTHORIZED_PROCESS
+}

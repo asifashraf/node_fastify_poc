@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`customer doesn't see coupons available with out a description 1`] = `
+Object {
+  "data": Object {
+    "customerByAuth": Object {
+      "couponsAvailable": Array [
+        Object {
+          "code": "DARKORANGE",
+          "country": Object {
+            "id": "01c73b60-2c6a-45f1-8dbf-88a5ce4ad179",
+          },
+          "id": "ce37477d-6399-4d88-af4b-7289684cec64",
+        },
+        Object {
+          "code": "BEIGE",
+          "country": Object {
+            "id": "01c73b60-2c6a-45f1-8dbf-88a5ce4ad179",
+          },
+          "id": "b98a7700-0064-46c2-b819-abf4b67d19cb",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`customer doesn't see coupons available with out a hero_photo 1`] = `
+Object {
+  "data": Object {
+    "customerByAuth": Object {
+      "couponsAvailable": Array [
+        Object {
+          "code": "DARKORANGE",
+          "country": Object {
+            "id": "01c73b60-2c6a-45f1-8dbf-88a5ce4ad179",
+          },
+          "id": "ce37477d-6399-4d88-af4b-7289684cec64",
+        },
+        Object {
+          "code": "BEIGE",
+          "country": Object {
+            "id": "01c73b60-2c6a-45f1-8dbf-88a5ce4ad179",
+          },
+          "id": "b98a7700-0064-46c2-b819-abf4b67d19cb",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`customer has coupons available by email domain 1`] = `
+Object {
+  "data": Object {
+    "couponSave": Object {
+      "coupon": Object {
+        "code": "DOMAIN_TEST_COUPON",
+        "country": Object {
+          "id": "01c73b60-2c6a-45f1-8dbf-88a5ce4ad179",
+          "name": Object {
+            "ar": "الكويت",
+            "en": "Kuwait",
+          },
+        },
+        "customerRedemptionLimit": 10,
+        "validEmailDomains": "netscape.net,dbzmail.com,gracie.us",
+      },
+    },
+  },
+}
+`;
+
+exports[`customer has coupons available by email domain 2`] = `
+Object {
+  "data": Object {
+    "customer": Object {
+      "couponsAvailable": Array [
+        Object {
+          "code": "DARKORANGE",
+          "country": Object {
+            "id": "01c73b60-2c6a-45f1-8dbf-88a5ce4ad179",
+            "name": Object {
+              "ar": "الكويت",
+              "en": "Kuwait",
+            },
+          },
+          "customerRedemptionsCount": 0,
+          "redemptionCount": 21,
+          "validEmailDomains": "",
+        },
+        Object {
+          "code": "BEIGE",
+          "country": Object {
+            "id": "01c73b60-2c6a-45f1-8dbf-88a5ce4ad179",
+            "name": Object {
+              "ar": "الكويت",
+              "en": "Kuwait",
+            },
+          },
+          "customerRedemptionsCount": 0,
+          "redemptionCount": 53,
+          "validEmailDomains": "",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`customer has coupons available by email domain 3`] = `
+Object {
+  "data": Object {
+    "customer": Object {
+      "couponsAvailable": Array [
+        Object {
+          "code": "MEDIUMSPRINGGREEN",
+          "country": Object {
+            "id": "01c73b60-2c6a-45f1-8dbf-88a5ce4ad179",
+          },
+          "customerRedemptionsCount": 0,
+          "redemptionCount": 47,
+          "validEmailDomains": "",
+        },
+        Object {
+          "code": "POWDERBLUE",
+          "country": Object {
+            "id": "01c73b60-2c6a-45f1-8dbf-88a5ce4ad179",
+          },
+          "customerRedemptionsCount": 0,
+          "redemptionCount": 80,
+          "validEmailDomains": "",
+        },
+      ],
+    },
+  },
+}
+`;

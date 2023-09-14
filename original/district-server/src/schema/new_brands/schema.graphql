@@ -1,0 +1,20 @@
+type NewBrand {
+  id: ID!
+  brand: Brand!
+  order: Int!
+}
+
+type NewBrandLite{
+  """
+  Database identifier Brand id
+  """
+  id:ID!
+  """
+  Name of the brand
+  """
+  name: LocalizedString!
+  """
+  a carousel image for the brand
+  """
+  carouselImage: String
+}

@@ -1,0 +1,404 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`adjacent schedules are accepted 1`] = `
+Object {
+  "data": Object {
+    "brandLocationWeeklyScheduleSave": Object {
+      "error": null,
+      "schedule": Array [],
+    },
+  },
+}
+`;
+
+exports[`adjacent schedules are allowed when mixing openAllDay with others 1`] = `
+Object {
+  "data": Object {
+    "brandLocationWeeklyScheduleSave": Object {
+      "error": null,
+      "schedule": Array [
+        Object {
+          "openAllDay": true,
+          "openDuration": null,
+          "openTime": null,
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`brand locations can resolve weeklySchedule 1`] = `
+Object {
+  "data": Object {
+    "brandLocation": Object {
+      "weeklySchedule": Array [
+        Object {
+          "day": 2,
+          "deliveryOpenDuration": 480,
+          "deliveryOpenTime": "09:00:00",
+          "id": "528d3e1c-d6a1-4a39-a0d5-1fb09d0e307a",
+          "openAllDay": false,
+          "openDuration": 480,
+          "openTime": "09:00:00",
+        },
+        Object {
+          "day": 3,
+          "deliveryOpenDuration": 480,
+          "deliveryOpenTime": "09:00:00",
+          "id": "58194764-1478-4860-b566-342a08bc4238",
+          "openAllDay": false,
+          "openDuration": 480,
+          "openTime": "09:00:00",
+        },
+        Object {
+          "day": 4,
+          "deliveryOpenDuration": 480,
+          "deliveryOpenTime": "09:00:00",
+          "id": "cc991185-38ac-4137-bedc-417fca0bdb0e",
+          "openAllDay": false,
+          "openDuration": 480,
+          "openTime": "09:00:00",
+        },
+        Object {
+          "day": 5,
+          "deliveryOpenDuration": 480,
+          "deliveryOpenTime": "09:00:00",
+          "id": "222ceddd-20d6-446f-a578-3ef0159c98f0",
+          "openAllDay": false,
+          "openDuration": 480,
+          "openTime": "09:00:00",
+        },
+        Object {
+          "day": 6,
+          "deliveryOpenDuration": 480,
+          "deliveryOpenTime": "09:00:00",
+          "id": "231fe205-dfc7-4dae-94a3-a4eb416aad7b",
+          "openAllDay": false,
+          "openDuration": 480,
+          "openTime": "09:00:00",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`cofe district hours weekly schedule can be saved 1`] = `
+Object {
+  "data": Object {
+    "configurationWeeklyScheduleSave": Object {
+      "error": null,
+      "schedule": Array [
+        Object {
+          "day": 1,
+          "id": "9f03ad20-3fc0-4896-8917-35324e810d58",
+          "openAllDay": false,
+          "openDuration": 960,
+          "openTime": "01:00:00",
+        },
+        Object {
+          "day": 2,
+          "id": "c81d4284-9dbf-4dee-9e71-72d5546407a7",
+          "openAllDay": false,
+          "openDuration": 960,
+          "openTime": "03:00:00",
+        },
+        Object {
+          "day": 3,
+          "id": "1e39e901-0b91-4ff9-b741-98042a8f1a14",
+          "openAllDay": false,
+          "openDuration": 960,
+          "openTime": "12:00:00",
+        },
+        Object {
+          "day": 4,
+          "id": "e207c204-214e-447a-a833-21312753fc46",
+          "openAllDay": false,
+          "openDuration": 960,
+          "openTime": "13:00:00",
+        },
+        Object {
+          "day": 5,
+          "id": "e8e8a91b-cdc3-4df9-a0b8-d5e589ed1438",
+          "openAllDay": false,
+          "openDuration": 960,
+          "openTime": "14:00:00",
+        },
+        Object {
+          "day": 6,
+          "id": "0da647ac-8c38-40a9-9fdf-c67d9340b967",
+          "openAllDay": false,
+          "openDuration": 960,
+          "openTime": "20:00:00",
+        },
+        Object {
+          "day": 7,
+          "id": "48b998df-b696-4914-a66c-f610e9b4bdb5",
+          "openAllDay": false,
+          "openDuration": 960,
+          "openTime": "22:00:00",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`cofe district hours weekly schedule can be saved with open all day and closed days 1`] = `
+Object {
+  "data": Object {
+    "configurationWeeklyScheduleSave": Object {
+      "error": null,
+      "schedule": Array [
+        Object {
+          "day": 1,
+          "id": "0f231215-a464-4960-9698-cccd252f6001",
+          "openAllDay": false,
+          "openDuration": 960,
+          "openTime": "01:00:00",
+        },
+        Object {
+          "day": 2,
+          "id": "7699e79c-7b36-42bb-bea9-db9625e6f6ae",
+          "openAllDay": true,
+          "openDuration": null,
+          "openTime": null,
+        },
+        Object {
+          "day": 3,
+          "id": "da7838e2-4426-40cc-83c5-a2034c00b1d6",
+          "openAllDay": false,
+          "openDuration": 960,
+          "openTime": "12:00:00",
+        },
+        Object {
+          "day": 4,
+          "id": "d982181a-5433-4194-a082-66651f219669",
+          "openAllDay": true,
+          "openDuration": null,
+          "openTime": null,
+        },
+        Object {
+          "day": 6,
+          "id": "0292e530-296f-4f57-8ba3-6e3d559a32e4",
+          "openAllDay": false,
+          "openDuration": 960,
+          "openTime": "20:00:00",
+        },
+        Object {
+          "day": 7,
+          "id": "38eaf595-a5f7-47ea-becb-6489479108af",
+          "openAllDay": false,
+          "openDuration": 960,
+          "openTime": "22:00:00",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`config can resolve cofeDistrictHours (weeklySchedule) 1`] = `
+Object {
+  "data": Object {
+    "config": Object {
+      "cofeDistrictHours": Array [
+        Object {
+          "day": 1,
+          "deliveryOpenDuration": null,
+          "deliveryOpenTime": null,
+          "id": "77deb7d6-74fd-4ee3-ab6a-be5ddb0d5205",
+          "openAllDay": false,
+          "openDuration": 960,
+          "openTime": "06:00:00",
+        },
+        Object {
+          "day": 2,
+          "deliveryOpenDuration": null,
+          "deliveryOpenTime": null,
+          "id": "053ce222-e134-40c9-8913-af2299688633",
+          "openAllDay": false,
+          "openDuration": 960,
+          "openTime": "06:00:00",
+        },
+        Object {
+          "day": 3,
+          "deliveryOpenDuration": null,
+          "deliveryOpenTime": null,
+          "id": "a9ddeeb0-6a70-4921-a13f-f98140bdae7b",
+          "openAllDay": false,
+          "openDuration": 960,
+          "openTime": "06:00:00",
+        },
+        Object {
+          "day": 4,
+          "deliveryOpenDuration": null,
+          "deliveryOpenTime": null,
+          "id": "064b9ea4-ca98-43ef-b471-874df6399ea2",
+          "openAllDay": false,
+          "openDuration": 960,
+          "openTime": "06:00:00",
+        },
+        Object {
+          "day": 5,
+          "deliveryOpenDuration": null,
+          "deliveryOpenTime": null,
+          "id": "f11fa6cd-f93d-4fd4-ae11-0a6db8c7e086",
+          "openAllDay": false,
+          "openDuration": 960,
+          "openTime": "06:00:00",
+        },
+        Object {
+          "day": 6,
+          "deliveryOpenDuration": null,
+          "deliveryOpenTime": null,
+          "id": "c393363f-435d-4974-8428-633f80b9f100",
+          "openAllDay": false,
+          "openDuration": 960,
+          "openTime": "06:00:00",
+        },
+        Object {
+          "day": 7,
+          "deliveryOpenDuration": null,
+          "deliveryOpenTime": null,
+          "id": "ecbc2bdd-92bb-4b2f-96cf-97be4c0651d6",
+          "openAllDay": false,
+          "openDuration": 960,
+          "openTime": "06:00:00",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`ignores missing optional fields when openAllDay is true 1`] = `
+Object {
+  "data": Object {
+    "brandLocationWeeklyScheduleSave": Object {
+      "error": null,
+      "schedule": Array [
+        Object {
+          "openAllDay": true,
+          "openDuration": null,
+          "openTime": null,
+        },
+        Object {
+          "openAllDay": true,
+          "openDuration": null,
+          "openTime": null,
+        },
+        Object {
+          "openAllDay": true,
+          "openDuration": null,
+          "openTime": null,
+        },
+        Object {
+          "openAllDay": true,
+          "openDuration": null,
+          "openTime": null,
+        },
+        Object {
+          "openAllDay": true,
+          "openDuration": null,
+          "openTime": null,
+        },
+        Object {
+          "openAllDay": true,
+          "openDuration": null,
+          "openTime": null,
+        },
+        Object {
+          "openAllDay": true,
+          "openDuration": null,
+          "openTime": null,
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`overlapping schedules are rejected 1`] = `
+Object {
+  "data": Object {
+    "brandLocationWeeklyScheduleSave": Object {
+      "error": null,
+      "schedule": Array [],
+    },
+  },
+}
+`;
+
+exports[`overlapping schedules are rejected when mixing openAllDay with others 1`] = `
+Object {
+  "data": Object {
+    "brandLocationWeeklyScheduleSave": Object {
+      "error": null,
+      "schedule": Array [
+        Object {
+          "openAllDay": true,
+          "openDuration": null,
+          "openTime": null,
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`schedules longer than 24 hours are allowed if they do not overlap 1`] = `
+Object {
+  "data": Object {
+    "brandLocationWeeklyScheduleSave": Object {
+      "error": null,
+      "schedule": Array [],
+    },
+  },
+}
+`;
+
+exports[`schedules missing open duration are rejected 1`] = `
+Object {
+  "data": Object {
+    "brandLocationWeeklyScheduleSave": Object {
+      "error": null,
+      "schedule": Array [],
+    },
+  },
+}
+`;
+
+exports[`schedules missing open time are rejected 1`] = `
+Object {
+  "data": Object {
+    "brandLocationWeeklyScheduleSave": Object {
+      "error": null,
+      "schedule": Array [],
+    },
+  },
+}
+`;
+
+exports[`schedules without openAllDay are allowed if otherwise complete 1`] = `
+Object {
+  "data": Object {
+    "brandLocationWeeklyScheduleSave": Object {
+      "error": null,
+      "schedule": Array [],
+    },
+  },
+}
+`;
+
+exports[`whole weekly schedule can be saved 1`] = `
+Object {
+  "data": Object {
+    "brandLocationWeeklyScheduleSave": Object {
+      "error": null,
+      "schedule": Array [],
+    },
+  },
+}
+`;

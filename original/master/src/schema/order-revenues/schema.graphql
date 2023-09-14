@@ -1,0 +1,6 @@
+"""
+OrderRevenue: All the maths for finance
+"""
+type OrderRevenue {
+  id: ID!
+}

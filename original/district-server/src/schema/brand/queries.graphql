@@ -1,0 +1,3 @@
+extend type Query {
+  viewBranchesStatusCount( brandId : ID! ) : BranchStatusCountPayload @requireAuth @requirePermissions(permissions: ["branchesstatus:view"])
+}

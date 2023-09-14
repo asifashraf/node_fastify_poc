@@ -1,0 +1,12 @@
+#extend type Mutation {
+#  """
+#  Save Bank Card Information to DB
+#  """
+#  # Deprecated! https://cofeapp.atlassian.net/browse/CA-1176
+#  # saveBankCard(bankCardInput : BankCardInput!): SaveBankCardStatusResponse! @requireAuth
+#  """
+#  Delete BankCard from DB
+#  """
+#  # Deprecated! https://cofeapp.atlassian.net/browse/CA-1176
+#  # deleteBankCard(id : ID!): Boolean!
+#}

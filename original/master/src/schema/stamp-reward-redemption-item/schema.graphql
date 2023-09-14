@@ -1,0 +1,43 @@
+extend type Mutation {
+  saveRedemptionItem(
+    input: [RedemptionItemInput]!
+  ): SaveRedemptionItemPayload @requireAuth
+}
+
+extend type Query {
+  getRedemptionItems: [StampRewardRedemptionItem] @requireAuth
+  getRedemptionItemsForAdmin: [StampRewardRedemptionItem] @requireAuth
+}
+
+"""
+A stamp reward redemption item
+"""
+type StampRewardRedemptionItem{
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  Redemption Item
+  """
+  item: MenuItem!
+}
+
+input RedemptionItemInput{
+  itemId: ID!
+  isDeleted: Boolean!
+}
+
+type SaveRedemptionItemPayload {
+  items: [StampRewardRedemptionItem]
+  error: StampRewardRedemptionItemError
+  errors: [StampRewardRedemptionItemError]
+}
+
+enum StampRewardRedemptionItemError {
+  INVALID_MENU_ITEM
+  INVALID_REDEMPTION_ITEM
+  INVALID_INPUT
+  UNAUTHORIZED_ADMIN
+  TRANSACTIONAL_ERROR
+}

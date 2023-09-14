@@ -1,0 +1,95 @@
+extend type Mutation {
+  """
+  Customer placing a new loyalty order
+  """
+  loyaltyOrderCreate(order: LoyaltyOrderInput!): LoyaltyOrderCreatePayload!
+  @requireAuth
+}
+
+"""
+An instance of a loyalty package purchase by a customer
+"""
+type LoyaltyOrder {
+  """
+  Database identifier
+  """
+  id: ID!
+  """
+  SKU of the package
+  """
+  sku: String!
+  """
+  Amount of order (before bonus is applied)
+  """
+  amount: CurrencyValue!
+  """
+  Bonus associated
+  """
+  bonus: CurrencyValue!
+  """
+  Associated KNET payment information
+  """
+  payment: PaymentInfo!
+  """
+  When this loyalty order was purchased
+  """
+  createdAt: Datetime!
+  """
+  Which customer purchased this package
+  """
+  customer: Customer!
+  """
+  New Payment method
+  """
+  paymentMethod: PaymentMethod
+  """
+  Currency of this order
+  """
+  currency: Currency
+  """
+  New Payment method
+  """
+  loyaltyTier: LoyaltyTier
+  """
+  Country
+  """
+  country: Country
+  """
+  Bonus type -> ['percent', 'flat']
+  """
+  bonusType: String
+  """
+  Bonus value
+  """
+  bonusValue: Int
+}
+
+
+"""
+The input data associated with purchasing a loyalty package
+"""
+input LoyaltyOrderInput {
+  """
+  Identifier of which package is being purchased
+  """
+  sku: String!
+  """
+  This field is intended for when customer is doing a 'top-up' or 'refill'
+  purchase, to cover the difference between the current credit balance
+  and a specific order total.
+  It should be null when a specific loyalty package is being purchased.
+  """
+  topUpAmount: CurrencyValue
+  """
+  New payment method
+  """
+  paymentMethod: PaymentMethodInput!
+  """
+  Currency for this transaction, it defaults to KWD
+  """
+  currencyId: ID
+  """
+  Loyalty Tier of purchased package
+  """
+  loyaltyTierId: ID
+}
